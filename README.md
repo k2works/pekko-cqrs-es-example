@@ -12,37 +12,38 @@ Apache Pekkoを使用したCQRS（Command Query Responsibility Segregation）と
 
 ## アーキテクチャ概要
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         CQRS/ES Architecture                     │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph "Command Side (Write Model)"
+        CommandAPI["Command API<br/>(GraphQL)<br/>Port: 50501"]
+        PekkoActors["Pekko Actors<br/>(Event Sourced)"]
+        DynamoDB["DynamoDB<br/>(Event Store)<br/>(LocalStack)"]
+    end
 
-┌──────────────────┐                        ┌──────────────────┐
-│  Command API     │                        │   Query API      │
-│  (GraphQL)       │                        │   (GraphQL)      │
-│  Port: 50501     │                        │   Port: 50502    │
-└────────┬─────────┘                        └────────┬─────────┘
-         │                                           │
-         │ Mutation                                  │ Query
-         ▼                                           ▼
-┌────────────────────┐                      ┌────────────────────┐
-│  Pekko Actors      │                      │  Slick DAOs        │
-│  (Event Sourced)   │                      │  (Read Model)      │
-└────────┬───────────┘                      └────────▲───────────┘
-         │                                           │
-         │ Events                                    │ Update
-         ▼                                           │
-┌────────────────────┐    DynamoDB Streams   ┌──────┴───────────┐
-│  DynamoDB          │────────────────────────│  Lambda          │
-│  (Event Store)     │                        │  (Read Model     │
-│  (LocalStack)      │                        │   Updater)       │
-└────────────────────┘                        └──────────────────┘
-                                                      │
-                                                      ▼
-                                              ┌──────────────────┐
-                                              │  PostgreSQL      │
-                                              │  (Read Model)    │
-                                              └──────────────────┘
+    subgraph "Query Side (Read Model)"
+        QueryAPI["Query API<br/>(GraphQL)<br/>Port: 50502"]
+        SlickDAOs["Slick DAOs<br/>(Read Model)"]
+        PostgreSQL["PostgreSQL<br/>(Read Model)"]
+    end
+
+    subgraph "Event Processing"
+        Lambda["Lambda<br/>(Read Model Updater)"]
+        Streams["DynamoDB Streams"]
+    end
+
+    CommandAPI -->|Mutation| PekkoActors
+    PekkoActors -->|Events| DynamoDB
+    DynamoDB -->|Stream| Streams
+    Streams -->|Trigger| Lambda
+    Lambda -->|Update| PostgreSQL
+    QueryAPI -->|Query| SlickDAOs
+    SlickDAOs -->|Read| PostgreSQL
+
+    style CommandAPI fill:#e1f5ff
+    style QueryAPI fill:#e1f5ff
+    style DynamoDB fill:#fff4e1
+    style PostgreSQL fill:#fff4e1
+    style Lambda fill:#f0e1ff
 ```
 
 ### データフロー
