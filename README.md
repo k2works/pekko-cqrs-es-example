@@ -14,13 +14,13 @@ Apache Pekkoを使用したCQRS（Command Query Responsibility Segregation）と
 
 ```mermaid
 graph TB
-    subgraph "Command Side (Write Model)"
+    subgraph "Command Side"
         CommandAPI["Command API<br/>(GraphQL)<br/>Port: 50501"]
         PekkoActors["Pekko Actors<br/>(Event Sourced)"]
         DynamoDB["DynamoDB<br/>(Event Store)<br/>(LocalStack)"]
     end
 
-    subgraph "Query Side (Read Model)"
+    subgraph "Query Side"
         QueryAPI["Query API<br/>(GraphQL)<br/>Port: 50502"]
         SlickDAOs["Slick DAOs<br/>(Read Model)"]
         PostgreSQL["PostgreSQL<br/>(Read Model)"]
