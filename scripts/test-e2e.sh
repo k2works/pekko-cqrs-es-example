@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# End-to-End Test: Create Staff via gRPC and Query via GraphQL
-# このスクリプトは、gRPC経由でスタッフを作成し、GraphQL経由で取得するE2Eテストを実行します
+# End-to-End Test: Create UserAccount via GraphQL and Query via GraphQL
+# このスクリプトは、GraphQL Mutation経由でユーザーアカウントを作成し、GraphQL Query経由で取得するE2Eテストを実行します
 
 set -e
 
@@ -11,21 +11,19 @@ E2E_MAX_RETRIES="${E2E_MAX_RETRIES:-10}"
 E2E_RETRY_DELAY="${E2E_RETRY_DELAY:-3}"
 E2E_WAIT_AFTER_CREATE="${E2E_WAIT_AFTER_CREATE:-8}"
 
-GRPC_HOST="${GRPC_HOST:-localhost}"
-GRPC_PORT="${GRPC_PORT:-50501}"
-GRAPHQL_HOST="${GRAPHQL_HOST:-localhost}"
-GRAPHQL_PORT="${GRAPHQL_PORT:-50502}"
-GRAPHQL_ENDPOINT="http://$GRAPHQL_HOST:$GRAPHQL_PORT/graphql"
-GRPCURL_IMAGE="fullstorydev/grpcurl:latest"
+COMMAND_API_HOST="${COMMAND_API_HOST:-localhost}"
+COMMAND_API_PORT="${COMMAND_API_PORT:-50501}"
+COMMAND_API_ENDPOINT="http://$COMMAND_API_HOST:$COMMAND_API_PORT/api/graphql"
+
+QUERY_API_HOST="${QUERY_API_HOST:-localhost}"
+QUERY_API_PORT="${QUERY_API_PORT:-50502}"
+QUERY_API_ENDPOINT="http://$QUERY_API_HOST:$QUERY_API_PORT/api/graphql"
 
 # テストデータ生成用のタイムスタンプ
 TIMESTAMP=$(date +%s)
-TEST_STAFF_NO="TEST${TIMESTAMP}"
-TEST_GIVEN_NAME="太郎"
-TEST_FAMILY_NAME="テスト"
+TEST_FIRST_NAME="太郎${TIMESTAMP}"
+TEST_LAST_NAME="テスト"
 TEST_EMAIL="test${TIMESTAMP}@example.com"
-TEST_BIRTHDAY="1990-01-15"
-TEST_HIRED_DATE="2024-04-01"
 
 # 色付き出力用の関数
 print_header() {
@@ -48,19 +46,11 @@ print_json() {
     echo "$1" | jq '.' 2>/dev/null || echo "$1"
 }
 
-# grpcurlコマンドを実行する関数
-run_grpcurl() {
-    docker run --rm \
-        --network host \
-        $GRPCURL_IMAGE \
-        -plaintext \
-        "$@"
-}
-
 # GraphQL クエリを実行する関数
 execute_graphql() {
-    local query="$1"
-    local variables="${2:-{}}"
+    local endpoint="$1"
+    local query="$2"
+    local variables="${3:-{}}"
 
     # クエリ内の改行をスペースに置換
     query=$(echo "$query" | tr '\n' ' ' | sed 's/  */ /g')
@@ -80,28 +70,31 @@ execute_graphql() {
     curl -s -X POST \
         -H "Content-Type: application/json" \
         -d "$payload" \
-        "$GRAPHQL_ENDPOINT"
+        "$endpoint"
 }
 
 # ヘルスチェック
 health_check() {
     print_header "Health Check"
-    
-    # gRPC Health Check
-    print_info "Checking Command API (gRPC) health..."
-    if run_grpcurl $GRPC_HOST:$GRPC_PORT list > /dev/null 2>&1; then
+
+    # Command API Health Check
+    print_info "Checking Command API (GraphQL) health..."
+    RESPONSE=$(curl -s -w "\n%{http_code}" "$COMMAND_API_ENDPOINT")
+    HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+
+    if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "400" ]; then
         print_success "Command API is healthy"
     else
-        print_error "Command API is not responding"
+        print_error "Command API health check failed (HTTP $HTTP_CODE)"
         exit 1
     fi
-    
-    # GraphQL Health Check
+
+    # Query API Health Check
     print_info "Checking Query API (GraphQL) health..."
-    RESPONSE=$(curl -s -w "\n%{http_code}" "http://$GRAPHQL_HOST:$GRAPHQL_PORT/health")
+    RESPONSE=$(curl -s -w "\n%{http_code}" "$QUERY_API_ENDPOINT")
     HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
-    
-    if [ "$HTTP_CODE" = "200" ]; then
+
+    if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "400" ]; then
         print_success "Query API is healthy"
     else
         print_error "Query API health check failed (HTTP $HTTP_CODE)"
@@ -109,42 +102,50 @@ health_check() {
     fi
 }
 
-# Step 1: Create Staff via gRPC
-create_staff_via_grpc() {
-    print_header "Step 1: Create Staff via gRPC"
-    print_info "Creating staff with the following details:"
-    echo "  - Staff No: $TEST_STAFF_NO"
-    echo "  - Name: $TEST_FAMILY_NAME $TEST_GIVEN_NAME"
+# Step 1: Create UserAccount via GraphQL Mutation
+create_user_account_via_graphql() {
+    print_header "Step 1: Create UserAccount via GraphQL Mutation"
+    print_info "Creating user account with the following details:"
+    echo "  - First Name: $TEST_FIRST_NAME"
+    echo "  - Last Name: $TEST_LAST_NAME"
     echo "  - Email: $TEST_EMAIL"
-    echo "  - Birthday: $TEST_BIRTHDAY"
-    echo "  - Hired Date: $TEST_HIRED_DATE"
     echo ""
-    
-    # CreateStaffリクエストを送信
-    RESPONSE=$(run_grpcurl \
-        -format text \
-        -d "staff_no:\"$TEST_STAFF_NO\" given_name:\"$TEST_GIVEN_NAME\" family_name:\"$TEST_FAMILY_NAME\" email:\"$TEST_EMAIL\" birthday:\"$TEST_BIRTHDAY\" hired_date:\"$TEST_HIRED_DATE\"" \
-        $GRPC_HOST:$GRPC_PORT \
-        io.github.j5ik2o.pcqrses.proto.staff.StaffService/CreateStaff 2>&1) || true
-    
+
+    # CreateUserAccount Mutationを実行
+    local mutation='mutation CreateUserAccount($input: CreateUserAccountInput!) {
+        createUserAccount(input: $input) {
+            id
+        }
+    }'
+
+    local variables="{
+        \"input\": {
+            \"firstName\": \"$TEST_FIRST_NAME\",
+            \"lastName\": \"$TEST_LAST_NAME\",
+            \"emailAddress\": \"$TEST_EMAIL\"
+        }
+    }"
+
+    RESPONSE=$(execute_graphql "$COMMAND_API_ENDPOINT" "$mutation" "$variables")
+
     echo "$RESPONSE"
-    
+
     # レスポンスの確認
-    if echo "$RESPONSE" | grep -q "ERROR"; then
-        if echo "$RESPONSE" | grep -q "AlreadyExists"; then
-            print_error "Staff with StaffNo $TEST_STAFF_NO already exists"
+    if echo "$RESPONSE" | jq -e '.data.createUserAccount.id' > /dev/null 2>&1; then
+        CREATED_USER_ID=$(echo "$RESPONSE" | jq -r '.data.createUserAccount.id')
+        print_success "UserAccount created successfully!"
+        print_info "Created UserAccount ID: $CREATED_USER_ID"
+        return 0
+    elif echo "$RESPONSE" | jq -e '.errors' > /dev/null 2>&1; then
+        ERROR_MSG=$(echo "$RESPONSE" | jq -r '.errors[0].message')
+        if echo "$ERROR_MSG" | grep -q -i "already exists"; then
+            print_error "UserAccount with email $TEST_EMAIL already exists"
             print_info "This might be from a previous test run. Continuing with query test..."
             return 0
         else
-            print_error "Failed to create staff"
+            print_error "Failed to create user account: $ERROR_MSG"
             return 1
         fi
-    elif echo "$RESPONSE" | grep -q "staff_id:"; then
-        # スタッフIDを抽出
-        CREATED_STAFF_ID=$(echo "$RESPONSE" | grep -o 'staff_id: *"[^"]*"' | sed 's/.*: *"\([^"]*\)".*/\1/')
-        print_success "Staff created successfully!"
-        print_info "Created Staff ID: $CREATED_STAFF_ID"
-        return 0
     else
         print_error "Unexpected response"
         return 1
@@ -155,7 +156,7 @@ create_staff_via_grpc() {
 wait_for_consistency() {
     print_header "Step 2: Wait for Event Processing"
     print_info "Waiting for DynamoDB stream to process and update PostgreSQL..."
-    
+
     # Lambda関数がイベントを処理するまで待機
     local wait_time=$E2E_WAIT_AFTER_CREATE
     for i in $(seq $wait_time -1 1); do
@@ -166,46 +167,70 @@ wait_for_consistency() {
     print_success "Event processing time elapsed"
 }
 
-# Step 3: Query Staff via GraphQL
-query_staff_via_graphql() {
-    print_header "Step 3: Query Staff via GraphQL"
-    
-    # 3.1: Query by StaffNo
-    print_info "Querying staff by StaffNo: $TEST_STAFF_NO"
-    
-    local query='query GetStaff($staffNo: String!) { 
-        staffByNo(staffNo: $staffNo) { 
-            id 
-            staffNo 
-            globalFamilyName 
-            globalGivenName 
-            localFamilyName 
-            localGivenName 
-            nameLocale 
-            createdAt 
-            updatedAt 
-        } 
+# Step 3: Query UserAccount via GraphQL
+query_user_account_via_graphql() {
+    print_header "Step 3: Query UserAccount via GraphQL"
+
+    # 3.1: Query all user accounts
+    print_info "Querying all user accounts to find created user..."
+
+    local query='{
+        getUserAccounts {
+            id
+            firstName
+            lastName
+            fullName
+            createdAt
+            updatedAt
+        }
     }'
-    
-    local variables="{\"staffNo\": \"$TEST_STAFF_NO\"}"
-    
-    RESPONSE=$(execute_graphql "$query" "$variables")
-    
-    if echo "$RESPONSE" | jq -e '.data.staffByNo' > /dev/null 2>&1; then
-        STAFF_DATA=$(echo "$RESPONSE" | jq '.data.staffByNo')
-        if [ "$STAFF_DATA" != "null" ]; then
-            print_success "Staff found via GraphQL!"
-            print_json "$RESPONSE"
-            
+
+    RESPONSE=$(execute_graphql "$QUERY_API_ENDPOINT" "$query")
+
+    if echo "$RESPONSE" | jq -e '.data.getUserAccounts' > /dev/null 2>&1; then
+        # テストユーザーが含まれているか確認
+        USER_DATA=$(echo "$RESPONSE" | jq ".data.getUserAccounts[] | select(.firstName == \"$TEST_FIRST_NAME\" and .lastName == \"$TEST_LAST_NAME\")")
+
+        if [ -n "$USER_DATA" ] && [ "$USER_DATA" != "null" ]; then
+            print_success "UserAccount found via GraphQL!"
+            print_json "$USER_DATA"
+
             # データの検証
-            QUERIED_STAFF_NO=$(echo "$STAFF_DATA" | jq -r '.staffNo')
-            if [ "$QUERIED_STAFF_NO" = "$TEST_STAFF_NO" ]; then
-                print_success "Staff No matches: $QUERIED_STAFF_NO"
+            QUERIED_FIRST_NAME=$(echo "$USER_DATA" | jq -r '.firstName')
+            QUERIED_LAST_NAME=$(echo "$USER_DATA" | jq -r '.lastName')
+            QUERIED_USER_ID=$(echo "$USER_DATA" | jq -r '.id')
+
+            if [ "$QUERIED_FIRST_NAME" = "$TEST_FIRST_NAME" ] && [ "$QUERIED_LAST_NAME" = "$TEST_LAST_NAME" ]; then
+                print_success "User data matches: $QUERIED_FIRST_NAME $QUERIED_LAST_NAME"
+
+                # 3.2: Query by ID
+                print_info "Verifying user can be queried by ID: $QUERIED_USER_ID"
+
+                local id_query='query GetUserAccount($id: String!) {
+                    getUserAccount(userAccountId: $id) {
+                        id
+                        firstName
+                        lastName
+                        fullName
+                        createdAt
+                        updatedAt
+                    }
+                }'
+
+                local id_variables="{\"id\": \"$QUERIED_USER_ID\"}"
+
+                ID_RESPONSE=$(execute_graphql "$QUERY_API_ENDPOINT" "$id_query" "$id_variables")
+
+                if echo "$ID_RESPONSE" | jq -e '.data.getUserAccount' > /dev/null 2>&1; then
+                    print_success "UserAccount successfully queried by ID"
+                else
+                    print_error "Failed to query UserAccount by ID"
+                fi
             else
-                print_error "Staff No mismatch! Expected: $TEST_STAFF_NO, Got: $QUERIED_STAFF_NO"
+                print_error "User data mismatch! Expected: $TEST_FIRST_NAME $TEST_LAST_NAME"
             fi
         else
-            print_error "Staff not found in database"
+            print_error "UserAccount not found in database"
             print_info "The event might not have been processed yet"
             return 1
         fi
@@ -214,118 +239,63 @@ query_staff_via_graphql() {
         print_json "$RESPONSE"
         return 1
     fi
-    
-    # 3.2: Query all staff to verify the new staff is in the list
-    print_info "Verifying staff appears in allStaff query..."
-    
-    local all_query='{ 
-        allStaff { 
-            staffNo 
-            globalFamilyName 
-            globalGivenName 
-        } 
-    }'
-    
-    RESPONSE=$(execute_graphql "$all_query")
-    
-    if echo "$RESPONSE" | jq -e '.data.allStaff' > /dev/null 2>&1; then
-        # テストスタッフが含まれているか確認
-        if echo "$RESPONSE" | jq ".data.allStaff[] | select(.staffNo == \"$TEST_STAFF_NO\")" > /dev/null 2>&1; then
-            print_success "Staff appears in allStaff query"
-            TOTAL_COUNT=$(echo "$RESPONSE" | jq '.data.allStaff | length')
-            print_info "Total staff count: $TOTAL_COUNT"
-        else
-            print_error "Staff not found in allStaff query"
-        fi
-    fi
 }
 
 # Step 4: Verify data consistency
 verify_data_consistency() {
     print_header "Step 4: Data Consistency Verification"
-    
-    # 検索クエリでも確認
-    print_info "Searching staff by family name..."
-    
-    local search_query='query SearchStaff($familyName: String) { 
-        searchStaff(globalFamilyName: $familyName) { 
-            staffNo 
-            globalFamilyName 
-            globalGivenName 
-        } 
-    }'
-    
-    local variables="{\"familyName\": \"$TEST_FAMILY_NAME\"}"
-    
-    RESPONSE=$(execute_graphql "$search_query" "$variables")
-    
-    if echo "$RESPONSE" | jq -e '.data.searchStaff' > /dev/null 2>&1; then
-        if echo "$RESPONSE" | jq ".data.searchStaff[] | select(.staffNo == \"$TEST_STAFF_NO\")" > /dev/null 2>&1; then
-            print_success "Staff found via search query"
-        else
-            print_error "Staff not found via search query"
-        fi
-    fi
-}
 
-# オプション: クリーンアップ（退職処理）
-cleanup_test_staff() {
-    print_header "Optional: Cleanup Test Data"
-    print_info "Scheduling retirement for test staff..."
-    
-    # 明日の日付を退職日として設定
-    RETIREMENT_DATE=$(date -v+1d +%Y-%m-%d 2>/dev/null || date -d "+1 day" +%Y-%m-%d)
-    
-    RESPONSE=$(run_grpcurl \
-        -format text \
-        -d "staff_no:\"$TEST_STAFF_NO\" retirement_date:\"$RETIREMENT_DATE\"" \
-        $GRPC_HOST:$GRPC_PORT \
-        io.github.j5ik2o.pcqrses.proto.staff.StaffService/ScheduleRetirementStaff 2>&1) || true
-    
-    echo "$RESPONSE"
-    
-    if echo "$RESPONSE" | grep -q "staff_id:"; then
-        print_success "Test staff retirement scheduled for $RETIREMENT_DATE"
-    else
-        print_info "Could not schedule retirement (this is optional)"
+    print_info "Verifying total user account count..."
+
+    local count_query='{
+        getUserAccounts {
+            id
+        }
+    }'
+
+    RESPONSE=$(execute_graphql "$QUERY_API_ENDPOINT" "$count_query")
+
+    if echo "$RESPONSE" | jq -e '.data.getUserAccounts' > /dev/null 2>&1; then
+        TOTAL_COUNT=$(echo "$RESPONSE" | jq '.data.getUserAccounts | length')
+        print_success "Total user account count: $TOTAL_COUNT"
     fi
 }
 
 # メイン処理
 main() {
-    print_header "End-to-End Test Suite"
-    print_info "Testing flow: gRPC Create → Event Processing → GraphQL Query"
+    print_header "End-to-End Test Suite for UserAccount"
+    print_info "Testing flow: GraphQL Mutation → Event Processing → GraphQL Query"
     print_info "Test ID: $TIMESTAMP"
     echo ""
-    
+
     # ヘルスチェック
     health_check
-    
+
     # E2Eテストの実行
-    if create_staff_via_grpc; then
+    if create_user_account_via_graphql; then
         wait_for_consistency
-        
+
         # リトライロジック付きでクエリを実行
         MAX_RETRIES=$E2E_MAX_RETRIES
         RETRY_COUNT=0
         SUCCESS=false
-        
+
         while [ $RETRY_COUNT -lt $MAX_RETRIES ] && [ "$SUCCESS" = false ]; do
             if [ $RETRY_COUNT -gt 0 ]; then
                 print_info "Retry attempt $RETRY_COUNT/$MAX_RETRIES... (sleep ${E2E_RETRY_DELAY}s)"
                 sleep "$E2E_RETRY_DELAY"
             fi
-            
-            if query_staff_via_graphql; then
+
+            if query_user_account_via_graphql; then
                 SUCCESS=true
                 verify_data_consistency
             else
                 RETRY_COUNT=$((RETRY_COUNT + 1))
             fi
         done
-        
+
         if [ "$SUCCESS" = false ]; then
-            print_error "Failed to query staff after $MAX_RETRIES retries"
+            print_error "Failed to query user account after $MAX_RETRIES retries"
             print_info "Possible causes:"
             echo "  - Lambda function not deployed or not running"
             echo "  - DynamoDB streams not configured"
@@ -333,20 +303,14 @@ main() {
             exit 1
         fi
     else
-        print_error "Failed to create staff, aborting test"
+        print_error "Failed to create user account, aborting test"
         exit 1
     fi
-    
-    # オプション: クリーンアップ
-    if [ "${CLEANUP:-false}" = "true" ]; then
-        cleanup_test_staff
-    fi
-    
+
     print_header "Test Summary"
     print_success "End-to-End test completed successfully!"
-    print_info "Staff No: $TEST_STAFF_NO was created via gRPC and retrieved via GraphQL"
+    print_info "UserAccount ($TEST_FIRST_NAME $TEST_LAST_NAME) was created via GraphQL and retrieved successfully"
     echo ""
-    print_info "To run cleanup: CLEANUP=true $0"
 }
 
 # スクリプト実行

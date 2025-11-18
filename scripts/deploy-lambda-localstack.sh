@@ -126,7 +126,7 @@ ENV_JSON_FILE="/tmp/lambda-env.json"
 cat > $ENV_JSON_FILE << 'EOF'
 {
   "Variables": {
-    "DATABASE_URL": "jdbc:postgresql://postgres:5432/pcqrses_development",
+    "DATABASE_URL": "jdbc:postgresql://postgres:5432/p-cqrs-es_development",
     "DATABASE_USER": "postgres",
     "DATABASE_PASSWORD": "postgres",
     "AWS_DEFAULT_REGION": "ap-northeast-1",

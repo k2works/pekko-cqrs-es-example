@@ -17,6 +17,7 @@ services:
   localstack:
     image: localstack/localstack:4.7
     hostname: localstack
+    privileged: true
     ports:
       - "${DOCKER_LOCALSTACK_PORT:-50503}:4566"
     environment:
@@ -27,13 +28,13 @@ services:
       - AWS_DEFAULT_REGION=ap-northeast-1
       - AWS_ACCESS_KEY_ID=dummy
       - AWS_SECRET_ACCESS_KEY=dummy
-      - LAMBDA_DOCKER_NETWORK=p-cqrs-es_back_p-cqrs-es-network
+      - LAMBDA_DOCKER_NETWORK=pekko-cqrs-es-example_p-cqrs-es-network
       - AWS_ENDPOINT_URL=http://localstack:4566
       - LOCALSTACK_HOST=localstack
       - HOSTNAME_FROM_LAMBDA=localstack
       - LAMBDA_DOCKER_DNS=127.0.0.11
       - LAMBDA_RUNTIME_ENVIRONMENT_TIMEOUT=60
-      - LAMBDA_REMOVE_CONTAINERS=true
+      - LAMBDA_REMOVE_CONTAINERS=false
       - LAMBDA_LIMITS_CODE_SIZE_ZIPPED=524288000
       - LAMBDA_LIMITS_CODE_SIZE_UNZIPPED=2147483648
       - LAMBDA_LIMITS_CREATE_FUNCTION_REQUEST_SIZE=314572800

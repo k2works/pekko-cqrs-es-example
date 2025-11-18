@@ -366,14 +366,14 @@ lazy val readModelUpdater = (project in file("apps/read-model-updater"))
     Docker / packageName := s"${basename}-read-model-updater",
     Docker / version := "0.1.0",
     dockerBaseImage := "eclipse-temurin:17-jre-focal",
-    // AWS Lambda用の設定（仮）
-    // FIXME: インフラストラクチャーに設定ファイルを置くのはよくない…。あとで直す
+    // AWS Lambda用の設定
     Universal / mappings += file(
-      "modules/infrastructure/src/main/resources/application.conf") -> "conf/application.conf",
+      "apps/read-model-updater/src/main/resources/application.conf") -> "conf/application.conf",
     Universal / javaOptions ++= Seq("-Dconfig.file=conf/application.conf"),
     assembly / assemblyJarName := "read-model-updater-lambda.jar",
     assembly / mainClass := Some(s"io.github.j5ik2o.${basename}.readModelUpdater.LambdaHandler"),
     assembly / assemblyMergeStrategy := {
+      case PathList("META-INF", "services", xs @ _*) => MergeStrategy.concat
       case PathList("META-INF", xs @ _*) => MergeStrategy.discard
       case PathList("reference.conf") => MergeStrategy.concat
       case PathList("application.conf") => MergeStrategy.concat
@@ -411,8 +411,8 @@ lazy val readModelUpdater = (project in file("apps/read-model-updater"))
         name.contains("pekko-persistence-journal") ||
         name.contains("pekko-persistence-snapshot") ||
         name.contains("pekko-testkit") ||
-        name.contains("pekko-slf4j") ||
-        // pekko-protobuf-v3は必要なので除外しない
+        // pekko-slf4jは必要なので除外しない（Slf4jLoggingFilter使用）
+        // pekko-protobuf-v3は必要（PersistentReprのデシリアライズに使用）
         (name.contains("pekko-protobuf") && !name.contains("pekko-protobuf-v3")) ||
         // 大きくて不要な一部ライブラリのみ除外（DB関連は含める）
         name.contains("flyway") ||
@@ -446,9 +446,10 @@ lazy val readModelUpdater = (project in file("apps/read-model-updater"))
       apachePekko.actorTyped,
       apachePekko.persistenceTyped,
       apachePekko.serializationJackson,
+      apachePekko.slf4j,
       apachePekko.remote,
-      apachePekko.stream,
-      apachePekko.protobufV3
+      apachePekko.stream
+      // apachePekko.protobufV3 を除外 - ScalaPBのGoogle Protobufと競合するため
     )
   )
   .dependsOn(commandDomain, commandInterfaceAdapterEventSerializer, queryInterfaceAdapter)
