@@ -1,8 +1,8 @@
 package io.github.j5ik2o.pcqrses.readModelUpdater
 
-import com.amazonaws.services.lambda.runtime.{Context, RequestHandler}
 import com.amazonaws.services.lambda.runtime.events.DynamodbEvent
 import com.amazonaws.services.lambda.runtime.events.DynamodbEvent.DynamodbStreamRecord
+import com.amazonaws.services.lambda.runtime.{Context, RequestHandler}
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import com.typesafe.config.ConfigFactory
@@ -17,8 +17,9 @@ import slick.jdbc.JdbcProfile
 
 import java.nio.ByteBuffer
 import java.sql.Timestamp
-import scala.concurrent.duration.Duration
 import scala.concurrent.Await
+import scala.concurrent.duration.Duration
+import scala.jdk.CollectionConverters.*
 import scala.util.Try
 
 class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
@@ -192,7 +193,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       val component = new UserAccountsComponent {
         override val profile: JdbcProfile = databaseConfig.profile
       }
-      import databaseConfig.profile.api._
+      import databaseConfig.profile.api.*
 
       val action = event match {
         case UserAccountEvent.Created_V1(_, entityId, name, _, occurredAt) =>
@@ -231,17 +232,4 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
 
   private case class ProcessingError(message: String, exception: Option[Throwable])
 
-  private implicit class ScalaMapConverter[A, B](map: java.util.Map[A, B]) {
-    def asScala: scala.collection.mutable.Map[A, B] = {
-      import scala.jdk.CollectionConverters._
-      map.asScala
-    }
-  }
-
-  private implicit class JavaListConverter[A](list: java.util.List[A]) {
-    def asScala: scala.collection.mutable.Buffer[A] = {
-      import scala.jdk.CollectionConverters._
-      list.asScala
-    }
-  }
 }
