@@ -1,0 +1,59 @@
+site_name: Site Name
+site_description: Site Description
+site_author: Project Team
+repo_url: https://github.com/k2works/claude-code-booster
+repo_name: claude-code-booster
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+
+extra_css:
+  - docs/mkdocs/assets/css/extra.css
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: plantuml
+          class: plantuml
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+  - pymdownx.emoji
+  - admonition
+  - toc:
+      permalink: true
+  - plantuml_markdown:
+      server: !!python/object/apply:os.getenv
+        - PLANTUML_SERVER_URL
+        - http://www.plantuml.com/plantuml
+      format: svg
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js
+  - docs/assets/js/extra.js
+
+extra:
+  plantuml_url: http://www.plantuml.com/plantuml
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/k2works
+      name: GitHub Repository/claude-code-booster
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
