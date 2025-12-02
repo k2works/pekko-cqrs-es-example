@@ -1666,8 +1666,8 @@ class CreditCheckService(
   - OpenTelemetryによる分散トレース
   - Sagaステップごとのレイテンシ可視化
 
-### 13. まとめと実践演習
-#### 13.1 学んだこと
+### 14. まとめと実践演習
+#### 14.1 学んだこと
 - **Sagaパターンの実装**
   - OrchestrationによるSaga実装
   - 補償トランザクション
