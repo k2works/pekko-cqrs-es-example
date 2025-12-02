@@ -3169,97 +3169,82 @@ Obsolete --> [*]
 ---
 
 ### 3. データモデルの設計
-#### 3.1 Read Model（PostgreSQL）のスキーマ設計
+
+#### 2.1 Read Model（PostgreSQL）のスキーマ設計
+- 企業マスタ（companies）（新規）
+    - 企業ID、企業名、企業種別
+    - 企業種別（自社、取引先企業）
+    - 住所、連絡先、代表者名
+    - 設立年月日、資本金、従業員数
+    - 日本語カラム名での定義
+    - 自社（D社）および取引先企業の情報
+
+- 取引先マスタ（customers）
+    - 取引先ID、企業ID、取引先名、取引先タイプ
+    - 取引先タイプ（スーパー、コンビニ、飲食店、小売店）
+    - 住所、連絡先
+    - 取引開始日、取引ステータス
+    - 日本語カラム名での定義
+
 - **商品マスタ（products）**
-  - 商品ID、商品コード、商品名
-  - カテゴリコード、単位（個、kg、L など）
-  - 標準原価、定価
-  - 主要仕入先ID
-  - リードタイム（日数）、最小発注数量
-  - ステータス（有効、停止、廃止）
-  - 有効期間（有効開始日、有効終了日）
-  - バージョン、作成日時、更新日時
+    - 商品コード、商品名
+    - カテゴリコード、単位（個、kg、L など）
+    - 標準原価、定価
+    - 主要仕入先ID
+    - リードタイム（日数）、最小発注数量
+    - ステータス（有効、停止、廃止）
+    - 有効期間（有効開始日、有効終了日）
+    - バージョン、作成日時、更新日時
 
 - **商品価格履歴テーブル（product_prices）**
-  - 価格ID、商品ID
-  - 価格タイプ（標準、特別、割引）
-  - 顧客ID（特別価格の場合）
-  - 単価
-  - 有効期間（有効開始日、有効終了日）
-
-- **顧客マスタ（customers）**
-  - 顧客ID、顧客コード、顧客名
-  - 顧客区分（法人、個人）
-  - 請求先住所、配送先住所
-  - 与信限度額
-  - 支払条件（月末締翌月末払など）
-  - 税区分（課税、非課税）
-  - 担当営業ID
-  - ステータス（有効、停止）
-  - 有効期間（有効開始日、有効終了日）
-  - バージョン
-
-- **仕入先マスタ（suppliers）**
-  - 仕入先ID、仕入先コード、仕入先名
-  - 住所、連絡先担当者
-  - 電話番号、メールアドレス
-  - 支払条件
-  - 評価（A、B、C、D、E）
-  - ステータス（有効、停止）
-  - 有効期間（有効開始日、有効終了日）
-  - バージョン
+    - 価格ID、商品コード
+    - 価格タイプ（標準、特別、割引）
+    - 顧客ID（特別価格の場合）
+    - 単価
+    - 有効期間（有効開始日、有効終了日）
 
 - **倉庫マスタ（warehouses）**
-  - 倉庫ID、倉庫コード、倉庫名
-  - ロケーション種別（配送センター、地域倉庫）
-  - 住所、倉庫責任者ID
-  - 保管容量
-  - 温度管理フラグ
-  - ステータス（有効、停止）
-  - バージョン
+    - 倉庫ID、倉庫コード、倉庫名
+    - ロケーション種別（配送センター、地域倉庫）
+    - 住所、倉庫責任者ID
+    - 保管容量
+    - 温度管理フラグ
+    - ステータス（有効、停止）
+    - バージョン
 
 - **勘定科目マスタ（account_subjects）**
-  - 勘定科目ID、勘定科目コード、勘定科目名
-  - 科目区分（資産、負債、純資産、収益、費用）
-  - サブ区分（流動/固定、営業/営業外）
-  - 親勘定科目ID（階層構造）
-  - 階層レベル
-  - 補助科目必須フラグ
-  - ステータス（有効、廃止）
-  - 有効期間（有効開始日、有効終了日）
-  - バージョン
+    - 勘定科目ID、勘定科目コード、勘定科目名
+    - 科目区分（資産、負債、純資産、収益、費用）
+    - サブ区分（流動/固定、営業/営業外）
+    - 親勘定科目ID（階層構造）
+    - 階層レベル
+    - 補助科目必須フラグ
+    - ステータス（有効、廃止）
+    - 有効期間（有効開始日、有効終了日）
+    - バージョン
 
-- **組織マスタ（organizations）**
-  - 組織ID、組織コード、組織名
-  - 組織種別（部署、事業部、支店）
-  - 親組織ID（階層構造）
-  - 階層レベル
-  - 組織長ID
-  - コストセンターコード
-  - ステータス（有効、廃止）
-  - バージョン
+- **部門マスタ（department）**
+    - 部門コード、部門名
+    - 開始年月、最終年月
 
-- **従業員マスタ（employees）**
-  - 従業員ID、従業員コード、氏名
-  - メールアドレス
-  - 所属部署ID
-  - 役職
-  - 入社日
-  - 雇用形態（正社員、パート、契約）
-  - ステータス（在籍、休職、退職）
-  - バージョン
+- **社員マスタ（employees）**
+    - 社員コード、氏名
+    - 入社日
+    - 退社日
+    - 所属部門コード
+    - 役職区分
 
 - **コードマスタ（code_masters）**
-  - コードマスターID
-  - コード種別（税率、支払条件、配送方法など）
-  - コード値、表示名
-  - 説明、表示順序
-  - 追加データ（JSON形式）
-  - ステータス（有効、無効）
-  - 有効期間（有効開始日、有効終了日）
-  - バージョン
+    - コードマスターID
+    - コード種別（税率、支払条件、配送方法など）
+    - コード値、表示名
+    - 説明、表示順序
+    - 追加データ（JSON形式）
+    - ステータス（有効、無効）
+    - 有効期間（有効開始日、有効終了日）
+    - バージョン
 
-#### 3.2 DynamoDBのテーブル設計
+#### 2.2 DynamoDBのテーブル設計
 - **Product Events**
   - ProductCreated_V1
   - ProductInfoUpdated_V1
@@ -3270,32 +3255,13 @@ Obsolete --> [*]
   - ProductReactivated_V1
   - ProductObsoleted_V1
 
-- **Customer Events**
-  - CustomerCreated_V1
-  - CustomerInfoUpdated_V1
-  - CreditLimitChanged_V1
-  - PaymentTermsChanged_V1
-  - SalesRepAssigned_V1
-  - CustomerSuspended_V1
-  - CustomerReactivated_V1
-
-- **Supplier Events**
-  - SupplierCreated_V1
-  - SupplierInfoUpdated_V1
-  - PaymentTermsChanged_V1
-  - SupplierRatingUpdated_V1
-  - SupplierSuspended_V1
-  - SupplierReactivated_V1
-
 - **AccountSubject Events**
   - AccountSubjectCreated_V1
   - AccountSubjectNameUpdated_V1
   - ParentAccountChanged_V1
   - AccountSubjectObsoleted_V1
 
----
-
-### 4. 集約の実装
+### 4. ドメインモデルの設計
 #### 4.1 Product集約
 - **Product エンティティ**
   ```scala
@@ -3359,83 +3325,7 @@ Obsolete --> [*]
   }
   ```
 
-#### 4.2 Customer集約
-- **Customer エンティティ**
-  ```scala
-  final case class Customer(
-    id: CustomerId,
-    customerCode: CustomerCode,
-    customerName: CustomerName,
-    customerType: CustomerType,
-    billingAddress: Address,
-    shippingAddress: Address,
-    creditLimit: Money,
-    paymentTerms: PaymentTerms,
-    taxCategory: TaxCategory,
-    assignedSalesRepId: Option[EmployeeId],
-    status: CustomerStatus,
-    validPeriod: ValidPeriod,
-    version: Version
-  )
-  ```
-
-- **PaymentTerms 値オブジェクト**
-  ```scala
-  final case class PaymentTerms(
-    closingDay: ClosingDay,        // 締め日（月末、15日など）
-    paymentDays: Int,              // 支払日数（締め後何日で支払い）
-    paymentMethod: PaymentMethod   // 支払方法（振込、手形など）
-  )
-
-  sealed trait ClosingDay
-  object ClosingDay {
-    case object EndOfMonth extends ClosingDay         // 月末締め
-    case class DayOfMonth(day: Int) extends ClosingDay // 指定日締め
-  }
-
-  sealed trait PaymentMethod
-  object PaymentMethod {
-    case object BankTransfer extends PaymentMethod    // 銀行振込
-    case object CreditCard extends PaymentMethod      // クレジットカード
-    case object Cash extends PaymentMethod            // 現金
-    case object Bill extends PaymentMethod            // 手形
-  }
-  ```
-
-#### 4.3 Supplier集約
-- **Supplier エンティティ**
-  ```scala
-  final case class Supplier(
-    id: SupplierId,
-    supplierCode: SupplierCode,
-    supplierName: SupplierName,
-    address: Address,
-    contactPerson: ContactPerson,
-    phoneNumber: PhoneNumber,
-    email: Email,
-    paymentTerms: PaymentTerms,
-    rating: SupplierRating,
-    status: SupplierStatus,
-    validPeriod: ValidPeriod,
-    version: Version
-  )
-  ```
-
-- **SupplierRating**
-  ```scala
-  sealed trait SupplierRating {
-    def score: Int
-  }
-  object SupplierRating {
-    case object ExcellentA extends SupplierRating { val score = 5 }
-    case object GoodB extends SupplierRating { val score = 4 }
-    case object AverageC extends SupplierRating { val score = 3 }
-    case object PoorD extends SupplierRating { val score = 2 }
-    case object UnacceptableE extends SupplierRating { val score = 1 }
-  }
-  ```
-
-#### 4.4 AccountSubject集約
+#### 4.2 AccountSubject集約
 - **AccountSubject エンティティ**
   ```scala
   final case class AccountSubject(
@@ -3506,47 +3396,7 @@ Obsolete --> [*]
   - 有効期間の重複チェック（同一顧客・価格タイプの特別価格）
   - 廃止された商品は再開不可
 
-#### 5.2 Customer集約の実装
-- **コマンド**
-  - CreateCustomer（顧客作成）
-  - UpdateCustomerInfo（顧客情報更新）
-  - ChangeCreditLimit（与信限度額変更）
-  - ChangePaymentTerms（支払条件変更）
-  - AssignSalesRep（担当営業割当）
-  - SuspendCustomer（顧客停止）
-  - ReactivateCustomer（顧客再開）
-
-- **イベント**
-  - CustomerCreated、CustomerInfoUpdated
-  - CreditLimitChanged、PaymentTermsChanged
-  - SalesRepAssigned
-  - CustomerSuspended、CustomerReactivated
-
-- **ビジネスルール**
-  - 顧客コードは一意
-  - 与信限度額変更には承認が必要（一定額以上）
-  - 停止中の顧客には新規受注不可
-
-#### 5.3 Supplier集約の実装
-- **コマンド**
-  - CreateSupplier（仕入先作成）
-  - UpdateSupplierInfo（仕入先情報更新）
-  - ChangePaymentTerms（支払条件変更）
-  - UpdateSupplierRating（仕入先評価更新）
-  - SuspendSupplier（仕入先停止）
-  - ReactivateSupplier（仕入先再開）
-
-- **イベント**
-  - SupplierCreated、SupplierInfoUpdated
-  - PaymentTermsChanged、SupplierRatingUpdated
-  - SupplierSuspended、SupplierReactivated
-
-- **ビジネスルール**
-  - 仕入先コードは一意
-  - 評価は発注実績に基づき定期的に更新
-  - 停止中の仕入先には新規発注不可
-
-#### 5.4 AccountSubject集約の実装
+#### 5.2 AccountSubject集約の実装
 - **コマンド**
   - CreateAccountSubject（勘定科目作成）
   - UpdateAccountSubjectName（勘定科目名変更）
@@ -3587,59 +3437,34 @@ Obsolete --> [*]
     validFrom: LocalDate,
     occurredAt: Instant
   ) extends MasterDataEvent
-
-  // 顧客マスターイベント
-  final case class CustomerCreated(
-    customerId: CustomerId,
-    customerCode: CustomerCode,
-    customerName: CustomerName,
-    creditLimit: Money,
-    occurredAt: Instant
-  ) extends MasterDataEvent
-
-  final case class CreditLimitChanged(
-    customerId: CustomerId,
-    customerCode: CustomerCode,
-    oldLimit: Money,
-    newLimit: Money,
-    occurredAt: Instant
-  ) extends MasterDataEvent
   ```
 
 #### 6.2 他のBounded Contextでのイベント購読
-- **受注管理での購読**
+- **在庫管理での購読**
   ```scala
-  // 商品価格変更イベントを受信して、受注管理側の商品参照データを更新
+  // 商品情報変更イベントを受信して、在庫管理側の商品参照データを更新
   class ProductReadModelUpdater extends EventHandler {
-    def handle(event: ProductPriceChanged): Future[Unit] = {
-      // 受注管理の商品参照テーブルを更新
-      productRepository.updatePrice(
+    def handle(event: ProductInfoUpdated): Future[Unit] = {
+      // 在庫管理の商品参照テーブルを更新
+      productRepository.updateProductInfo(
         event.productId,
-        event.newPrice,
-        event.validFrom
-      )
-    }
-  }
-
-  // 顧客与信限度額変更イベントを受信して、与信チェック用データを更新
-  class CustomerCreditReadModelUpdater extends EventHandler {
-    def handle(event: CreditLimitChanged): Future[Unit] = {
-      // 受注管理の顧客与信参照テーブルを更新
-      customerCreditRepository.updateCreditLimit(
-        event.customerId,
-        event.newLimit
+        event.productName,
+        event.categoryCode
       )
     }
   }
   ```
 
-- **発注管理での購読**
+- **会計サービスでの購読**
   ```scala
-  // 仕入先情報変更イベントを受信
-  class SupplierReadModelUpdater extends EventHandler {
-    def handle(event: SupplierInfoUpdated): Future[Unit] = {
-      // 発注管理の仕入先参照テーブルを更新
-      supplierRepository.updateSupplierInfo(event.supplierId, event.supplierInfo)
+  // 勘定科目変更イベントを受信
+  class AccountSubjectReadModelUpdater extends EventHandler {
+    def handle(event: AccountSubjectNameUpdated): Future[Unit] = {
+      // 会計サービスの勘定科目参照テーブルを更新
+      accountSubjectRepository.updateAccountSubjectName(
+        event.accountSubjectId,
+        event.accountName
+      )
     }
   }
   ```
@@ -3682,9 +3507,7 @@ Obsolete --> [*]
 #### 7.1 承認が必要な変更
 - **重要変更の定義**
   - 商品価格の変更（一定金額以上）
-  - 顧客与信限度額の変更
   - 勘定科目の追加・変更
-  - 仕入先評価の変更
 
 #### 7.2 承認フロー
 ```plantuml
@@ -3770,7 +3593,7 @@ type Product {
   unitOfMeasure: String!
   standardCost: Decimal!
   listPrice: Decimal!
-  primarySupplier: Supplier
+  primarySupplierId: ID
   leadTimeDays: Int!
   minimumOrderQuantity: Decimal!
   status: ProductStatus!
@@ -3781,7 +3604,6 @@ type Product {
 
 type ProductPrice {
   priceType: PriceType!
-  customer: Customer
   unitPrice: Decimal!
   validFrom: Date!
   validTo: Date
@@ -3814,10 +3636,9 @@ type Query {
   # 指定日時点での有効な商品一覧
   activeProductsAt(date: Date!): [Product!]!
 
-  # 価格照会（顧客別特別価格を考慮）
+  # 価格照会（指定日時点での価格）
   productPrice(
     productId: ID!
-    customerId: ID
     date: Date!
   ): ProductPrice
 }
@@ -3872,86 +3693,7 @@ type CreateProductPayload {
 }
 ```
 
-#### 9.2 顧客マスターAPI
-```graphql
-type Customer {
-  id: ID!
-  customerCode: String!
-  customerName: String!
-  customerType: CustomerType!
-  billingAddress: Address!
-  shippingAddress: Address!
-  creditLimit: Decimal!
-  paymentTerms: PaymentTerms!
-  taxCategory: TaxCategory!
-  assignedSalesRep: Employee
-  status: CustomerStatus!
-  validFrom: Date!
-  validTo: Date
-}
-
-type Address {
-  postalCode: String!
-  prefecture: String!
-  city: String!
-  street: String!
-  building: String
-}
-
-type PaymentTerms {
-  closingDay: ClosingDay!
-  paymentDays: Int!
-  paymentMethod: PaymentMethod!
-}
-
-enum CustomerType {
-  CORPORATE
-  INDIVIDUAL
-}
-
-enum CustomerStatus {
-  ACTIVE
-  SUSPENDED
-}
-
-enum TaxCategory {
-  TAXABLE
-  EXEMPT
-}
-
-type Query {
-  # 顧客検索
-  customers(
-    filter: CustomerFilter
-    page: Int = 1
-    pageSize: Int = 20
-  ): CustomerConnection!
-
-  # 顧客詳細取得
-  customer(id: ID!): Customer
-  customerByCode(customerCode: String!): Customer
-
-  # 有効な顧客一覧
-  activeCustomers: [Customer!]!
-}
-
-input CustomerFilter {
-  customerCode: String
-  customerName: String
-  customerType: CustomerType
-  status: CustomerStatus
-}
-
-type Mutation {
-  # 顧客作成
-  createCustomer(input: CreateCustomerInput!): CreateCustomerPayload!
-
-  # 与信限度額変更（承認が必要）
-  changeCreditLimit(input: ChangeCreditLimitInput!): ChangeCreditLimitPayload!
-}
-```
-
-#### 9.3 クエリ最適化
+#### 9.2 クエリ最適化
 - **DataLoader パターン**
   - N+1 クエリ問題の解決
   - バッチ処理によるデータベースアクセスの効率化
@@ -3994,12 +3736,13 @@ type Mutation {
     ON products(valid_from, valid_to)
     WHERE status = 'Active';
 
-  -- 顧客コード検索用
-  CREATE UNIQUE INDEX idx_customers_code ON customers(customer_code);
+  -- 勘定科目コード検索用
+  CREATE UNIQUE INDEX idx_account_subjects_code
+    ON account_subjects(account_subject_code);
 
-  -- 担当営業別顧客検索用
-  CREATE INDEX idx_customers_sales_rep
-    ON customers(assigned_sales_rep_id)
+  -- 階層構造検索用
+  CREATE INDEX idx_account_subjects_parent
+    ON account_subjects(parent_account_subject_id)
     WHERE status = 'Active';
   ```
 
@@ -4014,7 +3757,8 @@ type Mutation {
     p.product_name,
     p.list_price,
     p.category_code,
-    pp.customer_id,
+    p.standard_cost,
+    pp.price_type,
     pp.unit_price as special_price,
     pp.valid_from as price_valid_from,
     pp.valid_to as price_valid_to
@@ -4027,8 +3771,8 @@ type Mutation {
   -- インデックス作成
   CREATE INDEX idx_mv_products_code
     ON mv_active_products_with_prices(product_code);
-  CREATE INDEX idx_mv_products_customer
-    ON mv_active_products_with_prices(customer_id);
+  CREATE INDEX idx_mv_products_category
+    ON mv_active_products_with_prices(category_code);
 
   -- 定期的にリフレッシュ（イベント受信時、または定期バッチ）
   REFRESH MATERIALIZED VIEW CONCURRENTLY mv_active_products_with_prices;
@@ -4040,15 +3784,13 @@ type Mutation {
 #### 11.1 ビジネスメトリクス
 - **マスターデータ統計**
   - 商品マスター総数: 5,000 SKU
-  - 顧客マスター総数: 430社
-  - 仕入先マスター総数: 200社
-  - 月間マスター変更件数: 約1,500件
+  - 勘定科目マスター総数: 150科目
+  - 月間マスター変更件数: 約800件
 
 - **変更頻度**
   - 商品情報変更: 月間500件
   - 価格変更: 月間300件
-  - 顧客情報変更: 月間200件
-  - 仕入先情報変更: 月間100件
+  - 勘定科目情報変更: 月間50件
 
 - **承認状況**
   - 承認待ち件数
@@ -4104,12 +3846,12 @@ type Mutation {
   - 価格変更申請の作成
   - 承認者による承認/却下
   - 承認後の価格反映と他サービスへの伝播
-  - 受注管理での新価格の適用確認
+  - 在庫管理での新価格の適用確認
 
-- **演習2: 顧客マスターの重複チェック**
-  - 新規顧客登録時の類似顧客検出
-  - レーベンシュタイン距離による名称類似度計算
-  - 重複候補の提示とマージ機能
+- **演習2: 勘定科目の階層構造管理**
+  - 親勘定科目の変更
+  - 階層構造の整合性検証
+  - 会計サービスでの勘定科目階層の参照
 
 - **演習3: マスターデータ同期の監視**
   - マスター変更イベントの発行
@@ -4119,7 +3861,7 @@ type Mutation {
 - **演習4: 過去時点のマスターデータ復元**
   - 指定日時のイベントリプレイ
   - 過去の商品価格の復元
-  - 過去の顧客与信情報の復元
+  - 過去の勘定科目構造の復元
   - 会計監査でのデータ提示
 
 #### 12.3 次のステップ
