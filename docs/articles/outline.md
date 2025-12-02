@@ -2397,69 +2397,21 @@ class CreditCheckService(
 ### 2. データモデルの設計
 #### 2.1 Read Model（PostgreSQL）のスキーマ設計
 - **勘定科目マスタ（chart_of_accounts）**
-  - 勘定科目ID、勘定科目コード、勘定科目名
-  - 科目区分（資産、負債、純資産、収益、費用）
-  - 科目タイプ（流動資産、固定資産、流動負債、固定負債、etc.）
-  - 貸借区分（借方、貸方）
-  - 消費税区分（課税、非課税、不課税）
-  - 有効期間
+  - 勘定科目コード、勘定科目名
+  - 勘定区分、貸借区分、科目レベル
+  - 上位科目コード、出力順序
 
-- **仕訳テーブル（journal_entries）**
-  - 仕訳ID、企業ID
-  - 仕訳日、会計期間（年度、月）
-  - 伝票番号、伝票種別（入金、出金、振替、売上、仕入）
-  - ステータス（下書き、承認待ち、承認済、転記済）
-  - 摘要（取引内容の説明）
-  - 参照ID（元トランザクションのID: OrderId、PurchaseOrderId、etc.）
-  - 作成日時、更新日時
+- **仕訳見出しテーブル（journal_entries）**
+  - 仕訳No、取引日、仕訳日、仕分け合計額
 
 - **仕訳明細テーブル（journal_entry_lines）**
-  - 仕訳明細ID、仕訳ID
-  - 行番号
-  - 勘定科目ID
-  - 貸借区分（借方、貸方）
-  - 金額
-  - 税区分、税率、税額
-  - 補助科目（取引先ID、部門ID、プロジェクトID）
-  - 摘要
+  - 仕分No、行番
+  - 貸借区分、科目コード、仕訳額
 
-- **総勘定元帳テーブル（general_ledger）**
-  - 元帳ID、勘定科目ID
-  - 会計期間（年度、月、日）
-  - 仕訳ID、仕訳明細ID
-  - 貸借区分、金額
-  - 残高（累計）
-  - 転記日時
-
-- **試算表テーブル（trial_balance）**
-  - 試算表ID、会計期間（年度、月）
-  - 勘定科目ID
+- **勘定科目別年次サマリテーブル（yearly_summary_by_account）**
+  - 科目コード、年度
   - 期首残高
-  - 借方合計、貸方合計
-  - 期末残高
-  - 作成日時
-
-- **売掛金テーブル（accounts_receivable）**
-  - 売掛金ID、取引先ID
-  - 請求書ID、受注ID
-  - 請求日、支払期限
-  - 請求金額、入金済金額、残高
-  - ステータス（未入金、一部入金、全額入金、延滞）
-  - エージング（30日以内、60日以内、90日以内、90日超）
-
-- **買掛金テーブル（accounts_payable）**
-  - 買掛金ID、仕入先ID
-  - 請求書ID、発注ID
-  - 請求日、支払期限
-  - 請求金額、支払済金額、残高
-  - ステータス（未払、一部支払、全額支払、延滞）
-
-- **財務諸表テーブル（financial_statements）**
-  - 財務諸表ID、企業ID
-  - 会計期間（年度、四半期、月）
-  - 諸表種類（損益計算書、貸借対照表、キャッシュフロー計算書）
-  - 諸表データ（JSON形式）
-  - 作成日時
+  - 借方仕訳合計、貸方仕分合計、現残高
 
 #### 2.2 DynamoDBのテーブル設計
 - **JournalEntry Events**
@@ -2506,30 +2458,7 @@ class CreditCheckService(
   - その他仕訳: 給料、家賃、減価償却、etc.
 
 ### 4. ドメインモデルの設計
-#### 4.1 ChartOfAccounts集約
-- **AccountSubject エンティティ**
-  ```scala
-  final case class AccountSubject(
-    id: AccountSubjectId,
-    code: AccountCode,
-    name: AccountName,
-    category: AccountCategory,        // 資産、負債、純資産、収益、費用
-    accountType: AccountType,         // 流動資産、固定資産、etc.
-    normalBalance: BalanceType,       // 借方、貸方
-    taxCategory: TaxCategory,
-    isActive: Boolean,
-    version: Version
-  )
-  ```
-
-- **AccountCategory**
-  - Asset（資産）
-  - Liability（負債）
-  - Equity（純資産）
-  - Revenue（収益）
-  - Expense（費用）
-
-#### 4.2 JournalEntry集約
+#### 4.1 JournalEntry集約
 - **JournalEntry エンティティ**
   ```scala
   final case class JournalEntry(
@@ -2575,7 +2504,7 @@ class CreditCheckService(
   - Posted（転記済）
   - Cancelled（取消）
 
-#### 4.3 GeneralLedger集約
+#### 4.2 GeneralLedger集約
 - **GeneralLedger エンティティ**
   ```scala
   final case class GeneralLedger(
@@ -2600,7 +2529,7 @@ class CreditCheckService(
   )
   ```
 
-#### 4.4 FinancialStatement集約
+#### 4.3 FinancialStatement集約
 - **IncomeStatement エンティティ（損益計算書）**
   ```scala
   final case class IncomeStatement(
@@ -2648,7 +2577,7 @@ class CreditCheckService(
   }
   ```
 
-#### 4.5 AccountsReceivable集約
+#### 4.4 AccountsReceivable集約
 - **AccountsReceivable エンティティ**
   ```scala
   final case class AccountsReceivable(
@@ -3213,7 +3142,7 @@ Obsolete --> [*]
     - バージョン
 
 - **勘定科目マスタ（account_subjects）**
-    - 勘定科目ID、勘定科目コード、勘定科目名
+    - 勘定科目コード、勘定科目名
     - 科目区分（資産、負債、純資産、収益、費用）
     - サブ区分（流動/固定、営業/営業外）
     - 親勘定科目ID（階層構造）
