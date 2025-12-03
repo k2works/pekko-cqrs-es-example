@@ -4,7 +4,7 @@
 
 ## シリーズ構成
 
-本シリーズは**6部構成・全70章**で構成されています：
+本シリーズは**7部構成・全97章**で構成されています：
 
 - **第1部：環境構築編**（全10章） - LocalStackを使用した開発環境の構築から動作確認まで
 - **第2部：サービス構築編**（全11章） - ドメインモデル設計、CQRS実装、テスト、本番デプロイまで
@@ -12,6 +12,7 @@
 - **第4部：受注管理サービスのケーススタディ**（全13章） - 在庫管理に受注管理を追加し、Sagaパターンによる分散トランザクション（月間50,000件の受注、与信管理、請求管理）を実現
 - **第5部：発注管理サービスのケーススタディ**（全11章） - 仕入先管理、発注、入荷検品、支払管理を含む調達プロセス全体（月間3,000件の発注、200社の仕入先、3-way matching）をイベントソーシングで実装
 - **第6部：会計サービスのケーススタディ**（全12章） - イベント駆動による仕訳自動生成、総勘定元帳、財務諸表作成、決算処理（月間66,000件の仕訳、年商150億円）を実現
+- **第7部：共用データ管理サービスのケーススタディ**（全12章） - イベントソーシングによるマスターデータ管理、変更承認ワークフロー、GraphQL API、パフォーマンス最適化（商品5,000 SKU、月間800件の変更、3層キャッシュ）を実装
 
 ## 対象読者
 
@@ -1326,6 +1327,234 @@ Pekko Persistenceを使用して、会計システムの複数集約を実装し
 
 ---
 
+## 📚 第7部：共用データ管理サービスのケーススタディ
+
+第7部では、複数のBounded Contextで共有されるマスターデータ（商品、顧客、仕入先、勘定科目など）を一元管理する**共用データ管理サービス（Shared Data Management Service）**をイベントソーシングとCQRSパターンで実装します。
+
+**ケーススタディの規模**:
+- 商品数: 5,000種類（SKU）
+- 顧客数: 430社（月間50,000件の受注）
+- 仕入先数: 200社（月間3,000件の発注）
+- 勘定科目数: 500科目
+- 月間マスター変更: 約800件（商品情報、価格改定、取引先情報など）
+
+**扱うトピック**:
+- マスターデータのイベントソーシング（全変更履歴の追跡、時点復元）
+- イベント駆動マスターデータ同期（Single Source of Truth、結果整合性）
+- データガバナンス（変更承認ワークフロー、データ品質管理）
+- GraphQL API（柔軟なクエリ、DataLoaderによるN+1問題解決）
+- パフォーマンス最適化（3層キャッシュ、Materialized View）
+- 運用とモニタリング（同期状況監視、データ品質メトリクス）
+
+---
+
+### [第1章：イントロダクション - 共用データ管理サービスの概要](part7-01-introduction.md)
+
+複数のBounded Contextで共有されるマスターデータ管理の課題と解決策を説明します。
+
+**主な内容**:
+- マスターデータ管理の課題（データ分散、整合性欠如、変更伝播の困難）
+- イベントソーシングによるマスターデータ管理（Single Source of Truth、完全な変更履歴）
+- Bounded Context間の連携（在庫管理、受注管理、発注管理、会計サービス）
+- D社のマスターデータ管理要件（商品5,000 SKU、月間800件の変更、承認ワークフロー）
+
+**キーワード**: Master Data Management, Event Sourcing, Single Source of Truth, Bounded Context Integration
+
+---
+
+### [第2章：Read Modelスキーマの設計](part7-02-read-model-schema.md)
+
+共用データ管理システムのRead Model（PostgreSQL）スキーマを設計します。
+
+**主な内容**:
+- 企業マスタ設計（自社・取引先企業情報）
+- 商品マスタ設計（商品情報、価格履歴、有効期間管理）
+- 勘定科目マスタ設計（階層構造、科目区分、補助科目）
+- 部門・社員マスタ設計
+- コードマスタ設計（税率、支払条件、配送方法）
+- DynamoDBイベントストア設計（Product Events、AccountSubject Events）
+
+**キーワード**: Read Model Schema, Master Data, Valid Period, Version Control, PostgreSQL, DynamoDB
+
+---
+
+### [第3章：共用データ管理に適したドメインデータ作成](part7-03-domain-data.md)
+
+D社のマスターデータに基づいたテストデータを作成します。
+
+**主な内容**:
+- 企業マスタデータ（D社および取引先430社、仕入先200社）
+- 商品マスタデータ（5,000 SKU、カテゴリ分類、価格情報）
+- 勘定科目マスタデータ（500科目の階層構造）
+- コードマスタデータ（税率、支払条件、配送方法）
+- 変更履歴データ（月間800件のマスター変更パターン）
+- Flywayマイグレーションとシードデータ
+
+**キーワード**: Master Data, Test Data, Seed Data, Flyway Migration, Business Context
+
+---
+
+### [第4章：ドメインモデルの設計](part7-04-domain-model.md)
+
+DDDに基づき、共用データ管理システムのドメインモデルを設計します。
+
+**主な内容**:
+- Product集約（商品情報、価格履歴、有効期間管理）
+- AccountSubject集約（勘定科目、階層構造、科目区分）
+- CodeMaster集約（共通コード管理）
+- マスターデータのライフサイクル（下書き→承認待ち→有効→停止→廃止）
+- ValidPeriod値オブジェクト（有効期間管理、重複チェック）
+- ドメインイベント設計（ProductCreated、ProductPriceChanged、AccountSubjectCreated）
+
+**キーワード**: DDD, Aggregate Design, Value Object, Domain Event, Lifecycle Management, Valid Period
+
+---
+
+### [第5章：複数集約の実装](part7-05-aggregate-implementation.md)
+
+Pekko Persistenceを使用して、マスターデータ管理の複数集約を実装します。
+
+**主な内容**:
+- ProductActorの実装（商品作成、価格変更、情報更新）
+- ビジネスルール（商品コード一意性、価格検証、有効期間重複チェック）
+- AccountSubjectActorの実装（勘定科目作成、階層構造管理）
+- 階層構造の整合性検証（親勘定科目の同一種別チェック）
+- CodeMasterActorの実装（コード追加、更新、無効化）
+- イベントハンドラとステート管理
+
+**キーワード**: Pekko Persistence, EventSourcedBehavior, Product Aggregate, Account Subject Aggregate, Business Rules
+
+---
+
+### [第6章：イベント駆動マスターデータ同期](part7-06-master-data-integration.md)
+
+イベント駆動によるマスターデータの各Bounded Contextへの同期を実装します。
+
+**主な内容**:
+- マスターデータ変更イベントの発行（ProductCreated、ProductPriceChanged）
+- 他のBounded Contextでのイベント購読（在庫管理、受注管理、会計サービス）
+- Materialized Viewによる参照データ最適化
+- 結果整合性の保証（イベント順序保証、冪等性、リトライ）
+- Pekko Cluster Pub/Subによるイベント配信
+- 同期遅延の可視化
+
+**キーワード**: Event-Driven Synchronization, Eventual Consistency, Materialized View, Idempotency, Pekko Pub/Sub
+
+---
+
+### [第7章：マスターデータ変更承認ワークフロー](part7-07-approval-workflow.md)
+
+重要なマスターデータ変更に対する承認ワークフローをSagaパターンで実装します。
+
+**主な内容**:
+- 承認が必要な変更の定義（価格変更、勘定科目変更）
+- 変更申請データモデル（ChangeRequest集約）
+- PriceChangeApprovalSagaの実装（申請→通知→承認待ち→承認/却下→反映）
+- 承認者への通知機能（メール、Slack）
+- 却下時の処理（理由記録、申請者通知）
+- タイムアウト処理（一定期間未承認の場合のエスカレーション）
+
+**キーワード**: Approval Workflow, Saga Pattern, Change Request, Notification, Escalation
+
+---
+
+### [第8章：まとめと実践課題](part7-08-summary-and-practice.md)
+
+第7部前半（第1章〜第7章）で学んだ内容を振り返り、実践課題を提示します。
+
+**主な内容**:
+- マスターデータのイベントソーシングの振り返り
+- イベント駆動同期パターンの理解
+- 承認ワークフローの実装
+- 実践課題（データ品質チェック機能の追加、GraphQL APIの基本実装）
+
+**キーワード**: Summary, Practical Exercises, Event Sourcing, Approval Workflow
+
+---
+
+### [第9章：GraphQL APIの実装](part7-09-graphql-api.md)
+
+Sangria GraphQLを使用した柔軟なマスターデータAPIを実装します。
+
+**主な内容**:
+- 商品マスターAPI（Product Schema、Query、Mutation）
+- 勘定科目マスターAPI（AccountSubject Schema、階層構造クエリ）
+- 変更申請API（ChangeRequest Schema、承認/却下）
+- DataLoaderによるN+1問題解決（バッチクエリ、100倍高速化）
+- ページング実装（Relay Cursor Connections仕様）
+- フィルタリングとソート
+- Pekko HTTP統合とGraphQL Playground
+
+**キーワード**: GraphQL, Sangria, DataLoader, N+1 Problem, Relay Connections, Pekko HTTP
+
+---
+
+### [第10章：パフォーマンス最適化](part7-10-performance-optimization.md)
+
+マスターデータ参照の高速化とスケーラビリティ向上を実装します。
+
+**主な内容**:
+- 3層キャッシング戦略（Caffeine + Redis + PostgreSQL）
+  - インメモリキャッシュ（Caffeine、ヒット率80%、1ms）
+  - 分散キャッシュ（Redis、ヒット率15%、10ms）
+  - データベース（PostgreSQL、5%、100ms）
+- イベント駆動キャッシュ無効化
+- Materialized Viewによるクエリ最適化（有効商品と価格のView）
+- インデックス戦略（商品コード、有効期間、階層構造）
+- Gatling負荷テスト（5,000商品、月間800件の変更、430社同時アクセス）
+
+**キーワード**: Performance Optimization, Multi-Level Caching, Caffeine, Redis, Materialized View, Indexing, Gatling
+
+---
+
+### [第11章：運用とモニタリング](part7-11-operations-monitoring.md)
+
+マスターデータ管理の安定運用に必要なモニタリング基盤を構築します。
+
+**主な内容**:
+- ビジネスメトリクス（商品マスター総数5,000、月間変更800件、承認状況）
+- データ品質メトリクス（完全性スコア、重複データ検出、参照整合性エラー）
+- 同期状況モニタリング（イベント処理遅延、未処理イベント件数、各コンテキスト同期状態）
+- Grafanaダッシュボード（マスターデータ統計、変更頻度、データ品質、同期状況）
+- Prometheusアラートルール（同期遅延、データ品質低下、承認遅延）
+- データ整合性チェッカー（定期的なマスターとイベントストアの整合性検証）
+
+**キーワード**: Monitoring, Business Metrics, Data Quality, Prometheus, Grafana, Alerting, Integrity Check
+
+---
+
+### [第12章：まとめと演習課題](part7-12-summary-and-exercises.md)
+
+第7部で学んだ内容を総括し、実践的な演習課題を提供します。
+
+**主な内容**:
+- **学んだこと**:
+  - マスターデータのイベントソーシング（全変更履歴、時点復元、監査証跡）
+  - イベント駆動マスターデータ同期（Single Source of Truth、結果整合性、Materialized View）
+  - データガバナンス（変更承認ワークフロー、データ品質管理、アクセス制御）
+  - GraphQL API（柔軟なクエリ、DataLoader、ページング）
+  - パフォーマンス最適化（3層キャッシュ、Materialized View、インデックス）
+  - 運用監視（ビジネスメトリクス、データ品質、同期状況）
+- **実践演習**（4つの課題）:
+  - 演習1: 商品価格変更ワークフロー（申請、承認、反映、他サービス伝播）
+  - 演習2: 勘定科目の階層構造管理（親変更、整合性検証、会計サービス参照）
+  - 演習3: マスターデータ同期の監視（イベント発行、受信確認、ダッシュボード作成）
+  - 演習4: 過去時点のマスターデータ復元（イベントリプレイ、価格復元、監査対応）
+- **次のステップ**:
+  - より高度なマスターデータ管理（バージョン分岐、グローバルマスター、データリネージ）
+  - 外部システム統合（マスターインポート/エクスポート、EDI連携、API Gateway）
+  - AI/ML活用（重複検出自動化、データ品質スコアリング、異常値検出、変更予測）
+
+**演習で学べること**:
+- 承認ワークフローの実装
+- 階層構造データの管理
+- イベント駆動同期の監視
+- 時点復元機能の実装
+
+**キーワード**: Summary, Practical Exercises, Event Sourcing, Point-in-Time Restoration, Data Lineage, AI/ML Enhancement
+
+---
+
 ## 🚀 学習の進め方
 
 ### 推奨される学習順序
@@ -1476,7 +1705,21 @@ docs/articles/
 ├── part6-09-performance-optimization.md  # 第6部 第9章
 ├── part6-10-operations-monitoring.md     # 第6部 第10章
 ├── part6-11-advanced-topics.md           # 第6部 第11章
-└── part6-12-summary-exercises.md         # 第6部 第12章
+├── part6-12-summary-exercises.md         # 第6部 第12章
+│
+├── 【第7部：共用データ管理サービスのケーススタディ】
+├── part7-01-introduction.md              # 第7部 第1章
+├── part7-02-read-model-schema.md         # 第7部 第2章
+├── part7-03-domain-data.md               # 第7部 第3章
+├── part7-04-domain-model.md              # 第7部 第4章
+├── part7-05-aggregate-implementation.md  # 第7部 第5章
+├── part7-06-master-data-integration.md   # 第7部 第6章
+├── part7-07-approval-workflow.md         # 第7部 第7章
+├── part7-08-summary-and-practice.md      # 第7部 第8章
+├── part7-09-graphql-api.md               # 第7部 第9章
+├── part7-10-performance-optimization.md  # 第7部 第10章
+├── part7-11-operations-monitoring.md     # 第7部 第11章
+└── part7-12-summary-and-exercises.md     # 第7部 第12章
 ```
 
 ### 公式ドキュメント
