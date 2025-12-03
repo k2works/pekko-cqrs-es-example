@@ -4,7 +4,7 @@
 
 ## シリーズ構成
 
-本シリーズは**7部構成・全85章**で構成されています：
+本シリーズは**6部構成・全70章**で構成されています：
 
 - **第1部：環境構築編**（全10章） - LocalStackを使用した開発環境の構築から動作確認まで
 - **第2部：サービス構築編**（全11章） - ドメインモデル設計、CQRS実装、テスト、本番デプロイまで
@@ -12,7 +12,6 @@
 - **第4部：受注管理サービスのケーススタディ**（全13章） - 在庫管理に受注管理を追加し、Sagaパターンによる分散トランザクション（月間50,000件の受注、与信管理、請求管理）を実現
 - **第5部：発注管理サービスのケーススタディ**（全11章） - 仕入先管理、発注、入荷検品、支払管理を含む調達プロセス全体（月間3,000件の発注、200社の仕入先、3-way matching）をイベントソーシングで実装
 - **第6部：会計サービスのケーススタディ**（全12章） - イベント駆動による仕訳自動生成、総勘定元帳、財務諸表作成、決算処理（月間66,000件の仕訳、年商150億円）を実現
-- **第7部：共用データ管理サービスのケーススタディ**（全12章） - 複数のBounded Contextで共有されるマスターデータ（商品5,000種、顧客430社、仕入先200社）の一元管理とイベント駆動同期を実装
 
 ## 対象読者
 
@@ -648,7 +647,7 @@ DynamoDB Streamsによるイベント順序保証とRead Model更新の整合性
 
 ---
 
-## 📚 第4部:受注管理サービスのケーススタディ
+## 📚 第4部：受注管理サービスのケーススタディ
 
 第4部では、第3部で構築した在庫管理システムに受注管理機能を追加し、受注管理システムとして完成させます。
 
@@ -669,7 +668,7 @@ DynamoDB Streamsによるイベント順序保証とRead Model更新の整合性
 
 ---
 
-### [第1章:受注管理サービスの全体像](part4-01-overview.md)
+### [第1章：イントロダクション - 受注管理サービスの要件定義](part4-01-overview.md)
 
 第4部のケーススタディとして、受注管理サービスの全体像と要件を定義します。
 
@@ -683,6 +682,204 @@ DynamoDB Streamsによるイベント順序保証とRead Model更新の整合性
 - アーキテクチャ上の決定事項(Orchestration型Saga、BigDecimal + Money値オブジェクト、4つの集約)
 
 **キーワード**: Business Requirements, Order Reception Management, Quotation, Credit Management, Saga Pattern, Money Value Object
+
+---
+
+### [第2章：Read Modelスキーマの設計](part4-02-read-model-schema.md)
+
+受注管理システムのRead Model（PostgreSQL）スキーマを設計します。
+
+**主な内容**:
+- 見積もりテーブル設計（見積もりヘッダー、明細）
+- 注文テーブル設計（注文ヘッダー、明細、ステータス管理）
+- 与信テーブル設計（与信限度額、使用額、利用可能額）
+- 請求テーブル設計（請求ヘッダー、入金管理）
+- 入金テーブル設計（入金記録、入金方法）
+- インデックス戦略とパフォーマンス最適化
+- DynamoDBのイベントストア設計（Quotation、Order、CreditLimit、Invoice Events）
+
+**キーワード**: Read Model Schema, PostgreSQL, Flyway, Event Store Design, Indexing Strategy
+
+---
+
+### [第3章：受注管理に適したドメインデータ作成](part4-03-domain-data.md)
+
+D社の受注業務に基づいたマスタデータとテストデータを作成します。
+
+**主な内容**:
+- 商品マスタの拡張（商品単価、税区分の追加）
+- 取引先マスタの拡張（与信限度額、支払条件の追加）
+- 取引先タイプ別データ（大口30社、中口150社、小口250社）
+- 注文データシナリオ（月間50,000件のパターン）
+- 季節変動の考慮（年末繁忙期、夏季閑散期）
+- テストデータ投入スクリプト
+
+**キーワード**: Master Data, Test Data, Business Scenarios, Customer Types, Transaction Patterns
+
+---
+
+### [第4章：受注管理のドメインモデル設計](part4-04-domain-model.md)
+
+受注管理の4つの集約（Quotation、Order、CreditLimit、Invoice）のドメインモデルを設計します。
+
+**主な内容**:
+- Order集約（Order エンティティ、OrderItem 値オブジェクト、OrderStatus）
+- Quotation集約（見積もりから注文への変換）
+- CreditLimit集約（与信限度額管理、与信枠の引当と解放）
+- Invoice集約（請求書発行、入金管理）
+- Money値オブジェクト（BigDecimalによる正確な金額計算）
+- TaxRate、DiscountRate値オブジェクト
+- ドメインイベントの設計
+
+**キーワード**: Domain Model, Aggregate Design, Value Objects, Money Pattern, Domain Events
+
+---
+
+### [第5章：複数集約の実装](part4-05-aggregate-implementation.md)
+
+4つの集約（Order、CreditLimit、Invoice、Quotation）を実装します。
+
+**主な内容**:
+- Order集約の実装（コマンド、イベント、ビジネスルール）
+- 注文金額の計算（数量 × 単価 - 割引 + 税金）
+- CreditLimit集約の実装（与信枠の引当、解放、調整）
+- Invoice集約の実装（月次締め処理、入金記録、入金照合）
+- Quotation集約の実装（見積もり作成、承認、注文変換）
+- イベントハンドラーとステータス遷移制御
+
+**キーワード**: Aggregate Implementation, Command Handlers, Event Handlers, Business Rules, State Transition
+
+---
+
+### [第6章：Sagaパターンによる注文プロセスの実装](part4-06-saga-implementation.md)
+
+Orchestration型Sagaパターンで注文プロセス全体を実装します。
+
+**主な内容**:
+- Sagaパターンの基礎（Choreography vs Orchestration）
+- 注文Sagaの設計（注文作成 → 在庫引当 → 与信チェック → 確定 → 出荷）
+- 正常フローの実装
+- 失敗時の補償フロー（在庫解放、与信枠解放、注文キャンセル）
+- Saga Orchestratorの実装（Pekko Persistence）
+- タイムアウト処理とリトライ戦略
+- べき等性の保証
+
+**キーワード**: Saga Pattern, Orchestration, Compensating Transaction, Distributed Transaction, Idempotency
+
+---
+
+### [第7章：金額計算と税金処理](part4-07-money-tax.md)
+
+BigDecimalを使用した正確な金額計算と税金処理を実装します。
+
+**主な内容**:
+- 浮動小数点演算の問題（0.1 + 0.2 != 0.3）
+- BigDecimalによる正確な10進数演算
+- Money値オブジェクトの実装（加算、減算、乗算、丸め処理）
+- 税率の管理（標準税率10%、軽減税率8%）
+- 税金計算と端数処理
+- 割引計算（率による割引、金額による割引）
+- 金額計算の単体テスト
+
+**キーワード**: BigDecimal, Money Value Object, Tax Calculation, Rounding, Discount Calculation
+
+---
+
+### [第8章：与信管理の実装](part4-08-credit-management.md)
+
+取引先ごとの与信限度額管理と与信チェックプロセスを実装します。
+
+**主な内容**:
+- 与信限度額の設定（取引先タイプ別：大口3,000万円、中口500万円、小口100万円）
+- 与信チェックプロセス（利用可能額の確認）
+- 与信枠の引当と解放（注文時の引当、キャンセル時の解放）
+- 与信超過時の処理
+- 取引実績に基づく与信限度額の自動調整
+- 与信使用状況のモニタリング
+
+**キーワード**: Credit Management, Credit Limit, Credit Check, Credit Reservation, Credit Monitoring
+
+---
+
+### [第9章：請求管理の実装](part4-09-invoice-management.md)
+
+月次締め処理、請求書発行、入金管理を実装します。
+
+**主な内容**:
+- 月次締め処理（確定済み注文の集計）
+- 請求書の自動生成（取引先別、月別）
+- 請求金額の計算（注文合計、税金合計）
+- 入金処理（入金記録、入金方法管理）
+- 入金照合（請求金額と入金額の突合）
+- 未入金アラート（入金期限超過の検知）
+- 入金催促機能
+
+**キーワード**: Invoice Management, Monthly Closing, Payment Recording, Payment Matching, Payment Reminder
+
+---
+
+### [第10章：返品処理の実装](part4-10-return-process.md)
+
+返品受付から在庫への戻し入れ、返品金額処理までを実装します。
+
+**主な内容**:
+- 返品コマンド（注文ID、返品理由、返品明細）
+- 返品可能期間の検証
+- 在庫への戻し入れ（返品在庫の検証、在庫増加イベント発行）
+- 返品金額の計算（元の単価で計算、割引・税金の逆計算）
+- 返品後の与信枠解放
+- 返品後の請求金額調整
+- 返品理由の分析
+
+**キーワード**: Return Process, Return Validation, Inventory Return, Refund Calculation, Credit Release
+
+---
+
+### [第11章：パフォーマンス最適化](part4-11-performance-optimization.md)
+
+注文照会、与信チェック、Sagaの最適化を実施します。
+
+**主な内容**:
+- 注文照会のキャッシング（注文ステータスのキャッシュ、TTL設定）
+- 与信チェックの高速化（与信情報のキャッシュ、イベント受信時の無効化）
+- Sagaの最適化（ステップの並列化、タイムアウトの調整）
+- データベースインデックスの最適化
+- GraphQLクエリの最適化（DataLoaderパターン、N+1問題の解決）
+- パフォーマンステスト（Gatling）
+
+**キーワード**: Performance Optimization, Caching, Database Indexing, Query Optimization, Load Testing
+
+---
+
+### [第12章：運用とモニタリング](part4-12-operations-monitoring.md)
+
+ビジネスメトリクス、Saga監視、与信管理の監視を実装します。
+
+**主な内容**:
+- ビジネスメトリクス（注文処理レート、平均注文金額、与信使用率、請求・入金状況）
+- Sagaの監視（Sagaステータスダッシュボード、完了率、失敗率、補償処理発生率）
+- 与信管理の監視（与信使用率、与信超過検知、与信限度額調整履歴）
+- アラート設定（Saga失敗、与信超過、未入金超過）
+- ダッシュボードの構築
+- ログ分析
+
+**キーワード**: Operations, Monitoring, Business Metrics, Saga Monitoring, Alerting, Dashboard
+
+---
+
+### [第13章：まとめと実践演習](part4-13-summary-exercises.md)
+
+第4部で学んだ内容をまとめ、実践的な演習課題を提供します。
+
+**主な内容**:
+- 学んだこと（Sagaパターン、Money値オブジェクト、与信管理、請求管理）
+- アーキテクチャ上の決定事項の振り返り
+- 実践演習1：割引クーポン機能の追加
+- 実践演習2：複数配送先への分割配送
+- 実践演習3：定期注文機能の実装
+- 次のステップ（第5部：発注管理サービスへ）
+
+**キーワード**: Summary, Best Practices, Exercises, Next Steps, Advanced Topics
 
 ---
 
@@ -705,6 +902,200 @@ DynamoDB Streamsによるイベント順序保証とRead Model更新の整合性
 - 自動発注推奨機能（在庫レベルに基づく発注提案）
 - 発注承認Saga（金額に応じた多段階承認）
 - 入荷検品Saga（入荷→検品→在庫計上→支払）
+
+---
+
+### [第1章：イントロダクション - 発注管理サービスの全体像](part5-01-introduction.md)
+
+第5部のケーススタディとして、発注管理サービスの全体像と要件を定義します。
+
+**主な内容**:
+- 第3部・第4部の振り返り（在庫管理・受注管理）
+- D社の調達業務概要（月間3,000件、200社の仕入先、年間100億円）
+- 発注プロセスフロー（発注申請→承認→発注→入荷→検品→在庫計上→請求照合→支払）
+- 承認ワークフロー（金額に応じた多段階承認）
+- 3-way matching（発注書・入荷検品書・請求書の照合）
+- 技術的課題（在庫との連携、Saga実装、支払管理）
+
+**キーワード**: Procurement Management, Purchase Order, Approval Workflow, 3-way Matching, Supplier Management
+
+---
+
+### [第2章：Read Modelスキーマの設計](part5-02-read-model-schema.md)
+
+発注管理システムのRead Model（PostgreSQL）スキーマを設計します。
+
+**主な内容**:
+- 仕入先テーブル設計（仕入先基本情報、評価指標）
+- 発注書テーブル設計（ヘッダー、明細、承認履歴）
+- 入荷検品テーブル設計（入荷予定、検品結果、差異管理）
+- 請求書テーブル設計（請求ヘッダー、請求明細）
+- 支払テーブル設計（支払予定、支払実績）
+- 3-way matching結果テーブル（照合結果、差異詳細）
+- インデックス戦略とパフォーマンス最適化
+
+**キーワード**: Read Model Schema, PostgreSQL, Flyway, Database Design, Indexing Strategy
+
+---
+
+### [第3章：発注管理に適したドメインデータ作成](part5-03-domain-data.md)
+
+D社の調達業務に基づいたマスタデータとテストデータを作成します。
+
+**主な内容**:
+- 仕入先マスタ（200社、業種別分類、取引条件）
+- 発注データサンプル（月間3,000件、金額分布）
+- 入荷検品データ（合格率、不合格品、差異パターン）
+- 請求書データ（支払条件、締め日パターン）
+- Flywayによるマスタデータ投入
+- シードデータSQL
+
+**キーワード**: Master Data, Supplier Data, Purchase Order Data, Test Data, Flyway Migration
+
+---
+
+### [第4章：ドメインモデルの設計](part5-04-domain-model.md)
+
+DDDに基づき、発注管理システムのドメインモデルを設計します。
+
+**主な内容**:
+- Bounded Contextの識別（仕入先管理、発注管理、入荷管理、支払管理）
+- 集約の設計（Supplier、PurchaseOrder、Receiving、SupplierPayment）
+- ドメインイベント設計（発注承認、入荷完了、支払承認）
+- コンテキストマップと在庫管理との統合
+- 値オブジェクト（SupplierId、OrderNumber、InvoiceNumber）
+
+**キーワード**: DDD, Bounded Context, Aggregate Design, Domain Event, Context Map
+
+---
+
+### [第5章：複数集約の実装](part5-05-aggregate-implementation.md)
+
+Pekko Persistenceを使用して、発注管理の複数集約を実装します。
+
+**主な内容**:
+- PurchaseOrderActor実装（発注申請→承認→発注）
+- 承認ワークフロー（金額別承認者、多段階承認）
+- ReceivingActor実装（入荷予定→検品→在庫反映）
+- 検品処理（合格品・不合格品の分離）
+- SupplierPaymentActor実装（請求受領→照合→支払）
+- イベント駆動在庫連携（入荷完了→在庫増加）
+
+**キーワード**: Pekko Persistence, EventSourcedBehavior, Purchase Order Aggregate, Receiving Aggregate, Payment Aggregate
+
+---
+
+### [第6章：Sagaパターンによる発注プロセスの実装](part5-06-saga-pattern.md)
+
+Sagaパターンで発注プロセス全体を管理します。
+
+**主な内容**:
+- PurchaseOrderApprovalSaga（承認→発注→仕入先通知）
+- 補償トランザクション（承認取り消し、発注キャンセル）
+- ReceivingInspectionSaga（入荷→検品→在庫更新）
+- PaymentSaga（請求→照合→支払実行）
+- リトライとエスカレーション（支払失敗時の再試行）
+- Sagaステート管理とイベント駆動遷移
+
+**キーワード**: Saga Pattern, Orchestration, Compensating Transaction, Purchase Order Saga, Payment Saga
+
+---
+
+### [第7章：在庫管理との連携](part5-07-inventory-integration.md)
+
+在庫管理Bounded Contextとの統合を実装します。
+
+**主な内容**:
+- イベント駆動在庫連携（入荷完了→在庫増加イベント）
+- Pekko Persistence Queryによるイベント購読
+- 冪等性の保証（重複イベント検出）
+- 発注残管理（発注数量 - 入荷数量）
+- 発注点管理と自動発注（EOQ計算、安全在庫）
+- 需要予測（移動平均、線形回帰、季節変動）
+- クロスコンテキスト整合性チェック
+
+**キーワード**: Bounded Context Integration, Event-Driven, Pekko Persistence Query, Idempotency, Reorder Point, Demand Forecasting
+
+---
+
+### [第8章：パフォーマンス最適化](part5-08-performance-optimization.md)
+
+発注管理システムのパフォーマンス最適化を実装します。
+
+**主な内容**:
+- Redisキャッシング（承認ルールキャッシュ、仕入先情報）
+- Pekko Streamsバッチ処理（月次3-way matchingバッチ）
+- ストリーム処理（スロットリング、バックプレッシャー）
+- データベースインデックス最適化
+- パフォーマンスメトリクス（処理時間、スループット）
+
+**キーワード**: Performance Optimization, Redis Caching, Pekko Streams, Batch Processing, Throttling, Backpressure
+
+---
+
+### [第9章：運用とモニタリング](part5-09-operations-monitoring.md)
+
+発注管理システムの運用監視基盤を構築します。
+
+**主な内容**:
+- ビジネスメトリクス（月間発注件数、目標達成率）
+- 承認プロセスメトリクス（承認待ち件数、承認時間）
+- 入荷検品メトリクス（検品完了率、不合格率）
+- 支払メトリクス（支払金額、3-way matching成功率）
+- Saga監視（長時間実行Saga検出、失敗率）
+- アラート管理（遅延検知、エスカレーション）
+- 仕入先評価レポート（納期遵守率、品質スコア）
+
+**キーワード**: Monitoring, Business Metrics, Prometheus, Grafana, Saga Monitoring, Supplier Evaluation
+
+---
+
+### [第10章：高度なトピック](part5-10-advanced-topics.md)
+
+発注管理の発展的な機能を実装します。
+
+**主な内容**:
+- 高度な需要予測（指数平滑法、Holt-Winters法、ARIMA）
+- アンサンブル予測（複数手法の統合）
+- 仕入先選定アルゴリズム（多基準評価、スコアリング）
+- 分散発注戦略（リスク分散、集中度管理）
+- 複数通貨対応（MultiCurrencyMoney、為替レート管理）
+- 為替ヘッジ戦略（先渡契約、通貨オプション）
+- 国際調達（輸入税計算、CIF価額、関税）
+
+**キーワード**: Demand Forecasting, Exponential Smoothing, Holt-Winters, Supplier Selection, Multi-Currency, Forex Hedging, International Tax
+
+---
+
+### [第11章：まとめと実践演習](part5-11-summary-exercises.md)
+
+第5部で学んだ内容を振り返り、実践演習を通じて理解を深めます。
+
+**主な内容**:
+- **学んだことの振り返り**:
+  - 発注管理の実装（承認ワークフロー、入荷検収、3-way matching）
+  - 在庫との連携（イベント駆動、発注点管理、自動発注）
+  - Sagaパターン（承認Saga、検収Saga、支払Saga）
+  - パフォーマンス最適化（Redis、Pekko Streams、インデックス）
+  - 運用監視（ビジネスメトリクス、Saga監視、仕入先評価）
+  - 高度なトピック（需要予測、仕入先選定、複数通貨）
+- **実践演習**（4つの課題）:
+  - 演習1: 発注承認ワークフローの拡張（複数承認者、承認履歴、動的ルート）
+  - 演習2: 在庫最適化機能（発注点自動調整、安全在庫、ABC分析）
+  - 演習3: 仕入先評価システム（納期遵守率、品質スコア、総合評価ダッシュボード）
+  - 演習4: グローバル調達機能（複数通貨、為替ヘッジ、国際輸送トラッキング）
+- **次のステップ**:
+  - より複雑なビジネスルール（ロット管理、有効期限、返品処理）
+  - 他Bounded Contextとの統合（生産計画、品質管理、会計管理）
+  - サプライチェーン最適化（可視化、ボトルネック分析、リードタイム短縮）
+
+**演習で学べること**:
+- 複数承認者フローの実装
+- ABC分析と発注戦略
+- 仕入先パフォーマンス評価
+- 国際調達と通関処理
+
+**キーワード**: Summary, Practical Exercises, Approval Workflow, ABC Analysis, Supplier Evaluation, Global Procurement, Next Steps
 
 ---
 
@@ -731,28 +1122,207 @@ DynamoDB Streamsによるイベント順序保証とRead Model更新の整合性
 
 ---
 
-## 📚 第7部：共用データ管理サービスのケーススタディ
+### [第1章：イントロダクション - 会計サービスの要件定義](part6-01-introduction.md)
 
-第7部では、複数のBounded Contextで共有されるマスターデータを一元管理し、イベント駆動で各コンテキストに同期します。
+第6部のケーススタディとして、会計サービスの全体像と要件を定義します。
 
-**ケーススタディの規模**:
-- 商品マスター: 5,000種類（SKU）
-- 顧客マスター: 430社
-- 仕入先マスター: 200社
-- 倉庫マスター: 5拠点
-- 従業員マスター: 1,000名
-- 勘定科目マスター: 500科目
-- 月間マスター変更: 約1,500件
+**主な内容**:
+- D社の事業概要（年商150億円、月間66,000件の仕訳）
+- 会計処理フロー（イベント受信→仕訳生成→総勘定元帳→試算表→財務諸表）
+- イベント駆動会計の利点（自動仕訳生成、監査証跡、リアルタイム集計）
+- 8つのステップ（受注→仕訳→元帳→試算表→決算整理→財務諸表→分析→決算）
+- パフォーマンス要件（仕訳生成100ms、試算表5秒、財務諸表10秒）
 
-**扱うトピック**:
-- マスターデータのイベントソーシング（Product、Customer、Supplier、AccountSubject集約）
-- マスターデータ変更の承認ワークフロー（価格変更、与信限度額変更など）
-- イベント駆動マスターデータ同期（Materialized Viewによる参照最適化）
-- データバージョニングと有効期間管理（validFrom/validToによる時限管理）
-- データ品質管理（バリデーション、重複チェック、データクレンジング）
-- GraphQL APIによる柔軟なマスターデータ照会
-- マスターデータのキャッシング戦略（Redis、Caffeine）
-- 過去時点のマスターデータ復元（イベントリプレイ）
+**キーワード**: Accounting Service, Event-Driven Accounting, Journal Entry, General Ledger, Financial Statements
+
+---
+
+### [第2章：Read Modelスキーマの設計](part6-02-read-model-schema.md)
+
+会計システムのRead Model（PostgreSQL）とイベントストア（DynamoDB）のスキーマを設計します。
+
+**主な内容**:
+- 勘定科目マスタ（500科目の階層構造）
+- 仕訳テーブル（月間66,000件の仕訳データ）
+- 総勘定元帳テーブル（年度別パーティショニング）
+- 補助元帳テーブル（売掛金・買掛金の明細管理）
+- 試算表・財務諸表テーブル（集計結果のキャッシュ）
+- DynamoDBイベントテーブル（会計イベントの永続化）
+- インデックス戦略とクエリ最適化
+
+**キーワード**: Read Model Schema, Chart of Accounts, Journal Entry, General Ledger, Trial Balance, Financial Statements
+
+---
+
+### [第3章：会計に適したドメインデータ作成](part6-03-domain-data.md)
+
+D社の会計データに基づいたマスタデータとテストデータを作成します。
+
+**主な内容**:
+- 勘定科目体系（資産150、負債80、純資産20、収益100、費用150）
+- 期首残高データ（FY2024開始時の貸借対照表）
+- イベント駆動仕訳生成（受注→売上仕訳、発注→仕入仕訳）
+- 月次仕訳サンプル（約5,500件/月）
+- Flywayマイグレーションとシードデータ
+
+**キーワード**: Chart of Accounts, Opening Balance, Event-Driven Journal Entry, Seed Data
+
+---
+
+### [第4章：ドメインモデルの設計](part6-04-domain-model.md)
+
+DDDに基づき、会計システムのドメインモデルを設計します。
+
+**主な内容**:
+- 5つの主要集約（JournalEntry、GeneralLedger、FinancialStatement、AccountsReceivable、AccountsPayable）
+- ドメインイベント設計（仕訳計上、元帳転記、決算整理）
+- 値オブジェクト（AccountCode、DebitCredit、Money、FiscalPeriod）
+- ビジネスルール（借方＝貸方、勘定科目検証、承認ワークフロー）
+- コンテキストマップ（在庫・受注・発注との統合）
+
+**キーワード**: DDD, Aggregate Design, Journal Entry, General Ledger, Value Object, Business Rules
+
+---
+
+### [第5章：複数集約の実装](part6-05-aggregate-implementation.md)
+
+Pekko Persistenceを使用して、会計システムの複数集約を実装します。
+
+**主な内容**:
+- JournalEntryActorの実装（仕訳計上、承認、取消）
+- 仕訳バリデーション（借方＝貸方、勘定科目存在確認）
+- 承認ワークフロー（100万円以上は承認必須）
+- GeneralLedgerActorの実装（元帳転記、残高計算）
+- イベントハンドラとステート管理
+- ユニットテスト（ScalaTest + Pekko TestKit）
+
+**キーワード**: Pekko Persistence, EventSourcedBehavior, Journal Entry Aggregate, General Ledger, Approval Workflow
+
+---
+
+### [第6章：イベント駆動会計処理](part6-06-event-driven-accounting.md)
+
+ビジネスイベントから仕訳を自動生成するイベント駆動会計を実装します。
+
+**主な内容**:
+- ビジネスイベント購読（OrderConfirmed、PurchaseOrderReceived、PaymentCompleted）
+- 仕訳自動生成ルール（売上仕訳、仕入仕訳、入金仕訳、支払仕訳）
+- 冪等性の保証（イベントIDによる重複検出）
+- 監査証跡（全仕訳とイベントの紐付け）
+- 統合テスト（E2Eフロー検証）
+
+**キーワード**: Event-Driven Accounting, Automatic Journal Entry, Idempotency, Audit Trail, Integration Test
+
+---
+
+### [第7章：決算処理の実装](part6-07-closing-process.md)
+
+月次決算と年次決算のプロセスをSagaパターンで実装します。
+
+**主な内容**:
+- MonthlyClosingSagaの実装（7ステップの月次決算）
+- AnnualClosingSagaの実装（12ステップの年次決算）
+- 減価償却計算（定額法、定率法）
+- 決算整理仕訳（売上原価算定、減価償却、引当金）
+- 期末棚卸と評価（先入先出法、移動平均法）
+- 繰越処理（次年度への残高繰越）
+
+**キーワード**: Closing Process, Monthly Closing Saga, Annual Closing Saga, Depreciation, Adjusting Entry
+
+---
+
+### [第8章：財務分析機能](part6-08-financial-analysis.md)
+
+財務諸表から経営指標を算出し、財務分析を実装します。
+
+**主な内容**:
+- 収益性指標（売上高総利益率、営業利益率、ROA、ROE）
+- 安全性指標（流動比率、当座比率、自己資本比率）
+- 効率性指標（総資産回転率、売上債権回転率、棚卸資産回転率）
+- 予実管理（予算登録、実績比較、差異分析、着地予想）
+- 予測サービス（移動平均、線形回帰による売上予測）
+- GraphQL APIによる分析データ公開
+
+**キーワード**: Financial Analysis, Profitability Indicators, Safety Indicators, Efficiency Indicators, Budget vs Actual, Forecasting
+
+---
+
+### [第9章：パフォーマンス最適化](part6-09-performance-optimization.md)
+
+会計システムのパフォーマンス最適化を実装します。
+
+**主な内容**:
+- Pekko Streamsによる仕訳生成バッチ（日次2,200件を10倍高速化）
+- Materialized Viewによる試算表高速化（60倍高速化）
+- PostgreSQLパーティショニング（年度別テーブル分割で5倍高速化）
+- Redisキャッシング（勘定科目マスタ、残高情報）
+- インデックス最適化（勘定科目、会計期間、仕訳番号）
+- パフォーマンスメトリクス（Prometheus + Grafana）
+
+**キーワード**: Performance Optimization, Pekko Streams, Materialized View, Partitioning, Redis Caching
+
+---
+
+### [第10章：運用とモニタリング](part6-10-operations-monitoring.md)
+
+会計システムの運用監視基盤を構築します。
+
+**主な内容**:
+- ビジネスメトリクス（月間仕訳件数、承認率、エラー率）
+- 決算処理時間（月次決算30分以内、試算表5秒以内）
+- 債権債務状況（売掛金・買掛金残高、エージング分析）
+- 監査証跡（全イベント履歴、仕訳とトランザクションの紐付け）
+- 内部統制（職務分掌、アクセス制御、決算後修正制限）
+- アラート管理（仕訳エラー、承認遅延、決算処理遅延）
+
+**キーワード**: Monitoring, Business Metrics, Audit Trail, Internal Control, Alerting
+
+---
+
+### [第11章：高度なトピック](part6-11-advanced-topics.md)
+
+会計システムの発展的な機能を実装します。
+
+**主な内容**:
+- 複数通貨会計（外貨建取引、TTM/TTS/TTB為替レート、期末評価替え）
+- 連結会計（子会社財務諸表合算、内部取引相殺消去、非支配株主持分）
+- 管理会計（部門別損益、プロジェクト別損益、部門間配賦）
+- セグメント別財務諸表（事業部別P/L、地域別売上分析）
+- キャッシュフロー計算書（間接法による作成）
+- 税効果会計（繰延税金資産・負債の計算）
+
+**キーワード**: Multi-Currency Accounting, Consolidated Accounting, Management Accounting, Segment Reporting, Cash Flow Statement
+
+---
+
+### [第12章：まとめと実践演習](part6-12-summary-exercises.md)
+
+第6部で学んだ内容を振り返り、実践演習を通じて理解を深めます。
+
+**主な内容**:
+- **学んだことの振り返り**:
+  - イベント駆動会計（ビジネスイベントから仕訳自動生成）
+  - 財務諸表作成（損益計算書、貸借対照表、キャッシュフロー計算書）
+  - 決算処理（月次決算、年次決算、減価償却、棚卸資産評価）
+  - 債権債務管理（売掛金・買掛金のエージング分析、延滞管理）
+  - パフォーマンス最適化（10-250倍の高速化達成）
+- **実践演習**（4つの課題）:
+  - 演習1: 消費税申告データ作成（課税売上集計、仮受消費税・仮払消費税計算）
+  - 演習2: キャッシュフロー計算書作成（間接法による営業・投資・財務CF）
+  - 演習3: 経営ダッシュボード実装（GraphQL API、リアルタイム経営指標）
+  - 演習4: 予実管理機能強化（詳細な差異分析、予測アルゴリズム改善）
+- **次のステップ**:
+  - より高度な会計処理（リース会計、税効果会計、退職給付会計）
+  - 他Bounded Contextとの統合（人事給与、固定資産管理、予算管理）
+  - BI・データ分析（OLAP、経営ダッシュボード、予測分析）
+
+**演習で学べること**:
+- 税務申告データの作成
+- キャッシュフロー分析
+- 経営ダッシュボードの実装
+- 予実管理と予測
+
+**キーワード**: Summary, Practical Exercises, Consumption Tax Return, Cash Flow Statement, Management Dashboard, Budget Management
 
 ---
 
@@ -776,11 +1346,9 @@ DynamoDB Streamsによるイベント順序保証とRead Model更新の整合性
 
 6. **第6部で会計処理を学ぶ**: ビジネスイベントから仕訳を自動生成し、総勘定元帳、財務諸表、決算処理を実装します。
 
-7. **第7部でマスターデータ管理を学ぶ**: 複数のBounded Contextで共有されるマスターデータの一元管理とイベント駆動同期を実装します。
+7. **自分なりの拡張を試す**: 演習課題を超えて、独自の機能（ロット管理、賞味期限管理、他のBounded Contextとの統合など）を追加してみましょう。
 
-8. **自分なりの拡張を試す**: 演習課題を超えて、独自の機能（ロット管理、賞味期限管理、他のBounded Contextとの統合など）を追加してみましょう。
-
-9. **コミュニティに参加する**: Scala Users Group JapanやPekko Discordで質問したり、知見を共有したりしましょう。
+8. **コミュニティに参加する**: Scala Users Group JapanやPekko Discordで質問したり、知見を共有したりしましょう。
 
 ### 学習の流れ
 
@@ -797,8 +1365,6 @@ DynamoDB Streamsによるイベント順序保証とRead Model更新の整合性
   ↓ 調達プロセスと3-way matching完了
 第6部：会計サービスのケーススタディ (12章)
   ↓ イベント駆動会計と財務諸表作成完了
-第7部：共用データ管理サービスのケーススタディ (12章)
-  ↓ マスターデータ管理とイベント駆動同期完了
 本番環境へのデプロイ
 ```
 
@@ -871,7 +1437,46 @@ docs/articles/
 ├── part3-13-summary.md                   # 第3部 第13章
 │
 ├── 【第4部：受注管理サービスのケーススタディ】
-└── part4-01-overview.md                  # 第4部 第1章
+├── part4-01-overview.md                  # 第4部 第1章
+├── part4-02-read-model-schema.md         # 第4部 第2章
+├── part4-03-domain-data.md               # 第4部 第3章
+├── part4-04-domain-model.md              # 第4部 第4章
+├── part4-05-aggregate-implementation.md  # 第4部 第5章
+├── part4-06-saga-implementation.md       # 第4部 第6章
+├── part4-07-money-tax.md                 # 第4部 第7章
+├── part4-08-credit-management.md         # 第4部 第8章
+├── part4-09-invoice-management.md        # 第4部 第9章
+├── part4-10-return-process.md            # 第4部 第10章
+├── part4-11-performance-optimization.md  # 第4部 第11章
+├── part4-12-operations-monitoring.md     # 第4部 第12章
+└── part4-13-summary-exercises.md         # 第4部 第13章
+│
+├── 【第5部：発注管理サービスのケーススタディ】
+├── part5-01-introduction.md              # 第5部 第1章
+├── part5-02-read-model-schema.md         # 第5部 第2章
+├── part5-03-domain-data.md               # 第5部 第3章
+├── part5-04-domain-model.md              # 第5部 第4章
+├── part5-05-aggregate-implementation.md  # 第5部 第5章
+├── part5-06-saga-pattern.md              # 第5部 第6章
+├── part5-07-inventory-integration.md     # 第5部 第7章
+├── part5-08-performance-optimization.md  # 第5部 第8章
+├── part5-09-operations-monitoring.md     # 第5部 第9章
+├── part5-10-advanced-topics.md           # 第5部 第10章
+├── part5-11-summary-exercises.md         # 第5部 第11章
+│
+├── 【第6部：会計サービスのケーススタディ】
+├── part6-01-introduction.md              # 第6部 第1章
+├── part6-02-read-model-schema.md         # 第6部 第2章
+├── part6-03-domain-data.md               # 第6部 第3章
+├── part6-04-domain-model.md              # 第6部 第4章
+├── part6-05-aggregate-implementation.md  # 第6部 第5章
+├── part6-06-event-driven-accounting.md   # 第6部 第6章
+├── part6-07-closing-process.md           # 第6部 第7章
+├── part6-08-financial-analysis.md        # 第6部 第8章
+├── part6-09-performance-optimization.md  # 第6部 第9章
+├── part6-10-operations-monitoring.md     # 第6部 第10章
+├── part6-11-advanced-topics.md           # 第6部 第11章
+└── part6-12-summary-exercises.md         # 第6部 第12章
 ```
 
 ### 公式ドキュメント
@@ -901,4 +1506,4 @@ docs/articles/
 
 **Happy Event Sourcing! 🎉**
 
-最終更新: 2025-11-28
+最終更新: 2025-12-03
