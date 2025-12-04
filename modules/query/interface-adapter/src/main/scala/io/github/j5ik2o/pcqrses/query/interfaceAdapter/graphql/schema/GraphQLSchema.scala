@@ -1,6 +1,6 @@
 package io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.schema
 
-import io.github.j5ik2o.pcqrses.query.interfaceAdapter.dao.UserAccountsComponent
+import io.github.j5ik2o.pcqrses.query.interfaceAdapter.dao.*
 import io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.ResolverContext
 import io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.resolvers.QueryResolver
 import sangria.schema.Schema
@@ -13,7 +13,14 @@ import slick.jdbc.JdbcProfile
  */
 class GraphQLSchema(override val profile: JdbcProfile)
   extends UserAccountsComponent
+  with ProductsComponent
+  with InventoriesComponent
+  with CustomersComponent
+  with WarehousesComponent
+  with WarehouseZonesComponent
+  with InventoryTransactionsComponent
   with TypeDefinitions
+  with InventoryTypeDefinitions
   with QueryResolver {
 
   /**
