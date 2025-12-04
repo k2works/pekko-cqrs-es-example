@@ -6,10 +6,10 @@ import scala.sys.process.Process
 val dbType = "postgresql"
 val basename = "pcqrses"
 val scala3Version = "3.6.2"
-val dbName = s"${basename}_db"
-val dbUserName = "postgres"
-val dbPassword = "postgres"
-val generatorPortNumber = 55432 // DAO生成専用ポート
+val dbName = sys.env.getOrElse("DATABASE_NAME", "p-cqrs-es_development")
+val dbUserName = sys.env.getOrElse("DATABASE_USER", "postgres")
+val dbPassword = sys.env.getOrElse("DATABASE_PASSWORD", "postgres")
+val generatorPortNumber = sys.env.getOrElse("DATABASE_PORT", "50504").toInt
 lazy val generatorDatabaseUrl =
   s"jdbc:$dbType://localhost:$generatorPortNumber/$dbName?user=$dbUserName&password=$dbPassword"
 
