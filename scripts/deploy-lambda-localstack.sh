@@ -121,21 +121,8 @@ else
     FUNCTION_EXISTS="false"
 fi
 
-# 環境変数をファイルに書き出し
-ENV_JSON_FILE="/tmp/lambda-env.json"
-cat > $ENV_JSON_FILE << 'EOF'
-{
-  "Variables": {
-    "DATABASE_URL": "jdbc:postgresql://postgres:5432/p-cqrs-es_development",
-    "DATABASE_USER": "postgres",
-    "DATABASE_PASSWORD": "postgres",
-    "AWS_DEFAULT_REGION": "ap-northeast-1",
-    "DYNAMODB_ENDPOINT_URI": "http://localstack:4566",
-    "KINESIS_ENDPOINT_URI": "http://localstack:4566",
-    "CLOUDWATCH_ENDPOINT_URI": "http://localstack:4566"
-  }
-}
-EOF
+# 環境変数を直接JSON文字列として定義（Windowsとの互換性のためファイルを使わない）
+ENV_JSON='{"Variables":{"DATABASE_URL":"jdbc:postgresql://postgres:5432/p-cqrs-es_development","DATABASE_USER":"postgres","DATABASE_PASSWORD":"postgres","AWS_DEFAULT_REGION":"ap-northeast-1","DYNAMODB_ENDPOINT_URI":"http://localstack:4566","KINESIS_ENDPOINT_URI":"http://localstack:4566","CLOUDWATCH_ENDPOINT_URI":"http://localstack:4566"}}'
 
 if [ "$FUNCTION_EXISTS" = "true" ]; then
     if [ "$FORCE_RECREATE" = "true" ]; then
@@ -155,7 +142,7 @@ if [ "$FUNCTION_EXISTS" = "true" ]; then
             --timeout 300 \
             --memory-size 512 \
             --architectures $LAMBDA_ARCH \
-            --environment file://$ENV_JSON_FILE
+            --environment "$ENV_JSON"
         # Active化を待機
         wait_for_lambda_active "$FUNCTION_NAME"
     else
@@ -168,7 +155,7 @@ if [ "$FUNCTION_EXISTS" = "true" ]; then
             --handler io.github.j5ik2o.pcqrses.readModelUpdater.LambdaHandler \
             --timeout 300 \
             --memory-size 512 \
-            --environment file://$ENV_JSON_FILE
+            --environment "$ENV_JSON"
 
         # 設定の更新を待つ
         sleep 2
@@ -197,9 +184,6 @@ else
     # Active化を待機
     wait_for_lambda_active "$FUNCTION_NAME"
 fi
-
-# 一時ファイルを削除
-rm $ENV_JSON_FILE
 
 # DynamoDB ストリームのイベントソースマッピングを作成
 echo "🔗 DynamoDB ストリームのイベントソースマッピングを作成中..."

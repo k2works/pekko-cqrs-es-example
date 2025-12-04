@@ -98,7 +98,7 @@ services:
     networks:
       p-cqrs-es-network:
         aliases:
-          - p-cqrs-es_postgres
+          - pcqrses_postgres
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s

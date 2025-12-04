@@ -114,6 +114,7 @@ sbt dockerBuildAll
 
 #### 3. インフラストラクチャの起動
 
+**Linux/macOS (bash):**
 ```bash
 # LocalStack、PostgreSQL、DynamoDBを起動し、初期設定を実行
 ./scripts/run-single.sh up
@@ -124,6 +125,15 @@ sbt dockerBuildAll
 # - PostgreSQLマイグレーション実行
 # - Lambda関数のデプロイ
 # - Command API、Query APIの起動
+```
+
+**Windows (PowerShell):**
+```powershell
+# LocalStack、PostgreSQL、DynamoDBを起動し、初期設定を実行
+.\scripts\run-single.ps1 up
+
+# または、クラスターモードで起動
+.\scripts\run-cluster.ps1 up
 ```
 
 起動完了後、以下のサービスが利用可能になります：
@@ -137,31 +147,50 @@ sbt dockerBuildAll
 
 #### 4. E2Eテストの実行
 
+**Linux/macOS (bash):**
 ```bash
 # 完全なCQRS/ESフローをテスト
 ./scripts/test-e2e.sh
+```
 
-# 出力例:
-# === Health Check ===
-# ✓ Command API is healthy
-# ✓ Query API is healthy
-# === Step 1: Create UserAccount via GraphQL Mutation ===
-# ✓ UserAccount created successfully!
-# === Step 2: Wait for Event Processing ===
-# ✓ Event processing time elapsed
-# === Step 3: Query UserAccount via GraphQL ===
-# ✓ UserAccount found via GraphQL!
-# ✓ End-to-End test completed successfully!
+**Windows (PowerShell):**
+```powershell
+# 完全なCQRS/ESフローをテスト
+.\scripts\test-e2e.ps1
+```
+
+**出力例:**
+```
+=== Health Check ===
+✓ Command API is healthy
+✓ Query API is healthy
+=== Step 1: Create UserAccount via GraphQL Mutation ===
+✓ UserAccount created successfully!
+=== Step 2: Wait for Event Processing ===
+✓ Event processing time elapsed
+=== Step 3: Query UserAccount via GraphQL ===
+✓ UserAccount found via GraphQL!
+✓ End-to-End test completed successfully!
 ```
 
 ### 環境の停止とクリーンアップ
 
+**Linux/macOS (bash):**
 ```bash
 # アプリケーションとインフラを停止
 ./scripts/run-single.sh down
 
 # 全てのデータを削除（ボリューム含む）
 ./scripts/run-single.sh down --volumes
+```
+
+**Windows (PowerShell):**
+```powershell
+# アプリケーションとインフラを停止
+.\scripts\run-single.ps1 down
+
+# 全てのデータを削除（ボリューム含む）
+.\scripts\run-single.ps1 down -Volumes
 ```
 
 ## 使い方
@@ -378,9 +407,12 @@ pekko-cqrs-es-example/
 │       └── src/main/scala/
 │           └── serialization/    # カスタムシリアライザ
 ├── scripts/
-│   ├── run-single.sh             # シングルノードモード起動スクリプト
-│   ├── test-e2e.sh               # E2Eテストスクリプト
-│   └── test-graphql.sh           # GraphQLテストスクリプト
+│   ├── run-single.sh / .ps1      # シングルノードモード起動スクリプト
+│   ├── run-cluster.sh / .ps1     # クラスターモード起動スクリプト
+│   ├── deploy-lambda-localstack.sh / .ps1  # Lambda関数デプロイ
+│   ├── cleanup-lambda-localstack.sh / .ps1 # Lambda関数クリーンアップ
+│   ├── test-e2e.sh / .ps1        # E2Eテストスクリプト
+│   └── test-graphql.sh / .ps1    # GraphQLテストスクリプト
 ├── tools/
 │   └── dynamodb-setup/           # DynamoDBテーブル定義とセットアップ
 │       ├── Makefile
@@ -478,9 +510,16 @@ sbt testCoverage
 
 ### E2Eテスト
 
+**Linux/macOS (bash):**
 ```bash
 # 完全なCQRS/ESフローをテスト
 ./scripts/test-e2e.sh
+```
+
+**Windows (PowerShell):**
+```powershell
+# 完全なCQRS/ESフローをテスト
+.\scripts\test-e2e.ps1
 ```
 
 E2Eテストスクリプトは以下を自動実行します：
@@ -493,6 +532,7 @@ E2Eテストスクリプトは以下を自動実行します：
 
 環境変数でテストの動作をカスタマイズできます：
 
+**Linux/macOS (bash):**
 ```bash
 # リトライ回数とタイムアウトのカスタマイズ
 E2E_MAX_RETRIES=15 \
@@ -506,11 +546,32 @@ QUERY_API_HOST=192.168.1.100 \
 ./scripts/test-e2e.sh
 ```
 
+**Windows (PowerShell):**
+```powershell
+# リトライ回数とタイムアウトのカスタマイズ
+$env:E2E_MAX_RETRIES=15
+$env:E2E_RETRY_DELAY=5
+$env:E2E_WAIT_AFTER_CREATE=10
+.\scripts\test-e2e.ps1
+
+# 別ホストでテスト
+$env:COMMAND_API_HOST="192.168.1.100"
+$env:QUERY_API_HOST="192.168.1.100"
+.\scripts\test-e2e.ps1
+```
+
 ### GraphQLテスト
 
+**Linux/macOS (bash):**
 ```bash
 # GraphQL APIの基本動作テスト
 ./scripts/test-graphql.sh
+```
+
+**Windows (PowerShell):**
+```powershell
+# GraphQL APIの基本動作テスト
+.\scripts\test-graphql.ps1
 ```
 
 ## トラブルシューティング
@@ -600,6 +661,7 @@ docker ps                                # 全コンテナの状態
 
 ### "ポートが既に使用されています" エラー
 
+**Linux/macOS (bash):**
 ```bash
 # ポートを使用しているプロセスを確認
 lsof -i :50501  # Command API
@@ -613,6 +675,22 @@ kill -9 <PID>
 # または全て停止してクリーンスタート
 ./scripts/run-single.sh down
 ./scripts/run-single.sh up
+```
+
+**Windows (PowerShell):**
+```powershell
+# ポートを使用しているプロセスを確認
+netstat -ano | findstr :50501  # Command API
+netstat -ano | findstr :50502  # Query API
+netstat -ano | findstr :4566   # LocalStack
+netstat -ano | findstr :5432   # PostgreSQL
+
+# プロセスを終了 (PIDを指定)
+Stop-Process -Id <PID> -Force
+
+# または全て停止してクリーンスタート
+.\scripts\run-single.ps1 down
+.\scripts\run-single.ps1 up
 ```
 
 ## アーキテクチャの詳細
