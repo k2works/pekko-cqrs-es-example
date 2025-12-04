@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package io.github.j5ik2o.pcqrses.command.interfaceAdapter.persistence.inventory;
+
+import "google/protobuf/timestamp.proto";
+
+message WarehouseEvent_Envelope {
+  string warehouse_id = 1;
+  string event_type_name = 3;
+  string event_type_version = 4;
+  bytes payload = 5;
+  google.protobuf.Timestamp occurred_at = 99;
+}
+
+message WarehouseEvent_Created_V1 {
+  string event_id = 1;
+  string warehouse_id = 2;
+  string warehouse_code = 3;
+  string name = 4;
+  string location = 5;
+  google.protobuf.Timestamp occurred_at = 6;
+}
+
+message WarehouseEvent_Updated_V1 {
+  string event_id = 1;
+  string warehouse_id = 2;
+  string old_name = 3;
+  string new_name = 4;
+  string old_location = 5;
+  string new_location = 6;
+  google.protobuf.Timestamp occurred_at = 7;
+}
+
+message WarehouseEvent_Deactivated_V1 {
+  string event_id = 1;
+  string warehouse_id = 2;
+  google.protobuf.Timestamp occurred_at = 3;
+}
+
+message WarehouseEvent_Reactivated_V1 {
+  string event_id = 1;
+  string warehouse_id = 2;
+  google.protobuf.Timestamp occurred_at = 3;
+}

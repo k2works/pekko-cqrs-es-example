@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package io.github.j5ik2o.pcqrses.command.interfaceAdapter.persistence.inventory;
+
+import "google/protobuf/timestamp.proto";
+
+message CustomerEvent_Envelope {
+  string customer_id = 1;
+  string event_type_name = 3;
+  string event_type_version = 4;
+  bytes payload = 5;
+  google.protobuf.Timestamp occurred_at = 99;
+}
+
+message CustomerEvent_Created_V1 {
+  string event_id = 1;
+  string customer_id = 2;
+  string customer_code = 3;
+  string name = 4;
+  string customer_type = 5; // LARGE, MEDIUM, SMALL
+  google.protobuf.Timestamp occurred_at = 6;
+}
+
+message CustomerEvent_Updated_V1 {
+  string event_id = 1;
+  string customer_id = 2;
+  string old_name = 3;
+  string new_name = 4;
+  string old_customer_type = 5;
+  string new_customer_type = 6;
+  google.protobuf.Timestamp occurred_at = 7;
+}
+
+message CustomerEvent_Deactivated_V1 {
+  string event_id = 1;
+  string customer_id = 2;
+  google.protobuf.Timestamp occurred_at = 3;
+}
+
+message CustomerEvent_Reactivated_V1 {
+  string event_id = 1;
+  string customer_id = 2;
+  google.protobuf.Timestamp occurred_at = 3;
+}

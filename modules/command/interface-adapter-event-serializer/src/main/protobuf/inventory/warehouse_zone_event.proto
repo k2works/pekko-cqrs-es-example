@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package io.github.j5ik2o.pcqrses.command.interfaceAdapter.persistence.inventory;
+
+import "google/protobuf/timestamp.proto";
+
+message WarehouseZoneEvent_Envelope {
+  string warehouse_zone_id = 1;
+  string event_type_name = 3;
+  string event_type_version = 4;
+  bytes payload = 5;
+  google.protobuf.Timestamp occurred_at = 99;
+}
+
+message WarehouseZoneEvent_Created_V1 {
+  string event_id = 1;
+  string warehouse_zone_id = 2;
+  string warehouse_id = 3;
+  string zone_code = 4;
+  string name = 5;
+  string zone_type = 6; // RT, RF, FZ
+  string capacity = 7; // BigDecimal as string (square meters)
+  google.protobuf.Timestamp occurred_at = 8;
+}
+
+message WarehouseZoneEvent_Updated_V1 {
+  string event_id = 1;
+  string warehouse_zone_id = 2;
+  string old_name = 3;
+  string new_name = 4;
+  string old_capacity = 5;
+  string new_capacity = 6;
+  google.protobuf.Timestamp occurred_at = 7;
+}
+
+message WarehouseZoneEvent_Deactivated_V1 {
+  string event_id = 1;
+  string warehouse_zone_id = 2;
+  google.protobuf.Timestamp occurred_at = 3;
+}
+
+message WarehouseZoneEvent_Reactivated_V1 {
+  string event_id = 1;
+  string warehouse_zone_id = 2;
+  google.protobuf.Timestamp occurred_at = 3;
+}
