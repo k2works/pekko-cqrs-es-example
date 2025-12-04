@@ -10,6 +10,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait ProductName {
   def value: String
+  def asString: String = value
 }
 
 object ProductName {
@@ -28,6 +29,8 @@ object ProductName {
   }
 
   def unapply(self: ProductName): Option[String] = Some(self.value)
+
+  def from(value: String): ProductName = apply(value)
 
   /** 文字列から商品名をパース
     *

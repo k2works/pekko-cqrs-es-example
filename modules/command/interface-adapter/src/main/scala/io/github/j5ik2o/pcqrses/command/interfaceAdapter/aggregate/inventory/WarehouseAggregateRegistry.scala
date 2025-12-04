@@ -1,7 +1,6 @@
 package io.github.j5ik2o.pcqrses.command.interfaceAdapter.aggregate.inventory
 
 import io.github.j5ik2o.pcqrses.command.domain.inventory.WarehouseId
-import io.github.j5ik2o.pcqrses.command.interfaceAdapter.aggregate.WarehouseAggregate
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.contract.inventory.WarehouseProtocol
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.registry.GenericAggregateRegistry
 import org.apache.pekko.actor.typed.{ActorSystem, Behavior}

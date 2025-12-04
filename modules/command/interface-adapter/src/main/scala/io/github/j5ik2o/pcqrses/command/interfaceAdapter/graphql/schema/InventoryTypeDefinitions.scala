@@ -64,7 +64,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[CreateProductInput](
         "CreateProductInput",
         List(
           InputField("productCode", StringType),
@@ -87,7 +87,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[UpdateProductInput](
         "UpdateProductInput",
         List(
           InputField("id", StringType),
@@ -110,7 +110,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[ObsoleteProductInput](
         "ObsoleteProductInput",
         List(InputField("id", StringType))
       )
@@ -169,7 +169,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[CreateInventoryInput](
         "CreateInventoryInput",
         List(
           InputField("productId", StringType),
@@ -190,7 +190,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[ReceiveInventoryInput](
         "ReceiveInventoryInput",
         List(
           InputField("id", StringType),
@@ -212,7 +212,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[ReserveInventoryInput](
         "ReserveInventoryInput",
         List(
           InputField("id", StringType),
@@ -234,7 +234,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[ReleaseInventoryInput](
         "ReleaseInventoryInput",
         List(
           InputField("id", StringType),
@@ -256,7 +256,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[IssueInventoryInput](
         "IssueInventoryInput",
         List(
           InputField("id", StringType),
@@ -278,7 +278,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[AdjustInventoryInput](
         "AdjustInventoryInput",
         List(
           InputField("id", StringType),
@@ -296,18 +296,14 @@ trait InventoryTypeDefinitions extends ScalarTypes {
   case class CreateCustomerInput(
       customerCode: String,
       name: String,
-      email: String,
-      phone: String,
-      address: String
+      customerType: String // "L", "M", "S"
   )
 
   case class UpdateCustomerResult(id: String)
   case class UpdateCustomerInput(
       id: String,
       name: String,
-      email: String,
-      phone: String,
-      address: String
+      customerType: String // "L", "M", "S"
   )
 
   case class DeactivateCustomerResult(id: String)
@@ -359,14 +355,12 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[CreateCustomerInput](
         "CreateCustomerInput",
         List(
           InputField("customerCode", StringType),
           InputField("name", StringType),
-          InputField("email", StringType),
-          InputField("phone", StringType),
-          InputField("address", StringType)
+          InputField("customerType", StringType)
         )
       )
     )
@@ -383,14 +377,12 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[UpdateCustomerInput](
         "UpdateCustomerInput",
         List(
           InputField("id", StringType),
           InputField("name", StringType),
-          InputField("email", StringType),
-          InputField("phone", StringType),
-          InputField("address", StringType)
+          InputField("customerType", StringType)
         )
       )
     )
@@ -407,7 +399,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[DeactivateCustomerInput](
         "DeactivateCustomerInput",
         List(InputField("id", StringType))
       )
@@ -425,7 +417,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[ReactivateCustomerInput](
         "ReactivateCustomerInput",
         List(InputField("id", StringType))
       )
@@ -438,14 +430,14 @@ trait InventoryTypeDefinitions extends ScalarTypes {
   case class CreateWarehouseInput(
       warehouseCode: String,
       name: String,
-      address: String
+      location: String
   )
 
   case class UpdateWarehouseResult(id: String)
   case class UpdateWarehouseInput(
       id: String,
       name: String,
-      address: String
+      location: String
   )
 
   case class DeactivateWarehouseResult(id: String)
@@ -497,12 +489,12 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[CreateWarehouseInput](
         "CreateWarehouseInput",
         List(
           InputField("warehouseCode", StringType),
           InputField("name", StringType),
-          InputField("address", StringType)
+          InputField("location", StringType)
         )
       )
     )
@@ -519,12 +511,12 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[UpdateWarehouseInput](
         "UpdateWarehouseInput",
         List(
           InputField("id", StringType),
           InputField("name", StringType),
-          InputField("address", StringType)
+          InputField("location", StringType)
         )
       )
     )
@@ -541,7 +533,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[DeactivateWarehouseInput](
         "DeactivateWarehouseInput",
         List(InputField("id", StringType))
       )
@@ -559,7 +551,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[ReactivateWarehouseInput](
         "ReactivateWarehouseInput",
         List(InputField("id", StringType))
       )
@@ -573,14 +565,15 @@ trait InventoryTypeDefinitions extends ScalarTypes {
       warehouseId: String,
       zoneCode: String,
       name: String,
-      storageCondition: String // "RT", "RF", "FZ"
+      storageCondition: String, // "RT", "RF", "FZ"
+      capacity: Double // 容量（平米）
   )
 
   case class UpdateWarehouseZoneResult(id: String)
   case class UpdateWarehouseZoneInput(
       id: String,
       name: String,
-      storageCondition: String
+      capacity: Double // 容量（平米）
   )
 
   case class DeactivateWarehouseZoneResult(id: String)
@@ -632,13 +625,14 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[CreateWarehouseZoneInput](
         "CreateWarehouseZoneInput",
         List(
           InputField("warehouseId", StringType),
           InputField("zoneCode", StringType),
           InputField("name", StringType),
-          InputField("storageCondition", StringType)
+          InputField("storageCondition", StringType),
+          InputField("capacity", FloatType)
         )
       )
     )
@@ -655,12 +649,12 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[UpdateWarehouseZoneInput](
         "UpdateWarehouseZoneInput",
         List(
           InputField("id", StringType),
           InputField("name", StringType),
-          InputField("storageCondition", StringType)
+          InputField("capacity", FloatType)
         )
       )
     )
@@ -677,7 +671,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[DeactivateWarehouseZoneInput](
         "DeactivateWarehouseZoneInput",
         List(InputField("id", StringType))
       )
@@ -695,7 +689,7 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
     Argument(
       "input",
-      InputObjectType(
+      InputObjectType[ReactivateWarehouseZoneInput](
         "ReactivateWarehouseZoneInput",
         List(InputField("id", StringType))
       )

@@ -20,6 +20,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait CategoryCode {
   def value: String
+  def asString: String = value
 }
 
 object CategoryCode {
@@ -38,6 +39,8 @@ object CategoryCode {
   }
 
   def unapply(self: CategoryCode): Option[String] = Some(self.value)
+
+  def from(value: String): CategoryCode = apply(value)
 
   /** 文字列からカテゴリコードをパース
     *

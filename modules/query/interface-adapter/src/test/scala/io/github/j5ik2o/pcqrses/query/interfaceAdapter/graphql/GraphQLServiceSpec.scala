@@ -1,14 +1,14 @@
 package io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql
 
 import org.scalatest.matchers.should.Matchers
-import org.scalatest.wordspec.AsyncWordSpec
+import org.scalatest.freespec.AsyncFreeSpec
 
 import scala.concurrent.ExecutionContext
 
-class GraphQLServiceSpec extends AsyncWordSpec with Matchers {
+class GraphQLServiceSpec extends AsyncFreeSpec with Matchers {
   implicit val ec: ExecutionContext = ExecutionContext.global
 
-  "GraphQLService" should {
+  "GraphQLService" - {
     "handle syntax errors gracefully" in {
       // GraphQLServiceの詳細なテストは、実際のデータベース接続が必要なため、
       // 統合テストで実施することを推奨

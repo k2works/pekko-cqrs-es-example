@@ -295,7 +295,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           component.ProductsDao.insertOrUpdate(record)
 
-        case ProductEvent.Updated_V1(_, entityId, _, newName, newCategoryCode, newStorageCondition, occurredAt) =>
+        case ProductEvent.Updated_V1(_, entityId, _, newName, _, newCategoryCode, _, newStorageCondition, occurredAt) =>
           component.ProductsDao
             .filter(_.id === entityId.asString)
             .map(r => (r.name, r.categoryCode, r.storageCondition, r.updatedAt))
@@ -344,7 +344,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           component.CustomersDao.insertOrUpdate(record)
 
-        case CustomerEvent.Updated_V1(_, entityId, _, newName, newCustomerType, occurredAt) =>
+        case CustomerEvent.Updated_V1(_, entityId, _, newName, _, newCustomerType, occurredAt) =>
           component.CustomersDao
             .filter(_.id === entityId.asString)
             .map(r => (r.name, r.customerType, r.updatedAt))
@@ -394,7 +394,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           component.WarehousesDao.insertOrUpdate(record)
 
-        case WarehouseEvent.Updated_V1(_, entityId, _, newName, newLocation, occurredAt) =>
+        case WarehouseEvent.Updated_V1(_, entityId, _, newName, _, newLocation, occurredAt) =>
           component.WarehousesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.name, r.location, r.updatedAt))
@@ -439,18 +439,18 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
             zoneCode = zoneCode.value,
             name = name.value,
             zoneType = zoneType.toString, // RT, RF, FZ
-            capacitySqm = capacity.asBigDecimal,
+            capacitySqm = capacity.squareMeters,
             isActive = true,
             createdAt = Timestamp.from(occurredAt.asInstant()),
             updatedAt = Timestamp.from(occurredAt.asInstant())
           )
           component.WarehouseZonesDao.insertOrUpdate(record)
 
-        case WarehouseZoneEvent.Updated_V1(_, entityId, _, newName, newCapacity, occurredAt) =>
+        case WarehouseZoneEvent.Updated_V1(_, entityId, _, newName, _, newCapacity, occurredAt) =>
           component.WarehouseZonesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.name, r.capacitySqm, r.updatedAt))
-            .update((newName.value, newCapacity.asBigDecimal, Timestamp.from(occurredAt.asInstant())))
+            .update((newName.value, newCapacity.squareMeters, Timestamp.from(occurredAt.asInstant())))
 
         case WarehouseZoneEvent.Deactivated_V1(_, entityId, occurredAt) =>
           component.WarehouseZonesDao
@@ -486,22 +486,10 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       }
       import databaseConfig.profile.api.*
       import wvlet.airframe.ulid.ULID
+      import scala.concurrent.ExecutionContext.Implicits.global
 
       val actions = event match {
-        case InventoryEvent.Created_V1(eventId, entityId, productId, warehouseZoneId, occurredAt) =>
-          val inventoryRecord = inventoryComponent.InventoriesRecord(
-            id = entityId.asString,
-            productId = productId.asString,
-            warehouseZoneId = warehouseZoneId.asString,
-            availableQuantity = BigDecimal(0),
-            reservedQuantity = BigDecimal(0),
-            version = 1,
-            createdAt = Timestamp.from(occurredAt.asInstant()),
-            updatedAt = Timestamp.from(occurredAt.asInstant())
-          )
-          DBIO.seq(inventoryComponent.InventoriesDao.insertOrUpdate(inventoryRecord))
-
-        case InventoryEvent.Received_V1(eventId, entityId, _, quantity, newVersion, occurredAt) =>
+        case InventoryEvent.Received_V1(eventId, entityId, productId, warehouseZoneId, quantity, newVersion, occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.availableQuantity, r.version, r.updatedAt))
@@ -509,12 +497,24 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
             .headOption
             .flatMap {
               case Some((currentQty, _, _)) =>
+                // 既存在庫の更新
                 inventoryComponent.InventoriesDao
                   .filter(_.id === entityId.asString)
                   .map(r => (r.availableQuantity, r.version, r.updatedAt))
                   .update((currentQty + quantity.amount, newVersion.value, Timestamp.from(occurredAt.asInstant())))
               case None =>
-                DBIO.successful(0)
+                // 初回受信時は在庫レコードを作成
+                val inventoryRecord = inventoryComponent.InventoriesRecord(
+                  id = entityId.asString,
+                  productId = productId.asString,
+                  warehouseZoneId = warehouseZoneId.asString,
+                  availableQuantity = quantity.amount,
+                  reservedQuantity = BigDecimal(0),
+                  version = newVersion.value,
+                  createdAt = Timestamp.from(occurredAt.asInstant()),
+                  updatedAt = Timestamp.from(occurredAt.asInstant())
+                )
+                inventoryComponent.InventoriesDao.insertOrUpdate(inventoryRecord)
             }
           val txRecord = transactionComponent.InventoryTransactionsRecord(
             id = ULID.newULID.toString,
@@ -529,7 +529,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           DBIO.seq(updateAction, transactionComponent.InventoryTransactionsDao.+=(txRecord))
 
-        case InventoryEvent.Reserved_V1(eventId, entityId, _, quantity, newVersion, occurredAt) =>
+        case InventoryEvent.Reserved_V1(eventId, entityId, productId, warehouseZoneId, quantity, newVersion, occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.availableQuantity, r.reservedQuantity, r.version, r.updatedAt))
@@ -557,7 +557,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           DBIO.seq(updateAction, transactionComponent.InventoryTransactionsDao.+=(txRecord))
 
-        case InventoryEvent.Released_V1(eventId, entityId, _, quantity, newVersion, occurredAt) =>
+        case InventoryEvent.Released_V1(eventId, entityId, productId, warehouseZoneId, quantity, newVersion, occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.availableQuantity, r.reservedQuantity, r.version, r.updatedAt))
@@ -585,7 +585,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           DBIO.seq(updateAction, transactionComponent.InventoryTransactionsDao.+=(txRecord))
 
-        case InventoryEvent.Issued_V1(eventId, entityId, _, quantity, newVersion, occurredAt) =>
+        case InventoryEvent.Issued_V1(eventId, entityId, productId, warehouseZoneId, quantity, newVersion, occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.reservedQuantity, r.version, r.updatedAt))
@@ -613,7 +613,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           DBIO.seq(updateAction, transactionComponent.InventoryTransactionsDao.+=(txRecord))
 
-        case InventoryEvent.Adjusted_V1(eventId, entityId, _, newQuantity, reason, newVersion, occurredAt) =>
+        case InventoryEvent.Adjusted_V1(eventId, entityId, _, _, _, newQuantity, reason, newVersion, occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.availableQuantity, r.version, r.updatedAt))

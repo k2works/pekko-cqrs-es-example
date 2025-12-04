@@ -2,7 +2,7 @@ package io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.schema
 
 import io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.ResolverContext
 import org.scalatest.matchers.should.Matchers
-import org.scalatest.wordspec.AsyncWordSpec
+import org.scalatest.freespec.AsyncFreeSpec
 import sangria.execution.Executor
 import sangria.marshalling.circe.*
 import io.circe.Json
@@ -11,10 +11,10 @@ import slick.jdbc.PostgresProfile
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class GraphQLSchemaSpec extends AsyncWordSpec with Matchers {
+class GraphQLSchemaSpec extends AsyncFreeSpec with Matchers {
   implicit val ec: ExecutionContext = ExecutionContext.global
 
-  "GraphQLSchema" should {
+  "GraphQLSchema" - {
     "create a valid schema with Query type" in {
       val schema = GraphQLSchema(PostgresProfile)
 

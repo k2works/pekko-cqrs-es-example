@@ -1,15 +1,15 @@
 package io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql
 
 import org.scalatest.matchers.should.Matchers
-import org.scalatest.wordspec.AsyncWordSpec
+import org.scalatest.freespec.AsyncFreeSpec
 import slick.dbio.DBIO
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class ResolverContextSpec extends AsyncWordSpec with Matchers {
+class ResolverContextSpec extends AsyncFreeSpec with Matchers {
   implicit val ec: ExecutionContext = ExecutionContext.global
 
-  "ResolverContext" should {
+  "ResolverContext" - {
     "execute DBIO actions through runDbAction" in {
       val expectedValue = 42
       val mockDbRunner: DBIO[?] => Future[?] = _ => Future.successful(expectedValue)

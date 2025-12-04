@@ -10,6 +10,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait CustomerName {
   def value: String
+  def asString: String = value
 }
 
 object CustomerName {
@@ -28,6 +29,14 @@ object CustomerName {
   }
 
   def unapply(self: CustomerName): Option[String] = Some(self.value)
+
+  /** 文字列から取引先名を生成
+    *
+    * @param value 取引先名文字列
+    * @return CustomerName
+    * @throws IllegalArgumentException 無効な取引先名の場合
+    */
+  def from(value: String): CustomerName = apply(value)
 
   /** 文字列から取引先名をパース
     *

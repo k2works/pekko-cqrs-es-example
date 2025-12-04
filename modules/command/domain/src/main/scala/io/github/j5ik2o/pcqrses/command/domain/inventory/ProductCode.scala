@@ -11,6 +11,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait ProductCode {
   def value: String
+  def asString: String = value
 }
 
 object ProductCode {
@@ -29,6 +30,8 @@ object ProductCode {
   }
 
   def unapply(self: ProductCode): Option[String] = Some(self.value)
+
+  def from(value: String): ProductCode = apply(value)
 
   /** 文字列から商品コードをパース
     *

@@ -43,6 +43,11 @@ object InventoryId {
 
   def unapply(self: InventoryId): Option[String] = Some(self.asString)
 
+  def from(value: String): InventoryId = parseFromString(value) match {
+    case Right(v) => v
+    case Left(e)  => throw new IllegalArgumentException(e.message)
+  }
+
   private final case class InventoryIdImpl(ulid: ULID) extends InventoryId {
     override def entityTypeName: String = EntityTypeName
     override def asString: String       = ulid.toString

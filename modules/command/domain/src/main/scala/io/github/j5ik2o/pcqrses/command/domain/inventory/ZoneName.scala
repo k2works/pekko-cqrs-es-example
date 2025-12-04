@@ -10,6 +10,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait ZoneName {
   def value: String
+  def asString: String = value
 }
 
 object ZoneName {
@@ -28,6 +29,14 @@ object ZoneName {
   }
 
   def unapply(self: ZoneName): Option[String] = Some(self.value)
+
+  /** 文字列から区画名を生成
+    *
+    * @param value 区画名文字列
+    * @return ZoneName
+    * @throws IllegalArgumentException 無効な区画名の場合
+    */
+  def from(value: String): ZoneName = apply(value)
 
   /** 文字列から区画名をパース
     *

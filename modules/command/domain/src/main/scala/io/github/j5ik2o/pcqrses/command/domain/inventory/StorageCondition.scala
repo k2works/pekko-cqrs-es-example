@@ -39,6 +39,13 @@ enum StorageCondition {
 
 object StorageCondition {
 
+  /** 文字列から保管条件を取得
+    *
+    * @param value 保管条件コード（"RT", "RF", "FZ"）
+    * @return 保管条件
+    */
+  def fromString(value: String): Option[StorageCondition] = fromCode(value).toOption
+
   /** 保管条件コードから保管条件を取得
     *
     * @param code 保管条件コード（"RT", "RF", "FZ"）

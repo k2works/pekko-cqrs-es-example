@@ -17,6 +17,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait CustomerCode {
   def value: String
+  def asString: String = value
 }
 
 object CustomerCode {
@@ -35,6 +36,14 @@ object CustomerCode {
   }
 
   def unapply(self: CustomerCode): Option[String] = Some(self.value)
+
+  /** 文字列から取引先コードを生成
+    *
+    * @param value 取引先コード文字列
+    * @return CustomerCode
+    * @throws IllegalArgumentException 無効な取引先コードの場合
+    */
+  def from(value: String): CustomerCode = apply(value)
 
   /** 文字列から取引先コードをパース
     *

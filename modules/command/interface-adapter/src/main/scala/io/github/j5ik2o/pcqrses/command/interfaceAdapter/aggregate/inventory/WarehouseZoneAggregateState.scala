@@ -25,7 +25,7 @@ enum WarehouseZoneAggregateState {
 
     case (
           Active(zone),
-          WarehouseZoneEvent.Updated_V1(_, entityId, _, _, newName, _, newCapacity, _)
+          WarehouseZoneEvent.Updated_V1(_, entityId, _, newName, _, newCapacity, _)
         ) if zone.id == entityId =>
       Active(zone.update(newName, newCapacity) match {
         case Right((updatedZone, _)) => updatedZone

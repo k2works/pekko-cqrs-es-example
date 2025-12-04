@@ -10,6 +10,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait WarehouseLocation {
   def value: String
+  def asString: String = value
 }
 
 object WarehouseLocation {
@@ -28,6 +29,8 @@ object WarehouseLocation {
   }
 
   def unapply(self: WarehouseLocation): Option[String] = Some(self.value)
+
+  def from(value: String): WarehouseLocation = apply(value)
 
   /** 文字列から所在地をパース
     *

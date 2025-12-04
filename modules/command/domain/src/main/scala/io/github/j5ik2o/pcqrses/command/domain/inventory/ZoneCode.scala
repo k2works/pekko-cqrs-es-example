@@ -17,6 +17,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait ZoneCode {
   def value: String
+  def asString: String = value
 }
 
 object ZoneCode {
@@ -35,6 +36,14 @@ object ZoneCode {
   }
 
   def unapply(self: ZoneCode): Option[String] = Some(self.value)
+
+  /** 文字列から区画コードを生成
+    *
+    * @param value 区画コード文字列
+    * @return ZoneCode
+    * @throws IllegalArgumentException 無効な区画コードの場合
+    */
+  def from(value: String): ZoneCode = apply(value)
 
   /** 文字列から区画コードをパース
     *

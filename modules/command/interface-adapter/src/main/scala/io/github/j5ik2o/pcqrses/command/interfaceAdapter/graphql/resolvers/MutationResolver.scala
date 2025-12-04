@@ -65,7 +65,7 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 ProductCode(input.productCode),
                 ProductName(input.name),
                 CategoryCode(input.categoryCode),
-                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RT)
+                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RoomTemperature)
               )
               .mapBoth(
                 error => CommandError(s"Failed to create product: ${error.toString}", Some("CREATE_PRODUCT_FAILED")),
@@ -87,7 +87,7 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 ProductId.from(input.id),
                 ProductName(input.name),
                 CategoryCode(input.categoryCode),
-                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RT)
+                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RoomTemperature)
               )
               .mapBoth(
                 error => CommandError(s"Failed to update product: ${error.toString}", Some("UPDATE_PRODUCT_FAILED")),
@@ -145,8 +145,8 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .receiveInventory(
                 InventoryId.from(input.id),
-                Quantity(input.quantity),
-                Version(input.expectedVersion)
+                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.quantity)).getOrElse(InventoryQuantity.Zero),
+                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
                 error => CommandError(s"Failed to receive inventory: ${error.toString}", Some("RECEIVE_INVENTORY_FAILED")),
@@ -166,8 +166,8 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .reserveInventory(
                 InventoryId.from(input.id),
-                Quantity(input.quantity),
-                Version(input.expectedVersion)
+                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.quantity)).getOrElse(InventoryQuantity.Zero),
+                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
                 error => CommandError(s"Failed to reserve inventory: ${error.toString}", Some("RESERVE_INVENTORY_FAILED")),
@@ -187,8 +187,8 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .releaseInventory(
                 InventoryId.from(input.id),
-                Quantity(input.quantity),
-                Version(input.expectedVersion)
+                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.quantity)).getOrElse(InventoryQuantity.Zero),
+                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
                 error => CommandError(s"Failed to release inventory: ${error.toString}", Some("RELEASE_INVENTORY_FAILED")),
@@ -208,8 +208,8 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .issueInventory(
                 InventoryId.from(input.id),
-                Quantity(input.quantity),
-                Version(input.expectedVersion)
+                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.quantity)).getOrElse(InventoryQuantity.Zero),
+                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
                 error => CommandError(s"Failed to issue inventory: ${error.toString}", Some("ISSUE_INVENTORY_FAILED")),
@@ -229,9 +229,9 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .adjustInventory(
                 InventoryId.from(input.id),
-                Quantity(input.newQuantity),
-                AdjustmentReason(input.reason),
-                Version(input.expectedVersion)
+                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.newQuantity)).getOrElse(InventoryQuantity.Zero),
+                input.reason,
+                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
                 error => CommandError(s"Failed to adjust inventory: ${error.toString}", Some("ADJUST_INVENTORY_FAILED")),
@@ -249,18 +249,21 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
         resolve = ctx => {
           val input = ctx.arg(CreateCustomerInputArg)
           ctx.ctx.runZioTask(
-            ctx.ctx.customerUseCase
-              .createCustomer(
-                CustomerCode(input.customerCode),
-                CustomerName(input.name),
-                EmailAddress(input.email),
-                PhoneNumber(input.phone),
-                Address(input.address)
-              )
-              .mapBoth(
-                error => CommandError(s"Failed to create customer: ${error.toString}", Some("CREATE_CUSTOMER_FAILED")),
-                customerId => CreateCustomerResult(id = customerId.asString)
-              )
+            CustomerType.fromCode(input.customerType) match {
+              case Left(error) =>
+                zio.ZIO.fail(CommandError(error, Some("INVALID_CUSTOMER_TYPE")))
+              case Right(customerType) =>
+                ctx.ctx.customerUseCase
+                  .createCustomer(
+                    CustomerCode(input.customerCode),
+                    CustomerName(input.name),
+                    customerType
+                  )
+                  .mapBoth(
+                    error => CommandError(s"Failed to create customer: ${error.toString}", Some("CREATE_CUSTOMER_FAILED")),
+                    customerId => CreateCustomerResult(id = customerId.asString)
+                  )
+            }
           )
         }
       ),
@@ -272,18 +275,21 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
         resolve = ctx => {
           val input = ctx.arg(UpdateCustomerInputArg)
           ctx.ctx.runZioTask(
-            ctx.ctx.customerUseCase
-              .updateCustomer(
-                CustomerId.from(input.id),
-                CustomerName(input.name),
-                EmailAddress(input.email),
-                PhoneNumber(input.phone),
-                Address(input.address)
-              )
-              .mapBoth(
-                error => CommandError(s"Failed to update customer: ${error.toString}", Some("UPDATE_CUSTOMER_FAILED")),
-                _ => UpdateCustomerResult(id = input.id)
-              )
+            CustomerType.fromCode(input.customerType) match {
+              case Left(error) =>
+                zio.ZIO.fail(CommandError(error, Some("INVALID_CUSTOMER_TYPE")))
+              case Right(customerType) =>
+                ctx.ctx.customerUseCase
+                  .updateCustomer(
+                    CustomerId.from(input.id),
+                    CustomerName(input.name),
+                    customerType
+                  )
+                  .mapBoth(
+                    error => CommandError(s"Failed to update customer: ${error.toString}", Some("UPDATE_CUSTOMER_FAILED")),
+                    _ => UpdateCustomerResult(id = input.id)
+                  )
+            }
           )
         }
       ),
@@ -334,7 +340,7 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
               .createWarehouse(
                 WarehouseCode(input.warehouseCode),
                 WarehouseName(input.name),
-                Address(input.address)
+                WarehouseLocation(input.location)
               )
               .mapBoth(
                 error => CommandError(s"Failed to create warehouse: ${error.toString}", Some("CREATE_WAREHOUSE_FAILED")),
@@ -355,7 +361,7 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
               .updateWarehouse(
                 WarehouseId.from(input.id),
                 WarehouseName(input.name),
-                Address(input.address)
+                WarehouseLocation(input.location)
               )
               .mapBoth(
                 error => CommandError(s"Failed to update warehouse: ${error.toString}", Some("UPDATE_WAREHOUSE_FAILED")),
@@ -412,7 +418,8 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 WarehouseId.from(input.warehouseId),
                 ZoneCode(input.zoneCode),
                 ZoneName(input.name),
-                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RT)
+                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RoomTemperature),
+                ZoneCapacity(BigDecimal(input.capacity))
               )
               .mapBoth(
                 error => CommandError(s"Failed to create warehouse zone: ${error.toString}", Some("CREATE_WAREHOUSE_ZONE_FAILED")),
@@ -433,7 +440,7 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
               .updateWarehouseZone(
                 WarehouseZoneId.from(input.id),
                 ZoneName(input.name),
-                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RT)
+                ZoneCapacity(BigDecimal(input.capacity))
               )
               .mapBoth(
                 error => CommandError(s"Failed to update warehouse zone: ${error.toString}", Some("UPDATE_WAREHOUSE_ZONE_FAILED")),

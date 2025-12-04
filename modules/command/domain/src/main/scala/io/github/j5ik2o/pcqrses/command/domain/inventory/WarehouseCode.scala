@@ -16,6 +16,7 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
   */
 trait WarehouseCode {
   def value: String
+  def asString: String = value
 }
 
 object WarehouseCode {
@@ -34,6 +35,8 @@ object WarehouseCode {
   }
 
   def unapply(self: WarehouseCode): Option[String] = Some(self.value)
+
+  def from(value: String): WarehouseCode = apply(value)
 
   /** 文字列から倉庫コードをパース
     *
