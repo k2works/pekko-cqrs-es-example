@@ -17,6 +17,9 @@ ThisBuild / organization := "io.github.j5ik2o"
 ThisBuild / scalaVersion := scala3Version
 ThisBuild / version := "0.1.0"
 
+// Use auto-downloaded protoc via protoc-jar
+ThisBuild / PB.protocVersion := "3.25.1"
+
 ThisBuild / Test / fork := true
 ThisBuild / Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oD")
 ThisBuild / Test / javaOptions += s"-Djacoco-agent.destfile=target/scala-${scalaVersion.value}/jacoco/data/jacoco.exec"
@@ -141,7 +144,6 @@ lazy val commandInterfaceAdapterEventSerializer =
         thesametScalapb.grpcRuntime
       ),
       Compile / pekkoGrpcGeneratedSources := Seq(PekkoGrpc.Server),
-      PB.protocExecutable := file(sys.env.getOrElse("PROTOC_PATH", "/usr/bin/protoc")),
       // 自動生成コードの警告を抑制（pekko-grpcディレクトリ内のみ）
       Compile / scalacOptions ++= Seq(
         "-Wconf:src=.*/target/.*pekko-grpc/.*:silent"
@@ -175,7 +177,6 @@ lazy val commandInterfaceAdapter = (project in file("modules/command/interface-a
       sangria.sangriaCirce
     ),
     Compile / pekkoGrpcGeneratedSources := Seq(PekkoGrpc.Server),
-    PB.protocExecutable := file(sys.env.getOrElse("PROTOC_PATH", "/usr/bin/protoc")),
     // 自動生成コードの警告を抑制（pekko-grpcディレクトリ内のみ）
     Compile / scalacOptions ++= Seq(
       "-Wconf:src=.*/target/.*pekko-grpc/.*:silent"
