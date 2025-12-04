@@ -3,6 +3,13 @@ package io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.errors.GraphQLErrorHandler
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.schema.GraphQLSchema
 import io.github.j5ik2o.pcqrses.command.useCase.users.UserAccountUseCase
+import io.github.j5ik2o.pcqrses.command.useCase.inventory.{
+  ProductUseCase,
+  InventoryUseCase,
+  CustomerUseCase,
+  WarehouseUseCase,
+  WarehouseZoneUseCase
+}
 import sangria.execution.{ErrorWithResolver, Executor, QueryReducer}
 import sangria.marshalling.circe.*
 import sangria.parser.{QueryParser, SyntaxError}
@@ -19,7 +26,12 @@ import scala.util.{Failure, Success}
  * GraphQLミューテーションの解析、実行、エラーハンドリングを担当
  */
 class GraphQLService(
-  userAccountUseCase: UserAccountUseCase
+  userAccountUseCase: UserAccountUseCase,
+  productUseCase: ProductUseCase,
+  inventoryUseCase: InventoryUseCase,
+  customerUseCase: CustomerUseCase,
+  warehouseUseCase: WarehouseUseCase,
+  warehouseZoneUseCase: WarehouseZoneUseCase
 )(implicit ec: ExecutionContext, zioRuntime: Runtime[Any]) {
 
   private val graphQLSchema = GraphQLSchema()
@@ -47,7 +59,15 @@ class GraphQLService(
   ): Future[Json] =
     QueryParser.parse(query) match {
       case Success(queryAst) =>
-        val context = ResolverContext(userAccountUseCase, zioRuntime)
+        val context = ResolverContext(
+          userAccountUseCase,
+          productUseCase,
+          inventoryUseCase,
+          customerUseCase,
+          warehouseUseCase,
+          warehouseZoneUseCase,
+          zioRuntime
+        )
         val vars = variables.getOrElse(Json.obj())
 
         // introspectionクエリの場合は深さ制限を緩和
@@ -147,6 +167,16 @@ object GraphQLService {
    *
    * @param userAccountUseCase
    *   UserAccountUseCase
+   * @param productUseCase
+   *   ProductUseCase
+   * @param inventoryUseCase
+   *   InventoryUseCase
+   * @param customerUseCase
+   *   CustomerUseCase
+   * @param warehouseUseCase
+   *   WarehouseUseCase
+   * @param warehouseZoneUseCase
+   *   WarehouseZoneUseCase
    * @param ec
    *   ExecutionContext
    * @param zioRuntime
@@ -154,8 +184,22 @@ object GraphQLService {
    * @return
    *   GraphQLServiceインスタンス
    */
-  def apply(userAccountUseCase: UserAccountUseCase)(implicit
+  def apply(
+    userAccountUseCase: UserAccountUseCase,
+    productUseCase: ProductUseCase,
+    inventoryUseCase: InventoryUseCase,
+    customerUseCase: CustomerUseCase,
+    warehouseUseCase: WarehouseUseCase,
+    warehouseZoneUseCase: WarehouseZoneUseCase
+  )(implicit
     ec: ExecutionContext,
     zioRuntime: Runtime[Any]): GraphQLService =
-    new GraphQLService(userAccountUseCase)
+    new GraphQLService(
+      userAccountUseCase,
+      productUseCase,
+      inventoryUseCase,
+      customerUseCase,
+      warehouseUseCase,
+      warehouseZoneUseCase
+    )
 }

@@ -1,8 +1,22 @@
 package io.github.j5ik2o.pcqrses.commandApi
 
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.aggregate.users.UserAccountAggregateRegistry
+import io.github.j5ik2o.pcqrses.command.interfaceAdapter.aggregate.inventory.{
+  ProductAggregateRegistry,
+  InventoryAggregateRegistry,
+  CustomerAggregateRegistry,
+  WarehouseAggregateRegistry,
+  WarehouseZoneAggregateRegistry
+}
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.GraphQLService
 import io.github.j5ik2o.pcqrses.command.useCase.users.UserAccountUseCase
+import io.github.j5ik2o.pcqrses.command.useCase.inventory.{
+  ProductUseCase,
+  InventoryUseCase,
+  CustomerUseCase,
+  WarehouseUseCase,
+  WarehouseZoneUseCase
+}
 import io.github.j5ik2o.pcqrses.commandApi.config.{CommandApiConfig, LoadBalancerConfig, ServerConfig}
 import io.github.j5ik2o.pcqrses.commandApi.routes.GraphQLRoutes
 import org.apache.pekko.actor.CoordinatedShutdown
@@ -50,11 +64,23 @@ object MainActor {
         initializeCluster(context)
       }
 
-      // UserAccountUseCaseとGraphQLサービスの初期化
+      // UseCaseの初期化
       val userAccountUseCase = initializeUserAccountUseCase(commandApiConfig, context)
+      val productUseCase = initializeProductUseCase(commandApiConfig, context)
+      val inventoryUseCase = initializeInventoryUseCase(commandApiConfig, context)
+      val customerUseCase = initializeCustomerUseCase(commandApiConfig, context)
+      val warehouseUseCase = initializeWarehouseUseCase(commandApiConfig, context)
+      val warehouseZoneUseCase = initializeWarehouseZoneUseCase(commandApiConfig, context)
 
       // GraphQLサービスの初期化
-      val graphQLService = GraphQLService(userAccountUseCase)
+      val graphQLService = GraphQLService(
+        userAccountUseCase,
+        productUseCase,
+        inventoryUseCase,
+        customerUseCase,
+        warehouseUseCase,
+        warehouseZoneUseCase
+      )
       context.log.info("GraphQL service initialized")
 
       // ルートの定義
@@ -116,6 +142,86 @@ object MainActor {
 
     context.log.info("UserAccountAggregateRegistry initialized")
     UserAccountUseCase(aggregateRef)
+  }
+
+  private def initializeProductUseCase(commandApiConfig: CommandApiConfig, context: scaladsl.ActorContext[Command])(implicit
+                                                                                system: ActorSystem[?],
+                                                                                executionContext: ExecutionContextExecutor,
+                                                                                zioRuntime: Runtime[Any]
+  ): ProductUseCase = {
+    implicit val timeout: Timeout = Timeout(commandApiConfig.actorTimeout)
+    implicit val scheduler: Scheduler = system.scheduler
+
+    val mode = ProductAggregateRegistry.modeFromConfig(system)
+    val behavior = ProductAggregateRegistry.create(mode)
+    val aggregateRef = context.spawn(behavior, "ProductAggregateRegistry")
+
+    context.log.info("ProductAggregateRegistry initialized")
+    ProductUseCase(aggregateRef)
+  }
+
+  private def initializeInventoryUseCase(commandApiConfig: CommandApiConfig, context: scaladsl.ActorContext[Command])(implicit
+                                                                                  system: ActorSystem[?],
+                                                                                  executionContext: ExecutionContextExecutor,
+                                                                                  zioRuntime: Runtime[Any]
+  ): InventoryUseCase = {
+    implicit val timeout: Timeout = Timeout(commandApiConfig.actorTimeout)
+    implicit val scheduler: Scheduler = system.scheduler
+
+    val mode = InventoryAggregateRegistry.modeFromConfig(system)
+    val behavior = InventoryAggregateRegistry.create(mode)
+    val aggregateRef = context.spawn(behavior, "InventoryAggregateRegistry")
+
+    context.log.info("InventoryAggregateRegistry initialized")
+    InventoryUseCase(aggregateRef)
+  }
+
+  private def initializeCustomerUseCase(commandApiConfig: CommandApiConfig, context: scaladsl.ActorContext[Command])(implicit
+                                                                                  system: ActorSystem[?],
+                                                                                  executionContext: ExecutionContextExecutor,
+                                                                                  zioRuntime: Runtime[Any]
+  ): CustomerUseCase = {
+    implicit val timeout: Timeout = Timeout(commandApiConfig.actorTimeout)
+    implicit val scheduler: Scheduler = system.scheduler
+
+    val mode = CustomerAggregateRegistry.modeFromConfig(system)
+    val behavior = CustomerAggregateRegistry.create(mode)
+    val aggregateRef = context.spawn(behavior, "CustomerAggregateRegistry")
+
+    context.log.info("CustomerAggregateRegistry initialized")
+    CustomerUseCase(aggregateRef)
+  }
+
+  private def initializeWarehouseUseCase(commandApiConfig: CommandApiConfig, context: scaladsl.ActorContext[Command])(implicit
+                                                                                   system: ActorSystem[?],
+                                                                                   executionContext: ExecutionContextExecutor,
+                                                                                   zioRuntime: Runtime[Any]
+  ): WarehouseUseCase = {
+    implicit val timeout: Timeout = Timeout(commandApiConfig.actorTimeout)
+    implicit val scheduler: Scheduler = system.scheduler
+
+    val mode = WarehouseAggregateRegistry.modeFromConfig(system)
+    val behavior = WarehouseAggregateRegistry.create(mode)
+    val aggregateRef = context.spawn(behavior, "WarehouseAggregateRegistry")
+
+    context.log.info("WarehouseAggregateRegistry initialized")
+    WarehouseUseCase(aggregateRef)
+  }
+
+  private def initializeWarehouseZoneUseCase(commandApiConfig: CommandApiConfig, context: scaladsl.ActorContext[Command])(implicit
+                                                                                       system: ActorSystem[?],
+                                                                                       executionContext: ExecutionContextExecutor,
+                                                                                       zioRuntime: Runtime[Any]
+  ): WarehouseZoneUseCase = {
+    implicit val timeout: Timeout = Timeout(commandApiConfig.actorTimeout)
+    implicit val scheduler: Scheduler = system.scheduler
+
+    val mode = WarehouseZoneAggregateRegistry.modeFromConfig(system)
+    val behavior = WarehouseZoneAggregateRegistry.create(mode)
+    val aggregateRef = context.spawn(behavior, "WarehouseZoneAggregateRegistry")
+
+    context.log.info("WarehouseZoneAggregateRegistry initialized")
+    WarehouseZoneUseCase(aggregateRef)
   }
 
   private def startManagementWithGracefulShutdown(
