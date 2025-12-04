@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package io.github.j5ik2o.pcqrses.command.interfaceAdapter.persistence.inventory;
+
+import "google/protobuf/timestamp.proto";
+
+message ProductEvent_Envelope {
+  string product_id = 1;
+  string event_type_name = 3;
+  string event_type_version = 4;
+  bytes payload = 5;
+  google.protobuf.Timestamp occurred_at = 99;
+}
+
+message ProductEvent_Created_V1 {
+  string event_id = 1;
+  string product_id = 2;
+  string product_code = 3;
+  string name = 4;
+  string category_code = 5;
+  string storage_condition = 6; // RT, RF, FZ
+  google.protobuf.Timestamp occurred_at = 7;
+}
+
+message ProductEvent_Updated_V1 {
+  string event_id = 1;
+  string product_id = 2;
+  string old_name = 3;
+  string new_name = 4;
+  string old_category_code = 5;
+  string new_category_code = 6;
+  string old_storage_condition = 7;
+  string new_storage_condition = 8;
+  google.protobuf.Timestamp occurred_at = 9;
+}
+
+message ProductEvent_Obsoleted_V1 {
+  string event_id = 1;
+  string product_id = 2;
+  google.protobuf.Timestamp occurred_at = 3;
+}

@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package io.github.j5ik2o.pcqrses.command.interfaceAdapter.persistence.inventory;
+
+import "google/protobuf/timestamp.proto";
+
+message InventoryEvent_Envelope {
+  string inventory_id = 1;
+  string event_type_name = 3;
+  string event_type_version = 4;
+  bytes payload = 5;
+  google.protobuf.Timestamp occurred_at = 99;
+}
+
+message InventoryEvent_Received_V1 {
+  string event_id = 1;
+  string inventory_id = 2;
+  string product_id = 3;
+  string warehouse_zone_id = 4;
+  string quantity = 5; // BigDecimal as string
+  int64 version = 6;
+  google.protobuf.Timestamp occurred_at = 7;
+}
+
+message InventoryEvent_Issued_V1 {
+  string event_id = 1;
+  string inventory_id = 2;
+  string product_id = 3;
+  string warehouse_zone_id = 4;
+  string quantity = 5;
+  int64 version = 6;
+  google.protobuf.Timestamp occurred_at = 7;
+}
+
+message InventoryEvent_Reserved_V1 {
+  string event_id = 1;
+  string inventory_id = 2;
+  string product_id = 3;
+  string warehouse_zone_id = 4;
+  string quantity = 5;
+  int64 version = 6;
+  google.protobuf.Timestamp occurred_at = 7;
+}
+
+message InventoryEvent_Released_V1 {
+  string event_id = 1;
+  string inventory_id = 2;
+  string product_id = 3;
+  string warehouse_zone_id = 4;
+  string quantity = 5;
+  int64 version = 6;
+  google.protobuf.Timestamp occurred_at = 7;
+}
+
+message InventoryEvent_Adjusted_V1 {
+  string event_id = 1;
+  string inventory_id = 2;
+  string product_id = 3;
+  string warehouse_zone_id = 4;
+  string old_quantity = 5;
+  string new_quantity = 6;
+  string reason = 7;
+  int64 version = 8;
+  google.protobuf.Timestamp occurred_at = 9;
+}
+
+message InventoryEvent_Moved_V1 {
+  string event_id = 1;
+  string inventory_id = 2;
+  string product_id = 3;
+  string from_warehouse_zone_id = 4;
+  string to_warehouse_zone_id = 5;
+  string quantity = 6;
+  int64 version = 7;
+  google.protobuf.Timestamp occurred_at = 8;
+}
