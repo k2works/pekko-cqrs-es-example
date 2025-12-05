@@ -180,7 +180,7 @@ else
         --timeout 300 \
         --memory-size 512 \
         --architectures $LAMBDA_ARCH \
-        --environment file://$ENV_JSON_FILE
+        --environment "$ENV_JSON"
     # Active化を待機
     wait_for_lambda_active "$FUNCTION_NAME"
 fi
