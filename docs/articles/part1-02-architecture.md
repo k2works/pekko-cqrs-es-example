@@ -18,7 +18,7 @@
 
 ### 1.1 CQRS（コマンドクエリ責任分離）の基本概念
 
-**CQRS（Command Query Responsibility Segregation）**は、システムを「書き込み」と「読み取り」で明確に分離するアーキテクチャパターンです。
+**CQRS（Command Query Responsibility Segregation）** は、システムを「書き込み」と「読み取り」で明確に分離するアーキテクチャパターンです。
 
 #### 従来のアーキテクチャ（CRUD）
 

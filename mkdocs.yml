@@ -4,6 +4,8 @@ site_author: Project Team
 repo_url: https://github.com/k2works/claude-code-booster
 repo_name: claude-code-booster
 
+docs_dir: docs/articles
+
 theme:
   name: material
   palette:
@@ -17,7 +19,7 @@ theme:
     - search.highlight
 
 extra_css:
-  - docs/mkdocs/assets/css/extra.css
+  - ../mkdocs/assets/css/extra.css
 
 markdown_extensions:
   - pymdownx.highlight
@@ -43,7 +45,7 @@ markdown_extensions:
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js
-  - docs/assets/js/extra.js
+  - ../assets/js/extra.js
 
 extra:
   plantuml_url: http://www.plantuml.com/plantuml
@@ -56,4 +58,95 @@ plugins:
   - search
 
 nav:
-  - Home: index.md
+  - はじめに: index.md
+  - 目次: outline.md
+  - Part 1 - 導入編:
+    - 1. イントロダクション: part1-01-introduction.md
+    - 2. アーキテクチャ: part1-02-architecture.md
+    - 3. 技術スタック: part1-03-tech-stack.md
+    - 4. セットアップ: part1-04-setup.md
+    - 5. 設定: part1-05-configuration.md
+    - 6. 起動: part1-06-startup.md
+    - 7. E2Eテスト: part1-07-e2e-test.md
+    - 8. トラブルシューティング: part1-08-troubleshooting.md
+    - 9. ワークフロー: part1-09-workflow.md
+    - 10. まとめ: part1-10-summary.md
+  - Part 2 - アーキテクチャ編:
+    - 1. DDDの基礎: part2-01-ddd-basics.md
+    - 2. イベントソーシング: part2-02-event-sourcing.md
+    - 3. コマンド側: part2-03-command-side.md
+    - 4. クエリ側: part2-04-query-side.md
+    - 5. イベント処理: part2-05-event-processing.md
+    - 6. 設定: part2-06-configuration.md
+    - 7. テスティング: part2-07-testing.md
+    - 8. パフォーマンスとスケーラビリティ: part2-08-performance-scalability.md
+    - 9. 実践的なトピック: part2-09-practical-topics.md
+    - 10. 本番環境の準備: part2-10-production-readiness.md
+    - 11. 結論: part2-11-conclusion.md
+  - Part 3 - 実装編:
+    - 1. イントロダクション: part3-01-introduction.md
+    - 2. データモデル: part3-02-data-model.md
+    - 3. ドメインデータ: part3-03-domain-data.md
+    - 4. ドメインモデル: part3-04-domain-model.md
+    - 5. Aggregate実装: part3-05-aggregate-implementation.md
+    - 6. Sagaパターン: part3-06-saga-pattern.md
+    - 7. 並行制御: part3-07-concurrency-control.md
+    - 8. 複雑なクエリ: part3-08-complex-queries.md
+    - 9. イベント順序: part3-09-event-ordering.md
+    - 10. パフォーマンス: part3-10-performance.md
+    - 11. 運用: part3-11-operations.md
+    - 12. 高度なトピック: part3-12-advanced-topics.md
+    - 13. まとめ: part3-13-summary.md
+  - Part 4 - 注文・請求システム:
+    - 1. イントロダクション: part4-01-introduction.md
+    - 2. データモデル: part4-02-data-model.md
+    - 3. テストデータ: part4-03-test-data.md
+    - 4. ドメインモデル: part4-04-domain-model.md
+    - 5. 実装: part4-05-implementation.md
+    - 6. Sagaパターン: part4-06-saga-pattern.md
+    - 7. 金額計算: part4-07-money-calculation.md
+    - 8. 与信管理: part4-08-credit-management.md
+    - 9. 請求管理: part4-09-billing-management.md
+    - 10. 返品処理: part4-10-return-processing.md
+    - 11. パフォーマンス最適化: part4-11-performance-optimization.md
+    - 12. 運用・監視: part4-12-operations-monitoring.md
+    - 13. 高度なトピック: part4-13-advanced-topics.md
+    - 14. まとめと演習: part4-14-summary-exercises.md
+  - Part 5 - 在庫管理システム:
+    - 1. イントロダクション: part5-01-introduction.md
+    - 2. データモデル: part5-02-data-model.md
+    - 3. テストデータ: part5-03-test-data.md
+    - 4. ドメインモデル: part5-04-domain-model.md
+    - 5. Aggregate実装: part5-05-aggregate-implementation.md
+    - 6. Sagaパターン: part5-06-saga-pattern.md
+    - 7. 在庫統合: part5-07-inventory-integration.md
+    - 8. パフォーマンス最適化: part5-08-performance-optimization.md
+    - 9. 運用・監視: part5-09-operations-monitoring.md
+    - 10. 高度なトピック: part5-10-advanced-topics.md
+    - 11. まとめと演習: part5-11-summary-exercises.md
+  - Part 6 - 財務会計システム:
+    - 1. イントロダクション: part6-01-introduction.md
+    - 2. リードモデルスキーマ: part6-02-read-model-schema.md
+    - 3. ドメインデータ: part6-03-domain-data.md
+    - 4. ドメインモデル: part6-04-domain-model.md
+    - 5. Aggregate実装: part6-05-aggregate-implementation.md
+    - 6. イベント駆動会計: part6-06-event-driven-accounting.md
+    - 7. 締め処理: part6-07-closing-process.md
+    - 8. 財務分析: part6-08-financial-analysis.md
+    - 9. パフォーマンス最適化: part6-09-performance-optimization.md
+    - 10. 運用・監視: part6-10-operations-monitoring.md
+    - 11. 高度なトピック: part6-11-advanced-topics.md
+    - 12. まとめと演習: part6-12-summary-exercises.md
+  - Part 7 - 購買システム:
+    - 1. イントロダクション: part7-01-introduction.md
+    - 2. リードモデルスキーマ: part7-02-read-model-schema.md
+    - 3. ドメインデータ: part7-03-domain-data.md
+    - 4. ドメインモデル: part7-04-domain-model.md
+    - 5. Aggregate実装: part7-05-aggregate-implementation.md
+    - 6. マスターデータ統合: part7-06-master-data-integration.md
+    - 7. 承認ワークフロー: part7-07-approval-workflow.md
+    - 8. まとめと実践: part7-08-summary-and-practice.md
+    - 9. GraphQL API: part7-09-graphql-api.md
+    - 10. パフォーマンス最適化: part7-10-performance-optimization.md
+    - 11. 運用・監視: part7-11-operations-monitoring.md
+    - 12. まとめと演習: part7-12-summary-and-exercises.md
