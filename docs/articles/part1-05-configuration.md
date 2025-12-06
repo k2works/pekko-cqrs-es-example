@@ -53,6 +53,7 @@ include "j5ik2o.conf"
 ```
 
 **設計理由**:
+
 - **単一責任**: 設定の読み込みのみを担当
 - **可視性**: どの設定ファイルが使用されているか一目瞭然
 - **拡張性**: 新しい設定ファイルの追加が容易
@@ -101,16 +102,19 @@ pcqrses {
 #### 設定項目の詳細
 
 **1. actor-timeout**:
+
 - アクターへのメッセージ送信時のタイムアウト
 - デフォルト: 5秒（開発環境向け）
 - 本番環境では状況に応じて調整が必要
 
 **2. server設定**:
+
 - `host`: バインドするホスト（デフォルト: ループバック）
 - `port`: HTTPサーバーのポート（デフォルト: 18080）
 - `shutdown-timeout`: グレースフルシャットダウンの猶予時間
 
 **3. load-balancer設定**:
+
 - `detach-wait-duration`: ロードバランサーからのデタッチ待機時間
 - `health-check-grace-period`: ヘルスチェック失敗の猶予期間
 
@@ -187,6 +191,7 @@ http {
   }
 }
 ```
+
 - gRPCやHTTP/2クライアントとの通信に必要
 
 **2. Actor Provider**:
@@ -195,6 +200,7 @@ actor {
   provider = local  # ローカルモード（クラスター無効）
 }
 ```
+
 - `local`: 単一ノード構成
 - `cluster`: Pekko Cluster使用時は`cluster`に変更
 
@@ -205,6 +211,7 @@ cluster {
   enabled = ${?PEKKO_CLUSTER_ENABLED}
 }
 ```
+
 - 環境変数`PEKKO_CLUSTER_ENABLED=true`でクラスターモードに切り替え
 
 **4. Javaシリアライゼーションの禁止**:
@@ -212,6 +219,7 @@ cluster {
 warn-about-java-serializer-usage = on
 allow-java-serialization = off
 ```
+
 - セキュリティリスクを避けるため、Javaシリアライゼーションを無効化
 - Protocol Buffersやその他の明示的なシリアライザのみ使用
 
@@ -221,6 +229,7 @@ pekko.persistence.journal.plugin = "j5ik2o.dynamo-db-journal"
 pekko.persistence.snapshot-store.plugin = "j5ik2o.dynamo-db-snapshot"
 pekko.persistence.state.plugin = "j5ik2o.dynamo-db-state"
 ```
+
 - DynamoDBをイベントストアとして使用
 
 #### デバッグ用InMemory設定（コメントアウト）
@@ -308,15 +317,18 @@ j5ik2o.dynamo-db-state {
 #### 設定項目の詳細
 
 **1. DynamoDB Journal（イベントストア）**:
+
 - `table-name`: DynamoDBテーブル名（デフォルト: `Journal`）
 - `get-journal-rows-index-name`: Global Secondary Index名
 - `dynamo-db-client.endpoint`: DynamoDBエンドポイント（LocalStack: `http://localhost:8000/`）
 
 **2. DynamoDB Snapshot（スナップショット）**:
+
 - スナップショット専用のテーブル設定
 - イベントリプレイのパフォーマンス最適化に使用
 
 **3. DynamoDB State（Cluster Sharding用）**:
+
 - Cluster Sharding使用時の状態管理
 - 単一ノード構成では通常使用しない
 
@@ -349,6 +361,7 @@ server {
 ```
 
 環境変数が設定されていない場合:
+
 - `host` = `"127.0.0.1"`
 - `port` = `18080`
 
@@ -357,6 +370,7 @@ server {
 export COMMAND_API_SERVER_HOST="0.0.0.0"
 export COMMAND_API_SERVER_PORT="8080"
 ```
+
 - `host` = `"0.0.0.0"`（環境変数で上書き）
 - `port` = `8080`（環境変数で上書き）
 

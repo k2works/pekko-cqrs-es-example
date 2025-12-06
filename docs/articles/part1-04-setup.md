@@ -227,11 +227,13 @@ sbt compile
 #### コンパイル時の注意点
 
 **Protocol Buffersの自動生成**:
+
 - `.proto`ファイルから自動的にScalaコードが生成されます
 - 生成先: `target/scala-3.6.2/pekko-grpc/main/`
 - 変更を加えた場合は`sbt clean compile`で再生成
 
 **並列ビルド**:
+
 - SBTはデフォルトで並列ビルドを行います
 - メモリ不足の場合は`.sbtopts`で`-J-Xmx4G`等を設定
 
@@ -337,6 +339,7 @@ volumes:
 DynamoDBテーブルの定義は`tools/dynamodb-setup/`ディレクトリにJSONファイルで格納されています。
 
 **主要なテーブル**:
+
 - `journal-table.json`: イベントジャーナル
 - `snapshot-table.json`: スナップショット
 - `state-table.json`: アクター状態（Cluster Sharding用）
@@ -404,14 +407,17 @@ DynamoDBテーブルの定義は`tools/dynamodb-setup/`ディレクトリにJSON
 #### 重要なポイント
 
 **1. パーティションキーとソートキー**:
+
 - `pkey`: パーティションキー（`persistence-id`の一部）
 - `skey`: ソートキー（シーケンス番号を含む）
 
 **2. Global Secondary Index (GSI)**:
+
 - `GetJournalRowsIndex`: persistence-idとsequence-nrでクエリ可能
 - イベントの高速な読み取りを実現
 
 **3. DynamoDB Streams**:
+
 - `StreamEnabled: true`: ストリームを有効化
 - `StreamViewType: NEW_IMAGE`: 新しい値のみを配信
 
@@ -592,21 +598,13 @@ sbt cleanMigrateQuery
 | `id` | VARCHAR(255) | ユーザーID（ULID形式） |
 | `first_name` | VARCHAR(255) | 名 |
 | `last_name` | VARCHAR(255) | 姓 |
-| `email` | VARCHAR(255) | メールアドレス（一意制約） |
 | `created_at` | TIMESTAMP | 作成日時 |
 | `updated_at` | TIMESTAMP | 更新日時 |
-| `deleted_at` | TIMESTAMP | 削除日時（論理削除） |
-
-**論理削除の採用**:
-- `deleted_at IS NULL`: 有効なユーザー
-- `deleted_at IS NOT NULL`: 削除済みユーザー
-- 監査証跡を保持しつつ、削除機能を実現
 
 **インデックス戦略**:
-- `email`: メールアドレス検索用（UNIQUE制約）
+
 - `(first_name, last_name)`: 名前検索用
 - `created_at`: 作成日時でのソート用
-- `deleted_at`: 論理削除フィルタ用（部分インデックス）
 
 ---
 
@@ -653,7 +651,6 @@ def findById(id: String): Future[Option[UserAccountRecord]] = {
   db.run(
     UserAccounts
       .filter(_.id === id)
-      .filter(_.deletedAt.isEmpty)  // 削除されていないもの
       .result
       .headOption
   )

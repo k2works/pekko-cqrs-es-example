@@ -435,6 +435,7 @@ QUERY_API_PORT=18080 \
 ```
 
 **意味**:
+
 - 全てのフェーズが成功
 - CQRS/Event Sourcingのデータフローが正常に機能
 
@@ -449,6 +450,7 @@ QUERY_API_PORT=18080 \
 ```
 
 **原因**:
+
 - Command APIが起動していない
 - ネットワーク接続の問題
 
@@ -475,6 +477,7 @@ docker logs command-api
 ```
 
 **原因**:
+
 - バリデーションエラー
 - Command API内部のエラー
 
@@ -505,6 +508,7 @@ docker logs command-api --tail=100
 ```
 
 **原因**:
+
 - Lambda関数が正常に動作していない
 - DynamoDB Streamsの設定問題
 - PostgreSQLへの接続エラー

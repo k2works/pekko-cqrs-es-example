@@ -32,11 +32,13 @@
 #### 第1章：イントロダクション
 
 **学んだこと**:
+
 - CQRS/Event Sourcingの基本概念と利点
 - Apache Pekkoを選択した理由（Akkaからの移行）
 - ユーザーアカウント管理システムの機能概要
 
 **重要なポイント**:
+
 - CQRS/Event Sourcingは、スケーラビリティと監査証跡を提供
 - Apache Pekkoは完全なオープンソース（Apache License 2.0）
 - イベント駆動アーキテクチャによる柔軟なシステム設計
@@ -46,6 +48,7 @@
 #### 第2章：アーキテクチャ概要
 
 **学んだこと**:
+
 - CQRS（コマンドクエリ責任分離）の設計思想
 - Event Sourcingパターンの実装方法
 - システム全体のコンポーネント構成
@@ -56,6 +59,7 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 ```
 
 **重要なポイント**:
+
 - 書き込みと読み取りを完全に分離
 - イベントが唯一の真実の源（Source of Truth）
 - 非同期処理による結果整合性
@@ -65,6 +69,7 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 #### 第3章：技術スタックの選定
 
 **学んだこと**:
+
 - Scala 3の強力な型システムと関数型プログラミング
 - Apache Pekkoのイベントソーシングサポート
 - DynamoDB（Event Store）とPostgreSQL（Read Model）の使い分け
@@ -72,6 +77,7 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 - GraphQL（Sangria）とProtocol Buffersの採用理由
 
 **重要なポイント**:
+
 - 型安全性を最優先した技術選定
 - スケーラビリティと開発者体験のバランス
 - 本番実績のある技術を採用
@@ -81,6 +87,7 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 #### 第4章：開発環境のセットアップ
 
 **学んだこと**:
+
 - Java、SBT、Dockerのインストール
 - プロジェクトのクローンとビルド
 - LocalStackのセットアップとDynamoDBテーブル作成
@@ -88,6 +95,7 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 - Lambda関数のデプロイとイベントソースマッピング
 
 **重要なポイント**:
+
 - 環境構築は自動化スクリプトで簡単に実行可能
 - LocalStackにより実際のAWSなしで開発が可能
 - Flywayによるデータベーススキーマのバージョン管理
@@ -97,11 +105,13 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 #### 第5章：設定管理の体系化
 
 **学んだこと**:
+
 - 階層化された設定ファイル（application.conf、pcqrses.conf、pekko.conf、j5ik2o.conf）
 - 環境変数による柔軟な設定の上書き（`${?VARIABLE}`パターン）
 - Protocol BuffersとCBORのシリアライゼーション戦略
 
 **重要なポイント**:
+
 - 関心の分離による保守性向上
 - 開発/テスト/本番環境への対応
 - Typesafe Configによる型安全な設定管理
@@ -111,12 +121,14 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 #### 第6章：初回起動とヘルスチェック
 
 **学んだこと**:
+
 - `./scripts/run-single.sh up` による一括起動
 - 各サービスのヘルスチェック方法
 - GraphQL Playgroundの使い方
 - 基本的なMutation/Queryの実行
 
 **重要なポイント**:
+
 - 起動プロセスの理解（インフラ → DB → Lambda → アプリ）
 - Command APIとQuery APIの役割分担
 - GraphQL Playgroundによる対話的な開発
@@ -126,12 +138,14 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 #### 第7章：E2Eテストによる動作確認
 
 **学んだこと**:
+
 - E2Eテストスクリプト（`./scripts/test-e2e.sh`）の実行
 - 5つのテストフェーズ（ヘルスチェック、Mutation、待機、Query、検証）
 - リトライ機能による結果整合性の検証
 - 環境変数によるテストのカスタマイズ
 
 **重要なポイント**:
+
 - CQRS/Event Sourcingの完全なデータフローを自動検証
 - 結果整合性を考慮した待機とリトライ
 - CI/CDパイプラインへの統合が可能
@@ -141,12 +155,14 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 #### 第8章：トラブルシューティング
 
 **学んだこと**:
+
 - LocalStack、Lambda、PostgreSQL、DynamoDBの一般的な問題と解決方法
 - ログの確認方法（Docker、Lambda CloudWatch Logs）
 - データベースの直接クエリによるデバッグ
 - 環境のリセット手順
 
 **重要なポイント**:
+
 - ログは問題解決の鍵
 - 段階的な診断（サービスごとに切り分け）
 - 診断チェックリストによる体系的なアプローチ
@@ -156,12 +172,14 @@ Command Side (DynamoDB) ⇄ DynamoDB Streams ⇄ Lambda ⇄ Query Side (PostgreS
 #### 第9章：開発ワークフローの確立
 
 **学んだこと**:
+
 - コード品質管理（フォーマット、リント、テスト）
 - データベース操作（マイグレーション、DAO生成）
 - 環境管理（起動、停止、ログ確認）
 - 新機能開発のワークフロー
 
 **重要なポイント**:
+
 - `sbt fmt && sbt lint && sbt test` がコミット前の標準フロー
 - Flywayマイグレーション → DAO再生成のサイクル
 - 継続的なフィードバックによる開発効率化
@@ -216,6 +234,7 @@ Command Side              Query Side
 ```
 
 **理解したポイント**:
+
 - 書き込みと読み取りのデータストアを分離
 - 各サイドを独立してスケーリング可能
 - クエリパフォーマンスの最適化
@@ -233,6 +252,7 @@ Current State: User{id, name, email}
 ```
 
 **理解したポイント**:
+
 - 全ての状態変更をイベントとして記録
 - 過去の任意の時点の状態を再現可能
 - 完全な監査証跡
@@ -249,6 +269,7 @@ Query側:          [Updating...] ─► [Consistent]
 ```
 
 **理解したポイント**:
+
 - 非同期処理による遅延が発生
 - 最終的には整合性が保証される
 - リトライ機能で整合性を確認
@@ -264,26 +285,31 @@ Query側:          [Updating...] ─► [Consistent]
 #### 主要トピック
 
 1. **ドメイン駆動設計の基礎**
+ 
    - 集約（Aggregate）、値オブジェクト（Value Object）
    - ドメインイベント（Domain Event）
    - ユビキタス言語（Ubiquitous Language）
 
 2. **イベントソーシングの実装**
+
    - EventSourcedBehaviorの詳細
    - PersistenceIdの設計
    - スナップショット戦略
 
 3. **コマンド側の実装**
+ 
    - UserAccountAggregateの実装
    - GenericAggregateRegistryパターン
    - Cluster Shardingの活用
 
 4. **クエリ側の実装**
+
    - Read Modelの設計思想
    - Slick DAOの活用
    - GraphQL Queryの実装
 
 5. **イベント処理の実装**
+
    - Read Model Updater（Lambda）の詳細
    - DynamoDB Streamsの統合
    - 冪等性の実装
@@ -424,7 +450,7 @@ CQRS/Event Sourcingは、一見複雑に見えますが、適切に実装すれ�
 
 ---
 
-👉 **第2部「サービス構築編」へ進む**（準備中）
+👉 [第2部「サービス構築編」へ進む](part2-01-ddd-basics.md)
 
 ---
 

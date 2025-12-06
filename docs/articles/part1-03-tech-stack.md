@@ -78,11 +78,13 @@ def createUser(name: String, email: String): Either[Error, User] =
 #### なぜJavaやKotlinではないのか
 
 **Javaとの比較**：
+
 - ✅ Scala：関数型プログラミングのファーストクラスサポート
 - ✅ Scala：パターンマッチング、ケースクラス、for内包表記
 - ❌ Java：冗長な構文、ボイラープレートコードが多い
 
 **Kotlinとの比較**：
+
 - ✅ Scala：より高度な型システム（Higher-Kinded Types等）
 - ✅ Scala：Apache Pekkoとのシームレスな統合
 - ✅ Kotlin：学習コストが低い（特にJava開発者）
@@ -121,6 +123,7 @@ object UserAccountAggregate:
 ```
 
 **主な機能**：
+
 - イベントの永続化
 - スナップショット戦略
 - イベントリプレイによる状態復元
@@ -164,15 +167,18 @@ val shardRegion = sharding.init(Entity(UserAccountAggregate.EntityTypeName)(
 #### なぜ他のアクターフレームワークではないのか
 
 **Akka（商用版）**：
+
 - ❌ BSLライセンスによる商用利用の制限
 - ❌ ライセンス料が必要
 
 **Vert.x**：
+
 - ✅ リアクティブアプリケーションに適している
 - ❌ アクターモデルのサポートが弱い
 - ❌ Event Sourcing用のライブラリが不足
 
 **Erlang/Elixir**：
+
 - ✅ アクターモデルの元祖で成熟している
 - ❌ JVMエコシステムとの統合が困難
 - ❌ 型安全性がScalaに劣る
@@ -312,16 +318,19 @@ db.run(
 #### なぜNoSQLではなくRDBMSなのか
 
 **DynamoDB（クエリ側として）**：
+
 - ❌ 複雑な検索クエリが困難
 - ❌ インデックス設計の制約
 - ✅ スケーラビリティは優れている
 
 **MongoDB（ドキュメントDB）**：
+
 - ✅ 柔軟なスキーマ
 - ❌ トランザクション機能がRDBMSに劣る
 - ❌ 複雑なJOINが苦手
 
 **PostgreSQL（採用理由）**：
+
 - ✅ 成熟したRDBMS
 - ✅ 豊富なクエリ機能
 - ✅ ACID保証
@@ -630,38 +639,45 @@ class UserAccountAggregateSpec extends AnyWordSpec with Matchers {
 
 ### 技術マップ
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                    アプリケーション層                      │
-├─────────────────────────────────────────────────────────┤
-│  言語: Scala 3.6.2                                      │
-│  API: GraphQL (Sangria)                                 │
-│  エフェクト: ZIO                                         │
-└─────────────────────────────────────────────────────────┘
-                           ↓
-┌─────────────────────────────────────────────────────────┐
-│                    アクター/永続化層                      │
-├─────────────────────────────────────────────────────────┤
-│  フレームワーク: Apache Pekko 1.1.2                      │
-│  永続化: Pekko Persistence                              │
-│  シリアライゼーション: Protocol Buffers (ScalaPB)         │
-└─────────────────────────────────────────────────────────┘
-                           ↓
-┌──────────────────────┬──────────────────────────────────┐
-│   イベントストア      │        Read Model                │
-├──────────────────────┼──────────────────────────────────┤
-│  DynamoDB            │  PostgreSQL                      │
-│  + Streams           │  + Slick                         │
-│                      │  + Flyway                        │
-└──────────────────────┴──────────────────────────────────┘
-                           ↓
-┌─────────────────────────────────────────────────────────┐
-│                    開発環境/インフラ                      │
-├─────────────────────────────────────────────────────────┤
-│  LocalStack (AWS emulation)                             │
-│  Docker & Docker Compose                                │
-│  Lambda (Read Model Updater)                            │
-└─────────────────────────────────────────────────────────┘
+```plantuml
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "アプリケーション層" as app {
+    rectangle "言語: Scala 3.6.2" as scala
+    rectangle "API: GraphQL (Sangria)" as graphql
+    rectangle "エフェクト: ZIO" as zio
+}
+
+rectangle "アクター/永続化層" as actor {
+    rectangle "フレームワーク: Apache Pekko 1.1.2" as pekko
+    rectangle "永続化: Pekko Persistence" as persistence
+    rectangle "シリアライゼーション: Protocol Buffers (ScalaPB)" as protobuf
+}
+
+rectangle "データストア" as datastore {
+    rectangle "イベントストア" as eventstore {
+        rectangle "DynamoDB\n+ Streams" as dynamodb
+    }
+    rectangle "Read Model" as readmodel {
+        rectangle "PostgreSQL\n+ Slick\n+ Flyway" as postgres
+    }
+}
+
+rectangle "開発環境/インフラ" as infra {
+    rectangle "LocalStack (AWS emulation)" as localstack
+    rectangle "Docker & Docker Compose" as docker
+    rectangle "Lambda (Read Model Updater)" as lambda
+}
+
+app -down-> actor
+actor -down-> datastore
+datastore -down-> infra
+
+@enduml
 ```
 
 ---

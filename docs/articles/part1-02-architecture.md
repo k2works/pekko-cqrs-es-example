@@ -41,6 +41,7 @@ package "Traditional CRUD Architecture" {
 ```
 
 **問題点**:
+
 - 読み取りと書き込みで同じデータモデルを使用
 - 複雑なクエリがパフォーマンスに影響
 - スケーリングが困難（読み取りと書き込みを独立してスケールできない）
@@ -91,6 +92,7 @@ package "CQRS Architecture" {
 ```
 
 **メリット**:
+
 - ✅ **パフォーマンス最適化**: 読み取り・書き込みを独立して最適化
 - ✅ **スケーラビリティ**: 負荷に応じて個別にスケール
 - ✅ **柔軟性**: 用途に応じた複数のRead Modelを作成可能
@@ -382,6 +384,7 @@ deactivate queryApi
 - Port: 50501
 
 **主なエンドポイント**:
+
 ```graphql
 mutation {
   createUserAccount(input: {...})
@@ -391,6 +394,7 @@ mutation {
 ```
 
 **責務**:
+
 - GraphQL Mutationの受付
 - 入力バリデーション
 - Pekkoアクターへのコマンド送信
@@ -401,11 +405,13 @@ mutation {
 **役割**: ビジネスロジックの実行とイベント生成
 
 **技術スタック**:
+
 - Pekko Typed Actors（型付きアクター）
 - EventSourcedBehavior（イベントソーシング）
 - Cluster Sharding（分散処理）
 
 **主な処理**:
+
 1. コマンドの受信
 2. ビジネスルールの検証
 3. ドメインイベントの生成
@@ -431,10 +437,12 @@ def commandHandler(state: State): CommandHandler = {
 **役割**: イベントの永続化
 
 **テーブル構成**:
+
 - **Journal Table**: イベントの保存（追記専用）
 - **Snapshot Table**: スナップショットの保存（パフォーマンス最適化）
 
 **特徴**:
+
 - 追記専用（Append-Only）
 - イベントの削除・変更は原則行わない
 - DynamoDB Streamsによる変更通知
@@ -460,6 +468,7 @@ def commandHandler(state: State): CommandHandler = {
 **役割**: クライアントからのクエリ（Query）を受け付ける
 
 **技術スタック**:
+
 - Pekko HTTP
 - Sangria
 - Port: 50502
@@ -483,10 +492,12 @@ query {
 **役割**: PostgreSQLへのクエリ実行
 
 **技術スタック**:
+
 - Slick 3.5.2（データベースアクセス）
 - HikariCP（コネクションプール）
 
 **特徴**:
+
 - 型安全なクエリ
 - sbt-dao-generatorによる自動生成
 - 非同期処理（Future）
@@ -511,6 +522,7 @@ class UserAccountDao(profile: JdbcProfile)(implicit ec: ExecutionContext) {
 **役割**: クエリ用に最適化されたデータの保存
 
 **スキーマ**:
+
 ```sql
 CREATE TABLE user_accounts (
   id VARCHAR(26) PRIMARY KEY,
@@ -527,6 +539,7 @@ CREATE INDEX idx_user_accounts_name ON user_accounts(first_name, last_name);
 ```
 
 **特徴**:
+
 - 非正規化されたスキーマ（クエリ最適化）
 - インデックスによる高速検索
 - 複数のRead Modelを作成可能（用途に応じて）
@@ -538,6 +551,7 @@ CREATE INDEX idx_user_accounts_name ON user_accounts(first_name, last_name);
 **役割**: DynamoDBの変更を検知してイベント配信
 
 **仕組み**:
+
 1. DynamoDB Journalテーブルへの書き込みを検知
 2. 変更内容（イベント）をストリームに配信
 3. Lambdaのイベントソースマッピングがトリガー
@@ -583,6 +597,7 @@ def handleEvent(record: DynamoDBStreamRecord): Unit = {
 ```
 
 **エラーハンドリング**:
+
 - リトライ戦略（最大3回）
 - デッドレターキューへの移動
 - CloudWatch Logsへのエラーログ出力
@@ -695,6 +710,7 @@ browser --> User : ユーザー情報\n表示
 ```
 
 **対処方法**:
+
 1. **クライアント側でリトライ**（E2Eテストスクリプトの例）
 2. **楽観的UI更新**（Mutationの成功をUIに即座に反映）
 3. **WebSocketによる通知**（Read Model更新完了を通知）
@@ -770,6 +786,7 @@ def processEvent(record: DynamoDBStreamRecord): Unit = {
 #### DynamoDBをイベントストアに選択した理由
 
 **利点**:
+
 - ✅ **スケーラビリティ**: 自動的な水平スケーリング
 - ✅ **可用性**: 99.99%のSLA、マルチAZ自動レプリケーション
 - ✅ **パフォーマンス**: 一桁ミリ秒のレスポンス
@@ -777,6 +794,7 @@ def processEvent(record: DynamoDBStreamRecord): Unit = {
 - ✅ **Pekko Persistence対応**: j5ik2o/pekko-persistence-dynamodbプラグイン
 
 **代替案との比較**:
+
 - **PostgreSQL**（EventStoreDB等）: 高機能だが運用負荷が高い
 - **Cassandra**: スケーラブルだが運用が複雑
 - **Kafka**: ストリーミングには最適だが、イベントストアとしてはオーバースペック
@@ -784,6 +802,7 @@ def processEvent(record: DynamoDBStreamRecord): Unit = {
 #### PostgreSQLをRead Modelに選択した理由
 
 **利点**:
+
 - ✅ **成熟した技術**: 豊富なエコシステム
 - ✅ **強力なクエリ機能**: 複雑な検索・集計が可能
 - ✅ **インデックス**: 柔軟なインデックス設計
@@ -792,6 +811,7 @@ def processEvent(record: DynamoDBStreamRecord): Unit = {
 #### GraphQLを採用した理由
 
 **利点**:
+
 - ✅ **型安全**: スキーマファーストの設計
 - ✅ **柔軟性**: クライアントが必要なフィールドのみ取得
 - ✅ **開発体験**: Playgroundによる対話的な開発
