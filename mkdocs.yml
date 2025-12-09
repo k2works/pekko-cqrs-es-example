@@ -1,25 +1,27 @@
-site_name: Site Name
-site_description: Site Description
-site_author: Project Team
-repo_url: https://github.com/k2works/claude-code-booster
-repo_name: claude-code-booster
+site_name: Pekko CQRS/ES Example
+site_description: Apache Pekkoを使用したCQRS/イベントソーシング実装例
+site_author: k2works
+repo_url: https://github.com/k2works/pekko-cqrs-es-example
+repo_name: pekko-cqrs-es-example
 
 docs_dir: docs/articles
 
 theme:
   name: material
+  language: ja
   palette:
     primary: indigo
     accent: indigo
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.expand
     - toc.integrate
     - search.suggest
     - search.highlight
 
 extra_css:
-  - ../mkdocs/assets/css/extra.css
+  - ../assets/css/extra.css
 
 markdown_extensions:
   - pymdownx.highlight
@@ -51,8 +53,8 @@ extra:
   plantuml_url: http://www.plantuml.com/plantuml
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/k2works
-      name: GitHub Repository/claude-code-booster
+      link: https://github.com/k2works/pekko-cqrs-es-example
+      name: GitHub Repository
 
 plugins:
   - search
@@ -71,7 +73,7 @@ nav:
     - 8. トラブルシューティング: part1-08-troubleshooting.md
     - 9. ワークフロー: part1-09-workflow.md
     - 10. まとめ: part1-10-summary.md
-  - Part 2 - サービス構築編:
+  - Part 2 - 構築編:
     - 1. DDDの基礎: part2-01-ddd-basics.md
     - 2. イベントソーシング: part2-02-event-sourcing.md
     - 3. コマンド側: part2-03-command-side.md
@@ -83,7 +85,7 @@ nav:
     - 9. 実践的なトピック: part2-09-practical-topics.md
     - 10. 本番環境の準備: part2-10-production-readiness.md
     - 11. 結論: part2-11-conclusion.md
-  - Part 3 - 在庫管理サービスのケーススタディ:
+  - Part 3 - 在庫管理編:
     - 1. イントロダクション: part3-01-introduction.md
     - 2. データモデル: part3-02-data-model.md
     - 3. ドメインデータ: part3-03-domain-data.md
@@ -97,7 +99,7 @@ nav:
     - 11. 運用: part3-11-operations.md
     - 12. 高度なトピック: part3-12-advanced-topics.md
     - 13. まとめ: part3-13-summary.md
-  - Part 4 - 受注管理サービスのケーススタディ:
+  - Part 4 - 受注管理編:
     - 1. イントロダクション: part4-01-introduction.md
     - 2. データモデル: part4-02-data-model.md
     - 3. テストデータ: part4-03-test-data.md
@@ -112,7 +114,7 @@ nav:
     - 12. 運用・監視: part4-12-operations-monitoring.md
     - 13. 高度なトピック: part4-13-advanced-topics.md
     - 14. まとめと演習: part4-14-summary-exercises.md
-  - Part 5 - 発注管理サービスのケーススタディ:
+  - Part 5 - 発注管理編:
     - 1. イントロダクション: part5-01-introduction.md
     - 2. データモデル: part5-02-data-model.md
     - 3. テストデータ: part5-03-test-data.md
@@ -124,7 +126,7 @@ nav:
     - 9. 運用・監視: part5-09-operations-monitoring.md
     - 10. 高度なトピック: part5-10-advanced-topics.md
     - 11. まとめと演習: part5-11-summary-exercises.md
-  - Part 6 - 会計サービスのケーススタディ:
+  - Part 6 - 会計編:
     - 1. イントロダクション: part6-01-introduction.md
     - 2. リードモデルスキーマ: part6-02-read-model-schema.md
     - 3. ドメインデータ: part6-03-domain-data.md
@@ -137,7 +139,7 @@ nav:
     - 10. 運用・監視: part6-10-operations-monitoring.md
     - 11. 高度なトピック: part6-11-advanced-topics.md
     - 12. まとめと演習: part6-12-summary-exercises.md
-  - Part 7 - 共用データ管理サービスのケーススタディ:
+  - Part 7 - 共用データ管理編:
     - 1. イントロダクション: part7-01-introduction.md
     - 2. リードモデルスキーマ: part7-02-read-model-schema.md
     - 3. ドメインデータ: part7-03-domain-data.md
