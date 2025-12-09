@@ -288,7 +288,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
             productCode = productCode.value,
             name = name.value,
             categoryCode = categoryCode.value,
-            storageCondition = storageCondition.toString, // RT, RF, FZ
+            storageCondition = storageCondition.code, // RT, RF, FZ
             isObsolete = false,
             createdAt = Timestamp.from(occurredAt.asInstant()),
             updatedAt = Timestamp.from(occurredAt.asInstant())
@@ -302,7 +302,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
             .update(
               (newName.value,
                 newCategoryCode.value,
-                newStorageCondition.toString,
+                newStorageCondition.code,
                 Timestamp.from(occurredAt.asInstant()))
             )
 
@@ -337,7 +337,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
             id = entityId.asString,
             customerCode = customerCode.value,
             name = name.value,
-            customerType = customerType.toString, // LARGE, MEDIUM, SMALL
+            customerType = customerType.toString.toUpperCase, // LARGE, MEDIUM, SMALL
             isActive = true,
             createdAt = Timestamp.from(occurredAt.asInstant()),
             updatedAt = Timestamp.from(occurredAt.asInstant())
@@ -348,7 +348,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           component.CustomersDao
             .filter(_.id === entityId.asString)
             .map(r => (r.name, r.customerType, r.updatedAt))
-            .update((newName.value, newCustomerType.toString, Timestamp.from(occurredAt.asInstant())))
+            .update((newName.value, newCustomerType.toString.toUpperCase, Timestamp.from(occurredAt.asInstant())))
 
         case CustomerEvent.Deactivated_V1(_, entityId, occurredAt) =>
           component.CustomersDao
@@ -438,7 +438,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
             warehouseId = warehouseId.asString,
             zoneCode = zoneCode.value,
             name = name.value,
-            zoneType = zoneType.toString, // RT, RF, FZ
+            zoneType = zoneType.code, // RT, RF, FZ
             capacitySqm = capacity.squareMeters,
             isActive = true,
             createdAt = Timestamp.from(occurredAt.asInstant()),
