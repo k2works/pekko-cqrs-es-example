@@ -33,8 +33,7 @@ enum WarehouseZoneAggregateState {
           throw new IllegalStateException(s"Failed to update warehouse zone: $error")
       })
 
-    case (Active(zone), WarehouseZoneEvent.Deactivated_V1(_, entityId, _))
-        if zone.id == entityId =>
+    case (Active(zone), WarehouseZoneEvent.Deactivated_V1(_, entityId, _)) if zone.id == entityId =>
       Inactive(zone.deactivate match {
         case Right((deactivatedZone, _)) => deactivatedZone
         case Left(error) =>

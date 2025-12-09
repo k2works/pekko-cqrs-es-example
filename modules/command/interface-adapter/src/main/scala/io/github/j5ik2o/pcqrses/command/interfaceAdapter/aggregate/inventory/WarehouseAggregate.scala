@@ -15,8 +15,8 @@ import org.apache.pekko.actor.typed.scaladsl.Behaviors
 object WarehouseAggregate {
 
   private def handleNotCreated(
-      state: WarehouseAggregateState.NotCreated,
-      effector: PersistenceEffector[WarehouseAggregateState, WarehouseEvent, Command]
+    state: WarehouseAggregateState.NotCreated,
+    effector: PersistenceEffector[WarehouseAggregateState, WarehouseEvent, Command]
   ): Behavior[Command] = Behaviors.receiveMessagePartial {
     case CreateWarehouse(id, warehouseCode, name, location, replyTo) if state.id == id =>
       val (newState, event) = Warehouse(id, warehouseCode, name, location)
@@ -30,8 +30,8 @@ object WarehouseAggregate {
   }
 
   private def handleActive(
-      state: WarehouseAggregateState.Active,
-      effector: PersistenceEffector[WarehouseAggregateState, WarehouseEvent, Command]
+    state: WarehouseAggregateState.Active,
+    effector: PersistenceEffector[WarehouseAggregateState, WarehouseEvent, Command]
   ): Behavior[Command] =
     Behaviors.receiveMessagePartial {
       case UpdateWarehouse(id, newName, newLocation, replyTo) if state.warehouse.id == id =>
@@ -62,8 +62,8 @@ object WarehouseAggregate {
     }
 
   private def handleInactive(
-      state: WarehouseAggregateState.Inactive,
-      effector: PersistenceEffector[WarehouseAggregateState, WarehouseEvent, Command]
+    state: WarehouseAggregateState.Inactive,
+    effector: PersistenceEffector[WarehouseAggregateState, WarehouseEvent, Command]
   ): Behavior[Command] =
     Behaviors.receiveMessagePartial {
       case ReactivateWarehouse(id, replyTo) if state.warehouse.id == id =>

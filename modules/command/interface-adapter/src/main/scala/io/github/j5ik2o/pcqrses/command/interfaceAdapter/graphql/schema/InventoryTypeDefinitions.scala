@@ -12,18 +12,18 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
   case class CreateProductResult(id: String)
   case class CreateProductInput(
-      productCode: String,
-      name: String,
-      categoryCode: String,
-      storageCondition: String // "RT", "RF", "FZ"
+    productCode: String,
+    name: String,
+    categoryCode: String,
+    storageCondition: String // "RT", "RF", "FZ"
   )
 
   case class UpdateProductResult(id: String)
   case class UpdateProductInput(
-      id: String,
-      name: String,
-      categoryCode: String,
-      storageCondition: String
+    id: String,
+    name: String,
+    categoryCode: String,
+    storageCondition: String
   )
 
   case class ObsoleteProductResult(id: String)
@@ -136,10 +136,10 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
   case class AdjustInventoryResult(version: Long)
   case class AdjustInventoryInput(
-      id: String,
-      newQuantity: Double,
-      reason: String,
-      expectedVersion: Long
+    id: String,
+    newQuantity: Double,
+    reason: String,
+    expectedVersion: Long
   )
 
   val CreateInventoryResultType: ObjectType[ResolverContext, CreateInventoryResult] =
@@ -294,16 +294,16 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
   case class CreateCustomerResult(id: String)
   case class CreateCustomerInput(
-      customerCode: String,
-      name: String,
-      customerType: String // "L", "M", "S"
+    customerCode: String,
+    name: String,
+    customerType: String // "L", "M", "S"
   )
 
   case class UpdateCustomerResult(id: String)
   case class UpdateCustomerInput(
-      id: String,
-      name: String,
-      customerType: String // "L", "M", "S"
+    id: String,
+    name: String,
+    customerType: String // "L", "M", "S"
   )
 
   case class DeactivateCustomerResult(id: String)
@@ -428,16 +428,16 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
   case class CreateWarehouseResult(id: String)
   case class CreateWarehouseInput(
-      warehouseCode: String,
-      name: String,
-      location: String
+    warehouseCode: String,
+    name: String,
+    location: String
   )
 
   case class UpdateWarehouseResult(id: String)
   case class UpdateWarehouseInput(
-      id: String,
-      name: String,
-      location: String
+    id: String,
+    name: String,
+    location: String
   )
 
   case class DeactivateWarehouseResult(id: String)
@@ -562,18 +562,18 @@ trait InventoryTypeDefinitions extends ScalarTypes {
 
   case class CreateWarehouseZoneResult(id: String)
   case class CreateWarehouseZoneInput(
-      warehouseId: String,
-      zoneCode: String,
-      name: String,
-      storageCondition: String, // "RT", "RF", "FZ"
-      capacity: Double // 容量（平米）
+    warehouseId: String,
+    zoneCode: String,
+    name: String,
+    storageCondition: String, // "RT", "RF", "FZ"
+    capacity: Double // 容量（平米）
   )
 
   case class UpdateWarehouseZoneResult(id: String)
   case class UpdateWarehouseZoneInput(
-      id: String,
-      name: String,
-      capacity: Double // 容量（平米）
+    id: String,
+    name: String,
+    capacity: Double // 容量（平米）
   )
 
   case class DeactivateWarehouseZoneResult(id: String)
@@ -598,7 +598,8 @@ trait InventoryTypeDefinitions extends ScalarTypes {
       )
     )
 
-  val DeactivateWarehouseZoneResultType: ObjectType[ResolverContext, DeactivateWarehouseZoneResult] =
+  val DeactivateWarehouseZoneResultType
+    : ObjectType[ResolverContext, DeactivateWarehouseZoneResult] =
     ObjectType(
       "DeactivateWarehouseZoneResult",
       fields[ResolverContext, DeactivateWarehouseZoneResult](
@@ -606,7 +607,8 @@ trait InventoryTypeDefinitions extends ScalarTypes {
       )
     )
 
-  val ReactivateWarehouseZoneResultType: ObjectType[ResolverContext, ReactivateWarehouseZoneResult] =
+  val ReactivateWarehouseZoneResultType
+    : ObjectType[ResolverContext, ReactivateWarehouseZoneResult] =
     ObjectType(
       "ReactivateWarehouseZoneResult",
       fields[ResolverContext, ReactivateWarehouseZoneResult](

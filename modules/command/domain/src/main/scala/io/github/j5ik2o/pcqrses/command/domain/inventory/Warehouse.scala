@@ -3,16 +3,16 @@ package io.github.j5ik2o.pcqrses.command.domain.inventory
 import io.github.j5ik2o.pcqrses.command.domain.basic.DateTime
 import io.github.j5ik2o.pcqrses.command.domain.support.{DomainEventId, Entity}
 
-/** 倉庫集約
-  *
-  * D社の倉庫を管理する集約。
-  * 3拠点（東京、大阪、福岡）の倉庫情報を管理する。
-  *
-  * ビジネスルール：
-  * - 倉庫コードは一意である必要がある
-  * - 無効化された倉庫は更新できない
-  * - 無効化された倉庫は再有効化できる
-  */
+/**
+ * 倉庫集約
+ *
+ * D社の倉庫を管理する集約。 3拠点（東京、大阪、福岡）の倉庫情報を管理する。
+ *
+ * ビジネスルール：
+ *   - 倉庫コードは一意である必要がある
+ *   - 無効化された倉庫は更新できない
+ *   - 無効化された倉庫は再有効化できる
+ */
 trait Warehouse extends Entity {
   override type IdType = WarehouseId
 
@@ -34,49 +34,65 @@ trait Warehouse extends Entity {
   /** 更新日時 */
   def updatedAt: DateTime
 
-  /** 倉庫情報を更新
-    *
-    * @param newName 新しい倉庫名
-    * @param newLocation 新しい所在地
-    * @return 更新後の倉庫とイベント、またはエラー
-    */
+  /**
+   * 倉庫情報を更新
+   *
+   * @param newName
+   *   新しい倉庫名
+   * @param newLocation
+   *   新しい所在地
+   * @return
+   *   更新後の倉庫とイベント、またはエラー
+   */
   def update(
-      newName: WarehouseName,
-      newLocation: WarehouseLocation
+    newName: WarehouseName,
+    newLocation: WarehouseLocation
   ): Either[UpdateWarehouseError, (Warehouse, WarehouseEvent)]
 
-  /** 倉庫を無効化
-    *
-    * @return 無効化後の倉庫とイベント、またはエラー
-    */
+  /**
+   * 倉庫を無効化
+   *
+   * @return
+   *   無効化後の倉庫とイベント、またはエラー
+   */
   def deactivate: Either[DeactivateWarehouseError, (Warehouse, WarehouseEvent)]
 
-  /** 倉庫を再有効化
-    *
-    * @return 再有効化後の倉庫とイベント、またはエラー
-    */
+  /**
+   * 倉庫を再有効化
+   *
+   * @return
+   *   再有効化後の倉庫とイベント、またはエラー
+   */
   def reactivate: Either[ReactivateWarehouseError, (Warehouse, WarehouseEvent)]
 }
 
 object Warehouse {
 
-  /** 倉庫を作成
-    *
-    * @param id 倉庫ID
-    * @param warehouseCode 倉庫コード
-    * @param name 倉庫名
-    * @param location 所在地
-    * @param createdAt 作成日時（省略時は現在時刻）
-    * @param updatedAt 更新日時（省略時は現在時刻）
-    * @return 作成された倉庫とCreatedイベント
-    */
+  /**
+   * 倉庫を作成
+   *
+   * @param id
+   *   倉庫ID
+   * @param warehouseCode
+   *   倉庫コード
+   * @param name
+   *   倉庫名
+   * @param location
+   *   所在地
+   * @param createdAt
+   *   作成日時（省略時は現在時刻）
+   * @param updatedAt
+   *   更新日時（省略時は現在時刻）
+   * @return
+   *   作成された倉庫とCreatedイベント
+   */
   def apply(
-      id: WarehouseId,
-      warehouseCode: WarehouseCode,
-      name: WarehouseName,
-      location: WarehouseLocation,
-      createdAt: DateTime = DateTime.now(),
-      updatedAt: DateTime = DateTime.now()
+    id: WarehouseId,
+    warehouseCode: WarehouseCode,
+    name: WarehouseName,
+    location: WarehouseLocation,
+    createdAt: DateTime = DateTime.now(),
+    updatedAt: DateTime = DateTime.now()
   ): (Warehouse, WarehouseEvent) = {
     val warehouse = WarehouseImpl(
       id = id,
@@ -99,24 +115,24 @@ object Warehouse {
   }
 
   def unapply(
-      self: Warehouse
+    self: Warehouse
   ): Option[(WarehouseId, WarehouseCode, WarehouseName, WarehouseLocation, DateTime, DateTime)] =
     Some((self.id, self.warehouseCode, self.name, self.location, self.createdAt, self.updatedAt))
 
   private final case class WarehouseImpl(
-      id: WarehouseId,
-      warehouseCode: WarehouseCode,
-      name: WarehouseName,
-      location: WarehouseLocation,
-      active: Boolean,
-      createdAt: DateTime,
-      updatedAt: DateTime
+    id: WarehouseId,
+    warehouseCode: WarehouseCode,
+    name: WarehouseName,
+    location: WarehouseLocation,
+    active: Boolean,
+    createdAt: DateTime,
+    updatedAt: DateTime
   ) extends Warehouse {
 
     override def update(
-        newName: WarehouseName,
-        newLocation: WarehouseLocation
-    ): Either[UpdateWarehouseError, (Warehouse, WarehouseEvent)] = {
+      newName: WarehouseName,
+      newLocation: WarehouseLocation
+    ): Either[UpdateWarehouseError, (Warehouse, WarehouseEvent)] =
       if (!active) {
         Left(UpdateWarehouseError.AlreadyDeactivated)
       } else if (name == newName && location == newLocation) {
@@ -138,9 +154,8 @@ object Warehouse {
         )
         Right((updated, event))
       }
-    }
 
-    override def deactivate: Either[DeactivateWarehouseError, (Warehouse, WarehouseEvent)] = {
+    override def deactivate: Either[DeactivateWarehouseError, (Warehouse, WarehouseEvent)] =
       if (!active) {
         Left(DeactivateWarehouseError.AlreadyDeactivated)
       } else {
@@ -152,9 +167,8 @@ object Warehouse {
         )
         Right((updated, event))
       }
-    }
 
-    override def reactivate: Either[ReactivateWarehouseError, (Warehouse, WarehouseEvent)] = {
+    override def reactivate: Either[ReactivateWarehouseError, (Warehouse, WarehouseEvent)] =
       if (active) {
         Left(ReactivateWarehouseError.AlreadyActive)
       } else {
@@ -166,6 +180,5 @@ object Warehouse {
         )
         Right((updated, event))
       }
-    }
   }
 }

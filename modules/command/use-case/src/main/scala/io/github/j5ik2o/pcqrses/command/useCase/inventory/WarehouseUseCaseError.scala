@@ -9,5 +9,5 @@ object WarehouseUseCaseError {
   final case class DeactivateFailed(message: String) extends WarehouseUseCaseError
   final case class ReactivateFailed(message: String) extends WarehouseUseCaseError
   final case class UnexpectedError(message: String, cause: Option[Throwable] = None)
-      extends WarehouseUseCaseError
+    extends WarehouseUseCaseError
 }

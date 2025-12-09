@@ -19,26 +19,26 @@ import zio.{IO, Task, ZIO}
 import scala.concurrent.ExecutionContext
 
 /**
-  * WarehouseZoneUseCaseの実装クラス
-  *
-  * Pekkoアクターを使用して倉庫ゾーン管理のビジネスロジックを実行する
-  */
+ * WarehouseZoneUseCaseの実装クラス
+ *
+ * Pekkoアクターを使用して倉庫ゾーン管理のビジネスロジックを実行する
+ */
 private[inventory] final class WarehouseZoneUseCaseImpl(
-    warehouseZoneAggregateRef: ActorRef[WarehouseZoneProtocol.Command]
+  warehouseZoneAggregateRef: ActorRef[WarehouseZoneProtocol.Command]
 )(implicit
-    timeout: Timeout,
-    scheduler: Scheduler,
-    ec: ExecutionContext
+  timeout: Timeout,
+  scheduler: Scheduler,
+  ec: ExecutionContext
 ) extends WarehouseZoneUseCase {
 
   private val logger = LoggerFactory.getLogger(this.getClass)
 
   override def createWarehouseZone(
-      warehouseId: WarehouseId,
-      zoneCode: ZoneCode,
-      name: ZoneName,
-      zoneType: StorageCondition,
-      capacity: ZoneCapacity
+    warehouseId: WarehouseId,
+    zoneCode: ZoneCode,
+    name: ZoneName,
+    zoneType: StorageCondition,
+    capacity: ZoneCapacity
   ): IO[WarehouseZoneUseCaseError, WarehouseZoneId] =
     for {
       _ <- ZIO.succeed(
@@ -61,8 +61,7 @@ private[inventory] final class WarehouseZoneUseCaseImpl(
         WarehouseZoneUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case WarehouseZoneProtocol.CreateWarehouseZoneSucceeded(id) =>
           ZIO.succeed(logger.info(s"WarehouseZone creation succeeded for ID: ${id.asString}")) *>
@@ -71,9 +70,9 @@ private[inventory] final class WarehouseZoneUseCaseImpl(
     } yield result
 
   override def updateWarehouseZone(
-      warehouseZoneId: WarehouseZoneId,
-      newName: ZoneName,
-      newCapacity: ZoneCapacity
+    warehouseZoneId: WarehouseZoneId,
+    newName: ZoneName,
+    newCapacity: ZoneCapacity
   ): IO[WarehouseZoneUseCaseError, WarehouseZoneId] =
     for {
       _ <- ZIO.succeed(
@@ -90,8 +89,7 @@ private[inventory] final class WarehouseZoneUseCaseImpl(
         WarehouseZoneUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case WarehouseZoneProtocol.UpdateWarehouseZoneSucceeded(id) =>
           ZIO.succeed(logger.info(s"WarehouseZone update succeeded for ID: ${id.asString}")) *>
@@ -104,7 +102,7 @@ private[inventory] final class WarehouseZoneUseCaseImpl(
     } yield result
 
   override def deactivateWarehouseZone(
-      warehouseZoneId: WarehouseZoneId
+    warehouseZoneId: WarehouseZoneId
   ): IO[WarehouseZoneUseCaseError, WarehouseZoneId] =
     for {
       _ <- ZIO.succeed(
@@ -119,8 +117,7 @@ private[inventory] final class WarehouseZoneUseCaseImpl(
         WarehouseZoneUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case WarehouseZoneProtocol.DeactivateWarehouseZoneSucceeded(id) =>
           ZIO.succeed(logger.info(s"WarehouseZone deactivate succeeded for ID: ${id.asString}")) *>
@@ -135,7 +132,7 @@ private[inventory] final class WarehouseZoneUseCaseImpl(
     } yield result
 
   override def reactivateWarehouseZone(
-      warehouseZoneId: WarehouseZoneId
+    warehouseZoneId: WarehouseZoneId
   ): IO[WarehouseZoneUseCaseError, WarehouseZoneId] =
     for {
       _ <- ZIO.succeed(
@@ -150,8 +147,7 @@ private[inventory] final class WarehouseZoneUseCaseImpl(
         WarehouseZoneUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case WarehouseZoneProtocol.ReactivateWarehouseZoneSucceeded(id) =>
           ZIO.succeed(logger.info(s"WarehouseZone reactivate succeeded for ID: ${id.asString}")) *>
@@ -166,7 +162,7 @@ private[inventory] final class WarehouseZoneUseCaseImpl(
     } yield result
 
   private def askActor[R](
-      createMessage: ActorRef[R] => WarehouseZoneProtocol.Command
+    createMessage: ActorRef[R] => WarehouseZoneProtocol.Command
   ): Task[R] =
     PekkoInterop.fromFuture {
       warehouseZoneAggregateRef.ask(createMessage)

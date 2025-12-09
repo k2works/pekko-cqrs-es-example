@@ -12,5 +12,5 @@ object InventoryUseCaseError {
   final case class AdjustFailed(message: String) extends InventoryUseCaseError
   final case class VersionMismatch(message: String) extends InventoryUseCaseError
   final case class UnexpectedError(message: String, cause: Option[Throwable] = None)
-      extends InventoryUseCaseError
+    extends InventoryUseCaseError
 }

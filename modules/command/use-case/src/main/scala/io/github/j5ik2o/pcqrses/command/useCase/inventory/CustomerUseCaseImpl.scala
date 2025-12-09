@@ -17,24 +17,24 @@ import zio.{IO, Task, ZIO}
 import scala.concurrent.ExecutionContext
 
 /**
-  * CustomerUseCaseの実装クラス
-  *
-  * Pekkoアクターを使用して取引先管理のビジネスロジックを実行する
-  */
+ * CustomerUseCaseの実装クラス
+ *
+ * Pekkoアクターを使用して取引先管理のビジネスロジックを実行する
+ */
 private[inventory] final class CustomerUseCaseImpl(
-    customerAggregateRef: ActorRef[CustomerProtocol.Command]
+  customerAggregateRef: ActorRef[CustomerProtocol.Command]
 )(implicit
-    timeout: Timeout,
-    scheduler: Scheduler,
-    ec: ExecutionContext
+  timeout: Timeout,
+  scheduler: Scheduler,
+  ec: ExecutionContext
 ) extends CustomerUseCase {
 
   private val logger = LoggerFactory.getLogger(this.getClass)
 
   override def createCustomer(
-      customerCode: CustomerCode,
-      name: CustomerName,
-      customerType: CustomerType
+    customerCode: CustomerCode,
+    name: CustomerName,
+    customerType: CustomerType
   ): IO[CustomerUseCaseError, CustomerId] =
     for {
       _ <- ZIO.succeed(
@@ -53,8 +53,7 @@ private[inventory] final class CustomerUseCaseImpl(
         CustomerUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case CustomerProtocol.CreateCustomerSucceeded(id) =>
           ZIO.succeed(logger.info(s"Customer creation succeeded for ID: ${id.asString}")) *>
@@ -63,9 +62,9 @@ private[inventory] final class CustomerUseCaseImpl(
     } yield result
 
   override def updateCustomer(
-      customerId: CustomerId,
-      newName: CustomerName,
-      newCustomerType: CustomerType
+    customerId: CustomerId,
+    newName: CustomerName,
+    newCustomerType: CustomerType
   ): IO[CustomerUseCaseError, CustomerId] =
     for {
       _ <- ZIO.succeed(
@@ -82,19 +81,19 @@ private[inventory] final class CustomerUseCaseImpl(
         CustomerUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case CustomerProtocol.UpdateCustomerSucceeded(id) =>
           ZIO.succeed(logger.info(s"Customer update succeeded for ID: ${id.asString}")) *>
             ZIO.succeed(id)
         case CustomerProtocol.UpdateCustomerFailed(id, reason) =>
-          ZIO.fail(CustomerUseCaseError.UpdateFailed(s"Update failed for ID ${id.asString}: $reason"))
+          ZIO.fail(
+            CustomerUseCaseError.UpdateFailed(s"Update failed for ID ${id.asString}: $reason"))
       }
     } yield result
 
   override def deactivateCustomer(
-      customerId: CustomerId
+    customerId: CustomerId
   ): IO[CustomerUseCaseError, CustomerId] =
     for {
       _ <- ZIO.succeed(
@@ -109,21 +108,21 @@ private[inventory] final class CustomerUseCaseImpl(
         CustomerUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case CustomerProtocol.DeactivateCustomerSucceeded(id) =>
           ZIO.succeed(logger.info(s"Customer deactivate succeeded for ID: ${id.asString}")) *>
             ZIO.succeed(id)
         case CustomerProtocol.DeactivateCustomerFailed(id, reason) =>
           ZIO.fail(
-            CustomerUseCaseError.DeactivateFailed(s"Deactivate failed for ID ${id.asString}: $reason")
+            CustomerUseCaseError.DeactivateFailed(
+              s"Deactivate failed for ID ${id.asString}: $reason")
           )
       }
     } yield result
 
   override def reactivateCustomer(
-      customerId: CustomerId
+    customerId: CustomerId
   ): IO[CustomerUseCaseError, CustomerId] =
     for {
       _ <- ZIO.succeed(
@@ -138,21 +137,21 @@ private[inventory] final class CustomerUseCaseImpl(
         CustomerUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case CustomerProtocol.ReactivateCustomerSucceeded(id) =>
           ZIO.succeed(logger.info(s"Customer reactivate succeeded for ID: ${id.asString}")) *>
             ZIO.succeed(id)
         case CustomerProtocol.ReactivateCustomerFailed(id, reason) =>
           ZIO.fail(
-            CustomerUseCaseError.ReactivateFailed(s"Reactivate failed for ID ${id.asString}: $reason")
+            CustomerUseCaseError.ReactivateFailed(
+              s"Reactivate failed for ID ${id.asString}: $reason")
           )
       }
     } yield result
 
   private def askActor[R](
-      createMessage: ActorRef[R] => CustomerProtocol.Command
+    createMessage: ActorRef[R] => CustomerProtocol.Command
   ): Task[R] =
     PekkoInterop.fromFuture {
       customerAggregateRef.ask(createMessage)

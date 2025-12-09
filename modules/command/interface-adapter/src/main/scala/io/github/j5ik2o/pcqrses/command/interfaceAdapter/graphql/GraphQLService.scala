@@ -4,9 +4,9 @@ import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.errors.GraphQLE
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.schema.GraphQLSchema
 import io.github.j5ik2o.pcqrses.command.useCase.users.UserAccountUseCase
 import io.github.j5ik2o.pcqrses.command.useCase.inventory.{
-  ProductUseCase,
-  InventoryUseCase,
   CustomerUseCase,
+  InventoryUseCase,
+  ProductUseCase,
   WarehouseUseCase,
   WarehouseZoneUseCase
 }
@@ -191,9 +191,7 @@ object GraphQLService {
     customerUseCase: CustomerUseCase,
     warehouseUseCase: WarehouseUseCase,
     warehouseZoneUseCase: WarehouseZoneUseCase
-  )(implicit
-    ec: ExecutionContext,
-    zioRuntime: Runtime[Any]): GraphQLService =
+  )(implicit ec: ExecutionContext, zioRuntime: Runtime[Any]): GraphQLService =
     new GraphQLService(
       userAccountUseCase,
       productUseCase,

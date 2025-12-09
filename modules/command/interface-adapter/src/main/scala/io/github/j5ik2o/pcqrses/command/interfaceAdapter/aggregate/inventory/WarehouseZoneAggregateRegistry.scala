@@ -13,9 +13,9 @@ object WarehouseZoneAggregateRegistry {
   private val StopMessageId: WarehouseZoneId = WarehouseZoneId.from("00000000000000000000000000")
 
   def create(
-      mode: GenericAggregateRegistry.Mode = GenericAggregateRegistry.Mode.LocalMode,
-      idleTimeout: Option[FiniteDuration] = None,
-      enablePassivation: Boolean = true
+    mode: GenericAggregateRegistry.Mode = GenericAggregateRegistry.Mode.LocalMode,
+    idleTimeout: Option[FiniteDuration] = None,
+    enablePassivation: Boolean = true
   )(implicit system: ActorSystem[?]): Behavior[WarehouseZoneProtocol.Command] =
     GenericAggregateRegistry.create[WarehouseZoneId, WarehouseZoneProtocol.Command](
       aggregateName = WarehouseZoneId.EntityTypeName,

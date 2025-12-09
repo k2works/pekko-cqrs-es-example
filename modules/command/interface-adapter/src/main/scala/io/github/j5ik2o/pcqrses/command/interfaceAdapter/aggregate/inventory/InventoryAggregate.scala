@@ -15,8 +15,8 @@ import org.apache.pekko.actor.typed.scaladsl.Behaviors
 object InventoryAggregate {
 
   private def handleNotCreated(
-      state: InventoryAggregateState.NotCreated,
-      effector: PersistenceEffector[InventoryAggregateState, InventoryEvent, Command]
+    state: InventoryAggregateState.NotCreated,
+    effector: PersistenceEffector[InventoryAggregateState, InventoryEvent, Command]
   ): Behavior[Command] = Behaviors.receiveMessagePartial {
     case CreateInventory(id, productId, warehouseZoneId, replyTo) if state.id == id =>
       val inventory = Inventory.create(id, productId, warehouseZoneId)
@@ -26,7 +26,9 @@ object InventoryAggregate {
     case ReceiveInventory(id, quantity, expectedVersion, replyTo) if state.id == id =>
       // 初回入庫でCreateInventoryを明示的に呼ばずに在庫を作成することも可能にする
       // 実際のビジネス要件に応じて、この動作を変更することもできる
-      replyTo ! ReceiveInventoryFailed(id, io.github.j5ik2o.pcqrses.command.domain.inventory.ReceiveInventoryError.VersionMismatch)
+      replyTo ! ReceiveInventoryFailed(
+        id,
+        io.github.j5ik2o.pcqrses.command.domain.inventory.ReceiveInventoryError.VersionMismatch)
       Behaviors.same
 
     case GetInventory(id, replyTo) if state.id == id =>
@@ -35,8 +37,8 @@ object InventoryAggregate {
   }
 
   private def handleCreated(
-      state: InventoryAggregateState.Created,
-      effector: PersistenceEffector[InventoryAggregateState, InventoryEvent, Command]
+    state: InventoryAggregateState.Created,
+    effector: PersistenceEffector[InventoryAggregateState, InventoryEvent, Command]
   ): Behavior[Command] =
     Behaviors.receiveMessagePartial {
       case ReceiveInventory(id, quantity, expectedVersion, replyTo) if state.inventory.id == id =>

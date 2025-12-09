@@ -12,44 +12,50 @@ trait InventoryId extends EntityId {
 object InventoryId {
   final val EntityTypeName: String = "Inventory"
 
-  /** 新しい在庫IDを生成
-    *
-    * @return 生成された在庫ID
-    */
-  def generate(): InventoryId = {
+  /**
+   * 新しい在庫IDを生成
+   *
+   * @return
+   *   生成された在庫ID
+   */
+  def generate(): InventoryId =
     InventoryIdImpl(ULID.newULID)
-  }
 
-  /** ULID文字列から在庫IDをパース
-    *
-    * @param value ULID文字列
-    * @return パース結果
-    */
-  def parseFromString(value: String): Either[InventoryIdError, InventoryId] = {
+  /**
+   * ULID文字列から在庫IDをパース
+   *
+   * @param value
+   *   ULID文字列
+   * @return
+   *   パース結果
+   */
+  def parseFromString(value: String): Either[InventoryIdError, InventoryId] =
     try {
       val ulid = ULID.fromString(value)
       Right(InventoryIdImpl(ulid))
     } catch {
       case _: IllegalArgumentException => Left(InventoryIdError.InvalidFormat)
     }
-  }
 
-  /** ULIDから在庫IDを生成
-    *
-    * @param ulid ULID
-    * @return 在庫ID
-    */
+  /**
+   * ULIDから在庫IDを生成
+   *
+   * @param ulid
+   *   ULID
+   * @return
+   *   在庫ID
+   */
   def fromUlid(ulid: ULID): InventoryId = InventoryIdImpl(ulid)
 
   def unapply(self: InventoryId): Option[String] = Some(self.asString)
 
   def from(value: String): InventoryId = parseFromString(value) match {
     case Right(v) => v
-    case Left(e)  => throw new IllegalArgumentException(e.message)
+    case Left(e) => throw new IllegalArgumentException(e.message)
   }
 
   private final case class InventoryIdImpl(ulid: ULID) extends InventoryId {
     override def entityTypeName: String = EntityTypeName
-    override def asString: String       = ulid.toString
+    override def asString: String = ulid.toString
   }
 }

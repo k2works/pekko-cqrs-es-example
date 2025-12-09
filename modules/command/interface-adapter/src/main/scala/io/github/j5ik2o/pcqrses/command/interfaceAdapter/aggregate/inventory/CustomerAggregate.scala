@@ -15,8 +15,8 @@ import org.apache.pekko.actor.typed.scaladsl.Behaviors
 object CustomerAggregate {
 
   private def handleNotCreated(
-      state: CustomerAggregateState.NotCreated,
-      effector: PersistenceEffector[CustomerAggregateState, CustomerEvent, Command]
+    state: CustomerAggregateState.NotCreated,
+    effector: PersistenceEffector[CustomerAggregateState, CustomerEvent, Command]
   ): Behavior[Command] = Behaviors.receiveMessagePartial {
     case CreateCustomer(id, customerCode, name, customerType, replyTo) if state.id == id =>
       val (newState, event) = Customer(id, customerCode, name, customerType)
@@ -30,8 +30,8 @@ object CustomerAggregate {
   }
 
   private def handleActive(
-      state: CustomerAggregateState.Active,
-      effector: PersistenceEffector[CustomerAggregateState, CustomerEvent, Command]
+    state: CustomerAggregateState.Active,
+    effector: PersistenceEffector[CustomerAggregateState, CustomerEvent, Command]
   ): Behavior[Command] =
     Behaviors.receiveMessagePartial {
       case UpdateCustomer(id, newName, newCustomerType, replyTo) if state.customer.id == id =>
@@ -62,8 +62,8 @@ object CustomerAggregate {
     }
 
   private def handleInactive(
-      state: CustomerAggregateState.Inactive,
-      effector: PersistenceEffector[CustomerAggregateState, CustomerEvent, Command]
+    state: CustomerAggregateState.Inactive,
+    effector: PersistenceEffector[CustomerAggregateState, CustomerEvent, Command]
   ): Behavior[Command] =
     Behaviors.receiveMessagePartial {
       case ReactivateCustomer(id, replyTo) if state.customer.id == id =>

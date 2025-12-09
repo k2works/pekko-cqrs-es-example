@@ -8,5 +8,5 @@ object ProductUseCaseError {
   final case class UpdateFailed(message: String) extends ProductUseCaseError
   final case class ObsoleteFailed(message: String) extends ProductUseCaseError
   final case class UnexpectedError(message: String, cause: Option[Throwable] = None)
-      extends ProductUseCaseError
+    extends ProductUseCaseError
 }

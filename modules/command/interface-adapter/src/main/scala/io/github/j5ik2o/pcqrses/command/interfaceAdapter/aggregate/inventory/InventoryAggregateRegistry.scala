@@ -13,9 +13,9 @@ object InventoryAggregateRegistry {
   private val StopMessageId: InventoryId = InventoryId.from("00000000000000000000000000")
 
   def create(
-      mode: GenericAggregateRegistry.Mode = GenericAggregateRegistry.Mode.LocalMode,
-      idleTimeout: Option[FiniteDuration] = None,
-      enablePassivation: Boolean = true
+    mode: GenericAggregateRegistry.Mode = GenericAggregateRegistry.Mode.LocalMode,
+    idleTimeout: Option[FiniteDuration] = None,
+    enablePassivation: Boolean = true
   )(implicit system: ActorSystem[?]): Behavior[InventoryProtocol.Command] =
     GenericAggregateRegistry.create[InventoryId, InventoryProtocol.Command](
       aggregateName = InventoryId.EntityTypeName,

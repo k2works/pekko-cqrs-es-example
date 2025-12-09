@@ -3,18 +3,16 @@ package io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.resolvers
 import io.github.j5ik2o.pcqrses.query.interfaceAdapter.dao.*
 import io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.ResolverContext
 import io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.errors.{QueryError, ValidationError}
-import io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.schema.{TypeDefinitions, InventoryTypeDefinitions}
+import io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.schema.{
+  InventoryTypeDefinitions,
+  TypeDefinitions
+}
 import io.github.j5ik2o.pcqrses.query.interfaceAdapter.graphql.validators.QueryInputValidator
 import sangria.schema.*
 
 trait QueryResolver extends TypeDefinitions with InventoryTypeDefinitions {
-  this: UserAccountsComponent
-    & ProductsComponent
-    & InventoriesComponent
-    & CustomersComponent
-    & WarehousesComponent
-    & WarehouseZonesComponent
-    & InventoryTransactionsComponent =>
+  this: UserAccountsComponent & ProductsComponent & InventoriesComponent & CustomersComponent &
+    WarehousesComponent & WarehouseZonesComponent & InventoryTransactionsComponent =>
 
   val QueryType: ObjectType[ResolverContext, Unit] = ObjectType(
     "Query",
@@ -231,7 +229,10 @@ trait QueryResolver extends TypeDefinitions with InventoryTypeDefinitions {
           val inventoryId = ctx.arg(InventoryIdArg)
           ctx.ctx.runDbAction {
             import profile.api._
-            InventoryTransactionsDao.filter(_.inventoryId === inventoryId).sortBy(_.occurredAt.desc).result
+            InventoryTransactionsDao
+              .filter(_.inventoryId === inventoryId)
+              .sortBy(_.occurredAt.desc)
+              .result
           }
         }
       ),

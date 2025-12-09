@@ -18,25 +18,25 @@ import zio.{IO, Task, ZIO}
 import scala.concurrent.ExecutionContext
 
 /**
-  * ProductUseCaseの実装クラス
-  *
-  * Pekkoアクターを使用して商品管理のビジネスロジックを実行する
-  */
+ * ProductUseCaseの実装クラス
+ *
+ * Pekkoアクターを使用して商品管理のビジネスロジックを実行する
+ */
 private[inventory] final class ProductUseCaseImpl(
-    productAggregateRef: ActorRef[ProductProtocol.Command]
+  productAggregateRef: ActorRef[ProductProtocol.Command]
 )(implicit
-    timeout: Timeout,
-    scheduler: Scheduler,
-    ec: ExecutionContext
+  timeout: Timeout,
+  scheduler: Scheduler,
+  ec: ExecutionContext
 ) extends ProductUseCase {
 
   private val logger = LoggerFactory.getLogger(this.getClass)
 
   override def createProduct(
-      productCode: ProductCode,
-      name: ProductName,
-      categoryCode: CategoryCode,
-      storageCondition: StorageCondition
+    productCode: ProductCode,
+    name: ProductName,
+    categoryCode: CategoryCode,
+    storageCondition: StorageCondition
   ): IO[ProductUseCaseError, ProductId] =
     for {
       _ <- ZIO.succeed(
@@ -56,8 +56,7 @@ private[inventory] final class ProductUseCaseImpl(
         ProductUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case ProductProtocol.CreateProductSucceeded(id) =>
           ZIO.succeed(logger.info(s"Product creation succeeded for ID: ${id.asString}")) *>
@@ -66,10 +65,10 @@ private[inventory] final class ProductUseCaseImpl(
     } yield result
 
   override def updateProduct(
-      productId: ProductId,
-      newName: ProductName,
-      newCategoryCode: CategoryCode,
-      newStorageCondition: StorageCondition
+    productId: ProductId,
+    newName: ProductName,
+    newCategoryCode: CategoryCode,
+    newStorageCondition: StorageCondition
   ): IO[ProductUseCaseError, ProductId] =
     for {
       _ <- ZIO.succeed(
@@ -87,19 +86,19 @@ private[inventory] final class ProductUseCaseImpl(
         ProductUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case ProductProtocol.UpdateProductSucceeded(id) =>
           ZIO.succeed(logger.info(s"Product update succeeded for ID: ${id.asString}")) *>
             ZIO.succeed(id)
         case ProductProtocol.UpdateProductFailed(id, reason) =>
-          ZIO.fail(ProductUseCaseError.UpdateFailed(s"Update failed for ID ${id.asString}: $reason"))
+          ZIO.fail(
+            ProductUseCaseError.UpdateFailed(s"Update failed for ID ${id.asString}: $reason"))
       }
     } yield result
 
   override def obsoleteProduct(
-      productId: ProductId
+    productId: ProductId
   ): IO[ProductUseCaseError, ProductId] =
     for {
       _ <- ZIO.succeed(
@@ -114,8 +113,7 @@ private[inventory] final class ProductUseCaseImpl(
         ProductUseCaseError.UnexpectedError(
           s"Failed to communicate with actor: ${e.getMessage}",
           Some(e)
-        )
-      )
+        ))
       result <- reply match {
         case ProductProtocol.ObsoleteProductSucceeded(id) =>
           ZIO.succeed(logger.info(s"Product obsolete succeeded for ID: ${id.asString}")) *>
@@ -128,7 +126,7 @@ private[inventory] final class ProductUseCaseImpl(
     } yield result
 
   private def askActor[R](
-      createMessage: ActorRef[R] => ProductProtocol.Command
+    createMessage: ActorRef[R] => ProductProtocol.Command
   ): Task[R] =
     PekkoInterop.fromFuture {
       productAggregateRef.ask(createMessage)

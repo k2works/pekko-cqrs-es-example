@@ -45,9 +45,11 @@ enum ProductAggregateState {
       throw new IllegalStateException(s"Cannot apply event $event to NotCreated state with id $id")
 
     case (Created(product), _) =>
-      throw new IllegalStateException(s"Cannot apply event $event to Created state with product $product")
+      throw new IllegalStateException(
+        s"Cannot apply event $event to Created state with product $product")
 
     case (Obsoleted(product), _) =>
-      throw new IllegalStateException(s"Cannot apply event $event to Obsoleted state with product $product")
+      throw new IllegalStateException(
+        s"Cannot apply event $event to Obsoleted state with product $product")
   }
 }

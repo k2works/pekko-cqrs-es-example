@@ -19,8 +19,8 @@ import org.apache.pekko.actor.typed.scaladsl.Behaviors
 object WarehouseZoneAggregate {
 
   private def handleNotCreated(
-      state: WarehouseZoneAggregateState.NotCreated,
-      effector: PersistenceEffector[WarehouseZoneAggregateState, WarehouseZoneEvent, Command]
+    state: WarehouseZoneAggregateState.NotCreated,
+    effector: PersistenceEffector[WarehouseZoneAggregateState, WarehouseZoneEvent, Command]
   ): Behavior[Command] = Behaviors.receiveMessagePartial {
     case CreateWarehouseZone(id, warehouseId, zoneCode, name, zoneType, capacity, replyTo)
         if state.id == id =>
@@ -35,8 +35,8 @@ object WarehouseZoneAggregate {
   }
 
   private def handleActive(
-      state: WarehouseZoneAggregateState.Active,
-      effector: PersistenceEffector[WarehouseZoneAggregateState, WarehouseZoneEvent, Command]
+    state: WarehouseZoneAggregateState.Active,
+    effector: PersistenceEffector[WarehouseZoneAggregateState, WarehouseZoneEvent, Command]
   ): Behavior[Command] =
     Behaviors.receiveMessagePartial {
       case UpdateWarehouseZone(id, newName, newCapacity, replyTo) if state.zone.id == id =>
@@ -67,8 +67,8 @@ object WarehouseZoneAggregate {
     }
 
   private def handleInactive(
-      state: WarehouseZoneAggregateState.Inactive,
-      effector: PersistenceEffector[WarehouseZoneAggregateState, WarehouseZoneEvent, Command]
+    state: WarehouseZoneAggregateState.Inactive,
+    effector: PersistenceEffector[WarehouseZoneAggregateState, WarehouseZoneEvent, Command]
   ): Behavior[Command] =
     Behaviors.receiveMessagePartial {
       case ReactivateWarehouseZone(id, replyTo) if state.zone.id == id =>

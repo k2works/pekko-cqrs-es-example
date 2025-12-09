@@ -10,12 +10,8 @@ import sangria.marshalling.FromInput.CoercedScalaResult
 import sangria.util.tag.Tagged
 
 trait InventoryTypeDefinitions {
-  this: ProductsComponent
-    & InventoriesComponent
-    & CustomersComponent
-    & WarehousesComponent
-    & WarehouseZonesComponent
-    & InventoryTransactionsComponent =>
+  this: ProductsComponent & InventoriesComponent & CustomersComponent & WarehousesComponent &
+    WarehouseZonesComponent & InventoryTransactionsComponent =>
 
   // ========== Product Types ==========
 
@@ -39,27 +35,41 @@ trait InventoryTypeDefinitions {
     "Product information",
     fields[ResolverContext, ProductsRecord](
       Field("id", StringType, description = Some("Unique identifier"), resolve = _.value.id),
-      Field("productCode", StringType, description = Some("Product code"), resolve = _.value.productCode),
+      Field(
+        "productCode",
+        StringType,
+        description = Some("Product code"),
+        resolve = _.value.productCode),
       Field("name", StringType, description = Some("Product name"), resolve = _.value.name),
-      Field("categoryCode", StringType, description = Some("Category code"), resolve = _.value.categoryCode),
+      Field(
+        "categoryCode",
+        StringType,
+        description = Some("Category code"),
+        resolve = _.value.categoryCode),
       Field(
         "storageCondition",
         StringType,
         description = Some("Storage condition (RT/RF/FZ)"),
         resolve = _.value.storageCondition
       ),
-      Field("isObsolete", BooleanType, description = Some("Is product obsolete"), resolve = _.value.isObsolete),
+      Field(
+        "isObsolete",
+        BooleanType,
+        description = Some("Is product obsolete"),
+        resolve = _.value.isObsolete),
       Field(
         "createdAt",
         OffsetDateTimeType,
         description = Some("Creation timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
       ),
       Field(
         "updatedAt",
         OffsetDateTimeType,
         description = Some("Last update timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
       )
     )
   )
@@ -99,18 +109,24 @@ trait InventoryTypeDefinitions {
         description = Some("Reserved quantity"),
         resolve = _.value.reservedQuantity
       ),
-      Field("version", LongType, description = Some("Version for optimistic locking"), resolve = _.value.version),
+      Field(
+        "version",
+        LongType,
+        description = Some("Version for optimistic locking"),
+        resolve = _.value.version),
       Field(
         "createdAt",
         OffsetDateTimeType,
         description = Some("Creation timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
       ),
       Field(
         "updatedAt",
         OffsetDateTimeType,
         description = Some("Last update timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
       )
     )
   )
@@ -131,21 +147,35 @@ trait InventoryTypeDefinitions {
     "Customer information",
     fields[ResolverContext, CustomersRecord](
       Field("id", StringType, description = Some("Unique identifier"), resolve = _.value.id),
-      Field("customerCode", StringType, description = Some("Customer code"), resolve = _.value.customerCode),
+      Field(
+        "customerCode",
+        StringType,
+        description = Some("Customer code"),
+        resolve = _.value.customerCode),
       Field("name", StringType, description = Some("Customer name"), resolve = _.value.name),
-      Field("customerType", StringType, description = Some("Customer type"), resolve = _.value.customerType),
-      Field("isActive", BooleanType, description = Some("Is customer active"), resolve = _.value.isActive),
+      Field(
+        "customerType",
+        StringType,
+        description = Some("Customer type"),
+        resolve = _.value.customerType),
+      Field(
+        "isActive",
+        BooleanType,
+        description = Some("Is customer active"),
+        resolve = _.value.isActive),
       Field(
         "createdAt",
         OffsetDateTimeType,
         description = Some("Creation timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
       ),
       Field(
         "updatedAt",
         OffsetDateTimeType,
         description = Some("Last update timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
       )
     )
   )
@@ -166,21 +196,31 @@ trait InventoryTypeDefinitions {
     "Warehouse information",
     fields[ResolverContext, WarehousesRecord](
       Field("id", StringType, description = Some("Unique identifier"), resolve = _.value.id),
-      Field("warehouseCode", StringType, description = Some("Warehouse code"), resolve = _.value.warehouseCode),
+      Field(
+        "warehouseCode",
+        StringType,
+        description = Some("Warehouse code"),
+        resolve = _.value.warehouseCode),
       Field("name", StringType, description = Some("Warehouse name"), resolve = _.value.name),
       Field("location", StringType, description = Some("Location"), resolve = _.value.location),
-      Field("isActive", BooleanType, description = Some("Is warehouse active"), resolve = _.value.isActive),
+      Field(
+        "isActive",
+        BooleanType,
+        description = Some("Is warehouse active"),
+        resolve = _.value.isActive),
       Field(
         "createdAt",
         OffsetDateTimeType,
         description = Some("Creation timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
       ),
       Field(
         "updatedAt",
         OffsetDateTimeType,
         description = Some("Last update timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
       )
     )
   )
@@ -188,7 +228,10 @@ trait InventoryTypeDefinitions {
   // ========== WarehouseZone Types ==========
 
   val WarehouseZoneIdsArg: Argument[Seq[String & Tagged[CoercedScalaResult] | Null]] =
-    Argument("warehouseZoneIds", ListInputType(StringType), description = "List of WarehouseZone IDs")
+    Argument(
+      "warehouseZoneIds",
+      ListInputType(StringType),
+      description = "List of WarehouseZone IDs")
 
   val ZoneCodeArg: Argument[String] =
     Argument("zoneCode", StringType, description = "Zone Code")
@@ -198,7 +241,11 @@ trait InventoryTypeDefinitions {
     "Warehouse zone information",
     fields[ResolverContext, WarehouseZonesRecord](
       Field("id", StringType, description = Some("Unique identifier"), resolve = _.value.id),
-      Field("warehouseId", StringType, description = Some("Warehouse ID"), resolve = _.value.warehouseId),
+      Field(
+        "warehouseId",
+        StringType,
+        description = Some("Warehouse ID"),
+        resolve = _.value.warehouseId),
       Field("zoneCode", StringType, description = Some("Zone code"), resolve = _.value.zoneCode),
       Field("name", StringType, description = Some("Zone name"), resolve = _.value.name),
       Field(
@@ -213,18 +260,24 @@ trait InventoryTypeDefinitions {
         description = Some("Capacity in square meters"),
         resolve = _.value.capacitySqm
       ),
-      Field("isActive", BooleanType, description = Some("Is zone active"), resolve = _.value.isActive),
+      Field(
+        "isActive",
+        BooleanType,
+        description = Some("Is zone active"),
+        resolve = _.value.isActive),
       Field(
         "createdAt",
         OffsetDateTimeType,
         description = Some("Creation timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
       ),
       Field(
         "updatedAt",
         OffsetDateTimeType,
         description = Some("Last update timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
+        resolve =
+          t => OffsetDateTime.ofInstant(t.value.updatedAt.toInstant, java.time.ZoneOffset.UTC)
       )
     )
   )
@@ -234,49 +287,60 @@ trait InventoryTypeDefinitions {
   val TransactionTypeArg: Argument[String] =
     Argument("transactionType", StringType, description = "Transaction Type")
 
-  val InventoryTransactionType: ObjectType[ResolverContext, InventoryTransactionsRecord] = ObjectType(
-    "InventoryTransaction",
-    "Inventory transaction history",
-    fields[ResolverContext, InventoryTransactionsRecord](
-      Field("id", StringType, description = Some("Unique identifier"), resolve = _.value.id),
-      Field("inventoryId", StringType, description = Some("Inventory ID"), resolve = _.value.inventoryId),
-      Field(
-        "transactionType",
-        StringType,
-        description = Some("Transaction type (RECEIVED/RESERVED/RELEASED/ISSUED/ADJUSTED)"),
-        resolve = _.value.transactionType
-      ),
-      Field("quantity", BigDecimalType, description = Some("Transaction quantity"), resolve = _.value.quantity),
-      Field(
-        "fromWarehouseZoneId",
-        OptionType(StringType),
-        description = Some("Source warehouse zone ID for transfers"),
-        resolve = _.value.fromWarehouseZoneId
-      ),
-      Field(
-        "toWarehouseZoneId",
-        OptionType(StringType),
-        description = Some("Destination warehouse zone ID for transfers"),
-        resolve = _.value.toWarehouseZoneId
-      ),
-      Field(
-        "reason",
-        OptionType(StringType),
-        description = Some("Reason for transaction"),
-        resolve = _.value.reason
-      ),
-      Field(
-        "occurredAt",
-        OffsetDateTimeType,
-        description = Some("Transaction timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.occurredAt.toInstant, java.time.ZoneOffset.UTC)
-      ),
-      Field(
-        "createdAt",
-        OffsetDateTimeType,
-        description = Some("Creation timestamp"),
-        resolve = t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
+  val InventoryTransactionType: ObjectType[ResolverContext, InventoryTransactionsRecord] =
+    ObjectType(
+      "InventoryTransaction",
+      "Inventory transaction history",
+      fields[ResolverContext, InventoryTransactionsRecord](
+        Field("id", StringType, description = Some("Unique identifier"), resolve = _.value.id),
+        Field(
+          "inventoryId",
+          StringType,
+          description = Some("Inventory ID"),
+          resolve = _.value.inventoryId),
+        Field(
+          "transactionType",
+          StringType,
+          description = Some("Transaction type (RECEIVED/RESERVED/RELEASED/ISSUED/ADJUSTED)"),
+          resolve = _.value.transactionType
+        ),
+        Field(
+          "quantity",
+          BigDecimalType,
+          description = Some("Transaction quantity"),
+          resolve = _.value.quantity),
+        Field(
+          "fromWarehouseZoneId",
+          OptionType(StringType),
+          description = Some("Source warehouse zone ID for transfers"),
+          resolve = _.value.fromWarehouseZoneId
+        ),
+        Field(
+          "toWarehouseZoneId",
+          OptionType(StringType),
+          description = Some("Destination warehouse zone ID for transfers"),
+          resolve = _.value.toWarehouseZoneId
+        ),
+        Field(
+          "reason",
+          OptionType(StringType),
+          description = Some("Reason for transaction"),
+          resolve = _.value.reason
+        ),
+        Field(
+          "occurredAt",
+          OffsetDateTimeType,
+          description = Some("Transaction timestamp"),
+          resolve =
+            t => OffsetDateTime.ofInstant(t.value.occurredAt.toInstant, java.time.ZoneOffset.UTC)
+        ),
+        Field(
+          "createdAt",
+          OffsetDateTimeType,
+          description = Some("Creation timestamp"),
+          resolve =
+            t => OffsetDateTime.ofInstant(t.value.createdAt.toInstant, java.time.ZoneOffset.UTC)
+        )
       )
     )
-  )
 }

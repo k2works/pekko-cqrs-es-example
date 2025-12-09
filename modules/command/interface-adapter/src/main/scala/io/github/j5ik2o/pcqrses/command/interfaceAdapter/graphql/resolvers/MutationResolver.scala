@@ -7,8 +7,8 @@ import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.errors.{
 }
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.schema.{
   CreateUserAccountResult,
-  TypeDefinitions,
-  InventoryTypeDefinitions
+  InventoryTypeDefinitions,
+  TypeDefinitions
 }
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.validators.CreateUserAccountInputValidator
 import io.github.j5ik2o.pcqrses.command.domain.inventory.*
@@ -65,10 +65,15 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 ProductCode(input.productCode),
                 ProductName(input.name),
                 CategoryCode(input.categoryCode),
-                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RoomTemperature)
+                StorageCondition
+                  .fromString(input.storageCondition)
+                  .getOrElse(StorageCondition.RoomTemperature)
               )
               .mapBoth(
-                error => CommandError(s"Failed to create product: ${error.toString}", Some("CREATE_PRODUCT_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to create product: ${error.toString}",
+                    Some("CREATE_PRODUCT_FAILED")),
                 productId => CreateProductResult(id = productId.asString)
               )
           )
@@ -87,10 +92,15 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 ProductId.from(input.id),
                 ProductName(input.name),
                 CategoryCode(input.categoryCode),
-                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RoomTemperature)
+                StorageCondition
+                  .fromString(input.storageCondition)
+                  .getOrElse(StorageCondition.RoomTemperature)
               )
               .mapBoth(
-                error => CommandError(s"Failed to update product: ${error.toString}", Some("UPDATE_PRODUCT_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to update product: ${error.toString}",
+                    Some("UPDATE_PRODUCT_FAILED")),
                 _ => UpdateProductResult(id = input.id)
               )
           )
@@ -107,7 +117,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.productUseCase
               .obsoleteProduct(ProductId.from(input.id))
               .mapBoth(
-                error => CommandError(s"Failed to obsolete product: ${error.toString}", Some("OBSOLETE_PRODUCT_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to obsolete product: ${error.toString}",
+                    Some("OBSOLETE_PRODUCT_FAILED")),
                 _ => ObsoleteProductResult(id = input.id)
               )
           )
@@ -128,7 +141,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 WarehouseZoneId.from(input.warehouseZoneId)
               )
               .mapBoth(
-                error => CommandError(s"Failed to create inventory: ${error.toString}", Some("CREATE_INVENTORY_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to create inventory: ${error.toString}",
+                    Some("CREATE_INVENTORY_FAILED")),
                 inventoryId => CreateInventoryResult(id = inventoryId.asString)
               )
           )
@@ -145,11 +161,18 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .receiveInventory(
                 InventoryId.from(input.id),
-                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.quantity)).getOrElse(InventoryQuantity.Zero),
-                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
+                InventoryQuantity
+                  .parseFromBigDecimal(BigDecimal(input.quantity))
+                  .getOrElse(InventoryQuantity.Zero),
+                InventoryVersion
+                  .parseFromLong(input.expectedVersion)
+                  .getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
-                error => CommandError(s"Failed to receive inventory: ${error.toString}", Some("RECEIVE_INVENTORY_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to receive inventory: ${error.toString}",
+                    Some("RECEIVE_INVENTORY_FAILED")),
                 newVersion => newVersion.value
               )
           )
@@ -166,11 +189,18 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .reserveInventory(
                 InventoryId.from(input.id),
-                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.quantity)).getOrElse(InventoryQuantity.Zero),
-                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
+                InventoryQuantity
+                  .parseFromBigDecimal(BigDecimal(input.quantity))
+                  .getOrElse(InventoryQuantity.Zero),
+                InventoryVersion
+                  .parseFromLong(input.expectedVersion)
+                  .getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
-                error => CommandError(s"Failed to reserve inventory: ${error.toString}", Some("RESERVE_INVENTORY_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to reserve inventory: ${error.toString}",
+                    Some("RESERVE_INVENTORY_FAILED")),
                 newVersion => newVersion.value
               )
           )
@@ -187,11 +217,18 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .releaseInventory(
                 InventoryId.from(input.id),
-                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.quantity)).getOrElse(InventoryQuantity.Zero),
-                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
+                InventoryQuantity
+                  .parseFromBigDecimal(BigDecimal(input.quantity))
+                  .getOrElse(InventoryQuantity.Zero),
+                InventoryVersion
+                  .parseFromLong(input.expectedVersion)
+                  .getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
-                error => CommandError(s"Failed to release inventory: ${error.toString}", Some("RELEASE_INVENTORY_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to release inventory: ${error.toString}",
+                    Some("RELEASE_INVENTORY_FAILED")),
                 newVersion => newVersion.value
               )
           )
@@ -208,11 +245,18 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .issueInventory(
                 InventoryId.from(input.id),
-                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.quantity)).getOrElse(InventoryQuantity.Zero),
-                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
+                InventoryQuantity
+                  .parseFromBigDecimal(BigDecimal(input.quantity))
+                  .getOrElse(InventoryQuantity.Zero),
+                InventoryVersion
+                  .parseFromLong(input.expectedVersion)
+                  .getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
-                error => CommandError(s"Failed to issue inventory: ${error.toString}", Some("ISSUE_INVENTORY_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to issue inventory: ${error.toString}",
+                    Some("ISSUE_INVENTORY_FAILED")),
                 newVersion => newVersion.value
               )
           )
@@ -229,12 +273,19 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.inventoryUseCase
               .adjustInventory(
                 InventoryId.from(input.id),
-                InventoryQuantity.parseFromBigDecimal(BigDecimal(input.newQuantity)).getOrElse(InventoryQuantity.Zero),
+                InventoryQuantity
+                  .parseFromBigDecimal(BigDecimal(input.newQuantity))
+                  .getOrElse(InventoryQuantity.Zero),
                 input.reason,
-                InventoryVersion.parseFromLong(input.expectedVersion).getOrElse(InventoryVersion.Initial)
+                InventoryVersion
+                  .parseFromLong(input.expectedVersion)
+                  .getOrElse(InventoryVersion.Initial)
               )
               .mapBoth(
-                error => CommandError(s"Failed to adjust inventory: ${error.toString}", Some("ADJUST_INVENTORY_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to adjust inventory: ${error.toString}",
+                    Some("ADJUST_INVENTORY_FAILED")),
                 newVersion => newVersion.value
               )
           )
@@ -260,7 +311,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                     customerType
                   )
                   .mapBoth(
-                    error => CommandError(s"Failed to create customer: ${error.toString}", Some("CREATE_CUSTOMER_FAILED")),
+                    error =>
+                      CommandError(
+                        s"Failed to create customer: ${error.toString}",
+                        Some("CREATE_CUSTOMER_FAILED")),
                     customerId => CreateCustomerResult(id = customerId.asString)
                   )
             }
@@ -286,7 +340,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                     customerType
                   )
                   .mapBoth(
-                    error => CommandError(s"Failed to update customer: ${error.toString}", Some("UPDATE_CUSTOMER_FAILED")),
+                    error =>
+                      CommandError(
+                        s"Failed to update customer: ${error.toString}",
+                        Some("UPDATE_CUSTOMER_FAILED")),
                     _ => UpdateCustomerResult(id = input.id)
                   )
             }
@@ -304,7 +361,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.customerUseCase
               .deactivateCustomer(CustomerId.from(input.id))
               .mapBoth(
-                error => CommandError(s"Failed to deactivate customer: ${error.toString}", Some("DEACTIVATE_CUSTOMER_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to deactivate customer: ${error.toString}",
+                    Some("DEACTIVATE_CUSTOMER_FAILED")),
                 _ => DeactivateCustomerResult(id = input.id)
               )
           )
@@ -321,7 +381,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.customerUseCase
               .reactivateCustomer(CustomerId.from(input.id))
               .mapBoth(
-                error => CommandError(s"Failed to reactivate customer: ${error.toString}", Some("REACTIVATE_CUSTOMER_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to reactivate customer: ${error.toString}",
+                    Some("REACTIVATE_CUSTOMER_FAILED")),
                 _ => ReactivateCustomerResult(id = input.id)
               )
           )
@@ -343,7 +406,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 WarehouseLocation(input.location)
               )
               .mapBoth(
-                error => CommandError(s"Failed to create warehouse: ${error.toString}", Some("CREATE_WAREHOUSE_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to create warehouse: ${error.toString}",
+                    Some("CREATE_WAREHOUSE_FAILED")),
                 warehouseId => CreateWarehouseResult(id = warehouseId.asString)
               )
           )
@@ -364,7 +430,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 WarehouseLocation(input.location)
               )
               .mapBoth(
-                error => CommandError(s"Failed to update warehouse: ${error.toString}", Some("UPDATE_WAREHOUSE_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to update warehouse: ${error.toString}",
+                    Some("UPDATE_WAREHOUSE_FAILED")),
                 _ => UpdateWarehouseResult(id = input.id)
               )
           )
@@ -381,7 +450,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.warehouseUseCase
               .deactivateWarehouse(WarehouseId.from(input.id))
               .mapBoth(
-                error => CommandError(s"Failed to deactivate warehouse: ${error.toString}", Some("DEACTIVATE_WAREHOUSE_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to deactivate warehouse: ${error.toString}",
+                    Some("DEACTIVATE_WAREHOUSE_FAILED")),
                 _ => DeactivateWarehouseResult(id = input.id)
               )
           )
@@ -398,7 +470,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.warehouseUseCase
               .reactivateWarehouse(WarehouseId.from(input.id))
               .mapBoth(
-                error => CommandError(s"Failed to reactivate warehouse: ${error.toString}", Some("REACTIVATE_WAREHOUSE_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to reactivate warehouse: ${error.toString}",
+                    Some("REACTIVATE_WAREHOUSE_FAILED")),
                 _ => ReactivateWarehouseResult(id = input.id)
               )
           )
@@ -418,11 +493,16 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 WarehouseId.from(input.warehouseId),
                 ZoneCode(input.zoneCode),
                 ZoneName(input.name),
-                StorageCondition.fromString(input.storageCondition).getOrElse(StorageCondition.RoomTemperature),
+                StorageCondition
+                  .fromString(input.storageCondition)
+                  .getOrElse(StorageCondition.RoomTemperature),
                 ZoneCapacity(BigDecimal(input.capacity))
               )
               .mapBoth(
-                error => CommandError(s"Failed to create warehouse zone: ${error.toString}", Some("CREATE_WAREHOUSE_ZONE_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to create warehouse zone: ${error.toString}",
+                    Some("CREATE_WAREHOUSE_ZONE_FAILED")),
                 warehouseZoneId => CreateWarehouseZoneResult(id = warehouseZoneId.asString)
               )
           )
@@ -443,7 +523,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
                 ZoneCapacity(BigDecimal(input.capacity))
               )
               .mapBoth(
-                error => CommandError(s"Failed to update warehouse zone: ${error.toString}", Some("UPDATE_WAREHOUSE_ZONE_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to update warehouse zone: ${error.toString}",
+                    Some("UPDATE_WAREHOUSE_ZONE_FAILED")),
                 _ => UpdateWarehouseZoneResult(id = input.id)
               )
           )
@@ -460,7 +543,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.warehouseZoneUseCase
               .deactivateWarehouseZone(WarehouseZoneId.from(input.id))
               .mapBoth(
-                error => CommandError(s"Failed to deactivate warehouse zone: ${error.toString}", Some("DEACTIVATE_WAREHOUSE_ZONE_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to deactivate warehouse zone: ${error.toString}",
+                    Some("DEACTIVATE_WAREHOUSE_ZONE_FAILED")),
                 _ => DeactivateWarehouseZoneResult(id = input.id)
               )
           )
@@ -477,7 +563,10 @@ trait MutationResolver extends TypeDefinitions with InventoryTypeDefinitions {
             ctx.ctx.warehouseZoneUseCase
               .reactivateWarehouseZone(WarehouseZoneId.from(input.id))
               .mapBoth(
-                error => CommandError(s"Failed to reactivate warehouse zone: ${error.toString}", Some("REACTIVATE_WAREHOUSE_ZONE_FAILED")),
+                error =>
+                  CommandError(
+                    s"Failed to reactivate warehouse zone: ${error.toString}",
+                    Some("REACTIVATE_WAREHOUSE_ZONE_FAILED")),
                 _ => ReactivateWarehouseZoneResult(id = input.id)
               )
           )

@@ -2,9 +2,9 @@ package io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql
 
 import io.github.j5ik2o.pcqrses.command.useCase.users.UserAccountUseCase
 import io.github.j5ik2o.pcqrses.command.useCase.inventory.{
-  ProductUseCase,
-  InventoryUseCase,
   CustomerUseCase,
+  InventoryUseCase,
+  ProductUseCase,
   WarehouseUseCase,
   WarehouseZoneUseCase
 }
