@@ -69,6 +69,7 @@ end note
 ```
 
 **重要な学び**:
+
 - イベントは不変であり、過去の履歴を完全に保持できる
 - ドメインロジックとインフラストラクチャを適切に分離する
 - `_V1`サフィックスによるバージョン管理で将来の変更に備える
@@ -76,18 +77,21 @@ end note
 #### コマンド側とクエリ側の実装（第3-4章）
 
 **コマンド側（書き込みモデル）**:
+
 - UserAccountAggregateによる状態管理
 - PersistenceEffectorによるイベント永続化
 - Registry Patternによるアクター管理（Local/Cluster）
 - GraphQL Mutationによるコマンド受付
 
 **クエリ側（読み取りモデル）**:
+
 - Flywayによるスキーマ管理
 - Slick DAOによるデータアクセス
 - GraphQL Queryによる柔軟なデータ取得
 - Read Model Updaterによる非同期更新
 
 **重要な学び**:
+
 - CQRSにより、書き込みと読み取りを独立してスケール可能
 - 結果整合性（Eventual Consistency）の理解と実装
 - 冪等性の重要性（同じイベントを複数回処理しても安全）
@@ -95,16 +99,19 @@ end note
 #### イベント処理と設定管理（第5-6章）
 
 **イベント処理**:
+
 - DynamoDB Streamsによるイベント配信
 - Lambda関数による非同期処理
 - エラーハンドリングとリトライ戦略
 
 **設定管理**:
+
 - Typesafe Configによる階層的設定
 - 環境変数による柔軟な設定上書き
 - シリアライゼーション戦略（Protocol Buffers + CBOR）
 
 **重要な学び**:
+
 - イベント駆動アーキテクチャによる疎結合
 - 設定の外部化により、環境ごとの差異を吸収
 - シリアライゼーションの選択が性能に直結
@@ -112,22 +119,26 @@ end note
 #### テストからデプロイまで（第7-10章）
 
 **テスト戦略（第7章）**:
+
 - テストピラミッド（単体60%、統合30%、E2E10%）
 - ActorTestKitによるアクターテスト
 - E2Eテストによる結果整合性の検証
 
 **パフォーマンスとスケーラビリティ（第8章）**:
+
 - Prometheus/Grafanaによるメトリクス収集
 - Logbackによる構造化ログ
 - Cluster Shardingによる水平スケーリング
 - Graceful Shutdownによるゼロダウンタイムデプロイ
 
 **実践的なトピック（第9章）**:
+
 - イベントスキーマの進化とバージョニング
 - GraphQL APIの改善（Validation型の活用）
 - エラーハンドリングとレジリエンス（Supervision、Retry、Circuit Breaker）
 
 **本番環境への準備（第10章）**:
+
 - セキュリティ（認証・認可、レート制限、暗号化）
 - 運用（バックアップ、ディザスタリカバリ、オートスケーリング）
 - AWSデプロイ（LocalStackから本番環境への移行）
@@ -136,71 +147,86 @@ end note
 
 ### アーキテクチャ設計
 
-1. **境界付けられたコンテキスト（Bounded Context）を明確にする**
+**境界付けられたコンテキスト（Bounded Context）を明確にする**
+
    - コマンド側とクエリ側を独立したコンテキストとして扱う
    - それぞれ異なるデータモデルを持つことを恐れない
 
-2. **イベントは業務用語で表現する**
+**イベントは業務用語で表現する**
+
    - `DataUpdated`ではなく`UserAccountRenamed`のように具体的に
    - ドメインエキスパートと共通言語（ユビキタス言語）を使用
 
-3. **集約の粒度を適切に設定する**
+**集約の粒度を適切に設定する**
+
    - 集約は小さく保つ（トランザクション境界を最小化）
    - 集約間の整合性は結果整合性で対応
 
 ### イベント設計
 
-1. **イベントは過去形で命名する**
+**イベントは過去形で命名する**
+
    - `CreateUserAccount`（コマンド）→ `UserAccountCreated`（イベント）
    - イベントは「起きたこと」を表現する
 
-2. **最初からバージョニングを考慮する**
+**最初からバージョニングを考慮する**
+
    - すべてのイベントに`_V1`サフィックスを付与
    - Protocol Buffersのフィールド番号は絶対に変更しない
 
-3. **イベントには十分なコンテキスト情報を含める**
+**イベントには十分なコンテキスト情報を含める**
+
    - デバッグやトラブルシューティングのため、`occurredAt`や`entityId`は必須
    - ただし、個人情報など機密データの永続化には注意
 
 ### パフォーマンス最適化
 
-1. **スナップショットを活用する**
+**スナップショットを活用する**
+
    - イベント数が多い場合、リプレイ時間を短縮
    - 推奨: 1000イベントごとにスナップショット
 
-2. **パッシベーションでメモリを節約**
+**パッシベーションでメモリを節約**
+
    - アイドル状態のアクターは自動的に停止
    - 推奨: 2分間アイドル後にパッシベーション
 
-3. **Cluster Shardingで負荷分散**
+**Cluster Shardingで負荷分散**
+
    - シャード数はノード数の10倍程度
    - リバランスは自動的に行われる
 
 ### 運用とモニタリング
 
-1. **構造化ログとメトリクスを実装する**
+**構造化ログとメトリクスを実装する**
+
    - JSON形式のログで検索しやすくする
    - Prometheus/Grafanaでメトリクスを可視化
 
-2. **デッドレターを監視する**
+**デッドレターを監視する**
+
    - 配信失敗メッセージはシステムの問題を示すシグナル
    - アラートを設定し、定期的にレビュー
 
-3. **Graceful Shutdownを必ず実装する**
+**Graceful Shutdownを必ず実装する**
+
    - ロードバランサーとの協調によるゼロダウンタイムデプロイ
    - CoordinatedShutdownで段階的にシャットダウン
 
 ### セキュリティ
 
-1. **認証・認可を適切に実装する**
+**認証・認可を適切に実装する**
+
    - JWTやOAuth 2.0を使用
    - ロールベースアクセス制御（RBAC）で権限管理
 
-2. **入力バリデーションを徹底する**
+**入力バリデーションを徹底する**
+
    - API層とドメイン層の両方でバリデーション
    - SQLインジェクション、XSS攻撃への対策
 
-3. **シークレットは環境変数で管理**
+**シークレットは環境変数で管理**
+
    - コードにパスワードやAPIキーを含めない
    - AWS Secrets ManagerやHashiCorp Vaultを活用
 
@@ -209,67 +235,81 @@ end note
 ### 公式ドキュメント
 
 **Apache Pekko**:
+
 - 公式サイト: https://pekko.apache.org/
 - ドキュメント: https://pekko.apache.org/docs/pekko/current/
 - GitHub: https://github.com/apache/pekko
 
 特に以下のセクションは必読：
+
 - Typed Actors: https://pekko.apache.org/docs/pekko/current/typed/index.html
 - Event Sourcing: https://pekko.apache.org/docs/pekko/current/typed/persistence.html
 - Cluster Sharding: https://pekko.apache.org/docs/pekko/current/typed/cluster-sharding.html
 
 **Scala**:
+
 - 公式サイト: https://www.scala-lang.org/
 - Scala 3 Book: https://docs.scala-lang.org/scala3/book/introduction.html
 
 **ZIO**:
+
 - 公式サイト: https://zio.dev/
 - ZIO Prelude: https://zio.dev/zio-prelude/
 
 ### 書籍
 
-1. **Domain-Driven Design: Tackling Complexity in the Heart of Software** (Eric Evans)
+**Domain-Driven Design: Tackling Complexity in the Heart of Software** (Eric Evans)
+
    - DDDの原典
    - 集約、境界付けられたコンテキスト、ユビキタス言語の理解に必須
 
-2. **Implementing Domain-Driven Design** (Vaughn Vernon)
+**Implementing Domain-Driven Design** (Vaughn Vernon)
+
    - DDDの実践的な実装ガイド
    - イベントソーシング、CQRSの詳細な解説
 
-3. **Reactive Design Patterns** (Roland Kuhn, Jamie Allen, Brian Hanafee)
+**Reactive Design Patterns** (Roland Kuhn, Jamie Allen, Brian Hanafee)
+
    - リアクティブシステムの設計パターン
    - Akka/Pekkoのベストプラクティス
 
-4. **Event Storming** (Alberto Brandolini)
+**Event Storming** (Alberto Brandolini)
+
    - イベントベースシステムの設計手法
    - ドメインエキスパートとの協働
 
-5. **Building Event-Driven Microservices** (Adam Bellemare)
+**Building Event-Driven Microservices** (Adam Bellemare)
+
    - イベント駆動マイクロサービスの設計と実装
    - Kafka、イベントスキーマ、ストリーミング処理
 
 ### オンラインコース
 
-1. **Lightbend Academy** (https://academy.lightbend.com/)
+**Lightbend Academy** (https://academy.lightbend.com/)
+
    - Akka/Pekko関連の無料コース
    - Reactive Architecture、Event Sourcing with Akkaなど
 
-2. **Coursera - Functional Programming in Scala Specialization**
+**Coursera - Functional Programming in Scala Specialization**
+
    - Martin Odersky（Scala作者）による講座
    - 関数型プログラミングの基礎から応用まで
 
-3. **Pluralsight - Domain-Driven Design Path**
+**Pluralsight - Domain-Driven Design Path**
+
    - DDD関連の複数のコース
    - イベントソーシング、CQRSの実践的な実装
 
 ### コミュニティとカンファレンス
 
 **コミュニティ**:
+
 - Scala Users Group Japan: https://scala.connpass.com/
 - Pekko Discord: Apache Pekko公式コミュニティ
 - Reddit r/scala: https://www.reddit.com/r/scala/
 
 **カンファレンス**:
+
 - ScalaMatsuri（日本最大のScalaカンファレンス）
 - Domain-Driven Design Europe
 - Reactive Summit
@@ -277,6 +317,7 @@ end note
 ### ブログとポッドキャスト
 
 **推奨ブログ**:
+
 - Martin Fowler's Blog (https://martinfowler.com/)
   - Event Sourcing、CQRSの権威的な解説
 - Vaughn Vernon's Blog
@@ -285,6 +326,7 @@ end note
   - Akka/Pekko関連の最新情報
 
 **ポッドキャスト**:
+
 - The Scalawags Podcast
 - Software Engineering Daily（イベントソーシング回など）
 
@@ -347,10 +389,12 @@ case class OrderPlaced_V2(
 ```
 
 利点:
+
 - 購読者が追加のクエリを発行する必要がない
 - システム間の結合度を下げる
 
 欠点:
+
 - イベントサイズが大きくなる
 - 機密情報の管理に注意が必要
 
@@ -480,22 +524,26 @@ type Subscription {
 
 ### 次のステップ
 
-1. **このプロジェクトを拡張してみる**
+**このプロジェクトを拡張してみる**
+
    - 新しい集約を追加（例: Order、Product）
    - Sagaパターンを実装
    - 別の読み取りモデル（Elasticsearch）を追加
 
-2. **本番環境にデプロイする**
+**本番環境にデプロイする**
+
    - AWSやGCPにデプロイ
    - 監視とアラートを設定
    - 実際のトラフィックで負荷テスト
 
-3. **コミュニティに参加する**
+**コミュニティに参加する**
+
    - GitHubでIssueを報告したりPRを送る
    - Scala/Pekkoのカンファレンスに参加
    - ブログやQiitaで学んだことを共有
 
-4. **関連技術を深く学ぶ**
+**関連技術を深く学ぶ**
+
    - 関数型プログラミング（ZIO、Cats Effect）
    - 分散システム理論（CAP定理、分散トランザクション）
    - リアクティブシステム（Reactive Manifesto）

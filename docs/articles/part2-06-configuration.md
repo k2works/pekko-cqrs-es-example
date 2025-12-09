@@ -16,32 +16,27 @@
 
 ```plantuml
 @startuml
-!define FILE class
 
-FILE "application.conf\n(エントリーポイント)" as APP {
+class "application.conf\n(エントリーポイント)" as APP {
   include "pcqrses.conf"
   include "pekko.conf"
   include "j5ik2o.conf"
 }
 
-FILE "pcqrses.conf\n(アプリケーション設定)" as PCQRSES {
-  command-api {
-    actor-timeout
-    server {...}
-    load-balancer {...}
-  }
+class "pcqrses.conf\n(アプリケーション設定)" as PCQRSES {
+  command-api.actor-timeout
+  command-api.server {...}
+  command-api.load-balancer {...}
 }
 
-FILE "pekko.conf\n(Pekkoフレームワーク設定)" as PEKKO {
-  actor {
-    provider
-    serializers
-    serialization-bindings
-  }
+class "pekko.conf\n(Pekkoフレームワーク設定)" as PEKKO {
+  actor.provider
+  actor.serializers
+  actor.serialization-bindings
   persistence {...}
 }
 
-FILE "j5ik2o.conf\n(DynamoDB設定)" as J5IK2O {
+class "j5ik2o.conf\n(DynamoDB設定)" as J5IK2O {
   dynamo-db-journal {...}
   dynamo-db-snapshot {...}
   dynamo-db-state {...}

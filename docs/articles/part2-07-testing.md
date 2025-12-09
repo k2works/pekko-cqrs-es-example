@@ -569,7 +569,10 @@ class GraphQLServiceSpec extends AnyFreeSpec with Matchers with Eventually {
 
 ```plantuml
 @startuml
-!define PHASE rectangle
+' rectangleではなくclassを使用することで、中身のリスト記述を有効にします
+!define PHASE class
+' クラスのアイコン(C)を非表示にして、シンプルな箱として表示します
+hide circle
 
 PHASE "Phase 1:\nHealth Check" as P1 {
   - Command API の接続確認
@@ -1073,4 +1076,4 @@ pekko.persistence {
 
 ---
 
-👉 [第8章：パフォーマンスとスケーラビリティ](part2-08-performance.md)
+👉 [第8章：パフォーマンスとスケーラビリティ](part2-08-performance-scalability.md)

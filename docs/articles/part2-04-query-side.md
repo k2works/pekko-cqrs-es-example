@@ -17,33 +17,36 @@
 
 ```plantuml
 @startuml
-!define RECTANGLE class
+allowmixing
+' レイアウト崩れを防ぐため、左から右への配置を指定（お好みで削除可）
+left to right direction
 
 package "クエリ側（Query Side）" {
-  RECTANGLE GraphQLAPI {
+  class GraphQLAPI {
     + Query resolvers
     + Type definitions
     + Validation
   }
 
-  RECTANGLE ResolverContext {
+  class ResolverContext {
     + runDbAction()
     + ExecutionContext
   }
 
-  RECTANGLE SlickDAO {
+  class SlickDAO {
     + findById()
     + findAll()
     + Custom queries
   }
 
-  database PostgreSQL {
+  ' database構文の代わりにclass <<Database>>を使用し、確実にフィールドを表示させる
+  class PostgreSQL <<Database>> {
     user_accounts
   }
 }
 
 package "イベント処理" {
-  RECTANGLE ReadModelUpdater {
+  class ReadModelUpdater {
     + DynamoDB Streams
     + Event deserialization
     + Database updates
@@ -51,7 +54,7 @@ package "イベント処理" {
 }
 
 package "イベントストア" {
-  database DynamoDB {
+  class DynamoDB <<Database>> {
     Journal
   }
 }

@@ -22,19 +22,23 @@
 
 #### メリット
 
-1. **効率的なバイナリフォーマット**:
+**効率的なバイナリフォーマット**:
+
    - JSONと比較して50-70%のサイズ削減
    - シリアライゼーション/デシリアライゼーションが高速
 
-2. **スキーマの進化に対応**:
+**スキーマの進化に対応**:
+
    - フィールドの追加・削除が容易
    - 後方互換性/前方互換性をサポート
 
-3. **言語中立**:
+**言語中立**:
+
    - 複数の言語でイベントを処理可能
    - Lambda（Scala）とRead Model Updater（Scala）で共通のフォーマット
 
-4. **型安全性**:
+**型安全性**:
+
    - ScalaPBでScalaコードを自動生成
    - コンパイル時に型チェック
 
@@ -105,6 +109,7 @@ message UserAccountEvent_Envelope {
 ```
 
 **利点**:
+
 - イベントの種類とバージョンをEnvelopeで管理
 - ペイロードはバージョンごとに異なる型を使用可能
 - デシリアライゼーション時に適切な型を選択
@@ -117,6 +122,7 @@ message UserAccountEvent_Deleted_V1 { ... }
 ```
 
 **利点**:
+
 - 将来的にV2, V3を追加可能
 - 既存のイベントを変更せずに新機能を追加
 - 古いイベントも永続的に読み取り可能
@@ -131,6 +137,7 @@ message UserAccountEvent_Created_V1 {
 ```
 
 **利点**:
+
 - タイムゾーンに依存しない時刻表現
 - ナノ秒精度
 - 標準的なProtobuf型
@@ -181,6 +188,7 @@ object UserAccountEvent_Envelope extends scalapb.GeneratedMessageCompanion[UserA
 ```
 
 **型安全性**:
+
 - 全てのフィールドが型付けされている
 - コンパイル時にエラーを検出
 - IDEでコード補完が効く
@@ -368,6 +376,7 @@ persistenceId = s"${id.entityTypeName}-${id.asString}"
 ```
 
 **命名規則**:
+
 - `{EntityTypeName}-{ULID}`の形式
 - 一意性を保証
 - クエリ時にエンティティタイプで検索可能
@@ -403,6 +412,7 @@ private def handleNotCreated(
 ```
 
 **処理フロー**:
+
 1. `UserAccount.apply()`でドメインオブジェクトとイベントを生成
 2. `effector.persistEvent()`でイベントを永続化
 3. 永続化成功後、成功レスポンスを返す
@@ -432,6 +442,7 @@ private def handleCreated(
 ```
 
 **処理フロー**:
+
 1. `state.user.rename()`でドメインロジックを実行
 2. `Left`の場合、エラーレスポンスを返して状態は変更しない
 3. `Right`の場合、イベントを永続化して状態を更新
@@ -525,6 +536,7 @@ end note
 ```
 
 **重要なポイント**:
+
 - イベントハンドラーは**純粋関数**
 - 副作用を持たない
 - 同じイベント列からは常に同じ状態を生成
@@ -546,35 +558,28 @@ Events: [e1, e2, e3, ..., e1000]
 
 ```plantuml
 @startuml
-!define RECTANGLE class
 
 database "Event Store" {
-  collections Events {
+  folder Events {
     [e1]
-    [e2]
-    [...]
     [e900]
     [e901]
-    [...]
     [e1000]
   }
 
-  collections Snapshots {
+  folder Snapshots {
     [Snapshot@e900]
   }
 }
 
-RECTANGLE "Aggregate Recovery" {
-}
+[Aggregate Recovery]
 
-Snapshots --> "Aggregate Recovery" : 1. スナップショット読み込み
-[e901] --> "Aggregate Recovery" : 2. 差分イベント適用
-[...] --> "Aggregate Recovery"
-[e1000] --> "Aggregate Recovery"
+[Snapshot@e900] --> [Aggregate Recovery] : 1. スナップショット読み込み
+[e901] --> [Aggregate Recovery] : 2. 差分イベント適用
+[e1000] --> [Aggregate Recovery]
 
-note right of "Aggregate Recovery"
+note right of [Aggregate Recovery]
   復元時間: O(スナップショット以降のイベント数)
-
   通常のリプレイ: O(1000)
   スナップショット使用: O(100)
 end note
@@ -596,6 +601,7 @@ val config = PersistenceEffectorConfig
 ```
 
 **設定の意味**:
+
 - `SnapshotCriteria.every(1000)`: 1000イベントごとにスナップショットを作成
 - `RetentionCriteria.snapshotEvery(2)`: 最新2つのスナップショットと、それ以降のイベントを保持
 
@@ -645,6 +651,7 @@ message UserAccountSnapshot {
 ```
 
 **設計のポイント**:
+
 - `oneof`で状態ごとに異なる構造を表現
 - 各状態で必要な情報のみを保持
 - Protocol Buffersの型安全性を活用
@@ -655,24 +662,29 @@ message UserAccountSnapshot {
 
 #### 利点
 
-1. **高速な状態復元**:
+**高速な状態復元**:
+
    - イベントリプレイの回数を削減
    - アクター起動時間の短縮
 
-2. **メモリ効率**:
+**メモリ効率**:
+
    - 全イベントを保持する必要がない
    - 古いイベントを削除可能
 
 #### トレードオフ
 
-1. **ストレージコスト**:
+**ストレージコスト**:
+
    - スナップショットもストレージを消費
    - 頻繁なスナップショットはコスト増
 
-2. **スナップショット作成のオーバーヘッド**:
+**スナップショット作成のオーバーヘッド**:
+
    - シリアライゼーションと書き込みにコストがかかる
 
 **推奨設定**:
+
 - イベント数が1000を超えるエンティティでスナップショットを有効化
 - 頻繁に読み取られるエンティティではより頻繁にスナップショット
 

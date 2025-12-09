@@ -710,6 +710,205 @@ aws application-autoscaling put-scaling-policy \
 
 LocalStack環境から実際のAWSサービスへの移行では、以下の変更が必要です：
 
+### AWS構成図
+
+```plantuml
+@startuml
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam componentStyle rectangle
+
+' AWSアイコン風のカラー設定
+skinparam rectangle {
+  BackgroundColor<<aws>> #FF9900
+  BackgroundColor<<vpc>> #248814
+  BackgroundColor<<subnet>> #1E8900
+  BackgroundColor<<alb>> #8C4FFF
+  BackgroundColor<<ecs>> #FF9900
+  BackgroundColor<<lambda>> #FF9900
+  BackgroundColor<<dynamodb>> #4053D6
+  BackgroundColor<<rds>> #4053D6
+  BackgroundColor<<cloudwatch>> #FF4F8B
+  BackgroundColor<<route53>> #8C4FFF
+  BackgroundColor<<secretsmanager>> #DD344C
+}
+
+title AWS構成図 - CQRS/Event Sourcing システム
+
+' インターネット
+cloud "インターネット" as internet {
+}
+
+' Route 53
+rectangle "Route 53\n(DNS)" as route53 <<route53>> #8C4FFF
+
+' VPC
+rectangle "VPC (10.0.0.0/16)" as vpc <<vpc>> #E8F5E9 {
+
+  ' Application Load Balancer
+  rectangle "Application Load Balancer" as alb <<alb>> #E1D5E7 {
+    rectangle "ALB\n(Command API)" as alb_command
+    rectangle "ALB\n(Query API)" as alb_query
+  }
+
+  ' Public Subnet
+  rectangle "Public Subnet (10.0.1.0/24, 10.0.2.0/24)" as public_subnet <<subnet>> #E3F2FD {
+    rectangle "NAT Gateway" as nat
+  }
+
+  ' Private Subnet - Application Layer
+  rectangle "Private Subnet - App (10.0.10.0/24, 10.0.11.0/24)" as private_app <<subnet>> #FFF3E0 {
+
+    rectangle "ECS Cluster (Fargate)" as ecs <<ecs>> #FFF8E1 {
+      rectangle "Command API\nService" as command_api {
+        rectangle "Task 1" as cmd_task1
+        rectangle "Task 2" as cmd_task2
+        rectangle "Task N" as cmd_taskn
+      }
+
+      rectangle "Query API\nService" as query_api {
+        rectangle "Task 1" as query_task1
+        rectangle "Task 2" as query_task2
+      }
+    }
+  }
+
+  ' Private Subnet - Data Layer
+  rectangle "Private Subnet - Data (10.0.20.0/24, 10.0.21.0/24)" as private_data <<subnet>> #FFEBEE {
+
+    rectangle "Amazon RDS\n(PostgreSQL)\nMulti-AZ" as rds <<rds>> #E3F2FD {
+      database "Primary" as rds_primary
+      database "Standby" as rds_standby
+    }
+  }
+}
+
+' AWSサービス（VPC外）
+rectangle "AWS Services" as aws_services {
+
+  rectangle "DynamoDB" as dynamodb <<dynamodb>> #E8EAF6 {
+    storage "Journal\nTable" as journal_table
+    storage "Snapshot\nTable" as snapshot_table
+    rectangle "DynamoDB\nStreams" as dynamodb_streams
+  }
+
+  rectangle "Lambda" as lambda_service <<lambda>> #FFF8E1 {
+    rectangle "Read Model Updater\n(Java 17)" as lambda_rmu
+  }
+
+  rectangle "CloudWatch" as cloudwatch <<cloudwatch>> #FCE4EC {
+    rectangle "Logs" as cw_logs
+    rectangle "Metrics" as cw_metrics
+    rectangle "Alarms" as cw_alarms
+  }
+
+  rectangle "Secrets Manager" as secrets <<secretsmanager>> #FFEBEE {
+    rectangle "DB Credentials" as db_creds
+    rectangle "JWT Secret" as jwt_secret
+  }
+
+  rectangle "ECR" as ecr <<aws>> #FFF8E1 {
+    rectangle "command-api\nimage" as ecr_cmd
+    rectangle "query-api\nimage" as ecr_query
+  }
+}
+
+' データフロー
+internet --> route53
+route53 --> alb_command : "api.example.com/command"
+route53 --> alb_query : "api.example.com/query"
+
+alb_command --> command_api
+alb_query --> query_api
+
+command_api --> journal_table : "イベント書き込み"
+command_api --> snapshot_table : "スナップショット"
+
+journal_table --> dynamodb_streams : "CDC"
+dynamodb_streams --> lambda_rmu : "イベントトリガー"
+lambda_rmu --> rds_primary : "読み取りモデル更新"
+
+query_api --> rds_primary : "クエリ実行"
+
+rds_primary <--> rds_standby : "同期レプリケーション"
+
+' ログ・メトリクス
+command_api ..> cw_logs : "ログ"
+query_api ..> cw_logs
+lambda_rmu ..> cw_logs
+
+cw_metrics --> cw_alarms : "閾値監視"
+
+' シークレット取得
+command_api ..> db_creds
+query_api ..> db_creds
+lambda_rmu ..> db_creds
+
+' イメージ取得
+ecs ..> ecr : "イメージプル"
+
+@enduml
+```
+
+#### 構成要素の説明
+
+| コンポーネント | 役割 |
+|--------------|------|
+| **Route 53** | DNSルーティング、ヘルスチェックベースのフェイルオーバー |
+| **ALB** | HTTPSターミネーション、パスベースルーティング、ヘルスチェック |
+| **ECS Fargate** | コンテナオーケストレーション、オートスケーリング |
+| **Command API** | コマンド処理、イベント生成、Pekko Clusterで水平スケール |
+| **Query API** | GraphQLクエリ処理、読み取りモデルへのアクセス |
+| **DynamoDB** | イベントストア（Journal）、スナップショットストア |
+| **DynamoDB Streams** | イベント変更のキャプチャ、Lambda連携 |
+| **Lambda** | Read Model Updater、イベント駆動で読み取りモデルを更新 |
+| **RDS PostgreSQL** | 読み取りモデル、Multi-AZで高可用性 |
+| **CloudWatch** | ログ集約、メトリクス収集、アラート |
+| **Secrets Manager** | 認証情報の安全な管理 |
+| **ECR** | Dockerイメージレジストリ |
+
+#### データフローの概要
+
+```plantuml
+@startuml
+!theme plain
+skinparam backgroundColor #FEFEFE
+
+title データフロー概要
+
+participant "クライアント" as client
+participant "Command API" as cmd
+database "DynamoDB\n(Journal)" as dynamo
+queue "DynamoDB\nStreams" as streams
+participant "Lambda\n(Read Model Updater)" as lambda
+database "RDS\n(PostgreSQL)" as rds
+participant "Query API" as query
+
+== コマンド処理フロー ==
+client -> cmd : GraphQL Mutation\n(ユーザー作成)
+cmd -> cmd : バリデーション\nドメインロジック
+cmd -> dynamo : イベント永続化\n(UserCreated)
+dynamo --> cmd : 成功
+cmd --> client : 結果返却
+
+== イベント処理フロー ==
+dynamo -> streams : CDC
+streams -> lambda : イベントトリガー
+lambda -> lambda : イベントデシリアライズ
+lambda -> rds : 読み取りモデル更新\n(INSERT/UPDATE)
+rds --> lambda : 成功
+
+== クエリ処理フロー ==
+client -> query : GraphQL Query\n(ユーザー取得)
+query -> rds : SQLクエリ実行
+rds --> query : 結果セット
+query --> client : JSONレスポンス
+
+@enduml
+```
+
+### 詳細な移行要件
+
 - **DynamoDB**: LocalStackからAWS DynamoDBへ
 - **Lambda**: LocalStack LambdaからAWS Lambdaへ
 - **PostgreSQL**: Docker PostgreSQLからAmazon RDSへ

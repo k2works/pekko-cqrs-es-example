@@ -16,37 +16,37 @@
 
 ```plantuml
 @startuml
-!define RECTANGLE class
+allow_mixing
 
 actor User
 
 package "Command Side" {
-  RECTANGLE CommandAPI {
+  class CommandAPI {
     + Mutation API
   }
 
-  RECTANGLE Aggregate {
+  class Aggregate {
     + Event sourcing
   }
 }
 
 database "Event Store\n(DynamoDB)" as DDB {
-  collections Journal {
-    [Event 1]
-    [Event 2]
-    [Event 3]
+  rectangle Journal {
+    card "Event 1"
+    card "Event 2"
+    card "Event 3"
   }
 }
 
 package "DynamoDB Streams" {
-  RECTANGLE StreamsProcessor {
+  class StreamsProcessor {
     + Change detection
     + Event batching
   }
 }
 
 package "Lambda Processing" {
-  RECTANGLE ReadModelUpdater {
+  class ReadModelUpdater {
     + Event deserialization
     + Business logic
     + Database update
@@ -54,15 +54,15 @@ package "Lambda Processing" {
 }
 
 database "Read Model\n(PostgreSQL)" as PG {
-  collections UserAccounts {
-    [Record 1]
-    [Record 2]
-    [Record 3]
+  rectangle UserAccounts {
+    card "Record 1"
+    card "Record 2"
+    card "Record 3"
   }
 }
 
 package "Query Side" {
-  RECTANGLE QueryAPI {
+  class QueryAPI {
     + GraphQL API
   }
 }
