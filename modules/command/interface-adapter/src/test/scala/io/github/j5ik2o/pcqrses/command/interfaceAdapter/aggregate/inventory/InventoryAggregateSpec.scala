@@ -105,18 +105,23 @@ class InventoryAggregateSpec
           val createReply = createProbe.receiveMessage()
           createReply shouldBe a[InventoryProtocol.CreateInventorySucceeded]
 
-          // 入庫
+          // 入庫（createInventory後のバージョンは1なので、expectedVersionは1）
           aggregate ! InventoryProtocol.ReceiveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(100.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(0).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(100.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
             receiveProbe.ref
           )
 
           val reply = receiveProbe.receiveMessage()
           reply shouldBe a[InventoryProtocol.ReceiveInventorySucceeded]
           val succeeded = reply.asInstanceOf[InventoryProtocol.ReceiveInventorySucceeded]
-          succeeded.newVersion shouldBe InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial)
+          // 入庫後のバージョンは2（1から+1）
+          succeeded.newVersion shouldBe InventoryVersion
+            .parseFromLong(2)
+            .getOrElse(InventoryVersion.Initial)
         }
       }
 
@@ -139,27 +144,34 @@ class InventoryAggregateSpec
           )
           createProbe.receiveMessage()
 
-          // 入庫
+          // 入庫（createInventory後のバージョンは1なので、expectedVersionは1）
           aggregate ! InventoryProtocol.ReceiveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(100.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(0).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(100.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
             receiveProbe.ref
           )
           receiveProbe.receiveMessage()
 
-          // 引当
+          // 引当（入庫後のバージョンは2なので、expectedVersionは2）
           aggregate ! InventoryProtocol.ReserveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(50.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(50.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial),
             reserveProbe.ref
           )
 
           val reply = reserveProbe.receiveMessage()
           reply shouldBe a[InventoryProtocol.ReserveInventorySucceeded]
           val succeeded = reply.asInstanceOf[InventoryProtocol.ReserveInventorySucceeded]
-          succeeded.newVersion shouldBe InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial)
+          // 引当後のバージョンは3（2から+1）
+          succeeded.newVersion shouldBe InventoryVersion
+            .parseFromLong(3)
+            .getOrElse(InventoryVersion.Initial)
         }
       }
 
@@ -182,20 +194,24 @@ class InventoryAggregateSpec
           )
           createProbe.receiveMessage()
 
-          // 入庫
+          // 入庫（createInventory後のバージョンは1なので、expectedVersionは1）
           aggregate ! InventoryProtocol.ReceiveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(100.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(0).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(100.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
             receiveProbe.ref
           )
           receiveProbe.receiveMessage()
 
-          // 在庫不足での引当試行
+          // 在庫不足での引当試行（入庫後のバージョンは2）
           aggregate ! InventoryProtocol.ReserveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(150.0)).getOrElse(InventoryQuantity.Zero), // 在庫100に対して150を引当
-            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(150.0))
+              .getOrElse(InventoryQuantity.Zero), // 在庫100に対して150を引当
+            InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial),
             reserveProbe.ref
           )
 
@@ -224,34 +240,45 @@ class InventoryAggregateSpec
           )
           createProbe.receiveMessage()
 
+          // 入庫（createInventory後のバージョンは1）
           aggregate ! InventoryProtocol.ReceiveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(100.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(0).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(100.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
             receiveProbe.ref
           )
           receiveProbe.receiveMessage()
 
+          // 引当（入庫後のバージョンは2）
           aggregate ! InventoryProtocol.ReserveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(50.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(50.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial),
             reserveProbe.ref
           )
           reserveProbe.receiveMessage()
 
-          // 引当解除
+          // 引当解除（引当後のバージョンは3）
           aggregate ! InventoryProtocol.ReleaseInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(30.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(30.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(3).getOrElse(InventoryVersion.Initial),
             releaseProbe.ref
           )
 
           val reply = releaseProbe.receiveMessage()
           reply shouldBe a[InventoryProtocol.ReleaseInventorySucceeded]
           val succeeded = reply.asInstanceOf[InventoryProtocol.ReleaseInventorySucceeded]
-          succeeded.newVersion shouldBe InventoryVersion.parseFromLong(3).getOrElse(InventoryVersion.Initial)
+          // 引当解除後のバージョンは4（3から+1）
+          succeeded.newVersion shouldBe InventoryVersion
+            .parseFromLong(4)
+            .getOrElse(InventoryVersion.Initial)
         }
       }
 
@@ -275,34 +302,45 @@ class InventoryAggregateSpec
           )
           createProbe.receiveMessage()
 
+          // 入庫（createInventory後のバージョンは1）
           aggregate ! InventoryProtocol.ReceiveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(100.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(0).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(100.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
             receiveProbe.ref
           )
           receiveProbe.receiveMessage()
 
+          // 引当（入庫後のバージョンは2）
           aggregate ! InventoryProtocol.ReserveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(50.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(50.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial),
             reserveProbe.ref
           )
           reserveProbe.receiveMessage()
 
-          // 出庫
+          // 出庫（引当後のバージョンは3）
           aggregate ! InventoryProtocol.IssueInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(50.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(50.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(3).getOrElse(InventoryVersion.Initial),
             issueProbe.ref
           )
 
           val reply = issueProbe.receiveMessage()
           reply shouldBe a[InventoryProtocol.IssueInventorySucceeded]
           val succeeded = reply.asInstanceOf[InventoryProtocol.IssueInventorySucceeded]
-          succeeded.newVersion shouldBe InventoryVersion.parseFromLong(3).getOrElse(InventoryVersion.Initial)
+          // 出庫後のバージョンは4（3から+1）
+          succeeded.newVersion shouldBe InventoryVersion
+            .parseFromLong(4)
+            .getOrElse(InventoryVersion.Initial)
         }
       }
 
@@ -325,27 +363,35 @@ class InventoryAggregateSpec
           )
           createProbe.receiveMessage()
 
+          // 入庫（createInventory後のバージョンは1）
           aggregate ! InventoryProtocol.ReceiveInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(100.0)).getOrElse(InventoryQuantity.Zero),
-            InventoryVersion.parseFromLong(0).getOrElse(InventoryVersion.Initial),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(100.0))
+              .getOrElse(InventoryQuantity.Zero),
+            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
             receiveProbe.ref
           )
           receiveProbe.receiveMessage()
 
-          // 在庫調整
+          // 在庫調整（入庫後のバージョンは2）
           aggregate ! InventoryProtocol.AdjustInventory(
             inventoryId,
-            InventoryQuantity.parseFromBigDecimal(BigDecimal(95.0)).getOrElse(InventoryQuantity.Zero),
+            InventoryQuantity
+              .parseFromBigDecimal(BigDecimal(95.0))
+              .getOrElse(InventoryQuantity.Zero),
             "棚卸調整",
-            InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
+            InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial),
             adjustProbe.ref
           )
 
           val reply = adjustProbe.receiveMessage()
           reply shouldBe a[InventoryProtocol.AdjustInventorySucceeded]
           val succeeded = reply.asInstanceOf[InventoryProtocol.AdjustInventorySucceeded]
-          succeeded.newVersion shouldBe InventoryVersion.parseFromLong(2).getOrElse(InventoryVersion.Initial)
+          // 調整後のバージョンは3（2から+1）
+          succeeded.newVersion shouldBe InventoryVersion
+            .parseFromLong(3)
+            .getOrElse(InventoryVersion.Initial)
         }
       }
     }
@@ -369,20 +415,22 @@ class InventoryAggregateSpec
         )
         createProbe.receiveMessage()
 
-        // 最初の入庫
+        // 最初の入庫（createInventory後のバージョンは1）
         aggregate ! InventoryProtocol.ReceiveInventory(
           inventoryId,
-          InventoryQuantity.parseFromBigDecimal(BigDecimal(100.0)).getOrElse(InventoryQuantity.Zero),
-          InventoryVersion.parseFromLong(0).getOrElse(InventoryVersion.Initial),
+          InventoryQuantity
+            .parseFromBigDecimal(BigDecimal(100.0))
+            .getOrElse(InventoryQuantity.Zero),
+          InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial),
           receiveProbe1.ref
         )
         receiveProbe1.receiveMessage()
 
-        // 古いバージョンでの入庫試行
+        // 古いバージョンでの入庫試行（入庫後のバージョンは2なので、1は古いバージョン）
         aggregate ! InventoryProtocol.ReceiveInventory(
           inventoryId,
           InventoryQuantity.parseFromBigDecimal(BigDecimal(50.0)).getOrElse(InventoryQuantity.Zero),
-          InventoryVersion.parseFromLong(0).getOrElse(InventoryVersion.Initial), // 古いバージョン
+          InventoryVersion.parseFromLong(1).getOrElse(InventoryVersion.Initial), // 古いバージョン
           receiveProbe2.ref
         )
 
