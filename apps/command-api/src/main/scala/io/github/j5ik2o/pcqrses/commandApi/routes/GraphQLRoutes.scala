@@ -1,7 +1,8 @@
 package io.github.j5ik2o.pcqrses.commandApi.routes
 
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.graphql.GraphQLService
-import org.apache.pekko.http.scaladsl.model.{ContentTypes, HttpEntity, HttpResponse, StatusCodes}
+import org.apache.pekko.http.scaladsl.model.{ContentTypes, HttpEntity, HttpMethods, HttpResponse, StatusCodes}
+import org.apache.pekko.http.scaladsl.model.headers._
 import org.apache.pekko.http.scaladsl.server.Directives._
 import org.apache.pekko.http.scaladsl.server.Route
 import com.github.pjfanning.pekkohttpcirce.FailFastCirceSupport._
@@ -52,12 +53,24 @@ class GraphQLRoutes(graphQLService: GraphQLService)(implicit ec: ExecutionContex
     |</html>
   """.stripMargin
 
+  private val corsHeaders = List(
+    `Access-Control-Allow-Origin`.*,
+    `Access-Control-Allow-Methods`(HttpMethods.GET, HttpMethods.POST, HttpMethods.OPTIONS),
+    `Access-Control-Allow-Headers`("Content-Type", "Authorization"),
+    `Access-Control-Max-Age`(86400)
+  )
+
   val routes: Route =
-    concat(
-      path("graphql") {
-        concat(
-          // GraphQLミューテーションを処理
-          post {
+    respondWithHeaders(corsHeaders) {
+      concat(
+        path("graphql") {
+          concat(
+            // CORSプリフライト
+            options {
+              complete(StatusCodes.OK)
+            },
+            // GraphQLミューテーションを処理
+            post {
             entity(as[GraphQLRequest]) { request =>
               complete {
                 graphQLService
@@ -110,4 +123,5 @@ class GraphQLRoutes(graphQLService: GraphQLService)(implicit ec: ExecutionContex
         }
       }
     )
+  }
 }
