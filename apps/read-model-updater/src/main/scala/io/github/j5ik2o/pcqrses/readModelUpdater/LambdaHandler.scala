@@ -8,20 +8,20 @@ import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import com.typesafe.config.ConfigFactory
 import io.github.j5ik2o.pcqrses.command.domain.users.UserAccountEvent
 import io.github.j5ik2o.pcqrses.command.domain.inventory.{
-  ProductEvent,
   CustomerEvent,
+  InventoryEvent,
+  ProductEvent,
   WarehouseEvent,
-  WarehouseZoneEvent,
-  InventoryEvent
+  WarehouseZoneEvent
 }
 import io.github.j5ik2o.pcqrses.query.interfaceAdapter.dao.{
-  UserAccountsComponent,
-  ProductsComponent,
   CustomersComponent,
-  WarehousesComponent,
-  WarehouseZonesComponent,
   InventoriesComponent,
-  InventoryTransactionsComponent
+  InventoryTransactionsComponent,
+  ProductsComponent,
+  UserAccountsComponent,
+  WarehouseZonesComponent,
+  WarehousesComponent
 }
 import org.apache.pekko.actor.ActorSystem
 import org.apache.pekko.persistence.PersistentRepr
@@ -61,7 +61,7 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
   private val WarehouseZoneEntityTypePrefix = "WarehouseZone-"
   private val InventoryEntityTypePrefix = "Inventory-"
 
-  override def handleRequest(input: DynamodbEvent, context: Context): LambdaResponse = {
+  override def handleRequest(input: DynamodbEvent, context: Context): LambdaResponse =
     try {
       logger.info(s"Received DynamoDB event with ${input.getRecords.size} records")
 
@@ -79,7 +79,8 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           statusCode = 207, // Multi-Status
           body = objectMapper.writeValueAsString(
             ResponseBody(
-              message = s"Processed ${successes.size} records successfully, ${failures.size} failed",
+              message =
+                s"Processed ${successes.size} records successfully, ${failures.size} failed",
               error = Some(failures.map(_.message).mkString("; "))
             )
           )
@@ -103,9 +104,8 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
         )
     }
-  }
 
-  private def processRecord(record: DynamodbStreamRecord): Either[ProcessingError, Unit] = {
+  private def processRecord(record: DynamodbStreamRecord): Either[ProcessingError, Unit] =
     try {
       val tableName = record.getEventSourceARN.split("/")(1)
       if (tableName != "Journal") {
@@ -143,7 +143,8 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
         return Left(ProcessingError("Missing message attribute", None))
       }
       val messageAttr = messageAttrOpt.get
-      logger.info(s"Message attribute type: B=${messageAttr.getB != null}, BS=${messageAttr.getBS != null}, S=${messageAttr.getS != null}")
+      logger.info(
+        s"Message attribute type: B=${messageAttr.getB != null}, BS=${messageAttr.getBS != null}, S=${messageAttr.getS != null}")
 
       val serializerIdAttrOpt = attributes.get("serializer-id")
       val manifestAttrOpt = attributes.get("manifest")
@@ -162,7 +163,6 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
         logger.error("Error processing record", ex)
         Left(ProcessingError(s"Error processing record: ${ex.getMessage}", Some(ex)))
     }
-  }
 
   private def convertToBytes(binaryData: ByteBuffer): Array[Byte] = {
     val bytes = if (binaryData.hasArray) {
@@ -178,11 +178,13 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
 
   private def deserializePersistentRepr(bytes: Array[Byte]): Try[PersistentRepr] = Try {
     val persistentReprSerializer = serialization.serializerFor(classOf[PersistentRepr])
-    logger.info(s"Using PersistentRepr serializer: ${persistentReprSerializer.getClass.getName} (ID: ${persistentReprSerializer.identifier})")
+    logger.info(
+      s"Using PersistentRepr serializer: ${persistentReprSerializer.getClass.getName} (ID: ${persistentReprSerializer.identifier})")
     persistentReprSerializer.fromBinary(bytes, classOf[PersistentRepr]).asInstanceOf[PersistentRepr]
   }
 
-  private def deserializePersistentReprAndProcess(bytes: Array[Byte]): Either[ProcessingError, Unit] = {
+  private def deserializePersistentReprAndProcess(
+    bytes: Array[Byte]): Either[ProcessingError, Unit] =
     try {
       logger.debug(s"Binary data size: ${bytes.length} bytes")
 
@@ -197,22 +199,28 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           // ペイロード（実際のイベント）を取り出す
           persistentRepr.payload match {
             case event: UserAccountEvent =>
-              logger.info(s"Processing UserAccountEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+              logger.info(
+                s"Processing UserAccountEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
               processUserAccountEvent(event)
             case event: ProductEvent =>
-              logger.info(s"Processing ProductEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+              logger.info(
+                s"Processing ProductEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
               processProductEvent(event)
             case event: CustomerEvent =>
-              logger.info(s"Processing CustomerEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+              logger.info(
+                s"Processing CustomerEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
               processCustomerEvent(event)
             case event: WarehouseEvent =>
-              logger.info(s"Processing WarehouseEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+              logger.info(
+                s"Processing WarehouseEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
               processWarehouseEvent(event)
             case event: WarehouseZoneEvent =>
-              logger.info(s"Processing WarehouseZoneEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+              logger.info(
+                s"Processing WarehouseZoneEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
               processWarehouseZoneEvent(event)
             case event: InventoryEvent =>
-              logger.info(s"Processing InventoryEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+              logger.info(
+                s"Processing InventoryEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
               processInventoryEvent(event)
             case other =>
               logger.warn(s"Unknown event type: ${other.getClass.getName}")
@@ -228,9 +236,8 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
         logger.error("Error processing PersistentRepr", ex)
         Left(ProcessingError(s"Error processing PersistentRepr: ${ex.getMessage}", Some(ex)))
     }
-  }
 
-  private def processUserAccountEvent(event: UserAccountEvent): Either[ProcessingError, Unit] = {
+  private def processUserAccountEvent(event: UserAccountEvent): Either[ProcessingError, Unit] =
     try {
       val db = databaseConfig.db
       val component = new UserAccountsComponent {
@@ -254,7 +261,8 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
             .filter(_.id === entityId.asString)
             .map(r => (r.firstName, r.lastName, r.updatedAt))
             .update(
-              (newName.breachEncapsulationOfFirstName.asString,
+              (
+                newName.breachEncapsulationOfFirstName.asString,
                 newName.breachEncapsulationOfLastName.asString,
                 Timestamp.from(occurredAt.asInstant()))
             )
@@ -264,16 +272,16 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       }
 
       val result = Await.result(db.run(action), databaseOperationTimeout)
-      logger.debug(s"Successfully processed event: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+      logger.debug(
+        s"Successfully processed event: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
       Right(())
     } catch {
       case ex: Exception =>
         logger.error(s"Error processing UserAccountEvent: ${event.getClass.getSimpleName}", ex)
         Left(ProcessingError(s"Error processing event: ${ex.getMessage}", Some(ex)))
     }
-  }
 
-  private def processProductEvent(event: ProductEvent): Either[ProcessingError, Unit] = {
+  private def processProductEvent(event: ProductEvent): Either[ProcessingError, Unit] =
     try {
       val db = databaseConfig.db
       val component = new ProductsComponent {
@@ -282,7 +290,14 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       import databaseConfig.profile.api.*
 
       val action = event match {
-        case ProductEvent.Created_V1(_, entityId, productCode, name, categoryCode, storageCondition, occurredAt) =>
+        case ProductEvent.Created_V1(
+              _,
+              entityId,
+              productCode,
+              name,
+              categoryCode,
+              storageCondition,
+              occurredAt) =>
           val record = component.ProductsRecord(
             id = entityId.asString,
             productCode = productCode.value,
@@ -295,12 +310,22 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           component.ProductsDao.insertOrUpdate(record)
 
-        case ProductEvent.Updated_V1(_, entityId, _, newName, _, newCategoryCode, _, newStorageCondition, occurredAt) =>
+        case ProductEvent.Updated_V1(
+              _,
+              entityId,
+              _,
+              newName,
+              _,
+              newCategoryCode,
+              _,
+              newStorageCondition,
+              occurredAt) =>
           component.ProductsDao
             .filter(_.id === entityId.asString)
             .map(r => (r.name, r.categoryCode, r.storageCondition, r.updatedAt))
             .update(
-              (newName.value,
+              (
+                newName.value,
                 newCategoryCode.value,
                 newStorageCondition.code,
                 Timestamp.from(occurredAt.asInstant()))
@@ -314,16 +339,16 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       }
 
       val result = Await.result(db.run(action), databaseOperationTimeout)
-      logger.debug(s"Successfully processed ProductEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+      logger.debug(
+        s"Successfully processed ProductEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
       Right(())
     } catch {
       case ex: Exception =>
         logger.error(s"Error processing ProductEvent: ${event.getClass.getSimpleName}", ex)
         Left(ProcessingError(s"Error processing event: ${ex.getMessage}", Some(ex)))
     }
-  }
 
-  private def processCustomerEvent(event: CustomerEvent): Either[ProcessingError, Unit] = {
+  private def processCustomerEvent(event: CustomerEvent): Either[ProcessingError, Unit] =
     try {
       val db = databaseConfig.db
       val component = new CustomersComponent {
@@ -348,7 +373,11 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           component.CustomersDao
             .filter(_.id === entityId.asString)
             .map(r => (r.name, r.customerType, r.updatedAt))
-            .update((newName.value, newCustomerType.toString.toUpperCase, Timestamp.from(occurredAt.asInstant())))
+            .update(
+              (
+                newName.value,
+                newCustomerType.toString.toUpperCase,
+                Timestamp.from(occurredAt.asInstant())))
 
         case CustomerEvent.Deactivated_V1(_, entityId, occurredAt) =>
           component.CustomersDao
@@ -364,16 +393,16 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       }
 
       val result = Await.result(db.run(action), databaseOperationTimeout)
-      logger.debug(s"Successfully processed CustomerEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+      logger.debug(
+        s"Successfully processed CustomerEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
       Right(())
     } catch {
       case ex: Exception =>
         logger.error(s"Error processing CustomerEvent: ${event.getClass.getSimpleName}", ex)
         Left(ProcessingError(s"Error processing event: ${ex.getMessage}", Some(ex)))
     }
-  }
 
-  private def processWarehouseEvent(event: WarehouseEvent): Either[ProcessingError, Unit] = {
+  private def processWarehouseEvent(event: WarehouseEvent): Either[ProcessingError, Unit] =
     try {
       val db = databaseConfig.db
       val component = new WarehousesComponent {
@@ -414,16 +443,16 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       }
 
       val result = Await.result(db.run(action), databaseOperationTimeout)
-      logger.debug(s"Successfully processed WarehouseEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+      logger.debug(
+        s"Successfully processed WarehouseEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
       Right(())
     } catch {
       case ex: Exception =>
         logger.error(s"Error processing WarehouseEvent: ${event.getClass.getSimpleName}", ex)
         Left(ProcessingError(s"Error processing event: ${ex.getMessage}", Some(ex)))
     }
-  }
 
-  private def processWarehouseZoneEvent(event: WarehouseZoneEvent): Either[ProcessingError, Unit] = {
+  private def processWarehouseZoneEvent(event: WarehouseZoneEvent): Either[ProcessingError, Unit] =
     try {
       val db = databaseConfig.db
       val component = new WarehouseZonesComponent {
@@ -432,7 +461,15 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       import databaseConfig.profile.api.*
 
       val action = event match {
-        case WarehouseZoneEvent.Created_V1(_, entityId, warehouseId, zoneCode, name, zoneType, capacity, occurredAt) =>
+        case WarehouseZoneEvent.Created_V1(
+              _,
+              entityId,
+              warehouseId,
+              zoneCode,
+              name,
+              zoneType,
+              capacity,
+              occurredAt) =>
           val record = component.WarehouseZonesRecord(
             id = entityId.asString,
             warehouseId = warehouseId.asString,
@@ -450,7 +487,8 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           component.WarehouseZonesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.name, r.capacitySqm, r.updatedAt))
-            .update((newName.value, newCapacity.squareMeters, Timestamp.from(occurredAt.asInstant())))
+            .update(
+              (newName.value, newCapacity.squareMeters, Timestamp.from(occurredAt.asInstant())))
 
         case WarehouseZoneEvent.Deactivated_V1(_, entityId, occurredAt) =>
           component.WarehouseZonesDao
@@ -466,14 +504,14 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       }
 
       val result = Await.result(db.run(action), databaseOperationTimeout)
-      logger.debug(s"Successfully processed WarehouseZoneEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+      logger.debug(
+        s"Successfully processed WarehouseZoneEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
       Right(())
     } catch {
       case ex: Exception =>
         logger.error(s"Error processing WarehouseZoneEvent: ${event.getClass.getSimpleName}", ex)
         Left(ProcessingError(s"Error processing event: ${ex.getMessage}", Some(ex)))
     }
-  }
 
   private def processInventoryEvent(event: InventoryEvent): Either[ProcessingError, Unit] = {
     try {
@@ -489,7 +527,14 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       import scala.concurrent.ExecutionContext.Implicits.global
 
       val actions = event match {
-        case InventoryEvent.Received_V1(eventId, entityId, productId, warehouseZoneId, quantity, newVersion, occurredAt) =>
+        case InventoryEvent.Received_V1(
+              eventId,
+              entityId,
+              productId,
+              warehouseZoneId,
+              quantity,
+              newVersion,
+              occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.availableQuantity, r.version, r.updatedAt))
@@ -501,7 +546,11 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
                 inventoryComponent.InventoriesDao
                   .filter(_.id === entityId.asString)
                   .map(r => (r.availableQuantity, r.version, r.updatedAt))
-                  .update((currentQty + quantity.amount, newVersion.value, Timestamp.from(occurredAt.asInstant())))
+                  .update(
+                    (
+                      currentQty + quantity.amount,
+                      newVersion.value,
+                      Timestamp.from(occurredAt.asInstant())))
               case None =>
                 // 初回受信時は在庫レコードを作成
                 val inventoryRecord = inventoryComponent.InventoriesRecord(
@@ -529,7 +578,14 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           DBIO.seq(updateAction, transactionComponent.InventoryTransactionsDao.+=(txRecord))
 
-        case InventoryEvent.Reserved_V1(eventId, entityId, productId, warehouseZoneId, quantity, newVersion, occurredAt) =>
+        case InventoryEvent.Reserved_V1(
+              eventId,
+              entityId,
+              productId,
+              warehouseZoneId,
+              quantity,
+              newVersion,
+              occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.availableQuantity, r.reservedQuantity, r.version, r.updatedAt))
@@ -540,7 +596,12 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
                 inventoryComponent.InventoriesDao
                   .filter(_.id === entityId.asString)
                   .map(r => (r.availableQuantity, r.reservedQuantity, r.version, r.updatedAt))
-                  .update((currentAvailable - quantity.amount, currentReserved + quantity.amount, newVersion.value, Timestamp.from(occurredAt.asInstant())))
+                  .update(
+                    (
+                      currentAvailable - quantity.amount,
+                      currentReserved + quantity.amount,
+                      newVersion.value,
+                      Timestamp.from(occurredAt.asInstant())))
               case None =>
                 DBIO.successful(0)
             }
@@ -557,7 +618,14 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           DBIO.seq(updateAction, transactionComponent.InventoryTransactionsDao.+=(txRecord))
 
-        case InventoryEvent.Released_V1(eventId, entityId, productId, warehouseZoneId, quantity, newVersion, occurredAt) =>
+        case InventoryEvent.Released_V1(
+              eventId,
+              entityId,
+              productId,
+              warehouseZoneId,
+              quantity,
+              newVersion,
+              occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.availableQuantity, r.reservedQuantity, r.version, r.updatedAt))
@@ -568,7 +636,12 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
                 inventoryComponent.InventoriesDao
                   .filter(_.id === entityId.asString)
                   .map(r => (r.availableQuantity, r.reservedQuantity, r.version, r.updatedAt))
-                  .update((currentAvailable + quantity.amount, currentReserved - quantity.amount, newVersion.value, Timestamp.from(occurredAt.asInstant())))
+                  .update(
+                    (
+                      currentAvailable + quantity.amount,
+                      currentReserved - quantity.amount,
+                      newVersion.value,
+                      Timestamp.from(occurredAt.asInstant())))
               case None =>
                 DBIO.successful(0)
             }
@@ -585,7 +658,14 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           DBIO.seq(updateAction, transactionComponent.InventoryTransactionsDao.+=(txRecord))
 
-        case InventoryEvent.Issued_V1(eventId, entityId, productId, warehouseZoneId, quantity, newVersion, occurredAt) =>
+        case InventoryEvent.Issued_V1(
+              eventId,
+              entityId,
+              productId,
+              warehouseZoneId,
+              quantity,
+              newVersion,
+              occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.reservedQuantity, r.version, r.updatedAt))
@@ -596,7 +676,11 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
                 inventoryComponent.InventoriesDao
                   .filter(_.id === entityId.asString)
                   .map(r => (r.reservedQuantity, r.version, r.updatedAt))
-                  .update((currentReserved - quantity.amount, newVersion.value, Timestamp.from(occurredAt.asInstant())))
+                  .update(
+                    (
+                      currentReserved - quantity.amount,
+                      newVersion.value,
+                      Timestamp.from(occurredAt.asInstant())))
               case None =>
                 DBIO.successful(0)
             }
@@ -613,7 +697,16 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
           )
           DBIO.seq(updateAction, transactionComponent.InventoryTransactionsDao.+=(txRecord))
 
-        case InventoryEvent.Adjusted_V1(eventId, entityId, _, _, _, newQuantity, reason, newVersion, occurredAt) =>
+        case InventoryEvent.Adjusted_V1(
+              eventId,
+              entityId,
+              _,
+              _,
+              _,
+              newQuantity,
+              reason,
+              newVersion,
+              occurredAt) =>
           val updateAction = inventoryComponent.InventoriesDao
             .filter(_.id === entityId.asString)
             .map(r => (r.availableQuantity, r.version, r.updatedAt))
@@ -633,7 +726,8 @@ class LambdaHandler extends RequestHandler[DynamodbEvent, LambdaResponse] {
       }
 
       val result = Await.result(db.run(actions.transactionally), databaseOperationTimeout)
-      logger.debug(s"Successfully processed InventoryEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
+      logger.debug(
+        s"Successfully processed InventoryEvent: ${event.getClass.getSimpleName} for entity: ${event.entityId.asString}")
       Right(())
     } catch {
       case ex: Exception =>
