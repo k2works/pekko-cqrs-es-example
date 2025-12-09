@@ -1,0 +1,4584 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Site Description">
+      
+      
+        <meta name="author" content="Project Team">
+      
+      
+      
+        <link rel="prev" href="../part3-12-advanced-topics/">
+      
+      
+        <link rel="next" href="../part4-01-introduction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>13. まとめ - Site Name</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../mkdocs/assets/css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-13" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Site Name" class="md-header__button md-logo" aria-label="Site Name" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Site Name
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              13. まとめ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/k2works/claude-code-booster" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    claude-code-booster
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  はじめに
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../outline/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  目次
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part1-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 1 - 導入編
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part2-01-ddd-basics/" class="md-tabs__link">
+          
+  
+  
+  Part 2 - サービス構築編
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../part3-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 3 - 在庫管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part4-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 4 - 受注管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part5-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 5 - 発注管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part6-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 6 - 会計サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part7-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 7 - 共用データ管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Site Name" class="md-nav__button md-logo" aria-label="Site Name" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Site Name
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/k2works/claude-code-booster" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    claude-code-booster
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目次
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - 導入編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - 導入編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-02-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. アーキテクチャ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-03-tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 技術スタック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-04-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. セットアップ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-05-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-06-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 起動
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-07-e2e-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. E2Eテスト
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-08-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. トラブルシューティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-09-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. ワークフロー
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-10-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - サービス構築編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - サービス構築編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-01-ddd-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. DDDの基礎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-02-event-sourcing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. イベントソーシング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-03-command-side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. コマンド側
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-04-query-side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. クエリ側
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-05-event-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. イベント処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-06-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-07-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. テスティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-08-performance-scalability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. パフォーマンスとスケーラビリティ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-09-practical-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 実践的なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-10-production-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 本番環境の準備
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-11-conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 結論
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - 在庫管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - 在庫管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-07-concurrency-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 並行制御
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-08-complex-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 複雑なクエリ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-09-event-ordering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. イベント順序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-10-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. パフォーマンス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-11-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 運用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-12-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. まとめ
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本章の目的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 学んだこと
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.1 学んだこと">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1.1 複数集約の設計と実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1312-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1.2 イベントソーシングとCRUD管理のハイブリッドアーキテクチャ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1313" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1.3 在庫管理特有の課題と解決策
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.1.3 在庫管理特有の課題と解決策">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 在庫引当の競合制御（第7章）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-n18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. N+1問題の解決（第8章）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. イベントの順序保証（第9章）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1314-cqrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1.4 本格的なCQRS/イベントソーシングシステムの構築
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1315" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1.5 技術スタックまとめ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 実践演習
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.2 実践演習">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1321-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.1 演習1: 在庫棚卸機能の追加
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1322-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.2 演習2: 区画間自動移動機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1323-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.3 演習3: 在庫分析機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1324-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.4 演習4: 在庫予測機能の強化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 次のステップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.3 次のステップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1331" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.1 より複雑なビジネスルールの追加
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1332-bounded-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.2 他のBounded Contextとの統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1333" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.3 プロダクション環境への展開
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        まとめ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="まとめ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第3部で達成したこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最後に
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - 受注管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - 受注管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-03-test-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-05-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-07-money-calculation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 金額計算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-08-credit-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 与信管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-09-billing-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 請求管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-10-return-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 返品処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-11-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-12-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-13-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-14-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 5 - 発注管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 5 - 発注管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-03-test-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-07-inventory-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 在庫統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-08-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-09-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-10-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-11-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 6 - 会計サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 6 - 会計サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-02-read-model-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. リードモデルスキーマ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-06-event-driven-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. イベント駆動会計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-07-closing-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 締め処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-08-financial-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 財務分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-09-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-10-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-11-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-12-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 7 - 共用データ管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 7 - 共用データ管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-02-read-model-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. リードモデルスキーマ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-06-master-data-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. マスターデータ統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-07-approval-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 承認ワークフロー
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-08-summary-and-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. まとめと実践
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-09-graphql-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-10-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-11-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-12-summary-and-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="3-13">第3部 第13章：まとめと実践演習<a class="headerlink" href="#3-13" title="Permanent link">&para;</a></h1>
+<h2 id="_1">本章の目的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>第3部「在庫管理サービスのケーススタディ」で学んだ内容を振り返り、実践演習を通じて理解を深めます：</p>
+<ul>
+<li><strong>学んだことの振り返り</strong>: 複数集約の設計、ハイブリッドアーキテクチャ、在庫管理特有の課題</li>
+<li><strong>実践演習</strong>: 在庫棚卸、区画間移動、在庫分析、在庫予測の実装課題</li>
+<li><strong>次のステップ</strong>: より複雑なビジネスルール、他コンテキストとの統合、本番展開</li>
+</ul>
+<h2 id="131">13.1 学んだこと<a class="headerlink" href="#131" title="Permanent link">&para;</a></h2>
+<h3 id="1311">13.1.1 複数集約の設計と実装<a class="headerlink" href="#1311" title="Permanent link">&para;</a></h3>
+<p>第3部では、5つの集約を使用した在庫管理ドメインモデルを構築しました。</p>
+<p><strong>実装した集約の概要</strong></p>
+<table>
+<thead>
+<tr>
+<th>集約</th>
+<th>責務</th>
+<th>管理方式</th>
+<th>主要なコマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Product</strong></td>
+<td>商品マスタ</td>
+<td>CRUD</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Warehouse</strong></td>
+<td>倉庫マスタ</td>
+<td>CRUD</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>WarehouseZone</strong></td>
+<td>区画マスタ（保管条件付き）</td>
+<td>CRUD</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Inventory</strong></td>
+<td>在庫管理（受払処理）</td>
+<td>イベントソーシング</td>
+<td>ReceiveStock, ShipStock, ReserveStock, ReleaseStock, AdjustStock, MoveStock</td>
+</tr>
+<tr>
+<td><strong>Customer</strong>（参考）</td>
+<td>取引先管理</td>
+<td>イベントソーシング（参考）</td>
+<td>RegisterCustomer, UpdateCreditLimit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>集約間の関連</strong></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgZGF0YS1kaWFncmFtLXR5cGU9IkNMQVNTIiBoZWlnaHQ9IjU3MXB4IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0id2lkdGg6NzUycHg7aGVpZ2h0OjU3MXB4O2JhY2tncm91bmQ6I0ZGRkZGRjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA1NzEiIHdpZHRoPSI3NTJweCIgem9vbUFuZFBhbj0ibWFnbmlmeSI+PGRlZnMvPjxnPjwhLS1jbGFzcyBQcm9kdWN0LS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1lbnRpdHk9IlByb2R1Y3QiIGRhdGEtc291cmNlLWxpbmU9IjMiIGRhdGEtdWlkPSJlbnQwMDAyIiBpZD0iZW50aXR5X1Byb2R1Y3QiPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMTIzLjc4MTMiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjEyOS45OTk2IiB4PSI3IiB5PSIxOTEuNDkiLz48ZWxsaXBzZSBjeD0iMjIiIGN5PSIyMTIuNzg2OSIgZmlsbD0iI0FERDFCMiIgcng9IjExIiByeT0iMTEiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MTsiLz48cGF0aCBkPSJNMjQuOTY4OCwyMTguNDI3NSBRMjQuMzkwNiwyMTguNzI0NCAyMy43NSwyMTguODY1IFEyMy4xMDk0LDIxOS4wMjEzIDIyLjQwNjMsMjE5LjAyMTMgUTE5LjkwNjMsMjE5LjAyMTMgMTguNTc4MSwyMTcuMzgwNiBRMTcuMjY1NiwyMTUuNzI0NCAxNy4yNjU2LDIxMi41OTk0IFExNy4yNjU2LDIwOS40NzQ0IDE4LjU3ODEsMjA3LjgxODEgUTE5LjkwNjMsMjA2LjE2MTkgMjIuNDA2MywyMDYuMTYxOSBRMjMuMTA5NCwyMDYuMTYxOSAyMy43NSwyMDYuMzE4MSBRMjQuNDA2MywyMDYuNDc0NCAyNC45Njg4LDIwNi43NzEzIEwyNC45Njg4LDIwOS40OSBRMjQuMzQzOCwyMDguOTExOSAyMy43NSwyMDguNjQ2MyBRMjMuMTU2MywyMDguMzY1IDIyLjUzMTMsMjA4LjM2NSBRMjEuMTg3NSwyMDguMzY1IDIwLjUsMjA5LjQ0MzEgUTE5LjgxMjUsMjEwLjUwNTYgMTkuODEyNSwyMTIuNTk5NCBRMTkuODEyNSwyMTQuNjkzMSAyMC41LDIxNS43NzEzIFEyMS4xODc1LDIxNi44MzM4IDIyLjUzMTMsMjE2LjgzMzggUTIzLjE1NjMsMjE2LjgzMzggMjMuNzUsMjE2LjU2ODEgUTI0LjM0MzgsMjE2LjI4NjkgMjQuOTY4OCwyMTUuNzA4OCBMMjQuOTY4OCwyMTguNDI3NSBaICIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjUzLjcxIiB4PSI1OC4xNDQ4IiB5PSIyMDkuNDg1MSI+UHJvZHVjdDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny45OTk2IiB4PSIzNiIgeT0iMjI1Ljc4MiI+JiM2NTI4ODsmIzIxODMwOyYjMjE2OTc7JiMxMjUxMDsmIzEyNDczOyYjMTI0Nzk7JiM2NTI4OTs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB4MT0iOCIgeDI9IjEzNS45OTk2IiB5MT0iMjM0LjA4MzgiIHkyPSIyMzQuMDgzOCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQyLjkwOTEiIHg9IjEzIiB5PSIyNTEuMDc4OSI+JiMyMTgzMDsmIzIxNjk3O0lEPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQxLjk5OTgiIHg9IjEzIiB5PSIyNjcuMzc1NyI+JiMyMTgzMDsmIzIxNjk3OyYjMjE1MTc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjU1Ljk5OTgiIHg9IjEzIiB5PSIyODMuNjcyNiI+JiMxMjQ1OTsmIzEyNDg2OyYjMTI0Njg7JiMxMjUyMjs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNTUuOTk5OCIgeD0iMTMiIHk9IjI5OS45Njk1Ij4mIzIwNDQ1OyYjMzE2NDk7JiMyNjQ2NTsmIzIwMjE0OzwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSI4IiB4Mj0iMTM1Ljk5OTYiIHkxPSIzMDcuMjcxMyIgeTI9IjMwNy4yNzEzIi8+PC9nPjwhLS1jbGFzcyBXYXJlaG91c2UtLT48ZyBjbGFzcz0iZW50aXR5IiBkYXRhLWVudGl0eT0iV2FyZWhvdXNlIiBkYXRhLXNvdXJjZS1saW5lPSIxMCIgZGF0YS11aWQ9ImVudDAwMDMiIGlkPSJlbnRpdHlfV2FyZWhvdXNlIj48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjEwNy40ODQ0IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMjkuOTk5NiIgeD0iMzkxIiB5PSI3Ii8+PGVsbGlwc2UgY3g9IjQwNiIgY3k9IjI4LjI5NjkiIGZpbGw9IiNBREQxQjIiIHJ4PSIxMSIgcnk9IjExIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjE7Ii8+PHBhdGggZD0iTTQwOC45Njg4LDMzLjkzNzUgUTQwOC4zOTA2LDM0LjIzNDQgNDA3Ljc1LDM0LjM3NSBRNDA3LjEwOTQsMzQuNTMxMyA0MDYuNDA2MywzNC41MzEzIFE0MDMuOTA2MywzNC41MzEzIDQwMi41NzgxLDMyLjg5MDYgUTQwMS4yNjU2LDMxLjIzNDQgNDAxLjI2NTYsMjguMTA5NCBRNDAxLjI2NTYsMjQuOTg0NCA0MDIuNTc4MSwyMy4zMjgxIFE0MDMuOTA2MywyMS42NzE5IDQwNi40MDYzLDIxLjY3MTkgUTQwNy4xMDk0LDIxLjY3MTkgNDA3Ljc1LDIxLjgyODEgUTQwOC40MDYzLDIxLjk4NDQgNDA4Ljk2ODgsMjIuMjgxMyBMNDA4Ljk2ODgsMjUgUTQwOC4zNDM4LDI0LjQyMTkgNDA3Ljc1LDI0LjE1NjMgUTQwNy4xNTYzLDIzLjg3NSA0MDYuNTMxMywyMy44NzUgUTQwNS4xODc1LDIzLjg3NSA0MDQuNSwyNC45NTMxIFE0MDMuODEyNSwyNi4wMTU2IDQwMy44MTI1LDI4LjEwOTQgUTQwMy44MTI1LDMwLjIwMzEgNDA0LjUsMzEuMjgxMyBRNDA1LjE4NzUsMzIuMzQzOCA0MDYuNTMxMywzMi4zNDM4IFE0MDcuMTU2MywzMi4zNDM4IDQwNy43NSwzMi4wNzgxIFE0MDguMzQzOCwzMS43OTY5IDQwOC45Njg4LDMxLjIxODggTDQwOC45Njg4LDMzLjkzNzUgWiAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI3OS4wMDk4IiB4PSI0MjkuNDk0OSIgeT0iMjQuOTk1MSI+V2FyZWhvdXNlPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3Ljk5OTYiIHg9IjQyMCIgeT0iNDEuMjkyIj4mIzY1Mjg4OyYjMjA0ODk7JiMyNDIzNTsmIzEyNTEwOyYjMTI0NzM7JiMxMjQ3OTsmIzY1Mjg5OzwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSIzOTIiIHgyPSI1MTkuOTk5NiIgeTE9IjQ5LjU5MzgiIHkyPSI0OS41OTM4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNjkuOTk5NyIgeD0iMzk3IiB5PSI2Ni41ODg5Ij4mIzIwNDg5OyYjMjQyMzU7JiMxMjQ2NzsmIzEyNTQwOyYjMTI0ODk7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQxLjk5OTgiIHg9IjM5NyIgeT0iODIuODg1NyI+JiMyMDQ4OTsmIzI0MjM1OyYjMjE1MTc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI3Ljk5OTkiIHg9IjM5NyIgeT0iOTkuMTgyNiI+JiMyMDMwMzsmIzI1MTUyOzwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSIzOTIiIHgyPSI1MTkuOTk5NiIgeTE9IjEwNi40ODQ0IiB5Mj0iMTA2LjQ4NDQiLz48L2c+PCEtLWNsYXNzIFpvbmUtLT48ZyBjbGFzcz0iZW50aXR5IiBkYXRhLWVudGl0eT0iWm9uZSIgZGF0YS1zb3VyY2UtbGluZT0iMTYiIGRhdGEtdWlkPSJlbnQwMDA0IiBpZD0iZW50aXR5X1pvbmUiPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMTIzLjc4MTMiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjE0Ni42NTIzIiB4PSIzODIuNjciIHk9IjE5MS40OSIvPjxlbGxpcHNlIGN4PSIzOTcuNjciIGN5PSIyMTIuNzg2OSIgZmlsbD0iI0FERDFCMiIgcng9IjExIiByeT0iMTEiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MTsiLz48cGF0aCBkPSJNNDAwLjYzODgsMjE4LjQyNzUgUTQwMC4wNjA2LDIxOC43MjQ0IDM5OS40MiwyMTguODY1IFEzOTguNzc5NCwyMTkuMDIxMyAzOTguMDc2MywyMTkuMDIxMyBRMzk1LjU3NjMsMjE5LjAyMTMgMzk0LjI0ODEsMjE3LjM4MDYgUTM5Mi45MzU2LDIxNS43MjQ0IDM5Mi45MzU2LDIxMi41OTk0IFEzOTIuOTM1NiwyMDkuNDc0NCAzOTQuMjQ4MSwyMDcuODE4MSBRMzk1LjU3NjMsMjA2LjE2MTkgMzk4LjA3NjMsMjA2LjE2MTkgUTM5OC43Nzk0LDIwNi4xNjE5IDM5OS40MiwyMDYuMzE4MSBRNDAwLjA3NjMsMjA2LjQ3NDQgNDAwLjYzODgsMjA2Ljc3MTMgTDQwMC42Mzg4LDIwOS40OSBRNDAwLjAxMzgsMjA4LjkxMTkgMzk5LjQyLDIwOC42NDYzIFEzOTguODI2MywyMDguMzY1IDM5OC4yMDEzLDIwOC4zNjUgUTM5Ni44NTc1LDIwOC4zNjUgMzk2LjE3LDIwOS40NDMxIFEzOTUuNDgyNSwyMTAuNTA1NiAzOTUuNDgyNSwyMTIuNTk5NCBRMzk1LjQ4MjUsMjE0LjY5MzEgMzk2LjE3LDIxNS43NzEzIFEzOTYuODU3NSwyMTYuODMzOCAzOTguMjAxMywyMTYuODMzOCBRMzk4LjgyNjMsMjE2LjgzMzggMzk5LjQyLDIxNi41NjgxIFE0MDAuMDEzOCwyMTYuMjg2OSA0MDAuNjM4OCwyMTUuNzA4OCBMNDAwLjYzODgsMjE4LjQyNzUgWiAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMTQuNjUyMyIgeD0iNDExLjY3IiB5PSIyMDkuNDg1MSI+V2FyZWhvdXNlWm9uZTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny45OTk2IiB4PSI0MTkuOTk2NCIgeT0iMjI1Ljc4MiI+JiM2NTI4ODsmIzIxMzA2OyYjMzAwMTE7JiMxMjUxMDsmIzEyNDczOyYjMTI0Nzk7JiM2NTI4OTs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB4MT0iMzgzLjY3IiB4Mj0iNTI4LjMyMjMiIHkxPSIyMzQuMDgzOCIgeTI9IjIzNC4wODM4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNjkuOTk5NyIgeD0iMzg4LjY3IiB5PSIyNTEuMDc4OSI+JiMyMDQ4OTsmIzI0MjM1OyYjMTI0Njc7JiMxMjU0MDsmIzEyNDg5OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI1NS45OTk4IiB4PSIzODguNjciIHk9IjI2Ny4zNzU3Ij4mIzIxMzA2OyYjMzAwMTE7JiMzMDA1ODsmIzIxNDk1OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI1NS45OTk4IiB4PSIzODguNjciIHk9IjI4My42NzI2Ij4mIzIwNDQ1OyYjMzE2NDk7JiMyNjQ2NTsmIzIwMjE0OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNy45OTk5IiB4PSIzODguNjciIHk9IjI5OS45Njk1Ij4mIzIzNDgxOyYjMzczMjc7PC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgeDE9IjM4My42NyIgeDI9IjUyOC4zMjIzIiB5MT0iMzA3LjI3MTMiIHkyPSIzMDcuMjcxMyIvPjwvZz48IS0tY2xhc3MgSW52ZW50b3J5LS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1lbnRpdHk9IkludmVudG9yeSIgZGF0YS1zb3VyY2UtbGluZT0iMjMiIGRhdGEtdWlkPSJlbnQwMDA1IiBpZD0iZW50aXR5X0ludmVudG9yeSI+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIxNzIuNjcxOSIgcng9IjIuNSIgcnk9IjIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTE1Ljk5OTYiIHg9IjM3MyIgeT0iMzkyLjI3Ii8+PGVsbGlwc2UgY3g9IjM4OCIgY3k9IjQxMy41NjY5IiBmaWxsPSIjQUREMUIyIiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxOyIvPjxwYXRoIGQ9Ik0zOTAuOTY4OCw0MTkuMjA3NSBRMzkwLjM5MDYsNDE5LjUwNDQgMzg5Ljc1LDQxOS42NDUgUTM4OS4xMDk0LDQxOS44MDEzIDM4OC40MDYzLDQxOS44MDEzIFEzODUuOTA2Myw0MTkuODAxMyAzODQuNTc4MSw0MTguMTYwNiBRMzgzLjI2NTYsNDE2LjUwNDQgMzgzLjI2NTYsNDEzLjM3OTQgUTM4My4yNjU2LDQxMC4yNTQ0IDM4NC41NzgxLDQwOC41OTgxIFEzODUuOTA2Myw0MDYuOTQxOSAzODguNDA2Myw0MDYuOTQxOSBRMzg5LjEwOTQsNDA2Ljk0MTkgMzg5Ljc1LDQwNy4wOTgxIFEzOTAuNDA2Myw0MDcuMjU0NCAzOTAuOTY4OCw0MDcuNTUxMyBMMzkwLjk2ODgsNDEwLjI3IFEzOTAuMzQzOCw0MDkuNjkxOSAzODkuNzUsNDA5LjQyNjMgUTM4OS4xNTYzLDQwOS4xNDUgMzg4LjUzMTMsNDA5LjE0NSBRMzg3LjE4NzUsNDA5LjE0NSAzODYuNSw0MTAuMjIzMSBRMzg1LjgxMjUsNDExLjI4NTYgMzg1LjgxMjUsNDEzLjM3OTQgUTM4NS44MTI1LDQxNS40NzMxIDM4Ni41LDQxNi41NTEzIFEzODcuMTg3NSw0MTcuNjEzOCAzODguNTMxMyw0MTcuNjEzOCBRMzg5LjE1NjMsNDE3LjYxMzggMzg5Ljc1LDQxNy4zNDgxIFEzOTAuMzQzOCw0MTcuMDY2OSAzOTAuOTY4OCw0MTYuNDg4OCBMMzkwLjk2ODgsNDE5LjIwNzUgWiAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2Ni44NjkxIiB4PSI0MTAuNTY1MiIgeT0iNDEwLjI2NTEiPkludmVudG9yeTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4My45OTk2IiB4PSI0MDIiIHk9IjQyNi41NjIiPiYjNjUyODg7JiMyMjMxMjsmIzI0MjM1OyYjMzg1OTg7JiMzMjAwNDsmIzY1Mjg5OzwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSIzNzQiIHgyPSI0ODcuOTk5NiIgeTE9IjQzNC44NjM4IiB5Mj0iNDM0Ljg2MzgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0Mi45MDkxIiB4PSIzNzkiIHk9IjQ1MS44NTg5Ij4mIzIyMzEyOyYjMjQyMzU7SUQ8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDIuOTA5MSIgeD0iMzc5IiB5PSI0NjguMTU1NyI+JiMyMTgzMDsmIzIxNjk3O0lEPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjY5Ljk5OTciIHg9IjM3OSIgeT0iNDg0LjQ1MjYiPiYjMjA0ODk7JiMyNDIzNTsmIzEyNDY3OyYjMTI1NDA7JiMxMjQ4OTs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNTUuOTk5OCIgeD0iMzc5IiB5PSI1MDAuNzQ5NSI+JiMyMTMwNjsmIzMwMDExOyYjMzAwNTg7JiMyMTQ5NTs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNTUuOTk5OCIgeD0iMzc5IiB5PSI1MTcuMDQ2NCI+JiMyOTY5NDsmIzIyMzEyOyYjMjQyMzU7JiMyNTk2ODs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNTUuOTk5OCIgeD0iMzc5IiB5PSI1MzMuMzQzMiI+JiMyNDM0MTsmIzI0NDAzOyYjMjgxNjg7JiMyNTk2ODs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNjkuOTk5NyIgeD0iMzc5IiB5PSI1NDkuNjQwMSI+JiMxMjQ5NjsmIzEyNTQwOyYjMTI0NzI7JiMxMjUxOTsmIzEyNTMxOzwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSIzNzQiIHgyPSI0ODcuOTk5NiIgeTE9IjU1Ni45NDE5IiB5Mj0iNTU2Ljk0MTkiLz48L2c+PCEtLWNsYXNzIEN1c3RvbWVyLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1lbnRpdHk9IkN1c3RvbWVyIiBkYXRhLXNvdXJjZS1saW5lPSIzMyIgZGF0YS11aWQ9ImVudDAwMDYiIGlkPSJlbnRpdHlfQ3VzdG9tZXIiPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMTA3LjQ4NDQiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjEwMS45OTk3IiB4PSI1ODgiIHk9IjE5OS42NCIvPjxlbGxpcHNlIGN4PSI2MDMiIGN5PSIyMjAuOTM2OSIgZmlsbD0iI0FERDFCMiIgcng9IjExIiByeT0iMTEiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MTsiLz48cGF0aCBkPSJNNjA1Ljk2ODgsMjI2LjU3NzUgUTYwNS4zOTA2LDIyNi44NzQ0IDYwNC43NSwyMjcuMDE1IFE2MDQuMTA5NCwyMjcuMTcxMyA2MDMuNDA2MywyMjcuMTcxMyBRNjAwLjkwNjMsMjI3LjE3MTMgNTk5LjU3ODEsMjI1LjUzMDYgUTU5OC4yNjU2LDIyMy44NzQ0IDU5OC4yNjU2LDIyMC43NDk0IFE1OTguMjY1NiwyMTcuNjI0NCA1OTkuNTc4MSwyMTUuOTY4MSBRNjAwLjkwNjMsMjE0LjMxMTkgNjAzLjQwNjMsMjE0LjMxMTkgUTYwNC4xMDk0LDIxNC4zMTE5IDYwNC43NSwyMTQuNDY4MSBRNjA1LjQwNjMsMjE0LjYyNDQgNjA1Ljk2ODgsMjE0LjkyMTMgTDYwNS45Njg4LDIxNy42NCBRNjA1LjM0MzgsMjE3LjA2MTkgNjA0Ljc1LDIxNi43OTYzIFE2MDQuMTU2MywyMTYuNTE1IDYwMy41MzEzLDIxNi41MTUgUTYwMi4xODc1LDIxNi41MTUgNjAxLjUsMjE3LjU5MzEgUTYwMC44MTI1LDIxOC42NTU2IDYwMC44MTI1LDIyMC43NDk0IFE2MDAuODEyNSwyMjIuODQzMSA2MDEuNSwyMjMuOTIxMyBRNjAyLjE4NzUsMjI0Ljk4MzggNjAzLjUzMTMsMjI0Ljk4MzggUTYwNC4xNTYzLDIyNC45ODM4IDYwNC43NSwyMjQuNzE4MSBRNjA1LjM0MzgsMjI0LjQzNjkgNjA1Ljk2ODgsMjIzLjg1ODggTDYwNS45Njg4LDIyNi41Nzc1IFogIiBmaWxsPSIjMDAwMDAwIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNjguMDAzOSIgeD0iNjE3Ljk5NzkiIHk9IjIxNy42MzUxIj5DdXN0b21lcjwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2OS45OTk3IiB4PSI2MTciIHk9IjIzMy45MzIiPiYjNjUyODg7JiMyMTQ2MjsmIzI0MzQxOyYjMjA4MDg7JiM2NTI4OTs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB4MT0iNTg5IiB4Mj0iNjg4Ljk5OTciIHkxPSIyNDIuMjMzOCIgeTI9IjI0Mi4yMzM4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNTYuOTA5IiB4PSI1OTQiIHk9IjI1OS4yMjg5Ij4mIzIxNDYyOyYjMjQzNDE7JiMyMDgwODtJRDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI1NS45OTk4IiB4PSI1OTQiIHk9IjI3NS41MjU3Ij4mIzIxNDYyOyYjMjQzNDE7JiMyMDgwODsmIzIxNTE3OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2OS45OTk3IiB4PSI1OTQiIHk9IjI5MS44MjI2Ij4mIzE5OTgyOyYjMjA0NDk7JiMzODQ4MDsmIzI0MjMwOyYjMzg5ODk7PC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgeDE9IjU4OSIgeDI9IjY4OC45OTk3IiB5MT0iMjk5LjEyNDQiIHkyPSIyOTkuMTI0NCIvPjwvZz48ZyBjbGFzcz0iZW50aXR5IiBkYXRhLWVudGl0eT0iR01OMTEiIGRhdGEtc291cmNlLWxpbmU9IjQ1IiBkYXRhLXVpZD0iZW50MDAxMiIgaWQ9ImVudGl0eV9HTU4xMSI+PHBhdGggZD0iTTUyNC4yOCw0MjAuNjQgTDUyNC4yOCw0NzQuNiBMNDg5LjI3LDQ3OC42IEw1MjQuMjgsNDgyLjYgTDUyNC4yOCw1MzYuNTY5NyBBMCwwIDAgMCAwIDUyNC4yOCw1MzYuNTY5NyBMNzI3LjcxMTcsNTM2LjU2OTcgQTAsMCAwIDAgMCA3MjcuNzExNyw1MzYuNTY5NyBMNzI3LjcxMTcsNDMwLjY0IEw3MTcuNzExNyw0MjAuNjQgTDUyNC4yOCw0MjAuNjQgQTAsMCAwIDAgMCA1MjQuMjgsNDIwLjY0IiBmaWxsPSIjRkVGRkREIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiLz48cGF0aCBkPSJNNzE3LjcxMTcsNDIwLjY0IEw3MTcuNzExNyw0MzAuNjQgTDcyNy43MTE3LDQzMC42NCBMNzE3LjcxMTcsNDIwLjY0IiBmaWxsPSIjRkVGRkREIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTYuMDAwMiIgeD0iNTMwLjI4IiB5PSI0MzcuNzA2OSI+JiMxMjQ1MjsmIzEyNTA1OyYjMTI1MzE7JiMxMjQ4ODsmIzEyNDc3OyYjMTI1NDA7JiMxMjQ3MTsmIzEyNTMxOyYjMTI0NjQ7JiMxMjM5MTsmIzMxNjQ5OyYjMjk3MDI7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE1Ni41MzMzIiB4PSI1MzAuMjgiIHk9IjQ1Mi44Mzk3Ij4tIFN0b2NrUmVjZWl2ZWQmIzY1Mjg4OyYjMjA4Mzc7JiMyNDIzNTsmIzY1Mjg5OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNDkuNjU4OCIgeD0iNTMwLjI4IiB5PSI0NjcuOTcyNSI+LSBTdG9ja1NoaXBwZWQmIzY1Mjg4OyYjMjA5ODY7JiMyNDIzNTsmIzY1Mjg5OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTcuODkxNyIgeD0iNTMwLjI4IiB5PSI0ODMuMTA1MyI+LSBTdG9ja1Jlc2VydmVkJiM2NTI4ODsmIzI0MzQxOyYjMjQ0MDM7JiM2NTI4OTs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTgyLjQzMTciIHg9IjUzMC4yOCIgeT0iNDk4LjIzODEiPi0gU3RvY2tSZWxlYXNlZCYjNjUyODg7JiMyNDM0MTsmIzI0NDAzOyYjMzUyOTk7JiMzODUwMDsmIzY1Mjg5OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTMuOTE4IiB4PSI1MzAuMjgiIHk9IjUxMy4zNzEiPi0gU3RvY2tBZGp1c3RlZCYjNjUyODg7JiMzNTUxOTsmIzI1OTcyOyYjNjUyODk7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzOS45MTUxIiB4PSI1MzAuMjgiIHk9IjUyOC41MDM4Ij4tIFN0b2NrTW92ZWQmIzY1Mjg4OyYjMzEyMjc7JiMyMTIwNTsmIzY1Mjg5OzwvdGV4dD48L2c+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1lbnRpdHk9IkdNTjE0IiBkYXRhLXNvdXJjZS1saW5lPSI1NSIgZGF0YS11aWQ9ImVudDAwMTUiIGlkPSJlbnRpdHlfR01OMTQiPjxwYXRoIGQ9Ik0xNzIuMTgsMjI1LjY4IEwxNzIuMTgsMjQ5LjM4IEwxMzcuMzYsMjUzLjM4IEwxNzIuMTgsMjU3LjM4IEwxNzIuMTgsMjgxLjA3ODQgQTAsMCAwIDAgMCAxNzIuMTgsMjgxLjA3ODQgTDM0Ny44MTU0LDI4MS4wNzg0IEEwLDAgMCAwIDAgMzQ3LjgxNTQsMjgxLjA3ODQgTDM0Ny44MTU0LDIzNS42OCBMMzM3LjgxNTQsMjI1LjY4IEwxNzIuMTgsMjI1LjY4IEEwLDAgMCAwIDAgMTcyLjE4LDIyNS42OCIgZmlsbD0iI0ZFRkZERCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7Ii8+PHBhdGggZD0iTTMzNy44MTU0LDIyNS42OCBMMzM3LjgxNTQsMjM1LjY4IEwzNDcuODE1NCwyMzUuNjggTDMzNy44MTU0LDIyNS42OCIgZmlsbD0iI0ZFRkZERCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTU0LjYzNTQiIHg9IjE3OC4xOCIgeT0iMjQyLjc0NjkiPkNSVUQmIzMxNjQ5OyYjMjk3MDI7JiM2NTI4ODsmIzM4NzQ1OyYjMzAzNDA7JiMxMjUxMDsmIzEyNDczOyYjMTI0Nzk7JiM2NTI4OTs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOTkuODIzMyIgeD0iMTc4LjE4IiB5PSIyNTcuODc5NyI+LSAmIzI2MzU2OyYjMjYwMzI7JiMzODk3MTsmIzI0MjMwOyYjMTIzNjQ7JiMyMDMwMjsmIzEyMzU2OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMzcuNDU4NiIgeD0iMTc4LjE4IiB5PSIyNzMuMDEyNSI+LSAmIzEyNDcxOyYjMTI1MzE7JiMxMjUwMzsmIzEyNTIzOyYjMTIzOTQ7Q1JVRCYjMjU4MDU7JiMyMDMxNjs8L3RleHQ+PC9nPjwhLS1saW5rIFByb2R1Y3QgdG8gSW52ZW50b3J5LS0+PGcgY2xhc3M9ImxpbmsiIGRhdGEtZW50aXR5LTE9IlByb2R1Y3QiIGRhdGEtZW50aXR5LTI9IkludmVudG9yeSIgZGF0YS1zb3VyY2UtbGluZT0iMzkiIGRhdGEtdWlkPSJsbms3IiBpZD0ibGlua19Qcm9kdWN0X0ludmVudG9yeSI+PHBhdGggY29kZUxpbmU9IjM5IiBkPSJNMTM3LjI2LDMwMy4yIEMxNDMuMiwzMDcuMzYgMTQ5LjE4LDMxMS40NCAxNTUsMzE1LjI3IEMyMjguMjQsMzYzLjUgMzE2LjAyLDQxMy45MyAzNzIuNjEsNDQ1LjU0IiBmaWxsPSJub25lIiBpZD0iUHJvZHVjdC1JbnZlbnRvcnkiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI3OC44NDQzIiB4PSIyMzAuMzUiIHk9IjM1OC4zMzY5Ij4mIzIxODMwOyYjMjE2OTc7SUQmIzEyMzkxOyYjMjE0NDI7JiMyOTAzMTs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOC4yNzEiIHg9IjE0NC44NTAyIiB5PSIzMDQuOTAyOCI+MTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2LjUiIHg9IjM1OC4zOTQzIiB5PSI0MzcuMTY0OCI+KjwvdGV4dD48L2c+PCEtLWxpbmsgV2FyZWhvdXNlIHRvIFpvbmUtLT48ZyBjbGFzcz0ibGluayIgZGF0YS1lbnRpdHktMT0iV2FyZWhvdXNlIiBkYXRhLWVudGl0eS0yPSJab25lIiBkYXRhLXNvdXJjZS1saW5lPSI0MCIgZGF0YS11aWQ9ImxuazgiIGlkPSJsaW5rX1dhcmVob3VzZV9ab25lIj48cGF0aCBjb2RlTGluZT0iNDAiIGQ9Ik00NTYsMTE0Ljg1IEM0NTYsMTM4LjUzIDQ1NiwxNjYuNTggNDU2LDE5MS4xNCIgZmlsbD0ibm9uZSIgaWQ9IldhcmVob3VzZS1ab25lIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjE7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTA0LjAwMDEiIHg9IjQ1NyIgeT0iMTU3LjU1NjkiPiYjMjA0ODk7JiMyNDIzNTsmIzEyNDY3OyYjMTI1NDA7JiMxMjQ4OTsmIzEyMzkxOyYjMjE0NDI7JiMyOTAzMTs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOC4yNzEiIHg9IjQ0Ny41MjkiIHk9IjEzNC40MzM0Ij4xPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjYuNSIgeD0iNDQ5LjY5OTYiIHk9IjE4MC41ODYzIj4qPC90ZXh0PjwvZz48IS0tbGluayBab25lIHRvIEludmVudG9yeS0tPjxnIGNsYXNzPSJsaW5rIiBkYXRhLWVudGl0eS0xPSJab25lIiBkYXRhLWVudGl0eS0yPSJJbnZlbnRvcnkiIGRhdGEtc291cmNlLWxpbmU9IjQxIiBkYXRhLXVpZD0ibG5rOSIgaWQ9ImxpbmtfWm9uZV9JbnZlbnRvcnkiPjxwYXRoIGNvZGVMaW5lPSI0MSIgZD0iTTQzNC40OSwzMTUuNCBDNDMxLjgsMzI1LjI3IDQyOS40NywzMzUuNDcgNDI4LDM0NS4yNyBDNDI1Ljc0LDM2MC4yNyA0MjQuODUsMzc2LjMzIDQyNC43NiwzOTEuOTEiIGZpbGw9Im5vbmUiIGlkPSJab25lLUludmVudG9yeSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE2Ni44OTI4IiB4PSI0MjkiIHk9IjM1OC4zMzY5Ij4mIzIwNDg5OyYjMjQyMzU7JiMxMjQ2NzsmIzEyNTQwOyYjMTI0ODk7KyYjMjEzMDY7JiMzMDAxMTsmIzMwMDU4OyYjMjE0OTU7JiMxMjM5MTsmIzIxNDQyOyYjMjkwMzE7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguMjcxIiB4PSI0MjMuNTU2NSIgeT0iMzM1LjUxMjgiPjE8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNi41IiB4PSI0MTguMDE1NSIgeT0iMzgxLjE4MTgiPio8L3RleHQ+PC9nPjwhLS1saW5rIEN1c3RvbWVyIHRvIEludmVudG9yeS0tPjxnIGNsYXNzPSJsaW5rIiBkYXRhLWVudGl0eS0xPSJDdXN0b21lciIgZGF0YS1lbnRpdHktMj0iSW52ZW50b3J5IiBkYXRhLXNvdXJjZS1saW5lPSI0MiIgZGF0YS11aWQ9ImxuazEwIiBpZD0ibGlua19DdXN0b21lcl9JbnZlbnRvcnkiPjxwYXRoIGNvZGVMaW5lPSI0MiIgZD0iTTYzMCwzMDcuNTQgQzYyNC4zMSwzMjYuOTggNjE1LjA0LDM0Ny43NCA2MDAsMzYyLjI3IEM1NjguNzYsMzkyLjQ0IDU0My4zOCwzNjguNTUgNTA3LDM5Mi4yNyBDNTAwLjg1LDM5Ni4yOCA0OTQuODksNDAwLjkxIDQ4OS4xOSw0MDUuOSIgZmlsbD0ibm9uZSIgaWQ9IkN1c3RvbWVyLUludmVudG9yeSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzMC4wMDAyIiB4PSI2MTQuNDciIHk9IjM1OC4zMzY5Ij4mIzI0MzQxOyYjMjQ0MDM7JiMyNjE3ODsmIzEyMzk1OyYjMjE0NDI7JiMyOTAzMTsmIzY1Mjg4OyYjMjE0NDI7JiMzMjc3MTsmIzY1Mjg5OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4LjI3MSIgeD0iNjIwLjQzMjIiIHk9IjMyNy4xMjk1Ij4xPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjYuNSIgeD0iNDk3LjA2MiIgeT0iMzkyLjY5OSI+KjwvdGV4dD48L2c+PCEtLVNSQz1bVkxEVFFuRDE1N3NWTnA3a2V2ODdOdHFoUVA2MllnSUE4Qnc0UERmNHdzeFB0SEg0WEVuRWFZUk9UV0RuQXg2RDZBbjY0WVkxMWZsY21fb09zT19pS18tMkNfa0h0S3NEUnBEeHhaZGR0ZERkeHNKSFRmdjdDQk1IVkJSc3ZFNlozUFpQSktpSTBFNDd4Z2FlUDBpUC1ITF9Dd2NRVWlMaUEwSF85VWVyS01TdGFuZTdxbkJxSS0xeHUxTGlobGk3aXR1NFlEZVprNEJLMFM1VE9DblF6YU5SUWhNRHlNX204VVJwOFlzWWQ1MkdhRVRLaDljWnRZc2RISDdweWFoS0l1OGQxRFZ5RXhDcWZmZkxBd3hJVm9kbWxpVlhvRnVxbGtOMXk3Xzlrek1zdFpNcmdfV1N2aU1yU3cwanNNdG8tdVlOMVY2VFB0TnNZdWV2Zm5MeEswZnk1WE5DcENLTmtSNzNfLW5qeE9fN2lGRy1DMlV3RU1yT21vZ3g0NW5kMTdMOFM4Vldvd01jYVdMOTVqdVlxVWo5RXM3S1NaTGVBNDFQRm03NkVXZEVSaEozT3NGTVRmZnJTX0pKUUh5bl9NM3h0N3FFOVhBR2t5azVlcHMwbUsxNHdQWVFRZlN4OERuWFhDNTJmeU5uZUtFRWt2Q0wxZDdFbE1YR2VTMVlqWEtZTmVQRGJJV3paLTQ2ZkN3QmNBTzMwMl84MjhodmRQbUNYVXNHSTFfdEVTNUQ2WkoxTFE5RXRVWWxzNU5qS3Nfd0hFbncxSUpXYlluYXRnSEcxa050S1BPZmJ0X0dkZmNvWnN0Ynlkang3ZEdtWWFDZjkyN0hmeGJUbmgxVGI5T1lzQnBwdE1jVUhvaE1pZ19mdjZ4NWwza3B6NDQ0VW9udWlkUGRSN3hLNk8zdUI2SVpCV19paG5XYUt5X05sUTRlcE1hcnhJLWJ3RXozWFF0SldOTklUeHdEd1ZpV29nNG5GSVBBWU54dE95NlYyVXVIZlNrNGhDUUhDSnJSVUZ1NV0tLT48L2c+PC9zdmc+" class="uml" alt="uml diagram" title="" /></p>
+<p><strong>静的マスタと動的データの使い分け</strong></p>
+<table>
+<thead>
+<tr>
+<th>データ種別</th>
+<th>管理方式</th>
+<th>理由</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>静的マスタ</strong></td>
+<td>CRUD管理</td>
+<td>更新頻度が低く、履歴が不要</td>
+<td>Product, Warehouse, WarehouseZone</td>
+</tr>
+<tr>
+<td><strong>動的データ</strong></td>
+<td>イベントソーシング</td>
+<td>更新頻度が高く、履歴が重要</td>
+<td>Inventory, Customer（参考）</td>
+</tr>
+</tbody>
+</table>
+<p>この使い分けにより、以下のメリットが得られました：</p>
+<ol>
+<li><strong>シンプルさと柔軟性のバランス</strong>: 静的マスタはCRUDでシンプルに、動的データはイベントソーシングで履歴を保持</li>
+<li><strong>パフォーマンス最適化</strong>: 静的マスタはキャッシュしやすく、動的データは非同期処理で高速化</li>
+<li><strong>監査要件への対応</strong>: 在庫変動は全てイベントとして記録され、完全な監査ログを実現</li>
+</ol>
+<h3 id="1312-crud">13.1.2 イベントソーシングとCRUD管理のハイブリッドアーキテクチャ<a class="headerlink" href="#1312-crud" title="Permanent link">&para;</a></h3>
+<p><strong>アーキテクチャ全体像</strong></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSIxODVweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjgxN3B4O2hlaWdodDoxODVweDtiYWNrZ3JvdW5kOiMwMDAwMDA7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA4MTcgMTg1IiB3aWR0aD0iODE3cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBmaWxsPSIjMUQxMTFEIiBoZWlnaHQ9IjEiIHN0eWxlPSJzdHJva2U6IzFEMTExRDtzdHJva2Utd2lkdGg6MTsiIHdpZHRoPSIxIiB4PSIwIiB5PSIwIi8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTM2LjM1OTQiIHg9IjUiIHk9IjE3Ij5QbGFudFVNTCAxLjIwMjUuMTA8L3RleHQ+PHJlY3QgZmlsbD0iIzMzRkYwMiIgaGVpZ2h0PSIyMS4yOTY5IiBzdHlsZT0ic3Ryb2tlOiMzM0ZGMDI7c3Ryb2tlLXdpZHRoOjE7IiB3aWR0aD0iNDk3LjI1MjMiIHg9IjUiIHk9IjI2Ljk2ODgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTcxLjI4MTMiIHg9IjYiIHk9IjQxLjk2ODgiPltGcm9tIHN0cmluZyAobGluZSA3KSBdPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0Ljg3NCIgeD0iNSIgeT0iNjIuMjY1NiI+JiMxNjA7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4MS40MjI5IiB4PSI1IiB5PSI3OC41NjI1Ij5Ac3RhcnR1bWw8L3RleHQ+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQuODc0IiB4PSI1IiB5PSI5NC44NTk0Ij4mIzE2MDs8L3RleHQ+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMxNi4xMjA3IiB4PSI1IiB5PSIxMTEuMTU2MyI+cGFja2FnZSAiQ29tbWFuZCBTaWRlJiM2NTI4ODsmIzI2MzYwOyYjMTIzNjU7JiMzNjc5NjsmIzEyNDE1OyYjMjA1OTY7JiM2NTI4OTsiIHs8L3RleHQ+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMwMC42OTI0IiB4PSI1IiB5PSIxMjcuNDUzMSI+Y2xhc3MgIkNvbW1hbmQgQVBJIiBhcyBDb21tYW5kQVBJPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0OTcuMjUyMyIgeD0iNSIgeT0iMTQzLjc1Ij5jbGFzcyAiSW52ZW50b3J5QWdncmVnYXRlXG4mIzY1Mjg4OyYjMTI0NTI7JiMxMjUwNTsmIzEyNTMxOyYjMTI0ODg7JiMxMjQ3NzsmIzEyNTQwOyYjMTI0NzE7JiMxMjUzMTsmIzEyNDY0OyYjNjUyODk7IiBhcyBBZ2dyZWdhdGU8L3RleHQ+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHQtZGVjb3JhdGlvbj0id2F2eSB1bmRlcmxpbmUiIHRleHRMZW5ndGg9IjQxNC41NzkxIiB4PSI1IiB5PSIxNjAuMDQ2OSI+ZGF0YWJhc2UgIkV2ZW50IFN0b3JlXG4oRHluYW1vREIpIiBhcyBFdmVudFN0b3JlPC90ZXh0Pjx0ZXh0IGZpbGw9IiNGRjAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4MDAuMzQ0NyIgeD0iOS44NzQiIHk9IjE3Ni4zNDM4Ij5Vc2UgJ2FsbG93bWl4aW5nJyBpZiB5b3Ugd2FudCB0byBtaXggY2xhc3NlcyBhbmQgb3RoZXIgVU1MIGVsZW1lbnRzLiAoQXNzdW1lZCBkaWFncmFtIHR5cGU6IGNsYXNzKTwvdGV4dD48IS0tU1JDPVtWTEhESnpIRzVEc19OXzZTYklPVy1vdkNYa2M0YTAwUGZhcFNrN2NzWnZhOUozamYybWFuQmplQVNPMDlIWEphR3VxSE9PSm1lSDk0N1VKN0ZEZUVBX3cyenROdzFHNHRwTmt6dnp2eHhaY3RsUVZHeVFmQVNKNlY2eWtFMzBwYmlKbjkzMEVYRWY0ZEk5ZFlKNHdock9ZZ09BY2dxQWxzSXNfWmI1ZERwanlzaXl2VHdfWWd0U1pXUG9YOVpfN1BtYzA2NG1FN1R4WWNLT0ZnRDVMREpQXzliaWl3QkhFSkZiNlhFaEV0Y0JGNmQxX0NXVkNQU3poQ19pY2x6YjdHMlVoNTJLV1g5ZGJBM0UyT3Z5TW0xRk1XcDdybkhZS3JKVW5fNEUyM00xMUF6b19lY1o4YmN0c0ZZS3Voc2ZHMVVSYllJU0dJclFVaENrcW9YblVmOWlGNENBY0VuTnZlS1QwQzRzWDhlcUZUOWpzT3M4LVVmdkdSZFFCd0pBSFJQdFVWQXhRcW1rcHZNdE5oZWE0Y0EzLVdhdGViZ1hxNGs3bTliSThiMlh4TTUzZnYyblNVMzZCZndhYTZCak1YNERLM1I3WmNqOGFDNms1Q29PWDJTNDI4RnQ3bGV2SUIwZE90TS14bEZNLXZVTjZzb01vbXdhRFdNMENiODl1STZvSzA5UGJNZm9jdTg0X3FPQWJJaE9UN1FpZUZLR3BhTU9iVDBhdmxXdFRxd2YtaWt1aWhBNDVtVjNZMVcyRk5PR3JxSWNlNjJZQ1M1NGlZdTRHOFItRk9NcGN3T3lJdFMtd29uSVVwVnA3eGwwaTU1X2JBVzdLdDlrTGwxUG8zallPRDV3aWQ5MVBVS1IxUzA4cU1IUzNXNW51U2FWQjVpUnZJR1NvRXZIQ2NhVUVIckZ4aXBhTHg3VGc3VXk0UEg5V1J1XzZnS2R1OFo0VDhySzFJbExna2M1V1JKdHF0X19kOEsyenNQcmxDc2NSTVdKel91aXFrazVpRGM5eFBod3piTU8xUDFMWWR6VXZveUpqYU5PeWtDQmxISk9UNFR3eGZ4SXB1WG1ydHdSM1pkRjRNMXVqMWJycl91eEZ0eUd6cHpkYmgyWnlESmxhY3lVMHB2MF9fdTlGX1FZdmU1ajFyTGZjcDFyTWtnVFdkbWxHV1BZLSAtVkJfY2h4LThGTUpNdGdOcnJOX0p1V0ktVlY3c1pvekVjdnJqQS14eDNtMDBdLS0+PC9nPjwvc3ZnPg==" class="uml" alt="uml diagram" title="" /></p>
+<p><strong>ハイブリッドアーキテクチャの利点</strong></p>
+<ol>
+<li><strong>適材適所の管理方式</strong></li>
+<li>在庫（高頻度更新）→ イベントソーシング</li>
+<li>
+<p>商品マスタ（低頻度更新）→ CRUD</p>
+</li>
+<li>
+<p><strong>実装コストの最適化</strong></p>
+</li>
+<li>全てをイベントソーシングにすると実装コストが高い</li>
+<li>
+<p>静的マスタはCRUDでシンプルに</p>
+</li>
+<li>
+<p><strong>パフォーマンスとスケーラビリティ</strong></p>
+</li>
+<li>イベントソーシング: 書き込みが高速、読み取りはRead Modelで最適化</li>
+<li>CRUD: シンプルで高速</li>
+</ol>
+<h3 id="1313">13.1.3 在庫管理特有の課題と解決策<a class="headerlink" href="#1313" title="Permanent link">&para;</a></h3>
+<p><strong>実装した課題と解決策の一覧</strong></p>
+<table>
+<thead>
+<tr>
+<th>課題</th>
+<th>解決策</th>
+<th>実装章</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>区画管理を含む在庫制御</strong></td>
+<td>保管条件（常温・冷蔵・冷凍）に基づく区画別在庫管理</td>
+<td>第4章</td>
+</tr>
+<tr>
+<td><strong>保管条件の整合性管理</strong></td>
+<td>商品の保管条件と区画の保管条件の一致検証</td>
+<td>第5章</td>
+</tr>
+<tr>
+<td><strong>受払履歴による完全な監査ログ</strong></td>
+<td>全ての在庫変動をイベントとして記録、受払履歴テーブルで可視化</td>
+<td>第11章</td>
+</tr>
+<tr>
+<td><strong>在庫引当の競合制御</strong></td>
+<td>楽観的ロック（バージョン管理）とCAS操作</td>
+<td>第7章</td>
+</tr>
+<tr>
+<td><strong>複雑なクエリの実装</strong></td>
+<td>Materialized View、DataLoader（N+1問題解決）</td>
+<td>第8章</td>
+</tr>
+<tr>
+<td><strong>イベントの順序保証</strong></td>
+<td>DynamoDB Streams + シーケンス番号管理</td>
+<td>第9章</td>
+</tr>
+<tr>
+<td><strong>パフォーマンス最適化</strong></td>
+<td>Redisキャッシング、Pekko Streams、Gatling負荷テスト</td>
+<td>第10章</td>
+</tr>
+<tr>
+<td><strong>運用とモニタリング</strong></td>
+<td>Prometheus + Grafana、監査レポート、アラート</td>
+<td>第11章</td>
+</tr>
+</tbody>
+</table>
+<p><strong>特に重要だった技術的挑戦</strong></p>
+<h4 id="1-7">1. 在庫引当の競合制御（第7章）<a class="headerlink" href="#1-7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// CAS（Compare-And-Swap）による競合検出</span>
+<span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="nc">Created</span><span class="p">(</span><span class="n">inventory</span><span class="p">),</span><span class="w"> </span><span class="nc">ReserveStock</span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">quantity</span><span class="p">,</span><span class="w"> </span><span class="n">expectedVersion</span><span class="p">,</span><span class="w"> </span><span class="n">replyTo</span><span class="p">))</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inventory</span><span class="p">.</span><span class="n">version</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">expectedVersion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// バージョン不一致 → 競合</span>
+<span class="w">    </span><span class="nc">Effect</span><span class="p">.</span><span class="n">reply</span><span class="p">(</span><span class="n">replyTo</span><span class="p">)(</span><span class="nc">ReserveStockFailed</span><span class="p">(...,</span><span class="w"> </span><span class="nc">VersionConflict</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// バージョン一致 → 引当処理</span>
+<span class="w">    </span><span class="nc">Effect</span><span class="p">.</span><span class="n">persist</span><span class="p">(</span><span class="nc">StockReserved</span><span class="p">(...)).</span><span class="n">thenReply</span><span class="p">(</span><span class="n">replyTo</span><span class="p">)(...)</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<p><strong>学び</strong>: 分散環境での競合制御は楽観的ロック + リトライで解決できる</p>
+<h4 id="2-n18">2. N+1問題の解決（第8章）<a class="headerlink" href="#2-n18" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// DataLoaderによるバッチクエリ</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">productLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">DataLoaderFactory</span><span class="p">.</span><span class="n">newDataLoader</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">productIds</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">  </span><span class="n">productDao</span><span class="p">.</span><span class="n">findByIds</span><span class="p">(</span><span class="n">productIds</span><span class="p">.</span><span class="n">asScala</span><span class="p">.</span><span class="n">toList</span><span class="p">)</span><span class="w"> </span><span class="c1">// 1回のクエリで全て取得</span>
+<span class="p">}</span>
+
+<span class="c1">// 400クエリ → 4クエリ（100倍高速化）</span>
+</code></pre></div>
+<p><strong>学び</strong>: DataLoaderパターンでN+1問題を効率的に解決できる</p>
+<h4 id="3-9">3. イベントの順序保証（第9章）<a class="headerlink" href="#3-9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// シーケンス番号による順序チェック</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sequenceNr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">lastSequenceNr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="c1">// 古いイベントをスキップ</span>
+<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sequenceNr</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">lastSequenceNr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">MissingEventException</span><span class="p">(...)</span><span class="w"> </span><span class="c1">// 欠損検出</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>学び</strong>: DynamoDB StreamsのFIFO保証 + シーケンス番号で順序を保証できる</p>
+<h3 id="1314-cqrs">13.1.4 本格的なCQRS/イベントソーシングシステムの構築<a class="headerlink" href="#1314-cqrs" title="Permanent link">&para;</a></h3>
+<p><strong>実業務規模のデータ量</strong></p>
+<table>
+<thead>
+<tr>
+<th>データ種別</th>
+<th>件数</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企業マスタ</td>
+<td>-</td>
+<td>静的マスタ</td>
+</tr>
+<tr>
+<td>商品マスタ</td>
+<td>約8,000品目</td>
+<td>SKU単位</td>
+</tr>
+<tr>
+<td>取引先</td>
+<td>430社</td>
+<td>B2B取引先</td>
+</tr>
+<tr>
+<td>倉庫</td>
+<td>3拠点</td>
+<td>地理的分散</td>
+</tr>
+<tr>
+<td>区画</td>
+<td>9区画（3拠点×3区画）</td>
+<td>常温・冷蔵・冷凍</td>
+</tr>
+<tr>
+<td>在庫</td>
+<td>約24,000件（8,000品目×3拠点）</td>
+<td>実在庫</td>
+</tr>
+<tr>
+<td>1日の受払処理</td>
+<td>約2,000件</td>
+<td>ピーク時は10倍</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3拠点・9区画の分散環境</strong></p>
+<div class="highlight"><pre><span></span><code>拠点1（東京）:
+  - 常温区画（区画1）
+  - 冷蔵区画（区画2）
+  - 冷凍区画（区画3）
+
+拠点2（大阪）:
+  - 常温区画（区画4）
+  - 冷蔵区画（区画5）
+  - 冷凍区画（区画6）
+
+拠点3（福岡）:
+  - 常温区画（区画7）
+  - 冷蔵区画（区画8）
+  - 冷凍区画（区画9）
+</code></pre></div>
+<p><strong>達成したシステム特性</strong></p>
+<ol>
+<li><strong>スケーラビリティ</strong></li>
+<li>Pekko Cluster Shardingによる水平スケーリング</li>
+<li>3拠点で均等に負荷分散</li>
+<li>
+<p>ピーク時2,000件/日の処理に対応</p>
+</li>
+<li>
+<p><strong>可用性</strong></p>
+</li>
+<li>イベントソーシングによる状態再構築</li>
+<li>Read Modelの独立性（障害時も照会可能）</li>
+<li>
+<p>マルチリージョンデプロイ対応</p>
+</li>
+<li>
+<p><strong>監査性</strong></p>
+</li>
+<li>全ての在庫変動をイベントとして記録</li>
+<li>受払履歴による完全な追跡</li>
+<li>
+<p>差異検出と自動修復</p>
+</li>
+<li>
+<p><strong>パフォーマンス</strong></p>
+</li>
+<li>Redisキャッシングで25倍高速化</li>
+<li>Pekko Streamsで効率的なバッチ処理</li>
+<li>Gatling負荷テストで検証済み</li>
+</ol>
+<h3 id="1315">13.1.5 技術スタックまとめ<a class="headerlink" href="#1315" title="Permanent link">&para;</a></h3>
+<p><strong>採用した技術とその理由</strong></p>
+<table>
+<thead>
+<tr>
+<th>技術</th>
+<th>用途</th>
+<th>選定理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Apache Pekko</strong></td>
+<td>アクターフレームワーク</td>
+<td>Akkaからのフォーク、型安全、高性能</td>
+</tr>
+<tr>
+<td><strong>Scala 3</strong></td>
+<td>プログラミング言語</td>
+<td>型安全、関数型、JVM互換</td>
+</tr>
+<tr>
+<td><strong>DynamoDB</strong></td>
+<td>Event Store</td>
+<td>スケーラブル、DynamoDB Streams</td>
+</tr>
+<tr>
+<td><strong>PostgreSQL</strong></td>
+<td>Read Model / マスタDB</td>
+<td>リレーショナルDB、SQL互換</td>
+</tr>
+<tr>
+<td><strong>Protocol Buffers</strong></td>
+<td>シリアライゼーション</td>
+<td>効率的、型安全、スキーマ進化</td>
+</tr>
+<tr>
+<td><strong>GraphQL (Sangria)</strong></td>
+<td>Query API</td>
+<td>柔軟なクエリ、型安全</td>
+</tr>
+<tr>
+<td><strong>Redis</strong></td>
+<td>キャッシュ</td>
+<td>高速、分散対応</td>
+</tr>
+<tr>
+<td><strong>Prometheus + Grafana</strong></td>
+<td>モニタリング</td>
+<td>メトリクス収集、可視化</td>
+</tr>
+<tr>
+<td><strong>Gatling</strong></td>
+<td>負荷テスト</td>
+<td>Scala DSL、高性能</td>
+</tr>
+</tbody>
+</table>
+<h2 id="132">13.2 実践演習<a class="headerlink" href="#132" title="Permanent link">&para;</a></h2>
+<p>ここからは、これまで学んだ内容を応用して、新しい機能を実装する演習を提示します。</p>
+<h3 id="1321-1">13.2.1 演習1: 在庫棚卸機能の追加<a class="headerlink" href="#1321-1" title="Permanent link">&para;</a></h3>
+<p><strong>課題</strong>: 区画ごとの実地棚卸機能を実装してください。</p>
+<p><strong>要件</strong>:
+- 区画ごとに実地棚卸を実施できる（9区画）
+- 実地棚卸結果とシステム在庫の差異を検出する
+- 差異があれば調整イベント（StockAdjusted）を発行する
+- 棚卸レポートを生成する</p>
+<p><strong>ヒント</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. 棚卸コマンドの定義</span>
+<span class="k">sealed</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="nc">InventoryCommand</span>
+<span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PerformStockTaking</span><span class="p">(</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span><span class="p">,</span>
+<span class="w">  </span><span class="n">zoneNumber</span><span class="p">:</span><span class="w"> </span><span class="nc">ZoneNumber</span><span class="p">,</span>
+<span class="w">  </span><span class="n">actualCounts</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">ProductId</span><span class="p">,</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">],</span><span class="w"> </span><span class="c1">// 実地棚卸結果</span>
+<span class="w">  </span><span class="n">replyTo</span><span class="p">:</span><span class="w"> </span><span class="nc">ActorRef</span><span class="p">[</span><span class="nc">InventoryCommandResult</span><span class="p">]</span>
+<span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">InventoryCommand</span>
+
+<span class="c1">// 2. 棚卸イベントの定義</span>
+<span class="k">sealed</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="nc">InventoryEvent</span>
+<span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StockTakingPerformed</span><span class="p">(</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span><span class="p">,</span>
+<span class="w">  </span><span class="n">zoneNumber</span><span class="p">:</span><span class="w"> </span><span class="nc">ZoneNumber</span><span class="p">,</span>
+<span class="w">  </span><span class="n">discrepancies</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">StockDiscrepancy</span><span class="p">],</span><span class="w"> </span><span class="c1">// 差異リスト</span>
+<span class="w">  </span><span class="n">performedAt</span><span class="p">:</span><span class="w"> </span><span class="nc">Instant</span>
+<span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">InventoryEvent</span>
+
+<span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StockDiscrepancy</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">systemQuantity</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">actualQuantity</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">difference</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span>
+<span class="p">)</span>
+
+<span class="c1">// 3. 差異調整の実装</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">adjustDiscrepancies</span><span class="p">(</span>
+<span class="w">  </span><span class="n">discrepancies</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">StockDiscrepancy</span><span class="p">]</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">InventoryCommand</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">discrepancies</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">disc</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="nc">AdjustStock</span><span class="p">(</span>
+<span class="w">      </span><span class="n">inventoryId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">InventoryId</span><span class="p">(...),</span>
+<span class="w">      </span><span class="n">adjustmentQuantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">disc</span><span class="p">.</span><span class="n">difference</span><span class="p">,</span>
+<span class="w">      </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s&quot;棚卸差異調整: </span><span class="si">${</span><span class="n">disc</span><span class="p">.</span><span class="n">systemQuantity</span><span class="p">.</span><span class="n">value</span><span class="si">}</span><span class="s"> → </span><span class="si">${</span><span class="n">disc</span><span class="p">.</span><span class="n">actualQuantity</span><span class="p">.</span><span class="n">value</span><span class="si">}</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">replyTo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 4. 棚卸レポートの生成</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generateStockTakingReport</span><span class="p">(</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span><span class="p">,</span>
+<span class="w">  </span><span class="n">zoneNumber</span><span class="p">:</span><span class="w"> </span><span class="nc">ZoneNumber</span><span class="p">,</span>
+<span class="w">  </span><span class="n">startDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span>
+<span class="w">  </span><span class="n">endDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">StockTakingReport</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 期間内の棚卸履歴を取得</span>
+<span class="w">  </span><span class="c1">// 差異の集計</span>
+<span class="w">  </span><span class="c1">// レポート生成</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>実装のポイント</strong>:
+1. 棚卸は区画単位で実施
+2. 実地棚卸結果とシステム在庫を比較
+3. 差異があれば自動的にAdjustStockコマンドを発行
+4. 棚卸履歴を受払履歴と同様に記録</p>
+<p><strong>期待される学び</strong>:
+- 複数の在庫を一括で処理する方法
+- 差異検出と調整のロジック
+- レポート生成の実装</p>
+<hr />
+<h3 id="1322-2">13.2.2 演習2: 区画間自動移動機能<a class="headerlink" href="#1322-2" title="Permanent link">&para;</a></h3>
+<p><strong>課題</strong>: 保管条件に基づいて、商品を適切な区画に自動移動する機能を実装してください。</p>
+<p><strong>要件</strong>:
+- 商品の保管条件と区画の保管条件が一致しない場合、自動的に移動を提案する
+- 移動先の区画は容量と保管条件を考慮して選択する
+- 在庫バランスを考慮して、区画間で在庫を再配置する</p>
+<p><strong>ヒント</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. 移動提案の生成</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">suggestInventoryMovements</span><span class="p">(</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">MovementSuggestion</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 保管条件不一致の在庫を検出</span>
+<span class="w">    </span><span class="n">mismatchedInventories</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">detectStorageConditionMismatches</span><span class="p">(</span><span class="n">warehouseCode</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 各在庫について移動先を提案</span>
+<span class="w">    </span><span class="n">suggestions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nc">Future</span><span class="p">.</span><span class="n">traverse</span><span class="p">(</span><span class="n">mismatchedInventories</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">inventory</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">findBestZoneForMovement</span><span class="p">(</span><span class="n">inventory</span><span class="p">,</span><span class="w"> </span><span class="n">warehouseCode</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="n">suggestions</span><span class="p">.</span><span class="n">flatten</span>
+<span class="p">}</span>
+
+<span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MovementSuggestion</span><span class="p">(</span>
+<span class="w">  </span><span class="n">inventoryId</span><span class="p">:</span><span class="w"> </span><span class="nc">InventoryId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">currentZone</span><span class="p">:</span><span class="w"> </span><span class="nc">ZoneNumber</span><span class="p">,</span>
+<span class="w">  </span><span class="n">suggestedZone</span><span class="p">:</span><span class="w"> </span><span class="nc">ZoneNumber</span><span class="p">,</span>
+<span class="w">  </span><span class="n">quantity</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">reason</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span>
+<span class="p">)</span>
+
+<span class="c1">// 2. 最適な移動先の選択</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">findBestZoneForMovement</span><span class="p">(</span>
+<span class="w">  </span><span class="n">inventory</span><span class="p">:</span><span class="w"> </span><span class="nc">Inventory</span><span class="p">,</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">Option</span><span class="p">[</span><span class="nc">MovementSuggestion</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 商品の保管条件を取得</span>
+<span class="w">    </span><span class="n">product</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">productDao</span><span class="p">.</span><span class="n">findById</span><span class="p">(</span><span class="n">inventory</span><span class="p">.</span><span class="n">productId</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 保管条件が一致する区画を検索</span>
+<span class="w">    </span><span class="n">compatibleZones</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">zoneDao</span><span class="p">.</span><span class="n">findByStorageCondition</span><span class="p">(</span>
+<span class="w">      </span><span class="n">warehouseCode</span><span class="p">,</span>
+<span class="w">      </span><span class="n">product</span><span class="p">.</span><span class="n">storageCondition</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 容量に余裕がある区画を選択</span>
+<span class="w">    </span><span class="n">bestZone</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">selectZoneWithCapacity</span><span class="p">(</span><span class="n">compatibleZones</span><span class="p">,</span><span class="w"> </span><span class="n">inventory</span><span class="p">.</span><span class="n">quantityOnHand</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">bestZone</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">zone</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="nc">MovementSuggestion</span><span class="p">(</span>
+<span class="w">        </span><span class="n">inventoryId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inventory</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inventory</span><span class="p">.</span><span class="n">productId</span><span class="p">,</span>
+<span class="w">        </span><span class="n">currentZone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inventory</span><span class="p">.</span><span class="n">zoneNumber</span><span class="p">,</span>
+<span class="w">        </span><span class="n">suggestedZone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zone</span><span class="p">.</span><span class="n">zoneNumber</span><span class="p">,</span>
+<span class="w">        </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inventory</span><span class="p">.</span><span class="n">quantityOnHand</span><span class="p">,</span>
+<span class="w">        </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s&quot;保管条件不一致: </span><span class="si">${</span><span class="n">product</span><span class="p">.</span><span class="n">storageCondition</span><span class="si">}</span><span class="s"> → </span><span class="si">${</span><span class="n">zone</span><span class="p">.</span><span class="n">storageCondition</span><span class="si">}</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 3. 在庫バランス調整</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rebalanceInventory</span><span class="p">(</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span><span class="p">,</span>
+<span class="w">  </span><span class="n">category</span><span class="p">:</span><span class="w"> </span><span class="nc">Category</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">MovementSuggestion</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// カテゴリ別の区画別在庫を取得</span>
+<span class="w">    </span><span class="n">inventoriesByZone</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">getInventoriesByZone</span><span class="p">(</span><span class="n">warehouseCode</span><span class="p">,</span><span class="w"> </span><span class="n">category</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 各区画の稼働率を計算</span>
+<span class="w">    </span><span class="n">utilizationByZone</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">calculateUtilization</span><span class="p">(</span><span class="n">inventoriesByZone</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 稼働率が高い区画から低い区画へ移動を提案</span>
+<span class="w">    </span><span class="n">suggestions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateRebalanceSuggestions</span><span class="p">(</span><span class="n">utilizationByZone</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="n">suggestions</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>実装のポイント</strong>:
+1. 保管条件の整合性チェック
+2. 区画容量の考慮
+3. 在庫バランスの最適化アルゴリズム</p>
+<p><strong>期待される学び</strong>:
+- ドメインロジックの複雑な実装
+- 最適化アルゴリズムの設計
+- 複数の制約条件を満たす実装</p>
+<hr />
+<h3 id="1323-3">13.2.3 演習3: 在庫分析機能<a class="headerlink" href="#1323-3" title="Permanent link">&para;</a></h3>
+<p><strong>課題</strong>: 商品カテゴリ別、保管条件別、区画別の在庫分析機能を実装してください。</p>
+<p><strong>要件</strong>:
+- 商品カテゴリ別の受払分析（食品類、日用品の受払比率）
+- 保管条件別の回転率分析（常温・冷蔵・冷凍ごとの回転率）
+- 区画別の稼働率分析（9区画の使用率と容量監視）</p>
+<p><strong>ヒント</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. カテゴリ別受払分析</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyzeCategoryTransactions</span><span class="p">(</span>
+<span class="w">  </span><span class="n">startDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span>
+<span class="w">  </span><span class="n">endDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">CategoryAnalysis</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">historyDao</span><span class="p">.</span><span class="n">aggregateByCategory</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span><span class="w"> </span><span class="n">endDate</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="n">results</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">receiveQty</span><span class="p">,</span><span class="w"> </span><span class="n">shipQty</span><span class="p">,</span><span class="w"> </span><span class="n">netChange</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">turnoverRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">receiveQty</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">shipQty</span><span class="p">.</span><span class="n">toDouble</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">receiveQty</span><span class="p">.</span><span class="n">toDouble</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="w">      </span><span class="nc">CategoryAnalysis</span><span class="p">(</span>
+<span class="w">        </span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">category</span><span class="p">,</span>
+<span class="w">        </span><span class="n">totalReceived</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">receiveQty</span><span class="p">),</span>
+<span class="w">        </span><span class="n">totalShipped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">shipQty</span><span class="p">),</span>
+<span class="w">        </span><span class="n">netChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">netChange</span><span class="p">),</span>
+<span class="w">        </span><span class="n">turnoverRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">turnoverRate</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CategoryAnalysis</span><span class="p">(</span>
+<span class="w">  </span><span class="n">category</span><span class="p">:</span><span class="w"> </span><span class="nc">Category</span><span class="p">,</span>
+<span class="w">  </span><span class="n">totalReceived</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">totalShipped</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">netChange</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">turnoverRate</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span>
+<span class="p">)</span>
+
+<span class="c1">// 2. 保管条件別回転率分析</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyzeStorageConditionTurnover</span><span class="p">(</span>
+<span class="w">  </span><span class="n">startDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span>
+<span class="w">  </span><span class="n">endDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">StorageConditionAnalysis</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 期間内の受払データを取得</span>
+<span class="w">    </span><span class="n">transactions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">historyDao</span><span class="p">.</span><span class="n">aggregateByStorageCondition</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span><span class="w"> </span><span class="n">endDate</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 現在の在庫数を取得</span>
+<span class="w">    </span><span class="n">currentInventory</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">inventoryDao</span><span class="p">.</span><span class="n">aggregateByStorageCondition</span><span class="p">()</span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">transactions</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">,</span><span class="w"> </span><span class="n">receiveQty</span><span class="p">,</span><span class="w"> </span><span class="n">shipQty</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">avgInventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentInventory</span><span class="p">.</span><span class="n">getOrElse</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="n">toDouble</span>
+
+<span class="w">      </span><span class="c1">// 在庫回転率 = 出庫数 / 平均在庫数</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">turnoverRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">avgInventory</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">shipQty</span><span class="p">.</span><span class="n">toDouble</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">avgInventory</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="w">      </span><span class="c1">// 在庫回転日数 = 365 / 在庫回転率</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">turnoverDays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">turnoverRate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mf">365.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">turnoverRate</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="w">      </span><span class="nc">StorageConditionAnalysis</span><span class="p">(</span>
+<span class="w">        </span><span class="n">storageCondition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">condition</span><span class="p">,</span>
+<span class="w">        </span><span class="n">avgInventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">avgInventory</span><span class="p">.</span><span class="n">toInt</span><span class="p">),</span>
+<span class="w">        </span><span class="n">totalShipped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">shipQty</span><span class="p">),</span>
+<span class="w">        </span><span class="n">turnoverRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">turnoverRate</span><span class="p">,</span>
+<span class="w">        </span><span class="n">turnoverDays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">turnoverDays</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StorageConditionAnalysis</span><span class="p">(</span>
+<span class="w">  </span><span class="n">storageCondition</span><span class="p">:</span><span class="w"> </span><span class="nc">StorageCondition</span><span class="p">,</span>
+<span class="w">  </span><span class="n">avgInventory</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">totalShipped</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">turnoverRate</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span><span class="p">,</span>
+<span class="w">  </span><span class="n">turnoverDays</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span>
+<span class="p">)</span>
+
+<span class="c1">// 3. 区画別稼働率分析</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyzeZoneUtilization</span><span class="p">(</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">ZoneUtilizationAnalysis</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 全区画情報を取得</span>
+<span class="w">    </span><span class="n">zones</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">zoneDao</span><span class="p">.</span><span class="n">findByWarehouse</span><span class="p">(</span><span class="n">warehouseCode</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 各区画の在庫数を取得</span>
+<span class="w">    </span><span class="n">inventories</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nc">Future</span><span class="p">.</span><span class="n">traverse</span><span class="p">(</span><span class="n">zones</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">zone</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">inventoryDao</span><span class="p">.</span><span class="n">getTotalByZone</span><span class="p">(</span><span class="n">warehouseCode</span><span class="p">,</span><span class="w"> </span><span class="n">zone</span><span class="p">.</span><span class="n">zoneNumber</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="p">(</span><span class="n">zone</span><span class="p">,</span><span class="w"> </span><span class="n">total</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">inventories</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">zone</span><span class="p">,</span><span class="w"> </span><span class="n">totalQuantity</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">utilization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">zone</span><span class="p">.</span><span class="n">capacity</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">totalQuantity</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">toDouble</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">zone</span><span class="p">.</span><span class="n">capacity</span><span class="p">.</span><span class="n">toDouble</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="w">      </span><span class="nc">ZoneUtilizationAnalysis</span><span class="p">(</span>
+<span class="w">        </span><span class="n">warehouseCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">warehouseCode</span><span class="p">,</span>
+<span class="w">        </span><span class="n">zoneNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zone</span><span class="p">.</span><span class="n">zoneNumber</span><span class="p">,</span>
+<span class="w">        </span><span class="n">storageCondition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zone</span><span class="p">.</span><span class="n">storageCondition</span><span class="p">,</span>
+<span class="w">        </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">zone</span><span class="p">.</span><span class="n">capacity</span><span class="p">),</span>
+<span class="w">        </span><span class="n">currentInventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">totalQuantity</span><span class="p">,</span>
+<span class="w">        </span><span class="n">utilizationRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utilization</span><span class="p">,</span>
+<span class="w">        </span><span class="n">availableCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">zone</span><span class="p">.</span><span class="n">capacity</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">totalQuantity</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ZoneUtilizationAnalysis</span><span class="p">(</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span><span class="p">,</span>
+<span class="w">  </span><span class="n">zoneNumber</span><span class="p">:</span><span class="w"> </span><span class="nc">ZoneNumber</span><span class="p">,</span>
+<span class="w">  </span><span class="n">storageCondition</span><span class="p">:</span><span class="w"> </span><span class="nc">StorageCondition</span><span class="p">,</span>
+<span class="w">  </span><span class="n">capacity</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">currentInventory</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">utilizationRate</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span><span class="p">,</span>
+<span class="w">  </span><span class="n">availableCapacity</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>実装のポイント</strong>:
+1. 集計SQLの最適化（GROUP BY、JOINの活用）
+2. 回転率などのKPI計算ロジック
+3. 時系列データの分析</p>
+<p><strong>期待される学び</strong>:
+- ビジネスメトリクスの実装
+- SQL集計クエリの最適化
+- データ分析のベストプラクティス</p>
+<hr />
+<h3 id="1324-4">13.2.4 演習4: 在庫予測機能の強化<a class="headerlink" href="#1324-4" title="Permanent link">&para;</a></h3>
+<p><strong>課題</strong>: 第12章で実装した在庫予測機能を強化してください。</p>
+<p><strong>要件</strong>:
+- 過去の受払データに基づく在庫予測（既存機能）
+- 季節変動を考慮した予測
+- 曜日パターンを考慮した予測
+- 複数の予測モデルを比較</p>
+<p><strong>ヒント</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. 季節変動を考慮した予測</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">forecastWithSeasonality</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">forecastDays</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">ForecastResult</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 過去1年間のデータを取得</span>
+<span class="w">    </span><span class="n">historicalData</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">timeSeriesAnalyzer</span><span class="p">.</span><span class="n">analyzeDailyTransactions</span><span class="p">(</span>
+<span class="w">      </span><span class="n">productId</span><span class="p">,</span>
+<span class="w">      </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">minusYears</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">      </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 季節性を検出</span>
+<span class="w">    </span><span class="n">seasonality</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">timeSeriesAnalyzer</span><span class="p">.</span><span class="n">detectSeasonality</span><span class="p">(</span>
+<span class="w">      </span><span class="n">productId</span><span class="p">,</span>
+<span class="w">      </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">minusYears</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">      </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 基本予測を取得</span>
+<span class="w">    </span><span class="n">baseForecast</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">forecastModel</span><span class="p">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">historicalData</span><span class="p">,</span><span class="w"> </span><span class="n">forecastDays</span><span class="p">)</span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 季節性を考慮して予測を調整</span>
+<span class="w">    </span><span class="n">baseForecast</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">forecast</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forecast</span><span class="p">.</span><span class="n">date</span><span class="p">.</span><span class="n">getMonthValue</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">seasonalFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seasonality</span><span class="p">.</span><span class="n">getOrElse</span><span class="p">(</span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="w">      </span><span class="n">forecast</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span>
+<span class="w">        </span><span class="n">predictedDemand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">((</span><span class="n">forecast</span><span class="p">.</span><span class="n">predictedDemand</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">seasonalFactor</span><span class="p">).</span><span class="n">toInt</span><span class="p">)</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 2. 曜日パターンを考慮した予測</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">forecastWithWeekdayPattern</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">forecastDays</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">ForecastResult</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">historicalData</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">timeSeriesAnalyzer</span><span class="p">.</span><span class="n">analyzeDailyTransactions</span><span class="p">(...)</span>
+<span class="w">    </span><span class="n">weekdayPattern</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">timeSeriesAnalyzer</span><span class="p">.</span><span class="n">analyzeWeekdayPattern</span><span class="p">(...)</span>
+<span class="w">    </span><span class="n">baseForecast</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">forecastModel</span><span class="p">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">historicalData</span><span class="p">,</span><span class="w"> </span><span class="n">forecastDays</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">baseForecast</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">forecast</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">dayOfWeek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forecast</span><span class="p">.</span><span class="n">date</span><span class="p">.</span><span class="n">getDayOfWeek</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">weekdayFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weekdayPattern</span><span class="p">.</span><span class="n">getOrElse</span><span class="p">(</span><span class="n">dayOfWeek</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">avgDemand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicalData</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">_</span><span class="p">.</span><span class="n">shipped</span><span class="p">.</span><span class="n">value</span><span class="p">).</span><span class="n">sum</span><span class="p">.</span><span class="n">toDouble</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">historicalData</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">toDouble</span>
+
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">adjustmentFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">avgDemand</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">weekdayFactor</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">avgDemand</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mf">1.0</span>
+
+<span class="w">      </span><span class="n">forecast</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span>
+<span class="w">        </span><span class="n">predictedDemand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">((</span><span class="n">forecast</span><span class="p">.</span><span class="n">predictedDemand</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">adjustmentFactor</span><span class="p">).</span><span class="n">toInt</span><span class="p">)</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 3. 複数モデルの比較</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compareModels</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">forecastDays</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">ModelComparison</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">linearRegression</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">forecastModel</span><span class="p">.</span><span class="n">forecast</span><span class="p">(...)</span>
+<span class="w">    </span><span class="n">movingAverage</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">forecastModel</span><span class="p">.</span><span class="n">forecastWithMovingAverage</span><span class="p">(...)</span>
+<span class="w">    </span><span class="n">seasonal</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">forecastWithSeasonality</span><span class="p">(...)</span>
+<span class="w">    </span><span class="n">weekday</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">forecastWithWeekdayPattern</span><span class="p">(...)</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nc">ModelComparison</span><span class="p">(</span>
+<span class="w">      </span><span class="n">linearRegression</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linearRegression</span><span class="p">,</span>
+<span class="w">      </span><span class="n">movingAverage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">movingAverage</span><span class="p">,</span>
+<span class="w">      </span><span class="n">seasonal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seasonal</span><span class="p">,</span>
+<span class="w">      </span><span class="n">weekday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weekday</span><span class="p">,</span>
+<span class="w">      </span><span class="n">recommendation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">selectBestModel</span><span class="p">(...)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>実装のポイント</strong>:
+1. 複数の予測モデルの実装
+2. モデルの精度評価（RMSE、MAEなど）
+3. 最適なモデルの自動選択</p>
+<p><strong>期待される学び</strong>:
+- 時系列分析の高度な手法
+- 機械学習モデルの評価
+- 予測精度の改善手法</p>
+<hr />
+<h2 id="133">13.3 次のステップ<a class="headerlink" href="#133" title="Permanent link">&para;</a></h2>
+<h3 id="1331">13.3.1 より複雑なビジネスルールの追加<a class="headerlink" href="#1331" title="Permanent link">&para;</a></h3>
+<p><strong>1. 区画容量管理の自動化</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 区画容量超過時の自動アラート</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">checkZoneCapacity</span><span class="p">(</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span><span class="p">,</span>
+<span class="w">  </span><span class="n">zoneNumber</span><span class="p">:</span><span class="w"> </span><span class="nc">ZoneNumber</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">Option</span><span class="p">[</span><span class="nc">CapacityAlert</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">zone</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">zoneDao</span><span class="p">.</span><span class="n">findByZone</span><span class="p">(</span><span class="n">warehouseCode</span><span class="p">,</span><span class="w"> </span><span class="n">zoneNumber</span><span class="p">)</span>
+<span class="w">    </span><span class="n">currentInventory</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">inventoryDao</span><span class="p">.</span><span class="n">getTotalByZone</span><span class="p">(</span><span class="n">warehouseCode</span><span class="p">,</span><span class="w"> </span><span class="n">zoneNumber</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">utilization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentInventory</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">toDouble</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">zone</span><span class="p">.</span><span class="n">capacity</span><span class="p">.</span><span class="n">toDouble</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">utilization</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.9</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nc">Some</span><span class="p">(</span><span class="nc">CapacityAlert</span><span class="p">(</span>
+<span class="w">        </span><span class="n">warehouseCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">warehouseCode</span><span class="p">,</span>
+<span class="w">        </span><span class="n">zoneNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zoneNumber</span><span class="p">,</span>
+<span class="w">        </span><span class="n">currentUtilization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utilization</span><span class="p">,</span>
+<span class="w">        </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span>
+<span class="w">        </span><span class="n">severity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">utilization</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.95</span><span class="p">)</span><span class="w"> </span><span class="nc">AlertSeverity</span><span class="p">.</span><span class="nc">Critical</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="nc">AlertSeverity</span><span class="p">.</span><span class="nc">High</span>
+<span class="w">      </span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nc">None</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>2. 温度監視アラートの実装</strong></p>
+<p>保管条件に応じた温度監視とアラート機能を追加します。</p>
+<p><strong>3. 季節変動を考慮した在庫最適化</strong></p>
+<p>季節ごとの需要パターンを学習し、在庫レベルを自動調整します。</p>
+<p><strong>4. 商品のロット管理・賞味期限管理</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ロット情報の追加</span>
+<span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Inventory</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nc">InventoryId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">warehouseCode</span><span class="p">:</span><span class="w"> </span><span class="nc">WarehouseCode</span><span class="p">,</span>
+<span class="w">  </span><span class="n">zoneNumber</span><span class="p">:</span><span class="w"> </span><span class="nc">ZoneNumber</span><span class="p">,</span>
+<span class="w">  </span><span class="n">lotNumber</span><span class="p">:</span><span class="w"> </span><span class="nc">LotNumber</span><span class="p">,</span><span class="w">           </span><span class="c1">// 追加</span>
+<span class="w">  </span><span class="n">expirationDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span><span class="w">      </span><span class="c1">// 追加</span>
+<span class="w">  </span><span class="n">quantityOnHand</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">quantityReserved</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">version</span><span class="p">:</span><span class="w"> </span><span class="nc">Version</span>
+<span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Entity</span>
+
+<span class="c1">// FIFO（先入先出）ロジック</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">selectInventoryForShipment</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">quantity</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">Inventory</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">inventoryDao</span><span class="p">.</span><span class="n">findByProduct</span><span class="p">(</span><span class="n">productId</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">inventories</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="c1">// 賞味期限が近い順にソート</span>
+<span class="w">    </span><span class="n">inventories</span>
+<span class="w">      </span><span class="p">.</span><span class="n">sortBy</span><span class="p">(</span><span class="n">_</span><span class="p">.</span><span class="n">expirationDate</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">foldLeft</span><span class="p">((</span><span class="nc">List</span><span class="p">.</span><span class="n">empty</span><span class="p">[</span><span class="nc">Inventory</span><span class="p">],</span><span class="w"> </span><span class="n">quantity</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">((</span><span class="n">selected</span><span class="p">,</span><span class="w"> </span><span class="n">remaining</span><span class="p">),</span><span class="w"> </span><span class="n">inventory</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">remaining</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">          </span><span class="kd">val</span><span class="w"> </span><span class="n">toSelect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Math</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="n">remaining</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">inventory</span><span class="p">.</span><span class="n">quantityAvailable</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="n">selected</span><span class="w"> </span><span class="o">:+</span><span class="w"> </span><span class="n">inventory</span><span class="p">,</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">remaining</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">toSelect</span><span class="p">))</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">result</span>
+<span class="w">      </span><span class="p">}.</span><span class="n">_1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="1332-bounded-context">13.3.2 他のBounded Contextとの統合<a class="headerlink" href="#1332-bounded-context" title="Permanent link">&para;</a></h3>
+<p><strong>1. 配送管理コンテキスト</strong></p>
+<p>在庫管理と配送管理を統合し、出庫から配送までを一貫して管理します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 配送指示イベントの発行</span>
+<span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ShippingInstructionIssued</span><span class="p">(</span>
+<span class="w">  </span><span class="n">orderId</span><span class="p">:</span><span class="w"> </span><span class="nc">OrderId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">inventoryId</span><span class="p">:</span><span class="w"> </span><span class="nc">InventoryId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">quantity</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">destinationAddress</span><span class="p">:</span><span class="w"> </span><span class="nc">Address</span><span class="p">,</span>
+<span class="w">  </span><span class="n">scheduledDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span>
+<span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">DomainEvent</span>
+</code></pre></div>
+<p><strong>2. 仕入管理コンテキスト</strong></p>
+<p>自動発注推奨から実際の発注までを自動化します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 発注イベントの発行</span>
+<span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PurchaseOrderCreated</span><span class="p">(</span>
+<span class="w">  </span><span class="n">purchaseOrderId</span><span class="p">:</span><span class="w"> </span><span class="nc">PurchaseOrderId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">supplierId</span><span class="p">:</span><span class="w"> </span><span class="nc">SupplierId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">quantity</span><span class="p">:</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">,</span>
+<span class="w">  </span><span class="n">expectedDeliveryDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span>
+<span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">DomainEvent</span>
+</code></pre></div>
+<p><strong>3. 注文管理コンテキスト（参考）</strong></p>
+<p>第6章で学んだSagaパターンを使用して、注文から在庫引当、配送までを調整します。</p>
+<p><strong>4. 請求管理コンテキスト（参考）</strong></p>
+<p>在庫の受払に基づいて、請求処理を自動化します。</p>
+<h3 id="1333">13.3.3 プロダクション環境への展開<a class="headerlink" href="#1333" title="Permanent link">&para;</a></h3>
+<p><strong>1. 3拠点への分散デプロイ</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># kubernetes/inventory-command-api-deployment.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inventory-command-api</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inventory-command-api</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inventory-command-api</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">affinity</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">podAntiAffinity</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requiredDuringSchedulingIgnoredDuringExecution</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">labelSelector</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">matchExpressions</span><span class="p">:</span>
+<span class="w">                  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">                    </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">In</span>
+<span class="w">                    </span><span class="nt">values</span><span class="p">:</span>
+<span class="w">                      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inventory-command-api</span>
+<span class="w">              </span><span class="nt">topologyKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kubernetes.io/hostname&quot;</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inventory-command-api</span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inventory-command-api:latest</span>
+<span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">          </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PEKKO_CLUSTER_SEED_NODES</span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;inventory-command-api-0.inventory-command-api:2551,inventory-command-api-1.inventory-command-api:2551,inventory-command-api-2.inventory-command-api:2551&quot;</span>
+</code></pre></div>
+<p><strong>2. 実業務規模でのスケーリング検証</strong></p>
+<ul>
+<li>負荷テストの実施（Gatling）</li>
+<li>スケーリング戦略の調整</li>
+<li>パフォーマンスチューニング</li>
+<li>モニタリングとアラートの整備</li>
+</ul>
+<p><strong>3. 運用体制の構築</strong></p>
+<ul>
+<li>インシデント対応手順</li>
+<li>バックアップとリストア手順</li>
+<li>ディザスタリカバリ計画</li>
+</ul>
+<hr />
+<h2 id="_2">まとめ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="3">第3部で達成したこと<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>実践的なCQRS/イベントソーシングシステムの構築</strong></li>
+<li>5つの集約を使用した在庫管理ドメインモデル</li>
+<li>イベントソーシングとCRUDのハイブリッドアーキテクチャ</li>
+<li>
+<p>実業務規模のデータ量（商品8,000、取引先430社、1日2,000件の受払）</p>
+</li>
+<li>
+<p><strong>在庫管理特有の課題の解決</strong></p>
+</li>
+<li>区画管理を含む在庫制御</li>
+<li>保管条件の整合性管理</li>
+<li>在庫引当の競合制御</li>
+<li>
+<p>完全な監査ログ</p>
+</li>
+<li>
+<p><strong>実運用を見据えた機能の実装</strong></p>
+</li>
+<li>パフォーマンス最適化（Redisキャッシング、Pekko Streams）</li>
+<li>運用とモニタリング（Prometheus + Grafana）</li>
+<li>高度なトピック（在庫予測、マルチテナント、グローバル展開）</li>
+</ol>
+<h3 id="_3">次のステップ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>実践演習の実施</strong></li>
+<li>在庫棚卸機能の追加</li>
+<li>区画間自動移動機能</li>
+<li>在庫分析機能</li>
+<li>
+<p>在庫予測機能の強化</p>
+</li>
+<li>
+<p><strong>さらなる機能拡張</strong></p>
+</li>
+<li>より複雑なビジネスルールの追加</li>
+<li>他のBounded Contextとの統合</li>
+<li>
+<p>プロダクション環境への展開</p>
+</li>
+<li>
+<p><strong>継続的な学習</strong></p>
+</li>
+<li>Apache Pekko公式ドキュメントの参照</li>
+<li>CQRS/Event Sourcingの深掘り</li>
+<li>DDD（Domain-Driven Design）の学習</li>
+<li>コミュニティへの参加</li>
+</ol>
+<h3 id="_4">最後に<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>第3部「在庫管理サービスのケーススタディ」を通じて、実践的なCQRS/イベントソーシングシステムの構築方法を学びました。この知識を活かして、さらに複雑なシステムを構築したり、実業務に適用したりしてください。</p>
+<p><strong>参考資料</strong>:
+- <a href="https://pekko.apache.org/docs/">Apache Pekko公式ドキュメント</a>
+- <a href="https://docs.microsoft.com/en-us/previous-versions/msp-n-p/jj554200(v=pandp.10)">CQRS Journey（Microsoft）</a>
+- <a href="https://martinfowler.com/eaaDev/EventSourcing.html">Event Sourcing（Martin Fowler）</a>
+- <a href="https://www.domainlanguage.com/ddd/">Domain-Driven Design（Eric Evans）</a></p>
+<p><strong>コミュニティ</strong>:
+- Scala Users Group Japan
+- Apache Pekko Discord
+- DDD Community</p>
+<p>皆さんの学習の成功を祈っています！</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/k2works" target="_blank" rel="noopener" title="GitHub Repository/claude-code-booster" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

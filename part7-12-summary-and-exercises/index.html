@@ -1,0 +1,4934 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Site Description">
+      
+      
+        <meta name="author" content="Project Team">
+      
+      
+      
+        <link rel="prev" href="../part7-11-operations-monitoring/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>12. まとめと演習 - Site Name</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../mkdocs/assets/css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#712" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Site Name" class="md-header__button md-logo" aria-label="Site Name" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Site Name
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. まとめと演習
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/k2works/claude-code-booster" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    claude-code-booster
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  はじめに
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../outline/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  目次
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part1-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 1 - 導入編
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part2-01-ddd-basics/" class="md-tabs__link">
+          
+  
+  
+  Part 2 - サービス構築編
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part3-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 3 - 在庫管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part4-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 4 - 受注管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part5-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 5 - 発注管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part6-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 6 - 会計サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../part7-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 7 - 共用データ管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Site Name" class="md-nav__button md-logo" aria-label="Site Name" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Site Name
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/k2works/claude-code-booster" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    claude-code-booster
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目次
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - 導入編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - 導入編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-02-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. アーキテクチャ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-03-tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 技術スタック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-04-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. セットアップ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-05-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-06-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 起動
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-07-e2e-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. E2Eテスト
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-08-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. トラブルシューティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-09-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. ワークフロー
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-10-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - サービス構築編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - サービス構築編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-01-ddd-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. DDDの基礎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-02-event-sourcing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. イベントソーシング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-03-command-side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. コマンド側
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-04-query-side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. クエリ側
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-05-event-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. イベント処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-06-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-07-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. テスティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-08-performance-scalability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. パフォーマンスとスケーラビリティ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-09-practical-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 実践的なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-10-production-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 本番環境の準備
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-11-conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 結論
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - 在庫管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - 在庫管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-07-concurrency-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 並行制御
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-08-complex-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 複雑なクエリ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-09-event-ordering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. イベント順序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-10-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. パフォーマンス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-11-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 運用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-12-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-13-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - 受注管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - 受注管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-03-test-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-05-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-07-money-calculation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 金額計算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-08-credit-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 与信管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-09-billing-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 請求管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-10-return-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 返品処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-11-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-12-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-13-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-14-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 5 - 発注管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 5 - 発注管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-03-test-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-07-inventory-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 在庫統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-08-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-09-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-10-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-11-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 6 - 会計サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 6 - 会計サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-02-read-model-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. リードモデルスキーマ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-06-event-driven-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. イベント駆動会計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-07-closing-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 締め処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-08-financial-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 財務分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-09-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-10-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-11-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-12-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 7 - 共用データ管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 7 - 共用データ管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-02-read-model-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. リードモデルスキーマ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-06-master-data-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. マスターデータ統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-07-approval-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 承認ワークフロー
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-08-summary-and-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. まとめと実践
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-09-graphql-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-10-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-11-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本章の目的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 学んだこと
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1 学んだこと">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.1 マスターデータのイベントソーシング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1.1 マスターデータのイベントソーシング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全変更履歴の追跡
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        時点復元機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監査証跡の確保
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1212" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.2 イベント駆動マスターデータ同期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1.2 イベント駆動マスターデータ同期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-source-of-truth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Source of Truth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結果整合性による疎結合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materialized-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materialized Viewによる参照最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.3 データガバナンス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1.3 データガバナンス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        変更承認ワークフロー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ品質管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アクセス制御
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1214-graphql-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.4 GraphQL API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1.4 GraphQL API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        柔軟なクエリ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataloadern1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DataLoaderによるN+1問題解決
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ページングとフィルタリング
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 実践演習
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.2 実践演習">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演習1: 商品価格変更ワークフロー
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="演習1: 商品価格変更ワークフロー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目的
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手順
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演習2: 勘定科目の階層構造管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="演習2: 勘定科目の階層構造管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目的
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手順
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演習3: マスターデータ同期の監視
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="演習3: マスターデータ同期の監視">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目的
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手順
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演習4: 過去時点のマスターデータ復元
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="演習4: 過去時点のマスターデータ復元">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目的
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手順
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 次のステップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.3 次のステップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1231" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3.1 より高度なマスターデータ管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.3.1 より高度なマスターデータ管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-if" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マスターデータのバージョン分岐（What-if分析）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        グローバルマスター（多言語、多通貨）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データリネージ（データ系譜の追跡）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1232" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3.2 他システムとの統合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.3.2 他システムとの統合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外部システムからのマスターデータインポート
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マスターデータのエクスポート
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Gatewayによるアクセス制御
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1233-aiml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3.3 AI/MLによる高度化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.3.3 AI/MLによる高度化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重複データの自動検出・マージ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ品質スコアリング
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        異常値検出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マスター変更の予測と提案
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 総括
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.4 総括">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1241-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.1 第7部で学んだ技術
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1242" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.2 本シリーズ全体の完結
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="712">第7部第12章：まとめと実践演習<a class="headerlink" href="#712" title="Permanent link">&para;</a></h1>
+<h2 id="_1">本章の目的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>第7部「共用データ管理サービス」の総まとめとして、これまでに学んだ知識を統合し、実践的な演習を通じてマスターデータ管理サービスの理解を深めます。本章では、4つの実践演習と今後の発展的なトピックを提供します。</p>
+<h2 id="121">12.1 学んだこと<a class="headerlink" href="#121" title="Permanent link">&para;</a></h2>
+<h3 id="1211">12.1.1 マスターデータのイベントソーシング<a class="headerlink" href="#1211" title="Permanent link">&para;</a></h3>
+<p>第7部では、イベントソーシングパターンをマスターデータ管理に適用する方法を学びました。</p>
+<h4 id="_2">全変更履歴の追跡<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>すべてのマスターデータ変更がイベントとして記録されるため、完全な監査証跡が確保されます。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// イベントストアに記録される変更履歴</span>
+<span class="nc">ProductCreated</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PROD-0001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;P-001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;有機玄米 5kg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">listPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">3500</span><span class="p">),</span>
+<span class="w">  </span><span class="n">occurredAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2024-01-01T00:00:00Z&quot;</span>
+<span class="p">)</span>
+
+<span class="nc">ProductPriceChanged</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PROD-0001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">oldPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">3500</span><span class="p">),</span>
+<span class="w">  </span><span class="n">newPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">3800</span><span class="p">),</span>
+<span class="w">  </span><span class="n">validFrom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2024-06-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">occurredAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2024-05-15T10:30:00Z&quot;</span>
+<span class="p">)</span>
+
+<span class="nc">ProductPriceChanged</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PROD-0001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">oldPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">3800</span><span class="p">),</span>
+<span class="w">  </span><span class="n">newPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">4000</span><span class="p">),</span>
+<span class="w">  </span><span class="n">validFrom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2024-12-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">occurredAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2024-11-20T14:45:00Z&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>メリット</strong>:
+- コンプライアンス要件への対応（誰が、いつ、何を変更したか）
+- 過去の任意時点への状態復元
+- 変更理由の追跡（イベントに理由を含める）
+- データの削除が不要（廃止フラグで対応）</p>
+<h4 id="_3">時点復元機能<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>過去の任意の時点のマスターデータ状態を復元できます。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 2024年6月1日時点の商品価格を復元</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">targetDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="kd">val</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eventStore</span><span class="p">.</span><span class="n">readEvents</span><span class="p">(</span><span class="s">&quot;Product-PROD-0001&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">_</span><span class="p">.</span><span class="n">occurredAt</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">targetDate</span><span class="p">.</span><span class="n">atStartOfDay</span><span class="p">().</span><span class="n">toInstant</span><span class="p">(</span><span class="nc">ZoneOffset</span><span class="p">.</span><span class="nc">UTC</span><span class="p">))</span>
+
+<span class="kd">val</span><span class="w"> </span><span class="n">productState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">events</span><span class="p">.</span><span class="n">foldLeft</span><span class="p">(</span><span class="nc">EmptyState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">  </span><span class="nc">ProductActor</span><span class="p">.</span><span class="n">eventHandler</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 結果: listPrice = 3800円（2024年6月1日時点）</span>
+</code></pre></div>
+<p><strong>ユースケース</strong>:
+- 会計監査での過去データ提示
+- 価格変更の影響分析
+- データ移行時の検証
+- 障害復旧（特定時点への巻き戻し）</p>
+<h4 id="_4">監査証跡の確保<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>すべてのイベントにメタデータ（ユーザーID、タイムスタンプ、変更理由）を付与することで、完全な監査証跡を実現します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ProductPriceChanged</span><span class="p">(</span>
+<span class="w">  </span><span class="n">eventId</span><span class="p">:</span><span class="w"> </span><span class="nc">UUID</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">oldPrice</span><span class="p">:</span><span class="w"> </span><span class="nc">Money</span><span class="p">,</span>
+<span class="w">  </span><span class="n">newPrice</span><span class="p">:</span><span class="w"> </span><span class="nc">Money</span><span class="p">,</span>
+<span class="w">  </span><span class="n">validFrom</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span>
+<span class="w">  </span><span class="n">reason</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span><span class="w">              </span><span class="c1">// 変更理由</span>
+<span class="w">  </span><span class="n">changedBy</span><span class="p">:</span><span class="w"> </span><span class="nc">UserId</span><span class="p">,</span><span class="w">           </span><span class="c1">// 変更者</span>
+<span class="w">  </span><span class="n">occurredAt</span><span class="p">:</span><span class="w"> </span><span class="nc">Instant</span><span class="p">,</span><span class="w">         </span><span class="c1">// 変更日時</span>
+<span class="w">  </span><span class="n">approvedBy</span><span class="p">:</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">UserId</span><span class="p">],</span><span class="w">  </span><span class="c1">// 承認者（承認フロー経由の場合）</span>
+<span class="w">  </span><span class="n">approvalId</span><span class="p">:</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w">   </span><span class="c1">// 承認ID</span>
+<span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">ProductEvent</span>
+</code></pre></div>
+<h3 id="1212">12.1.2 イベント駆動マスターデータ同期<a class="headerlink" href="#1212" title="Permanent link">&para;</a></h3>
+<h4 id="single-source-of-truth">Single Source of Truth<a class="headerlink" href="#single-source-of-truth" title="Permanent link">&para;</a></h4>
+<p>マスターデータは共用データ管理サービスが一元管理し、他のBounded Contextは参照データとして保持します。</p>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────┐
+│ 共用データ管理サービス             │
+│ （Single Source of Truth）        │
+│                                  │
+│ ┌──────────┐  ┌─────────────┐  │
+│ │商品マスター│  │勘定科目マスター│  │
+│ └─────┬────┘  └──────┬──────┘  │
+└───────┼──────────────┼──────────┘
+        │              │
+        │ イベント発行  │
+        ▼              ▼
+┌────────────────────────────────────┐
+│    イベントバス（Pekko Pub/Sub）    │
+└────┬─────────┬─────────┬───────────┘
+     │         │         │
+     ▼         ▼         ▼
+┌─────────┐ ┌─────────┐ ┌─────────┐
+│在庫管理 │ │受注管理 │ │会計     │
+│参照データ│ │参照データ│ │参照データ│
+└─────────┘ └─────────┘ └─────────┘
+</code></pre></div>
+<p><strong>設計原則</strong>:
+- マスターデータの更新は共用データ管理サービスのみが行う
+- 他のサービスは参照データとして非正規化コピーを保持
+- イベント駆動で同期（結果整合性）</p>
+<h4 id="_5">結果整合性による疎結合<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>各Bounded Contextは非同期にマスター変更を受信するため、疎結合が実現されます。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 在庫管理サービス：商品参照データ更新</span>
+<span class="k">object</span><span class="w"> </span><span class="nc">ProductReadModelUpdater</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">():</span><span class="w"> </span><span class="nc">Behavior</span><span class="p">[</span><span class="nc">ProductEvent</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nc">Behaviors</span><span class="p">.</span><span class="n">receiveMessage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nc">ProductPriceChanged</span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">productId</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">newPrice</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="c1">// 在庫管理サービスの商品参照テーブルを非同期に更新</span>
+<span class="w">        </span><span class="n">productReferenceRepository</span><span class="p">.</span><span class="n">updatePrice</span><span class="p">(</span><span class="n">productId</span><span class="p">,</span><span class="w"> </span><span class="n">newPrice</span><span class="p">)</span>
+<span class="w">        </span><span class="nc">Behaviors</span><span class="p">.</span><span class="n">same</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>メリット</strong>:
+- マスターデータサービスと参照側サービスが疎結合
+- サービス間の依存関係が最小化
+- 高可用性（一方のサービス障害が他方に影響しない）
+- スケーラビリティ（各サービスが独立してスケール）</p>
+<p><strong>トレードオフ</strong>:
+- 即座には同期されない（数秒〜数分の遅延）
+- 結果整合性を許容できるビジネス要件が必要</p>
+<h4 id="materialized-view">Materialized Viewによる参照最適化<a class="headerlink" href="#materialized-view" title="Permanent link">&para;</a></h4>
+<p>各サービスに最適化された参照データを保持することで、高速なクエリを実現します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 在庫管理サービス用の商品参照テーブル（必要最小限のカラム）</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">inventory_management</span><span class="p">.</span><span class="n">product_reference</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">product_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">  </span><span class="n">product_code</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">product_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">current_price</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">is_active</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">last_updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="c1">-- 受注管理サービス用の商品参照テーブル（価格情報を重視）</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">order_management</span><span class="p">.</span><span class="n">product_reference</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">product_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">  </span><span class="n">product_code</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">product_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">standard_cost</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">current_price</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">is_orderable</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">last_updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3 id="1213">12.1.3 データガバナンス<a class="headerlink" href="#1213" title="Permanent link">&para;</a></h3>
+<h4 id="_6">変更承認ワークフロー<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>重要なマスターデータ変更にはSagaパターンによる承認フローを適用します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 価格変更承認Saga</span>
+<span class="nc">PriceChangeApprovalSaga</span><span class="p">:</span>
+<span class="w">  </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="nc">RequestPriceChange</span><span class="err">（</span><span class="n">価格変更申請</span><span class="err">）</span>
+<span class="w">     </span><span class="o">→</span><span class="w"> </span><span class="n">変更申請テ</span><span class="err">ー</span><span class="n">ブルに保存</span>
+<span class="w">  </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="nc">NotifyApprover</span><span class="err">（</span><span class="n">承認者に通知</span><span class="err">）</span>
+<span class="w">     </span><span class="o">→</span><span class="w"> </span><span class="n">メ</span><span class="err">ー</span><span class="n">ル送信</span>
+<span class="w">  </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="nc">WaitForApproval</span><span class="err">（</span><span class="n">承認待ち</span><span class="err">）</span>
+<span class="w">     </span><span class="o">→</span><span class="w"> </span><span class="n">タイムアウト設定</span><span class="err">（</span><span class="mi">72</span><span class="n">時間</span><span class="err">）</span>
+<span class="w">  </span><span class="mi">4</span><span class="n">a</span><span class="p">.</span><span class="w"> </span><span class="nc">ApproveAndApplyChange</span><span class="err">（</span><span class="n">承認して変更適用</span><span class="err">）</span>
+<span class="w">     </span><span class="o">→</span><span class="w"> </span><span class="nc">ProductActorに価格変更コマンド送信</span>
+<span class="w">  </span><span class="mi">4</span><span class="n">b</span><span class="p">.</span><span class="w"> </span><span class="nc">RejectChange</span><span class="err">（</span><span class="n">却下</span><span class="err">）</span>
+<span class="w">     </span><span class="o">→</span><span class="w"> </span><span class="n">申請者に却下通知</span>
+</code></pre></div>
+<p><strong>適用基準</strong>:
+- 商品価格変更（一定金額以上）
+- 勘定科目の追加・変更
+- 組織マスターの変更</p>
+<h4 id="_7">データ品質管理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>バリデーション、重複チェック、データクレンジングにより高品質なマスターデータを維持します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 3段階のバリデーション</span>
+<span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="n">必須項目チェック</span>
+<span class="w">   </span><span class="o">→</span><span class="w"> </span><span class="n">productCode</span><span class="p">,</span><span class="w"> </span><span class="n">productName</span><span class="p">,</span><span class="w"> </span><span class="n">listPrice</span>
+
+<span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="n">形式チェック</span>
+<span class="w">   </span><span class="o">→</span><span class="w"> </span><span class="n">商品コ</span><span class="err">ー</span><span class="n">ド</span><span class="p">:</span><span class="w"> </span><span class="n">英数字とハイフンのみ</span>
+<span class="w">   </span><span class="o">→</span><span class="w"> </span><span class="n">価格</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="n">以上</span>
+
+<span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="n">ビジネスル</span><span class="err">ー</span><span class="n">ルチェック</span>
+<span class="w">   </span><span class="o">→</span><span class="w"> </span><span class="n">定価</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">標準原価</span>
+<span class="w">   </span><span class="o">→</span><span class="w"> </span><span class="n">有効期間の重複チェック</span>
+</code></pre></div>
+<h4 id="_8">アクセス制御<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>GraphQL APIによる柔軟なアクセス制御を実現します。</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 参照のみ可能（一般ユーザー）</span>
+<span class="k">query</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">products</span><span class="p">(</span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="no">ACTIVE</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">edges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">productCode</span>
+<span class="w">        </span><span class="n">productName</span>
+<span class="w">        </span><span class="n">listPrice</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c"># 更新可能（マスター管理者）</span>
+<span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">updateProductInfo</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PROD-0001&quot;</span>
+<span class="w">    </span><span class="n">productName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;有機玄米 5kg（新パッケージ）&quot;</span>
+<span class="w">  </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">product</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">productName</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">success</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="1214-graphql-api">12.1.4 GraphQL API<a class="headerlink" href="#1214-graphql-api" title="Permanent link">&para;</a></h3>
+<h4 id="_9">柔軟なクエリ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>クライアントが必要なデータのみを取得できます。</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 商品コードと名前のみ取得</span>
+<span class="k">query</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">products</span><span class="p">(</span><span class="n">page</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">pageSize</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">edges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">productCode</span>
+<span class="w">        </span><span class="n">productName</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c"># 商品の詳細情報と価格一覧も取得</span>
+<span class="k">query</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">products</span><span class="p">(</span><span class="n">page</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">pageSize</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">edges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">productCode</span>
+<span class="w">        </span><span class="n">productName</span>
+<span class="w">        </span><span class="n">listPrice</span>
+<span class="w">        </span><span class="n">prices</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">priceType</span>
+<span class="w">          </span><span class="n">unitPrice</span>
+<span class="w">          </span><span class="n">validFrom</span>
+<span class="w">          </span><span class="n">validTo</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="dataloadern1">DataLoaderによるN+1問題解決<a class="headerlink" href="#dataloadern1" title="Permanent link">&para;</a></h4>
+<p>バッチ処理により効率的にデータを取得します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// N+1問題が発生する例（悪い例）</span>
+<span class="n">products</span><span class="p">.</span><span class="n">foreach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">prices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productPriceRepository</span><span class="p">.</span><span class="n">findByProductId</span><span class="p">(</span><span class="n">product</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="c1">// N回のクエリ</span>
+<span class="p">}</span>
+
+<span class="c1">// DataLoaderによる解決（良い例）</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">productIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">_</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">pricesMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productPriceLoader</span><span class="p">.</span><span class="n">loadMany</span><span class="p">(</span><span class="n">productIds</span><span class="p">)</span><span class="w"> </span><span class="c1">// 1回のバッチクエリ</span>
+</code></pre></div>
+<h4 id="_10">ページングとフィルタリング<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>Relay仕様準拠のカーソルベースページングを実装します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">products</span><span class="p">(</span>
+<span class="w">    </span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">categoryCode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;RICE&quot;</span>
+<span class="w">      </span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="no">ACTIVE</span>
+<span class="w">      </span><span class="n">validAt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024-12-01&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">first</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="n">after</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cursor123&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">edges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">productName</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="n">cursor</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">pageInfo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">hasNextPage</span>
+<span class="w">      </span><span class="n">endCursor</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">totalCount</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="122">12.2 実践演習<a class="headerlink" href="#122" title="Permanent link">&para;</a></h2>
+<h3 id="1">演習1: 商品価格変更ワークフロー<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="_11">目的<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>承認フロー付きの商品価格変更を実装し、他サービスへの伝播を確認します。</p>
+<h4 id="_12">手順<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><strong>ステップ1: 価格変更申請の作成</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># GraphQL APIで価格変更申請</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8080/graphql<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;query&quot;: &quot;mutation { changeProductPrice(input: { productId: \&quot;PROD-0001\&quot;, newPrice: 3800, effectiveFrom: \&quot;2024-12-15\&quot;, reason: \&quot;原材料費の上昇により価格改定\&quot; }) { requiresApproval changeRequest { id status } success message } }&quot;</span>
+<span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>期待される結果</strong>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;changeProductPrice&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;requiresApproval&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;changeRequest&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CR-20241201-001&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PENDING&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;価格変更申請を作成しました。承認が必要です。&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>ステップ2: 承認者による承認</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 承認者としてログイン後、承認</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8080/graphql<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer APPROVER_TOKEN&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;query&quot;: &quot;mutation { approveChangeRequest(requestId: \&quot;CR-20241201-001\&quot;) { id status approver { userName } approvedAt } }&quot;</span>
+<span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>期待される結果</strong>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;approveChangeRequest&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CR-20241201-001&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;APPROVED&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;approver&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;佐藤花子&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;approvedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-01T15:30:00Z&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>ステップ3: 承認後の価格反映確認</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 商品価格が更新されたことを確認</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8080/graphql<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;query&quot;: &quot;{ productByCode(productCode: \&quot;P-001\&quot;) { productCode productName listPrice prices { priceType unitPrice validFrom validTo } } }&quot;</span>
+<span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>期待される結果</strong>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;productByCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;productCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P-001&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;productName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;有機玄米 5kg&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;listPrice&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3800</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;prices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;priceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STANDARD&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;unitPrice&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3800</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;validFrom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;validTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>ステップ4: 在庫管理での新価格の適用確認</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 在庫管理サービスの商品参照テーブルを確認</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">product_code</span><span class="p">,</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">current_price</span><span class="p">,</span><span class="w"> </span><span class="n">last_updated_at</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">inventory_management</span><span class="p">.</span><span class="n">product_reference</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">product_code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;P-001&#39;</span><span class="p">;</span>
+
+<span class="c1">-- 期待される結果:</span>
+<span class="c1">-- product_code | product_name    | current_price | last_updated_at</span>
+<span class="c1">-- P-001        | 有機玄米 5kg    | 3800.00       | 2024-12-01 15:30:05</span>
+</code></pre></div>
+<p><strong>検証ポイント</strong>:
+- 承認前は価格が変更されていないこと
+- 承認後に即座に価格が反映されること
+- イベントが在庫管理サービスに伝播していること
+- 同期遅延が許容範囲内（5秒以内）であること</p>
+<h3 id="2">演習2: 勘定科目の階層構造管理<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="_13">目的<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>勘定科目の親子関係を管理し、階層構造の整合性を検証します。</p>
+<h4 id="_14">手順<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p><strong>ステップ1: 親勘定科目の作成</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">createAccountSubject</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">accountCode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000&quot;</span>
+<span class="w">    </span><span class="n">accountName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;流動資産&quot;</span>
+<span class="w">    </span><span class="n">accountType</span><span class="p">:</span><span class="w"> </span><span class="no">ASSET</span>
+<span class="w">  </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">accountSubject</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">id</span>
+<span class="w">      </span><span class="n">accountCode</span>
+<span class="w">      </span><span class="n">accountName</span>
+<span class="w">      </span><span class="n">accountType</span>
+<span class="w">      </span><span class="n">level</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">success</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>期待される結果</strong>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;createAccountSubject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;accountSubject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AS-0001&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;accountCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;accountName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;流動資産&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;accountType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ASSET&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>ステップ2: 子勘定科目の作成</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">createAccountSubject</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">accountCode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1010&quot;</span>
+<span class="w">    </span><span class="n">accountName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;現金&quot;</span>
+<span class="w">    </span><span class="n">accountType</span><span class="p">:</span><span class="w"> </span><span class="no">ASSET</span>
+<span class="w">    </span><span class="n">parentAccountSubjectId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AS-0001&quot;</span>
+<span class="w">  </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">accountSubject</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">id</span>
+<span class="w">      </span><span class="n">accountCode</span>
+<span class="w">      </span><span class="n">accountName</span>
+<span class="w">      </span><span class="n">parentAccountSubjectId</span>
+<span class="w">      </span><span class="n">level</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">success</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>期待される結果</strong>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;createAccountSubject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;accountSubject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AS-0002&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;accountCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1010&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;accountName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;現金&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;parentAccountSubjectId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AS-0001&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>ステップ3: 階層構造の整合性検証（異なる種別の親を指定してエラー確認）</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">createAccountSubject</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">accountCode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4000&quot;</span>
+<span class="w">    </span><span class="n">accountName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;売上高&quot;</span>
+<span class="w">    </span><span class="n">accountType</span><span class="p">:</span><span class="w"> </span><span class="no">REVENUE</span>
+<span class="w">    </span><span class="n">parentAccountSubjectId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AS-0001&quot;</span><span class="w">  </span><span class="c"># 資産の子に収益は不可</span>
+<span class="w">  </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">accountSubject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">accountCode</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">success</span>
+<span class="w">    </span><span class="n">message</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>期待される結果</strong>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;createAccountSubject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;accountSubject&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;親勘定科目の種別（ASSET）と子勘定科目の種別（REVENUE）は一致する必要があります&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>ステップ4: 勘定科目階層ツリーの取得</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">accountSubjectTree</span><span class="p">(</span><span class="n">accountType</span><span class="p">:</span><span class="w"> </span><span class="no">ASSET</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">accountCode</span>
+<span class="w">    </span><span class="n">accountName</span>
+<span class="w">    </span><span class="n">level</span>
+<span class="w">    </span><span class="n">childAccountSubjects</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">accountCode</span>
+<span class="w">      </span><span class="n">accountName</span>
+<span class="w">      </span><span class="n">level</span>
+<span class="w">      </span><span class="n">childAccountSubjects</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">accountCode</span>
+<span class="w">        </span><span class="n">accountName</span>
+<span class="w">        </span><span class="n">level</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>期待される結果</strong>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;accountSubjectTree&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;accountCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;accountName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;流動資産&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;childAccountSubjects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;accountCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1010&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;accountName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;現金&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;childAccountSubjects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>ステップ5: 会計サービスでの勘定科目階層の参照</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 会計サービスの勘定科目参照テーブルを確認</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">account_code</span><span class="p">,</span><span class="w"> </span><span class="n">account_name</span><span class="p">,</span><span class="w"> </span><span class="n">account_type</span><span class="p">,</span><span class="w"> </span><span class="k">level</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">accounting</span><span class="p">.</span><span class="n">account_subject_reference</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">account_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Asset&#39;</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">account_code</span><span class="p">;</span>
+
+<span class="c1">-- 期待される結果:</span>
+<span class="c1">-- account_code | account_name | account_type | level</span>
+<span class="c1">-- 1000         | 流動資産     | Asset        | 1</span>
+<span class="c1">-- 1010         | 現金         | Asset        | 2</span>
+</code></pre></div>
+<p><strong>検証ポイント</strong>:
+- 親子関係が正しく設定されること
+- 階層レベルが自動計算されること
+- 異なる種別の親子関係はエラーになること
+- 会計サービスに階層構造が同期されること</p>
+<h3 id="3">演習3: マスターデータ同期の監視<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="_15">目的<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>マスター変更イベントの伝播を監視し、同期遅延を測定します。</p>
+<h4 id="_16">手順<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><strong>ステップ1: マスター変更イベントの発行</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 商品情報を更新</span>
+<span class="nv">MASTER_UPDATE_TIME</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%s<span class="k">)</span>
+
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8080/graphql<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;query&quot;: &quot;mutation { updateProductInfo(input: { productId: \&quot;PROD-0001\&quot;, productName: \&quot;有機玄米 5kg（新パッケージ）\&quot; }) { product { productName updatedAt } success } }&quot;</span>
+<span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>ステップ2: 各Bounded Contextでのイベント受信確認</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 在庫管理サービスのログを確認</span>
+tail<span class="w"> </span>-f<span class="w"> </span>logs/inventory-management.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;商品情報更新イベント受信&quot;</span>
+
+<span class="c1"># 期待されるログ:</span>
+<span class="c1"># 2024-12-01 15:45:10 INFO  ProductReadModelUpdater - 商品情報更新イベント受信: PROD-0001</span>
+<span class="c1"># 2024-12-01 15:45:10 INFO  ProductReadModelUpdater - 商品参照データ更新完了: P-001</span>
+</code></pre></div>
+<p><strong>ステップ3: 同期遅延の測定</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 在庫管理サービスの商品参照データを確認</span>
+<span class="nv">REFERENCE_UPDATE_TIME</span><span class="o">=</span><span class="k">$(</span>psql<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>inventory<span class="w"> </span>-t<span class="w"> </span>-c<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;SELECT EXTRACT(EPOCH FROM last_updated_at) FROM inventory_management.product_reference WHERE product_code = &#39;P-001&#39;&quot;</span><span class="k">)</span>
+
+<span class="c1"># 同期遅延を計算（秒）</span>
+<span class="nv">SYNC_DELAY</span><span class="o">=</span><span class="k">$((</span><span class="nv">REFERENCE_UPDATE_TIME</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">MASTER_UPDATE_TIME</span><span class="k">))</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;同期遅延: </span><span class="si">${</span><span class="nv">SYNC_DELAY</span><span class="si">}</span><span class="s2">秒&quot;</span>
+
+<span class="c1"># 期待される結果: 同期遅延: 2秒</span>
+</code></pre></div>
+<p><strong>ステップ4: Prometheusメトリクスの確認</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># イベント処理遅延メトリクスを確認</span>
+curl<span class="w"> </span>http://localhost:9090/api/v1/query<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--data-urlencode<span class="w"> </span><span class="s1">&#39;query=masterdata_event_processing_lag_seconds{bounded_context=&quot;inventory-management&quot;,aggregate_type=&quot;Product&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.data.result[0].value[1]&#39;</span>
+
+<span class="c1"># 期待される結果: &quot;2.5&quot; (2.5秒)</span>
+</code></pre></div>
+<p><strong>ステップ5: Grafanaダッシュボードでの可視化</strong></p>
+<p>ブラウザで <code>http://localhost:3000</code> にアクセスし、「マスターデータ管理 - 同期状況」ダッシュボードを開きます。</p>
+<p><strong>確認項目</strong>:
+- イベント処理遅延時間グラフ
+- 未処理イベント件数
+- イベント処理成功率
+- 参照データ最終更新時刻</p>
+<p><strong>検証ポイント</strong>:
+- イベントが正常に発行されること
+- 各Bounded Contextでイベントが受信されること
+- 同期遅延が5秒以内であること
+- Prometheusメトリクスが正しく記録されること
+- Grafanaダッシュボードで可視化されること</p>
+<h3 id="4">演習4: 過去時点のマスターデータ復元<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="_17">目的<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p>イベントリプレイにより過去の商品価格を復元し、会計監査用のデータとして提示します。</p>
+<h4 id="_18">手順<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p><strong>ステップ1: 商品価格の履歴確認</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- DynamoDBイベントストアから価格変更イベントを取得</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">event_type</span><span class="p">,</span><span class="w"> </span><span class="n">event_data</span><span class="p">,</span><span class="w"> </span><span class="n">occurred_at</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">event_store</span><span class="p">.</span><span class="n">events</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">persistence_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Product-PROD-0001&#39;</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">event_type</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%PriceChanged%&#39;</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sequence_nr</span><span class="p">;</span>
+
+<span class="c1">-- 期待される結果:</span>
+<span class="c1">-- event_type         | event_data                                  | occurred_at</span>
+<span class="c1">-- ProductCreated     | {&quot;listPrice&quot;: 3500, ...}                    | 2024-01-01 00:00:00</span>
+<span class="c1">-- ProductPriceChanged| {&quot;oldPrice&quot;: 3500, &quot;newPrice&quot;: 3800, ...}   | 2024-06-01 10:00:00</span>
+<span class="c1">-- ProductPriceChanged| {&quot;oldPrice&quot;: 3800, &quot;newPrice&quot;: 4000, ...}   | 2024-12-01 15:00:00</span>
+</code></pre></div>
+<p><strong>ステップ2: 指定日時のイベントリプレイ（2024年6月1日時点）</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">org</span><span class="p">.</span><span class="nn">apache</span><span class="p">.</span><span class="nn">pekko</span><span class="p">.</span><span class="nn">persistence</span><span class="p">.</span><span class="nn">query</span><span class="p">.</span><span class="nc">PersistenceQuery</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">org</span><span class="p">.</span><span class="nn">apache</span><span class="p">.</span><span class="nn">pekko</span><span class="p">.</span><span class="nn">persistence</span><span class="p">.</span><span class="nn">query</span><span class="p">.</span><span class="nn">journal</span><span class="p">.</span><span class="nn">dynamodb</span><span class="p">.</span><span class="nn">scaladsl</span><span class="p">.</span><span class="nc">DynamoDBReadJournal</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">time</span><span class="p">.</span><span class="nc">LocalDate</span>
+
+<span class="k">object</span><span class="w"> </span><span class="nc">ProductStateRestoration</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">App</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">targetDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PROD-0001&quot;</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">readJournal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">PersistenceQuery</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">readJournalFor</span><span class="p">[</span><span class="nc">DynamoDBReadJournal</span><span class="p">](</span><span class="nc">DynamoDBReadJournal</span><span class="p">.</span><span class="nc">Identifier</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">// 指定日時までのイベントをリプレイ</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">restoredStateFuture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readJournal</span>
+<span class="w">    </span><span class="p">.</span><span class="n">eventsByPersistenceId</span><span class="p">(</span><span class="s">s&quot;Product-</span><span class="si">$</span><span class="n">productId</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nc">Long</span><span class="p">.</span><span class="nc">MaxValue</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">envelope</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">envelope</span><span class="p">.</span><span class="n">event</span><span class="p">.</span><span class="k">asInstanceOf</span><span class="p">[</span><span class="nc">ProductEvent</span><span class="p">]</span>
+<span class="w">      </span><span class="n">event</span><span class="p">.</span><span class="n">occurredAt</span><span class="p">.</span><span class="n">isBefore</span><span class="p">(</span><span class="n">targetDate</span><span class="p">.</span><span class="n">plusDays</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">atStartOfDay</span><span class="p">().</span><span class="n">toInstant</span><span class="p">(</span><span class="nc">ZoneOffset</span><span class="p">.</span><span class="nc">UTC</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="n">runFold</span><span class="p">(</span><span class="nc">ProductActor</span><span class="p">.</span><span class="nc">EmptyState</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductActor</span><span class="p">.</span><span class="nc">State</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="nc">ProductActor</span><span class="p">.</span><span class="n">eventHandler</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">.</span><span class="n">event</span><span class="p">.</span><span class="k">asInstanceOf</span><span class="p">[</span><span class="nc">ProductEvent</span><span class="p">])</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">restoredStateFuture</span><span class="p">.</span><span class="n">onComplete</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nc">Success</span><span class="p">(</span><span class="nc">ProductActor</span><span class="p">.</span><span class="nc">ProductState</span><span class="p">(</span><span class="n">product</span><span class="p">))</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;2024年6月1日時点の商品価格: </span><span class="si">${</span><span class="n">product</span><span class="p">.</span><span class="n">listPrice</span><span class="p">.</span><span class="n">amount</span><span class="si">}</span><span class="s">円&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="c1">// 期待される出力: 2024年6月1日時点の商品価格: 3800円</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;商品が存在しませんでした&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>ステップ3: 過去の商品価格をGraphQL APIで取得</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">productPriceAt</span><span class="p">(</span>
+<span class="w">    </span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PROD-0001&quot;</span>
+<span class="w">    </span><span class="n">date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024-06-01&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">priceType</span>
+<span class="w">    </span><span class="n">unitPrice</span>
+<span class="w">    </span><span class="n">validFrom</span>
+<span class="w">    </span><span class="n">validTo</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>期待される結果</strong>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;productPriceAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;priceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STANDARD&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;unitPrice&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3800</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;validFrom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-06-01&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;validTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>ステップ4: 会計監査用レポートの生成</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">AuditReportGenerator</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">generatePriceHistoryReport</span><span class="p">(</span><span class="n">productId</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="n">fromDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span><span class="w"> </span><span class="n">toDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">):</span><span class="w"> </span><span class="nc">PriceHistoryReport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eventStore</span><span class="p">.</span><span class="n">readEvents</span><span class="p">(</span><span class="s">s&quot;Product-</span><span class="si">$</span><span class="n">productId</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="n">occurredAt</span><span class="p">.</span><span class="n">isAfter</span><span class="p">(</span><span class="n">fromDate</span><span class="p">.</span><span class="n">atStartOfDay</span><span class="p">().</span><span class="n">toInstant</span><span class="p">(</span><span class="nc">ZoneOffset</span><span class="p">.</span><span class="nc">UTC</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="n">occurredAt</span><span class="p">.</span><span class="n">isBefore</span><span class="p">(</span><span class="n">toDate</span><span class="p">.</span><span class="n">plusDays</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">atStartOfDay</span><span class="p">().</span><span class="n">toInstant</span><span class="p">(</span><span class="nc">ZoneOffset</span><span class="p">.</span><span class="nc">UTC</span><span class="p">))</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collect</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductPriceChanged</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nc">PriceHistoryReport</span><span class="p">(</span>
+<span class="w">      </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productId</span><span class="p">,</span>
+<span class="w">      </span><span class="n">fromDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fromDate</span><span class="p">,</span>
+<span class="w">      </span><span class="n">toDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toDate</span><span class="p">,</span>
+<span class="w">      </span><span class="n">priceChanges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">events</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="nc">PriceChange</span><span class="p">(</span>
+<span class="w">          </span><span class="n">changedAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">occurredAt</span><span class="p">,</span>
+<span class="w">          </span><span class="n">changedBy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">changedBy</span><span class="p">,</span>
+<span class="w">          </span><span class="n">oldPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">oldPrice</span><span class="p">.</span><span class="n">amount</span><span class="p">,</span>
+<span class="w">          </span><span class="n">newPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">newPrice</span><span class="p">.</span><span class="n">amount</span><span class="p">,</span>
+<span class="w">          </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">reason</span><span class="p">,</span>
+<span class="w">          </span><span class="n">approvedBy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">approvedBy</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// レポート生成</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">AuditReportGenerator</span><span class="p">.</span><span class="n">generatePriceHistoryReport</span><span class="p">(</span>
+<span class="w">  </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PROD-0001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">fromDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">  </span><span class="n">toDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">// CSV出力</span>
+<span class="n">report</span><span class="p">.</span><span class="n">toCsv</span><span class="p">()</span>
+<span class="c1">// 期待される出力:</span>
+<span class="c1">// 変更日時,変更者,旧価格,新価格,変更理由,承認者</span>
+<span class="c1">// 2024-06-01 10:00:00,田中太郎,3500,3800,原材料費の上昇,佐藤花子</span>
+<span class="c1">// 2024-12-01 15:00:00,鈴木一郎,3800,4000,市場価格の動向,佐藤花子</span>
+</code></pre></div>
+<p><strong>検証ポイント</strong>:
+- 過去の任意時点の価格を復元できること
+- イベントリプレイが正常に動作すること
+- 変更履歴が完全に記録されていること
+- 会計監査用レポートが生成できること</p>
+<h2 id="123">12.3 次のステップ<a class="headerlink" href="#123" title="Permanent link">&para;</a></h2>
+<h3 id="1231">12.3.1 より高度なマスターデータ管理<a class="headerlink" href="#1231" title="Permanent link">&para;</a></h3>
+<h4 id="what-if">マスターデータのバージョン分岐（What-if分析）<a class="headerlink" href="#what-if" title="Permanent link">&para;</a></h4>
+<p>本番環境とは別に、仮想的な価格変更シナリオを検証する機能を実装します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// シナリオブランチの作成</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">scenarioId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ScenarioId</span><span class="p">.</span><span class="n">generate</span><span class="p">()</span>
+
+<span class="n">scenarioManager</span><span class="p">.</span><span class="n">createScenario</span><span class="p">(</span>
+<span class="w">  </span><span class="n">scenarioId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scenarioId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">baseDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">now</span><span class="p">(),</span>
+<span class="w">  </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2025年価格改定シミュレーション&quot;</span>
+<span class="p">)</span>
+
+<span class="c1">// シナリオ内で価格を変更</span>
+<span class="n">scenarioManager</span><span class="p">.</span><span class="n">applyPriceChange</span><span class="p">(</span>
+<span class="w">  </span><span class="n">scenarioId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scenarioId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PROD-0001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">newPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">4200</span><span class="p">),</span>
+<span class="w">  </span><span class="n">effectiveFrom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">// シナリオでの売上影響を分析</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scenarioAnalyzer</span><span class="p">.</span><span class="n">analyzeRevenueImpact</span><span class="p">(</span><span class="n">scenarioId</span><span class="p">)</span>
+<span class="c1">// 結果: 年間売上が5%増加する見込み</span>
+</code></pre></div>
+<p><strong>ユースケース</strong>:
+- 価格改定の影響シミュレーション
+- 組織変更のインパクト分析
+- M&amp;A時の統合シミュレーション</p>
+<h4 id="_19">グローバルマスター（多言語、多通貨）<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>多国籍企業向けに、商品名の多言語対応と価格の多通貨対応を実装します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">final</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">(</span>
+<span class="w">  </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productCode</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductCode</span><span class="p">,</span>
+<span class="w">  </span><span class="n">productNames</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">Locale</span><span class="p">,</span><span class="w"> </span><span class="nc">ProductName</span><span class="p">],</span><span class="w">  </span><span class="c1">// 多言語対応</span>
+<span class="w">  </span><span class="n">prices</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">Currency</span><span class="p">,</span><span class="w"> </span><span class="nc">ProductPrice</span><span class="p">],</span><span class="w">     </span><span class="c1">// 多通貨対応</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">)</span>
+
+<span class="c1">// 日本語</span>
+<span class="n">product</span><span class="p">.</span><span class="n">productNames</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="nc">JAPAN</span><span class="p">)</span><span class="w"> </span><span class="c1">// &quot;有機玄米 5kg&quot;</span>
+
+<span class="c1">// 英語</span>
+<span class="n">product</span><span class="p">.</span><span class="n">productNames</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="nc">US</span><span class="p">)</span><span class="w"> </span><span class="c1">// &quot;Organic Brown Rice 5kg&quot;</span>
+
+<span class="c1">// 日本円</span>
+<span class="n">product</span><span class="p">.</span><span class="n">prices</span><span class="p">(</span><span class="nc">Currency</span><span class="p">.</span><span class="nc">JPY</span><span class="p">).</span><span class="n">amount</span><span class="w"> </span><span class="c1">// 4000</span>
+
+<span class="c1">// 米ドル</span>
+<span class="n">product</span><span class="p">.</span><span class="n">prices</span><span class="p">(</span><span class="nc">Currency</span><span class="p">.</span><span class="nc">USD</span><span class="p">).</span><span class="n">amount</span><span class="w"> </span><span class="c1">// 27.50</span>
+</code></pre></div>
+<h4 id="_20">データリネージ（データ系譜の追跡）<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p>マスターデータの変更がどのシステムに伝播したかを追跡します。</p>
+<div class="highlight"><pre><span></span><code>商品PROD-0001の価格変更
+  ↓
+├─ 在庫管理サービス
+│  └─ 商品参照テーブル更新（2024-12-01 15:30:05）
+│
+├─ 受注管理サービス
+│  ├─ 商品参照テーブル更新（2024-12-01 15:30:07）
+│  └─ 影響を受けた受注: 3件
+│
+└─ 会計サービス
+   └─ 勘定科目マッピング更新（2024-12-01 15:30:10）
+</code></pre></div>
+<h3 id="1232">12.3.2 他システムとの統合<a class="headerlink" href="#1232" title="Permanent link">&para;</a></h3>
+<h4 id="_21">外部システムからのマスターデータインポート<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p>CSV、Excel、EDIなど、さまざまなフォーマットからマスターデータをインポートします。</p>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">MasterDataImporter</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">importFromCSV</span><span class="p">(</span><span class="n">csvFile</span><span class="p">:</span><span class="w"> </span><span class="nc">File</span><span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">ImportResult</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nc">CSVReader</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">csvFile</span><span class="p">).</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">rows</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">productCommandService</span><span class="p">.</span><span class="n">createProduct</span><span class="p">(</span>
+<span class="w">          </span><span class="n">productCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ProductCode</span><span class="p">(</span><span class="n">row</span><span class="p">(</span><span class="s">&quot;product_code&quot;</span><span class="p">)),</span>
+<span class="w">          </span><span class="n">productName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ProductName</span><span class="p">(</span><span class="n">row</span><span class="p">(</span><span class="s">&quot;product_name&quot;</span><span class="p">)),</span>
+<span class="w">          </span><span class="n">listPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="nc">BigDecimal</span><span class="p">(</span><span class="n">row</span><span class="p">(</span><span class="s">&quot;list_price&quot;</span><span class="p">)))</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">importFromEDI</span><span class="p">(</span><span class="n">ediMessage</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">ImportResult</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nc">EDIParser</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">ediMessage</span><span class="p">).</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">products</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">productCommandService</span><span class="p">.</span><span class="n">createProduct</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_22">マスターデータのエクスポート<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>取引先企業にマスターデータを提供します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">MasterDataExporter</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">exportToCSV</span><span class="p">(</span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductFilter</span><span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">File</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">productRepository</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">filter</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="nc">CSVWriter</span><span class="p">.</span><span class="n">write</span><span class="p">(</span>
+<span class="w">        </span><span class="n">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Seq</span><span class="p">(</span><span class="s">&quot;product_code&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;product_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;list_price&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">          </span><span class="nc">Seq</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">productCode</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">productName</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">listPrice</span><span class="p">.</span><span class="n">toString</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">exportToEDI</span><span class="p">(</span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="nc">ProductFilter</span><span class="p">):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">productRepository</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">filter</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="nc">EDIGenerator</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="api-gateway">API Gatewayによるアクセス制御<a class="headerlink" href="#api-gateway" title="Permanent link">&para;</a></h4>
+<p>外部企業からのアクセスを制御します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Kong API Gateway設定</span>
+<span class="nt">routes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">masterdata-api</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/api/masterdata</span>
+<span class="w">    </span><span class="nt">plugins</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">key-auth</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate-limiting</span>
+<span class="w">        </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">minute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">          </span><span class="nt">hour</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ip-restriction</span>
+<span class="w">        </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">whitelist</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.1.0/24</span>
+</code></pre></div>
+<h3 id="1233-aiml">12.3.3 AI/MLによる高度化<a class="headerlink" href="#1233-aiml" title="Permanent link">&para;</a></h3>
+<h4 id="_23">重複データの自動検出・マージ<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p>機械学習モデルで重複候補を自動検出します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">DuplicateDetectionML</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">detectDuplicates</span><span class="p">(</span><span class="n">products</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">Product</span><span class="p">]):</span><span class="w"> </span><span class="nc">Future</span><span class="p">[</span><span class="nc">List</span><span class="p">[</span><span class="nc">DuplicatePair</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 機械学習モデルで類似度を計算</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">similarities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mlModel</span><span class="p">.</span><span class="n">calculateSimilarities</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 類似度が90%以上のペアを抽出</span>
+<span class="w">    </span><span class="n">similarities</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">_</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.9</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">suggestMerge</span><span class="p">(</span><span class="n">duplicatePair</span><span class="p">:</span><span class="w"> </span><span class="nc">DuplicatePair</span><span class="p">):</span><span class="w"> </span><span class="nc">MergeSuggestion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// どちらを残すか、どのフィールドを統合するかを提案</span>
+<span class="w">    </span><span class="nc">MergeSuggestion</span><span class="p">(</span>
+<span class="w">      </span><span class="n">primary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">duplicatePair</span><span class="p">.</span><span class="n">product1</span><span class="p">,</span>
+<span class="w">      </span><span class="n">secondary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">duplicatePair</span><span class="p">.</span><span class="n">product2</span><span class="p">,</span>
+<span class="w">      </span><span class="n">mergeStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">MergeStrategy</span><span class="p">.</span><span class="nc">KeepPrimaryUpdateSecondary</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_24">データ品質スコアリング<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>データ品質を0-100点でスコアリングします。</p>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">DataQualityScoring</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">calculateQualityScore</span><span class="p">(</span><span class="n">product</span><span class="p">:</span><span class="w"> </span><span class="nc">Product</span><span class="p">):</span><span class="w"> </span><span class="nc">DataQualityScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100.0</span>
+
+<span class="w">    </span><span class="c1">// 必須項目の充足</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">product</span><span class="p">.</span><span class="n">productName</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">)</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">20</span>
+
+<span class="w">    </span><span class="c1">// データの鮮度</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">daysSinceUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ChronoUnit</span><span class="p">.</span><span class="nc">DAYS</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="n">product</span><span class="p">.</span><span class="n">updatedAt</span><span class="p">,</span><span class="w"> </span><span class="nc">Instant</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">daysSinceUpdate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">365</span><span class="p">)</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">10</span>
+
+<span class="w">    </span><span class="c1">// 参照整合性</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">product</span><span class="p">.</span><span class="n">primarySupplierId</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">supplierExists</span><span class="p">(</span><span class="n">id</span><span class="p">)))</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">15</span>
+
+<span class="w">    </span><span class="c1">// 重複の疑い</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasDuplicateSuspicion</span><span class="p">(</span><span class="n">product</span><span class="p">))</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">20</span>
+
+<span class="w">    </span><span class="nc">DataQualityScore</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_25">異常値検出<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<p>商品価格の異常値を自動検出します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">AnomalyDetection</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">detectPriceAnomalies</span><span class="p">(</span><span class="n">products</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">Product</span><span class="p">]):</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">PriceAnomaly</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">products</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">expectedPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mlModel</span><span class="p">.</span><span class="n">predictPrice</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">actualPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">listPrice</span><span class="p">.</span><span class="n">amount</span>
+
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">deviation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">actualPrice</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">expectedPrice</span><span class="p">).</span><span class="n">abs</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">expectedPrice</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">deviation</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 30%以上の乖離</span>
+<span class="w">        </span><span class="nc">Some</span><span class="p">(</span><span class="nc">PriceAnomaly</span><span class="p">(</span>
+<span class="w">          </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">,</span>
+<span class="w">          </span><span class="n">expectedPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expectedPrice</span><span class="p">,</span>
+<span class="w">          </span><span class="n">actualPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actualPrice</span><span class="p">,</span>
+<span class="w">          </span><span class="n">deviation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deviation</span>
+<span class="w">        </span><span class="p">))</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nc">None</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_26">マスター変更の予測と提案<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<p>過去の変更パターンから次の変更を予測します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">ChangePredictor</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">predictPriceChange</span><span class="p">(</span><span class="n">product</span><span class="p">:</span><span class="w"> </span><span class="nc">Product</span><span class="p">):</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">PriceChangePrediction</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 過去の価格変更パターンを分析</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">priceHistoryRepository</span><span class="p">.</span><span class="n">findByProduct</span><span class="p">(</span><span class="n">product</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 季節性を考慮</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">seasonalPattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mlModel</span><span class="p">.</span><span class="n">analyzeSeasonality</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 次回の価格変更を予測</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">shouldChangePriceSoon</span><span class="p">(</span><span class="n">history</span><span class="p">,</span><span class="w"> </span><span class="n">seasonalPattern</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nc">Some</span><span class="p">(</span><span class="nc">PriceChangePrediction</span><span class="p">(</span>
+<span class="w">        </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">,</span>
+<span class="w">        </span><span class="n">predictedNewPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mlModel</span><span class="p">.</span><span class="n">predictNextPrice</span><span class="p">(</span><span class="n">product</span><span class="p">,</span><span class="w"> </span><span class="n">history</span><span class="p">),</span>
+<span class="w">        </span><span class="n">predictedDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mlModel</span><span class="p">.</span><span class="n">predictNextChangeDate</span><span class="p">(</span><span class="n">history</span><span class="p">),</span>
+<span class="w">        </span><span class="n">confidence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.85</span>
+<span class="w">      </span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nc">None</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="124">12.4 総括<a class="headerlink" href="#124" title="Permanent link">&para;</a></h2>
+<h3 id="1241-7">12.4.1 第7部で学んだ技術<a class="headerlink" href="#1241-7" title="Permanent link">&para;</a></h3>
+<p>第7部「共用データ管理サービス」では、以下の技術とパターンを学びました。</p>
+<ol>
+<li><strong>イベントソーシング</strong>: 全変更履歴の追跡、時点復元、監査証跡</li>
+<li><strong>イベント駆動アーキテクチャ</strong>: Pub/Sub、結果整合性、疎結合</li>
+<li><strong>CQRS</strong>: コマンド/クエリ分離、Materialized View</li>
+<li><strong>Sagaパターン</strong>: 承認ワークフロー、長期トランザクション</li>
+<li><strong>GraphQL API</strong>: 柔軟なクエリ、DataLoader、ページング</li>
+<li><strong>パフォーマンス最適化</strong>: 多層キャッシュ、インデックス、Materialized View</li>
+<li><strong>運用とモニタリング</strong>: Prometheusメトリクス、Grafanaダッシュボード、アラート</li>
+</ol>
+<h3 id="1242">12.4.2 本シリーズ全体の完結<a class="headerlink" href="#1242" title="Permanent link">&para;</a></h3>
+<p>本章をもって、「Apache Pekko CQRS/Event Sourcing 実装ガイド」全7部・全85章が完結します。</p>
+<ul>
+<li><strong>第1部</strong>: 環境構築編（全10章）</li>
+<li><strong>第2部</strong>: サービス構築編（全11章）</li>
+<li><strong>第3部</strong>: 在庫管理サービス（全13章）</li>
+<li><strong>第4部</strong>: 受注管理サービス（全13章）</li>
+<li><strong>第5部</strong>: 発注管理サービス（全11章）</li>
+<li><strong>第6部</strong>: 会計サービス（全12章）</li>
+<li><strong>第7部</strong>: 共用データ管理サービス（全12章）</li>
+</ul>
+<p>皆様がこのシリーズで得た知識を実際のプロジェクトで活用し、堅牢でスケーラブルなシステムを構築されることを願っています。</p>
+<hr />
+<p><strong>執筆者より</strong></p>
+<p>CQRS/イベントソーシングは、複雑なドメインモデルを扱うエンタープライズシステムにおいて、非常に強力なアーキテクチャパターンです。特に、マスターデータ管理のような全社的に重要なデータを扱う場合、イベントソーシングによる完全な監査証跡と時点復元機能は、ビジネス価値を大きく高めます。</p>
+<p>本シリーズが、皆様のシステム設計・開発の一助となれば幸いです。</p>
+<p>ハッピーコーディング！</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/k2works" target="_blank" rel="noopener" title="GitHub Repository/claude-code-booster" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

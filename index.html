@@ -1,0 +1,6033 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Site Description">
+      
+      
+        <meta name="author" content="Project Team">
+      
+      
+      
+      
+        <link rel="next" href="outline/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Site Name</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../mkdocs/assets/css/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#apache-pekkocqrseventsourcing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Site Name" class="md-header__button md-logo" aria-label="Site Name" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Site Name
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              はじめに
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/k2works/claude-code-booster" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    claude-code-booster
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  はじめに
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="outline/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  目次
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="part1-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 1 - 導入編
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="part2-01-ddd-basics/" class="md-tabs__link">
+          
+  
+  
+  Part 2 - サービス構築編
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="part3-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 3 - 在庫管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="part4-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 4 - 受注管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="part5-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 5 - 発注管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="part6-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 6 - 会計サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="part7-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 7 - 共用データ管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Site Name" class="md-nav__button md-logo" aria-label="Site Name" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Site Name
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/k2works/claude-code-booster" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    claude-code-booster
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シリーズ構成
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        対象読者
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術スタック
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 第1部：環境構築編
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 第1部：環境構築編">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第1章：イントロダクション
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第2章：アーキテクチャ概要
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第3章：技術スタックの選定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第4章：開発環境のセットアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第5章：設定管理の体系化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第6章：初回起動とヘルスチェック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7e2e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第7章：E2Eテストによる動作確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第8章：トラブルシューティング
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第9章：開発ワークフローの確立
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第10章：まとめと次のステップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 第2部：サービス構築編
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 第2部：サービス構築編">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第1章：ドメイン駆動設計の基礎
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第2章：イベントソーシングの実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第3章：コマンド側の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第4章：クエリ側の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第5章：イベント処理の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第6章：設定管理とデプロイ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第7章：テスト戦略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第8章：パフォーマンスとスケーラビリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第9章：実践的なトピック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第10章：本番環境への準備
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第11章：まとめと発展的なトピック
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 第3部：在庫管理サービスのケーススタディ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 第3部：在庫管理サービスのケーススタディ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第1章：イントロダクション - 在庫管理サービスの要件定義
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第2章：データモデルの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第3章：ドメインに適したデータの作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第4章：ドメインモデルの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第5章：複数集約の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6saga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第6章：Sagaパターン（参考）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第7章：在庫引当の競合制御
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第8章：複雑なクエリの実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第9章：イベントの順序保証
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第10章：パフォーマンス最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第11章：運用とモニタリング
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第12章：高度なトピック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第13章：まとめと実践演習
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 第4部：受注管理サービスのケーススタディ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 第4部：受注管理サービスのケーススタディ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第1章：イントロダクション - 受注管理サービスの要件定義
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2read-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第2章：Read Modelスキーマの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第3章：受注管理に適したドメインデータ作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第4章：受注管理のドメインモデル設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第5章：複数集約の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6saga_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第6章：Sagaパターンによる注文プロセスの実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第7章：金額計算と税金処理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第8章：与信管理の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第9章：請求管理の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第10章：返品処理の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第11章：パフォーマンス最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第12章：運用とモニタリング
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第13章：まとめと実践演習
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 第5部：発注管理サービスのケーススタディ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 第5部：発注管理サービスのケーススタディ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第1章：イントロダクション - 発注管理サービスの全体像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2read-model_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第2章：Read Modelスキーマの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第3章：発注管理に適したドメインデータ作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第4章：ドメインモデルの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第5章：複数集約の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6saga_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第6章：Sagaパターンによる発注プロセスの実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第7章：在庫管理との連携
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第8章：パフォーマンス最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第9章：運用とモニタリング
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第10章：高度なトピック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第11章：まとめと実践演習
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 第6部：会計サービスのケーススタディ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 第6部：会計サービスのケーススタディ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第1章：イントロダクション - 会計サービスの要件定義
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2read-model_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第2章：Read Modelスキーマの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第3章：会計に適したドメインデータ作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第4章：ドメインモデルの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第5章：複数集約の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第6章：イベント駆動会計処理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第7章：決算処理の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第8章：財務分析機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第9章：パフォーマンス最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第10章：運用とモニタリング
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第11章：高度なトピック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第12章：まとめと実践演習
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 第7部：共用データ管理サービスのケーススタディ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 第7部：共用データ管理サービスのケーススタディ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第1章：イントロダクション - 共用データ管理サービスの概要
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2read-model_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第2章：Read Modelスキーマの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第3章：共用データ管理に適したドメインデータ作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第4章：ドメインモデルの設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第5章：複数集約の実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第6章：イベント駆動マスターデータ同期
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第7章：マスターデータ変更承認ワークフロー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第8章：まとめと実践課題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9graphql-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第9章：GraphQL APIの実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第10章：パフォーマンス最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第11章：運用とモニタリング
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第12章：まとめと演習課題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 学習の進め方
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 学習の進め方">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推奨される学習順序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学習の流れ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前提知識
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 参考資料
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 参考資料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連ドキュメント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        記事ファイル構成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        公式ドキュメント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHubリポジトリ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 フィードバック
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ライセンス
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目次
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - 導入編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - 導入編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-02-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. アーキテクチャ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-03-tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 技術スタック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-04-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. セットアップ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-05-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-06-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 起動
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-07-e2e-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. E2Eテスト
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-08-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. トラブルシューティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-09-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. ワークフロー
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part1-10-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - サービス構築編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - サービス構築編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-01-ddd-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. DDDの基礎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-02-event-sourcing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. イベントソーシング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-03-command-side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. コマンド側
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-04-query-side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. クエリ側
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-05-event-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. イベント処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-06-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-07-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. テスティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-08-performance-scalability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. パフォーマンスとスケーラビリティ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-09-practical-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 実践的なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-10-production-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 本番環境の準備
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part2-11-conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 結論
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - 在庫管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - 在庫管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-07-concurrency-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 並行制御
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-08-complex-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 複雑なクエリ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-09-event-ordering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. イベント順序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-10-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. パフォーマンス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-11-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 運用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-12-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part3-13-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - 受注管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - 受注管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-03-test-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-05-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-07-money-calculation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 金額計算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-08-credit-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 与信管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-09-billing-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 請求管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-10-return-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 返品処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-11-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-12-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-13-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part4-14-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 5 - 発注管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 5 - 発注管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-03-test-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-07-inventory-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 在庫統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-08-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-09-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-10-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part5-11-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 6 - 会計サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 6 - 会計サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-02-read-model-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. リードモデルスキーマ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-06-event-driven-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. イベント駆動会計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-07-closing-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 締め処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-08-financial-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 財務分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-09-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-10-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-11-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part6-12-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 7 - 共用データ管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 7 - 共用データ管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-02-read-model-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. リードモデルスキーマ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-06-master-data-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. マスターデータ統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-07-approval-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 承認ワークフロー
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-08-summary-and-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. まとめと実践
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-09-graphql-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-10-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-11-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part7-12-summary-and-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="apache-pekkocqrseventsourcing">Apache Pekkoを使用したCQRS/EventSourcingサービス開発<a class="headerlink" href="#apache-pekkocqrseventsourcing" title="Permanent link">&para;</a></h1>
+<p>本シリーズでは、Apache Pekko（旧Akka）を使用したCQRS（コマンドクエリ責任分離）とイベントソーシングの実装について、環境構築から本番デプロイまで包括的に解説します。</p>
+<h2 id="_1">シリーズ構成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本シリーズは<strong>7部構成・全97章</strong>で構成されています：</p>
+<ul>
+<li><strong>第1部：環境構築編</strong>（全10章） - LocalStackを使用した開発環境の構築から動作確認まで</li>
+<li><strong>第2部：サービス構築編</strong>（全11章） - ドメインモデル設計、CQRS実装、テスト、本番デプロイまで</li>
+<li><strong>第3部：在庫管理サービスのケーススタディ</strong>（全13章） - 実業務規模の複数集約システム（商品8,000、取引先430社、1日2,000件の受払、3拠点・9区画）の設計・実装・運用</li>
+<li><strong>第4部：受注管理サービスのケーススタディ</strong>（全13章） - 在庫管理に受注管理を追加し、Sagaパターンによる分散トランザクション（月間50,000件の受注、与信管理、請求管理）を実現</li>
+<li><strong>第5部：発注管理サービスのケーススタディ</strong>（全11章） - 仕入先管理、発注、入荷検品、支払管理を含む調達プロセス全体（月間3,000件の発注、200社の仕入先、3-way matching）をイベントソーシングで実装</li>
+<li><strong>第6部：会計サービスのケーススタディ</strong>（全12章） - イベント駆動による仕訳自動生成、総勘定元帳、財務諸表作成、決算処理（月間66,000件の仕訳、年商150億円）を実現</li>
+<li><strong>第7部：共用データ管理サービスのケーススタディ</strong>（全12章） - イベントソーシングによるマスターデータ管理、変更承認ワークフロー、GraphQL API、パフォーマンス最適化（商品5,000 SKU、月間800件の変更、3層キャッシュ）を実装</li>
+</ul>
+<h2 id="_2">対象読者<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CQRS/Event Sourcingを実践的に学びたいScala開発者</li>
+<li>Apache Pekko（旧Akka）への移行を検討している開発者</li>
+<li>イベント駆動アーキテクチャに興味がある方</li>
+<li>分散システム・マイクロサービスの設計に携わる方</li>
+</ul>
+<h2 id="_3">技術スタック<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>言語</strong>: Scala 3.6.2</li>
+<li><strong>アクターフレームワーク</strong>: Apache Pekko 1.1.2</li>
+<li><strong>イベントストア</strong>: DynamoDB (AWS)</li>
+<li><strong>読み取りモデル</strong>: PostgreSQL</li>
+<li><strong>API</strong>: GraphQL (Sangria)</li>
+<li><strong>シリアライゼーション</strong>: Protocol Buffers (ScalaPB)</li>
+<li><strong>開発環境</strong>: LocalStack、Docker Compose</li>
+<li><strong>エフェクトシステム</strong>: ZIO</li>
+</ul>
+<hr />
+<h2 id="1">📚 第1部：環境構築編<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="1_1"><a href="part1-01-introduction/">第1章：イントロダクション</a><a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>CQRS/Event Sourcingの概要と、このシリーズで学べる内容について説明します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>CQRS/Event Sourcingの基本概念</li>
+<li>Apache Pekkoの選択理由（Akkaからの移行背景）</li>
+<li>システム全体のアーキテクチャ概要</li>
+<li>対象読者と前提知識</li>
+</ul>
+<p><strong>キーワード</strong>: CQRS, Event Sourcing, Apache Pekko, アーキテクチャ概要</p>
+<hr />
+<h3 id="2"><a href="part1-02-architecture/">第2章：アーキテクチャ概要</a><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>システム全体のアーキテクチャとデータフローについて詳しく解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>コマンド側の構成（Pekko Actors + DynamoDB）</li>
+<li>クエリ側の構成（PostgreSQL + Slick）</li>
+<li>イベント処理フロー（DynamoDB Streams + Lambda）</li>
+<li>データフローの全体像</li>
+</ul>
+<p><strong>キーワード</strong>: System Architecture, Data Flow, Command Side, Query Side, Event Processing</p>
+<hr />
+<h3 id="3"><a href="part1-03-tech-stack/">第3章：技術スタックの選定</a><a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>このプロジェクトで採用した技術スタックとその選定理由を説明します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Scala 3.6.2の採用理由（型安全性、関数型プログラミング）</li>
+<li>Apache Pekko 1.1.2の特徴（型付きアクター、永続化、クラスター）</li>
+<li>DynamoDB vs PostgreSQLの使い分け</li>
+<li>GraphQLとProtocol Buffersの選択理由</li>
+</ul>
+<p><strong>キーワード</strong>: Scala 3, Apache Pekko, DynamoDB, PostgreSQL, GraphQL, Protocol Buffers</p>
+<hr />
+<h3 id="4"><a href="part1-04-setup/">第4章：開発環境のセットアップ</a><a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>LocalStackとDocker Composeを使用したローカル開発環境の構築手順を解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>前提条件の確認（Java、SBT、Docker）</li>
+<li>プロジェクトのクローンとビルド</li>
+<li>LocalStackの設定とDynamoDBテーブル作成</li>
+<li>PostgreSQLとFlywayマイグレーション</li>
+<li>Lambda関数のローカルデプロイ</li>
+</ul>
+<p><strong>キーワード</strong>: LocalStack, Docker Compose, DynamoDB, PostgreSQL, Lambda</p>
+<hr />
+<h3 id="5"><a href="part1-05-configuration/">第5章：設定管理の体系化</a><a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>Typesafe Configによる階層的な設定管理と環境別の設定方法について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>設定ファイルの階層構造（application.conf、pcqrses.conf、pekko.conf、j5ik2o.conf）</li>
+<li>環境変数による設定の上書き</li>
+<li>ローカル/テスト/本番環境の設定分離</li>
+<li>シリアライゼーション設定</li>
+</ul>
+<p><strong>キーワード</strong>: Typesafe Config, Configuration Management, Environment Variables</p>
+<hr />
+<h3 id="6"><a href="part1-06-startup/">第6章：初回起動とヘルスチェック</a><a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>システムの初回起動手順と各サービスの動作確認方法を解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>シングルノードモードでの起動（<code>./scripts/run-single.sh</code>）</li>
+<li>各サービスのヘルスチェック</li>
+<li>GraphQL Playgroundの使い方</li>
+<li>基本的なクエリとミューテーションの実行</li>
+</ul>
+<p><strong>キーワード</strong>: Startup, Health Check, GraphQL Playground</p>
+<hr />
+<h3 id="7e2e"><a href="part1-07-e2e-test/">第7章：E2Eテストによる動作確認</a><a class="headerlink" href="#7e2e" title="Permanent link">&para;</a></h3>
+<p>E2Eテストスクリプトを使用したシステム全体の動作確認方法を学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>E2Eテストスクリプトの実行（<code>./scripts/test-e2e.sh</code>）</li>
+<li>テストフローの理解（ヘルスチェック → Mutation → 待機 → Query → 検証）</li>
+<li>結果整合性の確認方法</li>
+<li>テストのカスタマイズ</li>
+</ul>
+<p><strong>キーワード</strong>: E2E Test, Integration Test, Eventual Consistency</p>
+<hr />
+<h3 id="8"><a href="part1-08-troubleshooting/">第8章：トラブルシューティング</a><a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<p>開発中によく遭遇する問題とその解決方法を紹介します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>LocalStackが起動しない場合の対処法</li>
+<li>Lambda関数がイベントを処理しない問題</li>
+<li>PostgreSQL接続エラーの解決</li>
+<li>DynamoDBデータ保存の確認方法</li>
+<li>ポート競合の解決</li>
+</ul>
+<p><strong>キーワード</strong>: Troubleshooting, Debugging, Common Issues</p>
+<hr />
+<h3 id="9"><a href="part1-09-workflow/">第9章：開発ワークフローの確立</a><a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
+<p>日常的な開発作業で使用するコマンドとワークフローを学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>コードフォーマット（<code>sbt fmt</code>）</li>
+<li>リントチェック（<code>sbt lint</code>）</li>
+<li>テスト実行とカバレッジレポート（<code>sbt test</code>、<code>sbt testCoverage</code>）</li>
+<li>環境のクリーンアップ</li>
+</ul>
+<p><strong>キーワード</strong>: Development Workflow, Code Formatting, Testing, Code Coverage</p>
+<hr />
+<h3 id="10"><a href="part1-10-summary/">第10章：まとめと次のステップ</a><a class="headerlink" href="#10" title="Permanent link">&para;</a></h3>
+<p>第1部で学んだ環境構築の内容を振り返り、第2部への橋渡しを行います。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>環境構築で学んだことの振り返り</li>
+<li>LocalStackを使用した開発の利点</li>
+<li>第2部（サービス構築編）への導入</li>
+<li>ドメインモデル設計の準備</li>
+</ul>
+<p><strong>キーワード</strong>: Summary, Next Steps, Service Development</p>
+<hr />
+<h2 id="2_1">📚 第2部：サービス構築編<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h2>
+<h3 id="1_2"><a href="part2-01-ddd-basics/">第1章：ドメイン駆動設計の基礎</a><a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p>ドメイン駆動設計（DDD）の基本概念と、このプロジェクトにおける実装方法を解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>レイヤードアーキテクチャの理解</li>
+<li>集約（Aggregate）と値オブジェクト（Value Object）</li>
+<li>UserAccountドメインモデルの設計</li>
+<li>ドメインイベントの定義</li>
+</ul>
+<p><strong>キーワード</strong>: DDD, Bounded Context, Aggregate Root, Value Object, Domain Event</p>
+<hr />
+<h3 id="2_2"><a href="part2-02-event-sourcing/">第2章：イベントソーシングの実装</a><a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<p>イベントソーシングパターンの詳細と、Pekko Persistenceを使用した実装方法を学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>イベントソーシングの概念と利点</li>
+<li>Envelopeパターンによるバージョニング</li>
+<li>Protocol Buffersによるシリアライゼーション</li>
+<li>スナップショット戦略とイベントリプレイ</li>
+</ul>
+<p><strong>キーワード</strong>: Event Sourcing, Pekko Persistence, Protocol Buffers, Snapshot, Event Replay</p>
+<hr />
+<h3 id="3_1"><a href="part2-03-command-side/">第3章：コマンド側の実装</a><a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>CQRS における書き込みモデル（コマンド側）の実装について解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>UserAccountAggregateの実装</li>
+<li>Registry Patternによるアクター管理</li>
+<li>Cluster Shardingによる分散配置</li>
+<li>GraphQL Mutationによるコマンド受付</li>
+</ul>
+<p><strong>キーワード</strong>: Command Side, Write Model, Aggregate Actor, Cluster Sharding, GraphQL Mutation</p>
+<hr />
+<h3 id="4_1"><a href="part2-04-query-side/">第4章：クエリ側の実装</a><a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<p>CQRS における読み取りモデル（クエリ側）の実装について解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>PostgreSQLスキーマ設計とFlyway</li>
+<li>Slick DAOの自動生成</li>
+<li>GraphQL Queryによるデータ取得</li>
+<li>Read Model Updaterによる非同期更新</li>
+</ul>
+<p><strong>キーワード</strong>: Query Side, Read Model, Flyway, Slick, GraphQL Query, Projection</p>
+<hr />
+<h3 id="5_1"><a href="part2-05-event-processing/">第5章：イベント処理の実装</a><a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<p>DynamoDB Streamsを使用したイベント駆動の読み取りモデル更新について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>DynamoDB Streams統合</li>
+<li>Lambda関数によるイベント処理</li>
+<li>結果整合性（Eventual Consistency）の管理</li>
+<li>冪等性の実装</li>
+</ul>
+<p><strong>キーワード</strong>: Event Processing, DynamoDB Streams, Lambda, Eventual Consistency, Idempotency</p>
+<hr />
+<h3 id="6_1"><a href="part2-06-configuration/">第6章：設定管理とデプロイ</a><a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h3>
+<p>Typesafe Configによる階層的設定管理と、Docker Composeを使用したデプロイ戦略を解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>設定ファイルの階層化（application.conf、pcqrses.conf、pekko.conf、j5ik2o.conf）</li>
+<li>環境変数による設定の上書き</li>
+<li>シリアライゼーション戦略</li>
+<li>Docker Composeによるサービス構成</li>
+</ul>
+<p><strong>キーワード</strong>: Typesafe Config, Environment Variables, Serialization, Docker Compose</p>
+<hr />
+<h3 id="7"><a href="part2-07-testing/">第7章：テスト戦略</a><a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<p>単体テストから統合テスト、E2Eテストまで、包括的なテスト戦略について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>テストピラミッド（単体60%、統合30%、E2E10%）</li>
+<li>ActorTestKitによるアクターテスト</li>
+<li>GraphQL APIのテスト</li>
+<li>E2Eテストによる結果整合性の検証</li>
+</ul>
+<p><strong>キーワード</strong>: Test Pyramid, Unit Test, Integration Test, E2E Test, ScalaTest, ActorTestKit</p>
+<hr />
+<h3 id="8_1"><a href="part2-08-performance-scalability/">第8章：パフォーマンスとスケーラビリティ</a><a class="headerlink" href="#8_1" title="Permanent link">&para;</a></h3>
+<p>本番環境でのパフォーマンス最適化とスケーラビリティ確保の手法を解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Prometheus/Grafanaによるメトリクス収集</li>
+<li>Logbackによる構造化ログ</li>
+<li>アクターディスパッチャーとデータベース接続プールのチューニング</li>
+<li>Cluster Shardingによる水平スケーリング</li>
+<li>Graceful Shutdownの実装</li>
+</ul>
+<p><strong>キーワード</strong>: Metrics, Logging, Performance Tuning, Horizontal Scaling, Graceful Shutdown</p>
+<hr />
+<h3 id="9_1"><a href="part2-09-practical-topics/">第9章：実践的なトピック</a><a class="headerlink" href="#9_1" title="Permanent link">&para;</a></h3>
+<p>本番運用で遭遇する実践的な課題とその解決策について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>イベントスキーマの進化とバージョニング戦略</li>
+<li>EventAdapterによるアップキャスト</li>
+<li>GraphQL APIの改善（Validation型の活用）</li>
+<li>エラーハンドリングとレジリエンス（Supervision Strategy、Retry、Circuit Breaker）</li>
+<li>デッドレター処理</li>
+</ul>
+<p><strong>キーワード</strong>: Schema Evolution, Event Upcasting, Validation, Resilience, Circuit Breaker</p>
+<hr />
+<h3 id="10_1"><a href="part2-10-production-readiness/">第10章：本番環境への準備</a><a class="headerlink" href="#10_1" title="Permanent link">&para;</a></h3>
+<p>セキュリティ、運用、AWSへのデプロイなど、本番環境へのデプロイに必要な準備について解説します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>セキュリティ（JWT認証・認可、APIレート制限、暗号化）</li>
+<li>運用（バックアップ/リストア、ディザスタリカバリ、オートスケーリング）</li>
+<li>デプロイ戦略（Blue-Green、カナリアリリース）</li>
+<li>AWSへのデプロイ（LocalStackから本番環境への移行）</li>
+<li>Terraformによるインフラ管理</li>
+</ul>
+<p><strong>キーワード</strong>: Security, JWT, Rate Limiting, Backup, Disaster Recovery, Blue-Green Deployment, Terraform</p>
+<hr />
+<h3 id="11"><a href="part2-11-conclusion/">第11章：まとめと発展的なトピック</a><a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>シリーズ全体の総括と、さらなる学習リソース、発展的なトピックについて紹介します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>学習内容の振り返り</li>
+<li>CQRS/イベントソーシングのベストプラクティス</li>
+<li>推奨書籍・オンラインコース・コミュニティ</li>
+<li>発展的なトピック（Saga Pattern、Event-Carried State Transfer、Polyglot Persistence、Serverless Event Sourcing）</li>
+</ul>
+<p><strong>キーワード</strong>: Best Practices, Learning Resources, Saga Pattern, Polyglot Persistence</p>
+<hr />
+<h2 id="3_2">📚 第3部：在庫管理サービスのケーススタディ<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h2>
+<p>第3部では、実業務規模の在庫管理システムを通じて、CQRS/イベントソーシングの実践的な実装を学びます。</p>
+<p><strong>ケーススタディの規模</strong>:</p>
+<ul>
+<li>商品マスタ: 約8,000品目（SKU単位）</li>
+<li>取引先: 430社（B2B取引）</li>
+<li>拠点・区画: 3拠点・9区画（常温・冷蔵・冷凍の保管条件別）</li>
+<li>在庫受払処理: 1日約2,000件（ピーク時は10倍）</li>
+</ul>
+<p><strong>扱うトピック</strong>:</p>
+<ul>
+<li>複数集約の設計と実装（5つの集約）</li>
+<li>イベントソーシングとCRUD管理のハイブリッドアーキテクチャ</li>
+<li>在庫引当の競合制御（楽観的ロック + CAS）</li>
+<li>複雑なクエリの実装（Materialized View、DataLoader）</li>
+<li>パフォーマンス最適化（Redisキャッシング、Pekko Streams、Gatling負荷テスト）</li>
+<li>運用とモニタリング（Prometheus + Grafana、監査ログ、アラート）</li>
+<li>高度なトピック（在庫予測、マルチテナント対応、グローバル展開）</li>
+</ul>
+<hr />
+<h3 id="1-"><a href="part3-01-introduction/">第1章：イントロダクション - 在庫管理サービスの要件定義</a><a class="headerlink" href="#1-" title="Permanent link">&para;</a></h3>
+<p>第3部のケーススタディとして、卸売事業者D社の在庫管理サービスの要件を定義します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>第1部・第2部の振り返り</li>
+<li>卸売事業者D社の事業概要</li>
+<li>在庫管理サービスのビジネス要件</li>
+<li>技術的課題（在庫引当の競合制御、分散トランザクション、イベント順序保証）</li>
+</ul>
+<p><strong>キーワード</strong>: Business Requirements, Inventory Management, Technical Challenges</p>
+<hr />
+<h3 id="2_3"><a href="part3-02-data-model/">第2章：データモデルの設計</a><a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<p>在庫管理システムのRead Model（PostgreSQL）とイベントストア（DynamoDB）のデータモデルを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Read Model（PostgreSQL）のスキーマ設計</li>
+<li>DynamoDBのテーブル設計とパーティションキー選択</li>
+<li>インデックス戦略とパフォーマンス最適化</li>
+<li>日本語カラム名によるビジネスとの整合性</li>
+</ul>
+<p><strong>キーワード</strong>: Data Model, PostgreSQL, DynamoDB, Schema Design, Indexing</p>
+<hr />
+<h3 id="3_3"><a href="part3-03-domain-data/">第3章：ドメインに適したデータの作成</a><a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h3>
+<p>卸売事業者D社の事業実態に基づいたマスタデータとテストデータを作成します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>事業概要（年商150億円、SKU数8,000、1日2,000件の受払）</li>
+<li>マスタデータの準備（企業、商品、倉庫、取引先）</li>
+<li>テストデータの設計（在庫データ、受払データ）</li>
+<li>Flywayによるデータ投入とシードデータSQL</li>
+</ul>
+<p><strong>キーワード</strong>: Master Data, Test Data, Flyway, Seed Data, Business Context</p>
+<hr />
+<h3 id="4_2"><a href="part3-04-domain-model/">第4章：ドメインモデルの設計</a><a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h3>
+<p>DDDに基づき、在庫管理システムのドメインモデルを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Bounded Contextの識別（商品カタログ、取引先管理、倉庫管理、在庫管理）</li>
+<li>集約の設計（Product、Customer、Warehouse、WarehouseZone、Inventory）</li>
+<li>ドメインイベントの設計（在庫受払、引当、区画移動）</li>
+<li>コンテキストマップと集約関係（PlantUML）</li>
+</ul>
+<p><strong>キーワード</strong>: DDD, Bounded Context, Aggregate, Domain Event, Context Map</p>
+<hr />
+<h3 id="5_2"><a href="part3-05-aggregate-implementation/">第5章：複数集約の実装</a><a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h3>
+<p>TDD（テスト駆動開発）のアプローチで、複数の集約を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>TDDサイクル（RED → GREEN → REFACTOR）</li>
+<li>Product集約のTDD実装（値オブジェクト、エンティティ、イベント、アクター）</li>
+<li>Inventory集約の重要テストケース（在庫引当、保管条件検証）</li>
+<li>モジュール配置と実装の順序</li>
+</ul>
+<p><strong>キーワード</strong>: TDD, Aggregate Implementation, ScalaTest, Pekko TestKit, Test-First</p>
+<hr />
+<h3 id="6saga"><a href="part3-06-saga-pattern/">第6章：Sagaパターン（参考）</a><a class="headerlink" href="#6saga" title="Permanent link">&para;</a></h3>
+<p>分散トランザクションを実現するSagaパターンの基本概念と実装パターンを学びます。</p>
+<blockquote>
+<p><strong>注意</strong>: この章は参考情報です。今回の実装スコープ外ですが、Sagaパターンの理解を深めるための資料として活用してください。</p>
+</blockquote>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Sagaパターンの基礎（Long Running Transaction、補償トランザクション）</li>
+<li>ChoreographyとOrchestrationの違い</li>
+<li>OrderSagaの設計（注文処理の状態遷移）</li>
+<li>Apache PekkoでのSaga実装パターン</li>
+</ul>
+<p><strong>キーワード</strong>: Saga Pattern, Distributed Transaction, Compensating Transaction, Orchestration</p>
+<hr />
+<h3 id="7_1"><a href="part3-07-concurrency-control/">第7章：在庫引当の競合制御</a><a class="headerlink" href="#7_1" title="Permanent link">&para;</a></h3>
+<p>在庫引当における同時アクセス制御と楽観的ロックの実装について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>楽観的ロック（Optimistic Locking）の実装（TDD）</li>
+<li>CAS（Compare-And-Swap）オペレーション</li>
+<li>リトライ戦略とエラーハンドリング</li>
+<li>FIFO戦略と保管条件を考慮した引当アルゴリズム</li>
+<li>デッドロック回避（一貫性のあるロック順序、タイムアウト）</li>
+<li>パフォーマンスチューニング（バッチ引当、キャッシュ）</li>
+</ul>
+<p><strong>キーワード</strong>: Concurrency Control, Optimistic Locking, CAS, Retry Strategy, Version Conflict, Deadlock Avoidance</p>
+<hr />
+<h3 id="8_2"><a href="part3-08-complex-queries/">第8章：複雑なクエリの実装</a><a class="headerlink" href="#8_2" title="Permanent link">&para;</a></h3>
+<p>在庫照会や集計など、複雑なRead Modelクエリの実装について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>在庫照会のRead Model設計（商品別、倉庫別、区画別）</li>
+<li>カテゴリ別・保管条件別の集計クエリ</li>
+<li>区画容量使用率の計算</li>
+<li>マテリアライズドビューの活用（リアルタイム更新 vs バッチ更新）</li>
+<li>複雑なGraphQLクエリ（ネスト、フィルタリング、ソート、ページネーション）</li>
+<li>DataLoaderによるN+1問題の解決（バッチクエリで100倍高速化）</li>
+<li>インデックス戦略とクエリパフォーマンスチューニング</li>
+</ul>
+<p><strong>キーワード</strong>: Complex Query, Materialized View, GraphQL, DataLoader, N+1 Problem, Batch Query, Query Optimization</p>
+<hr />
+<h3 id="9_2"><a href="part3-09-event-ordering/">第9章：イベントの順序保証</a><a class="headerlink" href="#9_2" title="Permanent link">&para;</a></h3>
+<p>DynamoDB Streamsによるイベント順序保証とRead Model更新の整合性について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>順序保証が必要な理由（在庫計算、状態遷移、監査ログ）</li>
+<li>DynamoDB Streamsの仕組み（パーティションキー単位でのFIFO保証）</li>
+<li>シャードキーによるパーティショニング</li>
+<li>Sequence Numberによる順序制御</li>
+<li>重複イベントの検出（At-Least-Once配信）</li>
+<li>欠落イベントの検知と対処（リトライ、DLQ、定期チェック）</li>
+<li>結果整合性の可視化（更新遅延の表示）</li>
+</ul>
+<p><strong>キーワード</strong>: Event Ordering, DynamoDB Streams, Sequence Number, At-Least-Once Delivery, Idempotency, Eventual Consistency</p>
+<hr />
+<h3 id="10_2"><a href="part3-10-performance/">第10章：パフォーマンス最適化</a><a class="headerlink" href="#10_2" title="Permanent link">&para;</a></h3>
+<p>在庫管理システムのパフォーマンス最適化とスケーラビリティ向上について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li><strong>Redisキャッシング</strong>: 商品マスタ（8,000品目）・倉庫情報（3拠点）・在庫情報（24,000件）のキャッシュ戦略</li>
+<li>Cache-Aside vs Write-Through の比較と使い分け</li>
+<li>イベント駆動キャッシュ無効化</li>
+<li>キャッシュヒット率のモニタリング</li>
+<li>商品詳細取得が25倍高速化、在庫一覧取得が20倍高速化を実現</li>
+<li><strong>Pekko Streamsバッチ処理</strong>: 1日2,000件の在庫受払を効率的に処理</li>
+<li>在庫集計バッチ（区画別・カテゴリ別集計）</li>
+<li>低在庫アラートバッチ（9区画の閾値監視）</li>
+<li>ストリーム処理によるメモリ効率化とバックプレッシャー制御</li>
+<li>バッチスケジューリング（定期実行）</li>
+<li><strong>Gatling負荷テスト</strong>: 430社の取引先からの同時アクセスを検証</li>
+<li>ピーク時の在庫受払処理（1日2,000件）のシナリオ</li>
+<li>在庫引当の競合シナリオ（複数社による同時引き当て）</li>
+<li>パフォーマンスメトリクスの測定（P50/P95/P99レイテンシ）</li>
+<li>ボトルネックの特定と改善</li>
+<li><strong>水平スケーリング</strong>: Pekko Cluster Shardingによる負荷分散</li>
+<li>3拠点への拠点別シャード配置</li>
+<li>アイドルエンティティの自動パッシベーション</li>
+</ul>
+<p><strong>実装例</strong>:</p>
+<ul>
+<li>ProductCacheRepository（Circe JSONシリアライゼーション、TTL管理）</li>
+<li>CachedProductQueryService（Cache-Asideパターン、バッチキャッシュ読み込み）</li>
+<li>InventoryAggregationBatch（Pekko Streamsによるストリーム集計）</li>
+<li>LowStockAlertBatch（閾値監視と重要度判定）</li>
+<li>InventoryLoadTest（Gatlingシミュレーション、3つの負荷テストシナリオ）</li>
+<li>WarehouseShardAllocation（倉庫コードベースのシャーディング）</li>
+</ul>
+<p><strong>キーワード</strong>: Performance Optimization, Redis Caching, Pekko Streams, Gatling Load Testing, Horizontal Scaling, Cache-Aside, Write-Through, Backpressure</p>
+<hr />
+<h3 id="11_1"><a href="part3-11-operations/">第11章：運用とモニタリング</a><a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h3>
+<p>在庫管理システムの安定運用に必要なモニタリング基盤を構築します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li><strong>ビジネスメトリクス</strong>: Prometheus + Grafanaによる可視化</li>
+<li>在庫受払処理レート（1日2,000件の処理状況監視）</li>
+<li>在庫引当成功率/失敗率（区画別・保管条件別、目標95%以上）</li>
+<li>平均処理時間（P50/P95/P99レイテンシ、目標1秒以内）</li>
+<li>区画ごとの稼働率（9区画の使用状況、満杯警告90%）</li>
+<li>商品カテゴリ別の受払状況（食品類・日用品の需給バランス）</li>
+<li>PrometheusメトリクスとPromQLクエリ</li>
+<li>Grafanaダッシュボード設計（リアルタイム可視化）</li>
+<li><strong>在庫監査ログ</strong>: 全ての在庫変動を追跡可能に</li>
+<li>受払履歴テーブル（入庫、出庫、引当、引当解除、調整、移動）</li>
+<li>イベント駆動での受払履歴記録（1日2,000件）</li>
+<li>監査レポート生成（区画別受払集計、在庫差異レポート、カテゴリ別・保管条件別集計）</li>
+<li>不整合の検出と修正（イベントソーシングとRead Modelの整合性チェック、自動修復）</li>
+<li>定期的な整合性チェッカー（1日1回実行）</li>
+<li><strong>アラートと通知</strong>: 早期検知と迅速な対応</li>
+<li>Prometheusアラートルール（低在庫、引当失敗率、区画満杯、API遅延、受払処理遅延）</li>
+<li>Alertmanager設定（重要度別ルーティング、Slack + メール通知）</li>
+<li>カスタムアラート（保管条件不一致、連続引当失敗）</li>
+<li>Slack通知実装（リアルタイムアラート、重要度別の色分け）</li>
+</ul>
+<p><strong>実装例</strong>:</p>
+<ul>
+<li>MetricsCollector（Prometheusメトリクス収集、カウンター、ヒストグラム、ゲージ）</li>
+<li>MetricsRoute（Prometheusスクレイプエンドポイント）</li>
+<li>InventoryHistoryRecorder（受払履歴記録、イベント駆動）</li>
+<li>InventoryAuditReportGenerator（監査レポート生成、差異検出）</li>
+<li>IntegrityChecker（定期的な整合性チェック、自動修復）</li>
+<li>AlertManager（カスタムアラート、重要度判定）</li>
+<li>SlackNotifier（Slack Webhook通知）</li>
+</ul>
+<p><strong>キーワード</strong>: Monitoring, Prometheus, Grafana, Audit Log, Alerting, Metrics, PromQL, Alertmanager, Slack Notification, Integrity Check</p>
+<hr />
+<h3 id="12"><a href="part3-12-advanced-topics/">第12章：高度なトピック</a><a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>在庫管理システムの発展的な機能と将来の拡張について学びます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li><strong>在庫予測</strong>: 機械学習による需要予測と自動発注</li>
+<li>時系列データ分析（日次受払データ集計、曜日パターン分析、季節性検出）</li>
+<li>移動平均の計算（7日間ウィンドウ）</li>
+<li>線形回帰モデルによる需要予測（最小二乗法、信頼区間計算）</li>
+<li>自動発注推奨（発注点計算、安全在庫、リードタイム考慮）</li>
+<li>緊急度判定（Critical/High/Medium/Low）</li>
+<li>自動発注アラート（Slackへの通知）</li>
+<li><strong>マルチテナント対応</strong>: 複数企業での共有利用</li>
+<li>テナント分離戦略（Database/Schema/Shared Schema比較）</li>
+<li>Shared Schema方式の実装（行レベル分離）</li>
+<li>PostgreSQL Row Level Security（RLS）</li>
+<li>テナントコンテキスト管理（ThreadLocal、リクエストスコープ）</li>
+<li>HTTPミドルウェアでのテナント抽出（X-Tenant-IDヘッダー）</li>
+<li>テナント別カスタマイズ（機能制限、設定、リソースリミット）</li>
+<li><strong>グローバル展開</strong>: マルチリージョンデプロイ</li>
+<li>マルチリージョンアーキテクチャ（Asia/Europe/US）</li>
+<li>DynamoDB Global Tables（マルチマスター、自動レプリケーション）</li>
+<li>PostgreSQL Read Replica（非同期レプリケーション）</li>
+<li>リージョン別ルーティング（倉庫コードベース、IPベース）</li>
+<li>レプリケーション遅延対策（リトライ、タイムアウト）</li>
+<li>データの局所性（Data Locality）</li>
+</ul>
+<p><strong>実装例</strong>:</p>
+<ul>
+<li>InventoryTimeSeriesAnalyzer（時系列分析、曜日パターン、季節性）</li>
+<li>DemandForecastModel（線形回帰、移動平均、信頼区間）</li>
+<li>DemandForecastService（予測実行、推奨事項生成）</li>
+<li>AutoPurchaseRecommender（発注推奨、緊急度判定）</li>
+<li>TenantContext（テナントコンテキスト管理）</li>
+<li>TenantMiddleware（HTTPミドルウェア、認証）</li>
+<li>MultiTenantInventoryDao（テナント分離、RLS）</li>
+<li>RegionRouter（リージョンルーティング）</li>
+<li>ReplicationAwareReadModel（レプリケーション遅延対策）</li>
+</ul>
+<p><strong>キーワード</strong>: Inventory Forecasting, Machine Learning, Linear Regression, Auto-Purchase, Multi-tenancy, Row Level Security, Tenant Context, Global Deployment, DynamoDB Global Tables, Region Routing</p>
+<hr />
+<h3 id="13"><a href="part3-13-summary/">第13章：まとめと実践演習</a><a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>第3部で学んだ内容を振り返り、実践演習を通じて理解を深めます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li><strong>学んだことの振り返り</strong>:</li>
+<li>複数集約の設計と実装（Product、Warehouse、WarehouseZone、Inventory、Customer）</li>
+<li>イベントソーシングとCRUD管理のハイブリッドアーキテクチャ（静的マスタはCRUD、動的データはイベントソーシング）</li>
+<li>在庫管理特有の課題と解決策（区画管理、保管条件整合性、競合制御、監査ログ）</li>
+<li>本格的なCQRS/イベントソーシングシステムの構築（商品8,000、取引先430社、1日2,000件の受払、3拠点・9区画）</li>
+<li>技術スタックまとめ（Pekko、DynamoDB、PostgreSQL、Redis、Prometheus、Gatling）</li>
+<li><strong>実践演習</strong>（4つの課題）:</li>
+<li>演習1: 在庫棚卸機能の追加（区画ごとの実地棚卸、差異検出、調整、レポート生成）</li>
+<li>演習2: 区画間自動移動機能（保管条件に基づく自動移動提案、容量考慮、在庫バランス調整）</li>
+<li>演習3: 在庫分析機能（カテゴリ別受払分析、保管条件別回転率分析、区画別稼働率分析）</li>
+<li>演習4: 在庫予測機能の強化（季節変動考慮、曜日パターン考慮、複数モデル比較）</li>
+<li><strong>次のステップ</strong>:</li>
+<li>より複雑なビジネスルールの追加（区画容量管理、温度監視、ロット管理、賞味期限管理）</li>
+<li>他のBounded Contextとの統合（配送管理、仕入管理、注文管理、請求管理）</li>
+<li>プロダクション環境への展開（3拠点分散デプロイ、スケーリング検証、運用体制構築）</li>
+<li>継続的な学習（Apache Pekko、CQRS/ES、DDD、コミュニティ参加）</li>
+</ul>
+<p><strong>演習で学べること</strong>:</p>
+<ul>
+<li>複数の在庫を一括処理する方法</li>
+<li>ドメインロジックの複雑な実装</li>
+<li>ビジネスメトリクスの実装</li>
+<li>時系列分析の高度な手法</li>
+</ul>
+<p><strong>参考資料</strong>:</p>
+<ul>
+<li>Apache Pekko公式ドキュメント</li>
+<li>CQRS Journey（Microsoft）</li>
+<li>Event Sourcing（Martin Fowler）</li>
+<li>Domain-Driven Design（Eric Evans）</li>
+</ul>
+<p><strong>キーワード</strong>: Summary, Practical Exercises, Stock Taking, Inventory Analysis, Turnover Rate, Next Steps, Production Deployment, Bounded Context Integration</p>
+<hr />
+<h2 id="4_3">📚 第4部：受注管理サービスのケーススタディ<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h2>
+<p>第4部では、第3部で構築した在庫管理システムに受注管理機能を追加し、受注管理システムとして完成させます。</p>
+<p><strong>ケーススタディの規模</strong>:</p>
+<ul>
+<li>受注処理: 月間約50,000件の受注(430社の取引先から)</li>
+<li>金額管理: 商品単価、数量ベースの金額計算、税金(標準10%、軽減8%)、割引</li>
+<li>与信管理: 取引先ごとの与信限度額チェック(大口3,000万円、中口500万円、小口100万円)</li>
+<li>分散トランザクション: Sagaパターンによる注文→在庫→与信→確定→出荷の調整</li>
+</ul>
+<p><strong>扱うトピック</strong>:</p>
+<ul>
+<li>見積もりから注文への変換フロー(Quotation集約)</li>
+<li>複数集約間の分散トランザクション(Sagaパターン - Orchestration)</li>
+<li>BigDecimalを使用したMoney値オブジェクト(浮動小数点演算の回避)</li>
+<li>4つの新規集約の実装(Quotation、Order、CreditLimit、Invoice)</li>
+<li>税金計算と端数処理の正確性</li>
+<li>請求管理と入金管理</li>
+<li>返品処理と在庫への戻し入れ</li>
+</ul>
+<hr />
+<h3 id="1-_1"><a href="part4-01-overview.md">第1章：イントロダクション - 受注管理サービスの要件定義</a><a class="headerlink" href="#1-_1" title="Permanent link">&para;</a></h3>
+<p>第4部のケーススタディとして、受注管理サービスの全体像と要件を定義します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>第3部の振り返り(在庫管理システムで実装した内容)</li>
+<li>卸売事業者D社の受注業務(年商150億円、月間50,000件の受注)</li>
+<li>取引先タイプ(大口30社、中口150社、小口250社)</li>
+<li>受注フロー(見積もり作成 → 見積もり承認 → 注文受付 → 与信 → 在庫 → 確定 → 出荷 → 請求 → 入金)</li>
+<li>見積もりから注文への変換、または直接注文の受付</li>
+<li>技術的課題(分散トランザクション、金額計算の整合性、パフォーマンス要件)</li>
+<li>アーキテクチャ上の決定事項(Orchestration型Saga、BigDecimal + Money値オブジェクト、4つの集約)</li>
+</ul>
+<p><strong>キーワード</strong>: Business Requirements, Order Reception Management, Quotation, Credit Management, Saga Pattern, Money Value Object</p>
+<hr />
+<h3 id="2read-model"><a href="part4-02-read-model-schema.md">第2章：Read Modelスキーマの設計</a><a class="headerlink" href="#2read-model" title="Permanent link">&para;</a></h3>
+<p>受注管理システムのRead Model（PostgreSQL）スキーマを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>見積もりテーブル設計（見積もりヘッダー、明細）</li>
+<li>注文テーブル設計（注文ヘッダー、明細、ステータス管理）</li>
+<li>与信テーブル設計（与信限度額、使用額、利用可能額）</li>
+<li>請求テーブル設計（請求ヘッダー、入金管理）</li>
+<li>入金テーブル設計（入金記録、入金方法）</li>
+<li>インデックス戦略とパフォーマンス最適化</li>
+<li>DynamoDBのイベントストア設計（Quotation、Order、CreditLimit、Invoice Events）</li>
+</ul>
+<p><strong>キーワード</strong>: Read Model Schema, PostgreSQL, Flyway, Event Store Design, Indexing Strategy</p>
+<hr />
+<h3 id="3_4"><a href="part4-03-domain-data.md">第3章：受注管理に適したドメインデータ作成</a><a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h3>
+<p>D社の受注業務に基づいたマスタデータとテストデータを作成します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>商品マスタの拡張（商品単価、税区分の追加）</li>
+<li>取引先マスタの拡張（与信限度額、支払条件の追加）</li>
+<li>取引先タイプ別データ（大口30社、中口150社、小口250社）</li>
+<li>注文データシナリオ（月間50,000件のパターン）</li>
+<li>季節変動の考慮（年末繁忙期、夏季閑散期）</li>
+<li>テストデータ投入スクリプト</li>
+</ul>
+<p><strong>キーワード</strong>: Master Data, Test Data, Business Scenarios, Customer Types, Transaction Patterns</p>
+<hr />
+<h3 id="4_4"><a href="part4-04-domain-model/">第4章：受注管理のドメインモデル設計</a><a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h3>
+<p>受注管理の4つの集約（Quotation、Order、CreditLimit、Invoice）のドメインモデルを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Order集約（Order エンティティ、OrderItem 値オブジェクト、OrderStatus）</li>
+<li>Quotation集約（見積もりから注文への変換）</li>
+<li>CreditLimit集約（与信限度額管理、与信枠の引当と解放）</li>
+<li>Invoice集約（請求書発行、入金管理）</li>
+<li>Money値オブジェクト（BigDecimalによる正確な金額計算）</li>
+<li>TaxRate、DiscountRate値オブジェクト</li>
+<li>ドメインイベントの設計</li>
+</ul>
+<p><strong>キーワード</strong>: Domain Model, Aggregate Design, Value Objects, Money Pattern, Domain Events</p>
+<hr />
+<h3 id="5_3"><a href="part4-05-aggregate-implementation.md">第5章：複数集約の実装</a><a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h3>
+<p>4つの集約（Order、CreditLimit、Invoice、Quotation）を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Order集約の実装（コマンド、イベント、ビジネスルール）</li>
+<li>注文金額の計算（数量 × 単価 - 割引 + 税金）</li>
+<li>CreditLimit集約の実装（与信枠の引当、解放、調整）</li>
+<li>Invoice集約の実装（月次締め処理、入金記録、入金照合）</li>
+<li>Quotation集約の実装（見積もり作成、承認、注文変換）</li>
+<li>イベントハンドラーとステータス遷移制御</li>
+</ul>
+<p><strong>キーワード</strong>: Aggregate Implementation, Command Handlers, Event Handlers, Business Rules, State Transition</p>
+<hr />
+<h3 id="6saga_1"><a href="part4-06-saga-implementation.md">第6章：Sagaパターンによる注文プロセスの実装</a><a class="headerlink" href="#6saga_1" title="Permanent link">&para;</a></h3>
+<p>Orchestration型Sagaパターンで注文プロセス全体を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Sagaパターンの基礎（Choreography vs Orchestration）</li>
+<li>注文Sagaの設計（注文作成 → 在庫引当 → 与信チェック → 確定 → 出荷）</li>
+<li>正常フローの実装</li>
+<li>失敗時の補償フロー（在庫解放、与信枠解放、注文キャンセル）</li>
+<li>Saga Orchestratorの実装（Pekko Persistence）</li>
+<li>タイムアウト処理とリトライ戦略</li>
+<li>べき等性の保証</li>
+</ul>
+<p><strong>キーワード</strong>: Saga Pattern, Orchestration, Compensating Transaction, Distributed Transaction, Idempotency</p>
+<hr />
+<h3 id="7_2"><a href="part4-07-money-tax.md">第7章：金額計算と税金処理</a><a class="headerlink" href="#7_2" title="Permanent link">&para;</a></h3>
+<p>BigDecimalを使用した正確な金額計算と税金処理を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>浮動小数点演算の問題（0.1 + 0.2 != 0.3）</li>
+<li>BigDecimalによる正確な10進数演算</li>
+<li>Money値オブジェクトの実装（加算、減算、乗算、丸め処理）</li>
+<li>税率の管理（標準税率10%、軽減税率8%）</li>
+<li>税金計算と端数処理</li>
+<li>割引計算（率による割引、金額による割引）</li>
+<li>金額計算の単体テスト</li>
+</ul>
+<p><strong>キーワード</strong>: BigDecimal, Money Value Object, Tax Calculation, Rounding, Discount Calculation</p>
+<hr />
+<h3 id="8_3"><a href="part4-08-credit-management/">第8章：与信管理の実装</a><a class="headerlink" href="#8_3" title="Permanent link">&para;</a></h3>
+<p>取引先ごとの与信限度額管理と与信チェックプロセスを実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>与信限度額の設定（取引先タイプ別：大口3,000万円、中口500万円、小口100万円）</li>
+<li>与信チェックプロセス（利用可能額の確認）</li>
+<li>与信枠の引当と解放（注文時の引当、キャンセル時の解放）</li>
+<li>与信超過時の処理</li>
+<li>取引実績に基づく与信限度額の自動調整</li>
+<li>与信使用状況のモニタリング</li>
+</ul>
+<p><strong>キーワード</strong>: Credit Management, Credit Limit, Credit Check, Credit Reservation, Credit Monitoring</p>
+<hr />
+<h3 id="9_3"><a href="part4-09-invoice-management.md">第9章：請求管理の実装</a><a class="headerlink" href="#9_3" title="Permanent link">&para;</a></h3>
+<p>月次締め処理、請求書発行、入金管理を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>月次締め処理（確定済み注文の集計）</li>
+<li>請求書の自動生成（取引先別、月別）</li>
+<li>請求金額の計算（注文合計、税金合計）</li>
+<li>入金処理（入金記録、入金方法管理）</li>
+<li>入金照合（請求金額と入金額の突合）</li>
+<li>未入金アラート（入金期限超過の検知）</li>
+<li>入金催促機能</li>
+</ul>
+<p><strong>キーワード</strong>: Invoice Management, Monthly Closing, Payment Recording, Payment Matching, Payment Reminder</p>
+<hr />
+<h3 id="10_3"><a href="part4-10-return-process.md">第10章：返品処理の実装</a><a class="headerlink" href="#10_3" title="Permanent link">&para;</a></h3>
+<p>返品受付から在庫への戻し入れ、返品金額処理までを実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>返品コマンド（注文ID、返品理由、返品明細）</li>
+<li>返品可能期間の検証</li>
+<li>在庫への戻し入れ（返品在庫の検証、在庫増加イベント発行）</li>
+<li>返品金額の計算（元の単価で計算、割引・税金の逆計算）</li>
+<li>返品後の与信枠解放</li>
+<li>返品後の請求金額調整</li>
+<li>返品理由の分析</li>
+</ul>
+<p><strong>キーワード</strong>: Return Process, Return Validation, Inventory Return, Refund Calculation, Credit Release</p>
+<hr />
+<h3 id="11_2"><a href="part4-11-performance-optimization/">第11章：パフォーマンス最適化</a><a class="headerlink" href="#11_2" title="Permanent link">&para;</a></h3>
+<p>注文照会、与信チェック、Sagaの最適化を実施します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>注文照会のキャッシング（注文ステータスのキャッシュ、TTL設定）</li>
+<li>与信チェックの高速化（与信情報のキャッシュ、イベント受信時の無効化）</li>
+<li>Sagaの最適化（ステップの並列化、タイムアウトの調整）</li>
+<li>データベースインデックスの最適化</li>
+<li>GraphQLクエリの最適化（DataLoaderパターン、N+1問題の解決）</li>
+<li>パフォーマンステスト（Gatling）</li>
+</ul>
+<p><strong>キーワード</strong>: Performance Optimization, Caching, Database Indexing, Query Optimization, Load Testing</p>
+<hr />
+<h3 id="12_1"><a href="part4-12-operations-monitoring/">第12章：運用とモニタリング</a><a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h3>
+<p>ビジネスメトリクス、Saga監視、与信管理の監視を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>ビジネスメトリクス（注文処理レート、平均注文金額、与信使用率、請求・入金状況）</li>
+<li>Sagaの監視（Sagaステータスダッシュボード、完了率、失敗率、補償処理発生率）</li>
+<li>与信管理の監視（与信使用率、与信超過検知、与信限度額調整履歴）</li>
+<li>アラート設定（Saga失敗、与信超過、未入金超過）</li>
+<li>ダッシュボードの構築</li>
+<li>ログ分析</li>
+</ul>
+<p><strong>キーワード</strong>: Operations, Monitoring, Business Metrics, Saga Monitoring, Alerting, Dashboard</p>
+<hr />
+<h3 id="13_1"><a href="part4-13-summary-exercises.md">第13章：まとめと実践演習</a><a class="headerlink" href="#13_1" title="Permanent link">&para;</a></h3>
+<p>第4部で学んだ内容をまとめ、実践的な演習課題を提供します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>学んだこと（Sagaパターン、Money値オブジェクト、与信管理、請求管理）</li>
+<li>アーキテクチャ上の決定事項の振り返り</li>
+<li>実践演習1：割引クーポン機能の追加</li>
+<li>実践演習2：複数配送先への分割配送</li>
+<li>実践演習3：定期注文機能の実装</li>
+<li>次のステップ（第5部：発注管理サービスへ）</li>
+</ul>
+<p><strong>キーワード</strong>: Summary, Best Practices, Exercises, Next Steps, Advanced Topics</p>
+<hr />
+<h2 id="5_4">📚 第5部：発注管理サービスのケーススタディ<a class="headerlink" href="#5_4" title="Permanent link">&para;</a></h2>
+<p>第5部では、第3部で構築した在庫管理システムに発注管理機能を追加し、調達プロセス全体をイベントソーシングで実装します。</p>
+<p><strong>ケーススタディの規模</strong>:</p>
+<ul>
+<li>発注処理: 月間約3,000件の発注（200社の仕入先へ）</li>
+<li>入荷検品: 月間約3,000件の入荷検品処理</li>
+<li>仕入先管理: 200社の仕入先の評価・支払条件管理</li>
+<li>支払管理: 3-way matching（発注書・入荷検品・請求書の照合）による支払承認</li>
+<li>年間調達額: 100億円</li>
+</ul>
+<p><strong>扱うトピック</strong>:</p>
+<ul>
+<li>仕入先管理と仕入先評価（Supplier集約）</li>
+<li>発注プロセスと承認ワークフロー（PurchaseOrder集約）</li>
+<li>入荷検品と差異管理（Receiving集約）</li>
+<li>3-way matchingによる支払管理（SupplierPayment集約）</li>
+<li>自動発注推奨機能（在庫レベルに基づく発注提案）</li>
+<li>発注承認Saga（金額に応じた多段階承認）</li>
+<li>入荷検品Saga（入荷→検品→在庫計上→支払）</li>
+</ul>
+<hr />
+<h3 id="1-_2"><a href="part5-01-introduction/">第1章：イントロダクション - 発注管理サービスの全体像</a><a class="headerlink" href="#1-_2" title="Permanent link">&para;</a></h3>
+<p>第5部のケーススタディとして、発注管理サービスの全体像と要件を定義します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>第3部・第4部の振り返り（在庫管理・受注管理）</li>
+<li>D社の調達業務概要（月間3,000件、200社の仕入先、年間100億円）</li>
+<li>発注プロセスフロー（発注申請→承認→発注→入荷→検品→在庫計上→請求照合→支払）</li>
+<li>承認ワークフロー（金額に応じた多段階承認）</li>
+<li>3-way matching（発注書・入荷検品書・請求書の照合）</li>
+<li>技術的課題（在庫との連携、Saga実装、支払管理）</li>
+</ul>
+<p><strong>キーワード</strong>: Procurement Management, Purchase Order, Approval Workflow, 3-way Matching, Supplier Management</p>
+<hr />
+<h3 id="2read-model_1"><a href="part5-02-read-model-schema.md">第2章：Read Modelスキーマの設計</a><a class="headerlink" href="#2read-model_1" title="Permanent link">&para;</a></h3>
+<p>発注管理システムのRead Model（PostgreSQL）スキーマを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>仕入先テーブル設計（仕入先基本情報、評価指標）</li>
+<li>発注書テーブル設計（ヘッダー、明細、承認履歴）</li>
+<li>入荷検品テーブル設計（入荷予定、検品結果、差異管理）</li>
+<li>請求書テーブル設計（請求ヘッダー、請求明細）</li>
+<li>支払テーブル設計（支払予定、支払実績）</li>
+<li>3-way matching結果テーブル（照合結果、差異詳細）</li>
+<li>インデックス戦略とパフォーマンス最適化</li>
+</ul>
+<p><strong>キーワード</strong>: Read Model Schema, PostgreSQL, Flyway, Database Design, Indexing Strategy</p>
+<hr />
+<h3 id="3_5"><a href="part5-03-domain-data.md">第3章：発注管理に適したドメインデータ作成</a><a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h3>
+<p>D社の調達業務に基づいたマスタデータとテストデータを作成します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>仕入先マスタ（200社、業種別分類、取引条件）</li>
+<li>発注データサンプル（月間3,000件、金額分布）</li>
+<li>入荷検品データ（合格率、不合格品、差異パターン）</li>
+<li>請求書データ（支払条件、締め日パターン）</li>
+<li>Flywayによるマスタデータ投入</li>
+<li>シードデータSQL</li>
+</ul>
+<p><strong>キーワード</strong>: Master Data, Supplier Data, Purchase Order Data, Test Data, Flyway Migration</p>
+<hr />
+<h3 id="4_5"><a href="part5-04-domain-model/">第4章：ドメインモデルの設計</a><a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h3>
+<p>DDDに基づき、発注管理システムのドメインモデルを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Bounded Contextの識別（仕入先管理、発注管理、入荷管理、支払管理）</li>
+<li>集約の設計（Supplier、PurchaseOrder、Receiving、SupplierPayment）</li>
+<li>ドメインイベント設計（発注承認、入荷完了、支払承認）</li>
+<li>コンテキストマップと在庫管理との統合</li>
+<li>値オブジェクト（SupplierId、OrderNumber、InvoiceNumber）</li>
+</ul>
+<p><strong>キーワード</strong>: DDD, Bounded Context, Aggregate Design, Domain Event, Context Map</p>
+<hr />
+<h3 id="5_5"><a href="part5-05-aggregate-implementation/">第5章：複数集約の実装</a><a class="headerlink" href="#5_5" title="Permanent link">&para;</a></h3>
+<p>Pekko Persistenceを使用して、発注管理の複数集約を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>PurchaseOrderActor実装（発注申請→承認→発注）</li>
+<li>承認ワークフロー（金額別承認者、多段階承認）</li>
+<li>ReceivingActor実装（入荷予定→検品→在庫反映）</li>
+<li>検品処理（合格品・不合格品の分離）</li>
+<li>SupplierPaymentActor実装（請求受領→照合→支払）</li>
+<li>イベント駆動在庫連携（入荷完了→在庫増加）</li>
+</ul>
+<p><strong>キーワード</strong>: Pekko Persistence, EventSourcedBehavior, Purchase Order Aggregate, Receiving Aggregate, Payment Aggregate</p>
+<hr />
+<h3 id="6saga_2"><a href="part5-06-saga-pattern/">第6章：Sagaパターンによる発注プロセスの実装</a><a class="headerlink" href="#6saga_2" title="Permanent link">&para;</a></h3>
+<p>Sagaパターンで発注プロセス全体を管理します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>PurchaseOrderApprovalSaga（承認→発注→仕入先通知）</li>
+<li>補償トランザクション（承認取り消し、発注キャンセル）</li>
+<li>ReceivingInspectionSaga（入荷→検品→在庫更新）</li>
+<li>PaymentSaga（請求→照合→支払実行）</li>
+<li>リトライとエスカレーション（支払失敗時の再試行）</li>
+<li>Sagaステート管理とイベント駆動遷移</li>
+</ul>
+<p><strong>キーワード</strong>: Saga Pattern, Orchestration, Compensating Transaction, Purchase Order Saga, Payment Saga</p>
+<hr />
+<h3 id="7_3"><a href="part5-07-inventory-integration/">第7章：在庫管理との連携</a><a class="headerlink" href="#7_3" title="Permanent link">&para;</a></h3>
+<p>在庫管理Bounded Contextとの統合を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>イベント駆動在庫連携（入荷完了→在庫増加イベント）</li>
+<li>Pekko Persistence Queryによるイベント購読</li>
+<li>冪等性の保証（重複イベント検出）</li>
+<li>発注残管理（発注数量 - 入荷数量）</li>
+<li>発注点管理と自動発注（EOQ計算、安全在庫）</li>
+<li>需要予測（移動平均、線形回帰、季節変動）</li>
+<li>クロスコンテキスト整合性チェック</li>
+</ul>
+<p><strong>キーワード</strong>: Bounded Context Integration, Event-Driven, Pekko Persistence Query, Idempotency, Reorder Point, Demand Forecasting</p>
+<hr />
+<h3 id="8_4"><a href="part5-08-performance-optimization/">第8章：パフォーマンス最適化</a><a class="headerlink" href="#8_4" title="Permanent link">&para;</a></h3>
+<p>発注管理システムのパフォーマンス最適化を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Redisキャッシング（承認ルールキャッシュ、仕入先情報）</li>
+<li>Pekko Streamsバッチ処理（月次3-way matchingバッチ）</li>
+<li>ストリーム処理（スロットリング、バックプレッシャー）</li>
+<li>データベースインデックス最適化</li>
+<li>パフォーマンスメトリクス（処理時間、スループット）</li>
+</ul>
+<p><strong>キーワード</strong>: Performance Optimization, Redis Caching, Pekko Streams, Batch Processing, Throttling, Backpressure</p>
+<hr />
+<h3 id="9_4"><a href="part5-09-operations-monitoring/">第9章：運用とモニタリング</a><a class="headerlink" href="#9_4" title="Permanent link">&para;</a></h3>
+<p>発注管理システムの運用監視基盤を構築します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>ビジネスメトリクス（月間発注件数、目標達成率）</li>
+<li>承認プロセスメトリクス（承認待ち件数、承認時間）</li>
+<li>入荷検品メトリクス（検品完了率、不合格率）</li>
+<li>支払メトリクス（支払金額、3-way matching成功率）</li>
+<li>Saga監視（長時間実行Saga検出、失敗率）</li>
+<li>アラート管理（遅延検知、エスカレーション）</li>
+<li>仕入先評価レポート（納期遵守率、品質スコア）</li>
+</ul>
+<p><strong>キーワード</strong>: Monitoring, Business Metrics, Prometheus, Grafana, Saga Monitoring, Supplier Evaluation</p>
+<hr />
+<h3 id="10_4"><a href="part5-10-advanced-topics/">第10章：高度なトピック</a><a class="headerlink" href="#10_4" title="Permanent link">&para;</a></h3>
+<p>発注管理の発展的な機能を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>高度な需要予測（指数平滑法、Holt-Winters法、ARIMA）</li>
+<li>アンサンブル予測（複数手法の統合）</li>
+<li>仕入先選定アルゴリズム（多基準評価、スコアリング）</li>
+<li>分散発注戦略（リスク分散、集中度管理）</li>
+<li>複数通貨対応（MultiCurrencyMoney、為替レート管理）</li>
+<li>為替ヘッジ戦略（先渡契約、通貨オプション）</li>
+<li>国際調達（輸入税計算、CIF価額、関税）</li>
+</ul>
+<p><strong>キーワード</strong>: Demand Forecasting, Exponential Smoothing, Holt-Winters, Supplier Selection, Multi-Currency, Forex Hedging, International Tax</p>
+<hr />
+<h3 id="11_3"><a href="part5-11-summary-exercises/">第11章：まとめと実践演習</a><a class="headerlink" href="#11_3" title="Permanent link">&para;</a></h3>
+<p>第5部で学んだ内容を振り返り、実践演習を通じて理解を深めます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li><strong>学んだことの振り返り</strong>:</li>
+<li>発注管理の実装（承認ワークフロー、入荷検収、3-way matching）</li>
+<li>在庫との連携（イベント駆動、発注点管理、自動発注）</li>
+<li>Sagaパターン（承認Saga、検収Saga、支払Saga）</li>
+<li>パフォーマンス最適化（Redis、Pekko Streams、インデックス）</li>
+<li>運用監視（ビジネスメトリクス、Saga監視、仕入先評価）</li>
+<li>高度なトピック（需要予測、仕入先選定、複数通貨）</li>
+<li><strong>実践演習</strong>（4つの課題）:</li>
+<li>演習1: 発注承認ワークフローの拡張（複数承認者、承認履歴、動的ルート）</li>
+<li>演習2: 在庫最適化機能（発注点自動調整、安全在庫、ABC分析）</li>
+<li>演習3: 仕入先評価システム（納期遵守率、品質スコア、総合評価ダッシュボード）</li>
+<li>演習4: グローバル調達機能（複数通貨、為替ヘッジ、国際輸送トラッキング）</li>
+<li><strong>次のステップ</strong>:</li>
+<li>より複雑なビジネスルール（ロット管理、有効期限、返品処理）</li>
+<li>他Bounded Contextとの統合（生産計画、品質管理、会計管理）</li>
+<li>サプライチェーン最適化（可視化、ボトルネック分析、リードタイム短縮）</li>
+</ul>
+<p><strong>演習で学べること</strong>:</p>
+<ul>
+<li>複数承認者フローの実装</li>
+<li>ABC分析と発注戦略</li>
+<li>仕入先パフォーマンス評価</li>
+<li>国際調達と通関処理</li>
+</ul>
+<p><strong>キーワード</strong>: Summary, Practical Exercises, Approval Workflow, ABC Analysis, Supplier Evaluation, Global Procurement, Next Steps</p>
+<hr />
+<h2 id="6_2">📚 第6部：会計サービスのケーススタディ<a class="headerlink" href="#6_2" title="Permanent link">&para;</a></h2>
+<p>第6部では、イベント駆動による会計処理を実装し、ビジネスイベントから仕訳を自動生成します。</p>
+<p><strong>ケーススタディの規模</strong>:</p>
+<ul>
+<li>仕訳処理: 月間約66,000件の仕訳（受注・発注・入金・支払から自動生成）</li>
+<li>年間売上: 150億円</li>
+<li>月次決算: 毎月1回の自動決算処理</li>
+<li>年次決算: 減価償却、棚卸資産評価、税務申告</li>
+<li>勘定科目: 500科目</li>
+</ul>
+<p><strong>扱うトピック</strong>:</p>
+<ul>
+<li>勘定科目体系管理（ChartOfAccounts集約）</li>
+<li>イベント駆動仕訳生成（JournalEntry集約）</li>
+<li>総勘定元帳管理（GeneralLedger集約）</li>
+<li>財務諸表作成（FinancialStatement集約）</li>
+<li>売掛金・買掛金管理（AccountsReceivable集約）</li>
+<li>月次決算Saga（試算表→損益計算書→貸借対照表）</li>
+<li>年次決算処理（減価償却、繰延税金、剰余金配当）</li>
+<li>財務分析と経営指標（ROA、ROE、流動比率など）</li>
+</ul>
+<hr />
+<h3 id="1-_3"><a href="part6-01-introduction/">第1章：イントロダクション - 会計サービスの要件定義</a><a class="headerlink" href="#1-_3" title="Permanent link">&para;</a></h3>
+<p>第6部のケーススタディとして、会計サービスの全体像と要件を定義します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>D社の事業概要（年商150億円、月間66,000件の仕訳）</li>
+<li>会計処理フロー（イベント受信→仕訳生成→総勘定元帳→試算表→財務諸表）</li>
+<li>イベント駆動会計の利点（自動仕訳生成、監査証跡、リアルタイム集計）</li>
+<li>8つのステップ（受注→仕訳→元帳→試算表→決算整理→財務諸表→分析→決算）</li>
+<li>パフォーマンス要件（仕訳生成100ms、試算表5秒、財務諸表10秒）</li>
+</ul>
+<p><strong>キーワード</strong>: Accounting Service, Event-Driven Accounting, Journal Entry, General Ledger, Financial Statements</p>
+<hr />
+<h3 id="2read-model_2"><a href="part6-02-read-model-schema/">第2章：Read Modelスキーマの設計</a><a class="headerlink" href="#2read-model_2" title="Permanent link">&para;</a></h3>
+<p>会計システムのRead Model（PostgreSQL）とイベントストア（DynamoDB）のスキーマを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>勘定科目マスタ（500科目の階層構造）</li>
+<li>仕訳テーブル（月間66,000件の仕訳データ）</li>
+<li>総勘定元帳テーブル（年度別パーティショニング）</li>
+<li>補助元帳テーブル（売掛金・買掛金の明細管理）</li>
+<li>試算表・財務諸表テーブル（集計結果のキャッシュ）</li>
+<li>DynamoDBイベントテーブル（会計イベントの永続化）</li>
+<li>インデックス戦略とクエリ最適化</li>
+</ul>
+<p><strong>キーワード</strong>: Read Model Schema, Chart of Accounts, Journal Entry, General Ledger, Trial Balance, Financial Statements</p>
+<hr />
+<h3 id="3_6"><a href="part6-03-domain-data/">第3章：会計に適したドメインデータ作成</a><a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h3>
+<p>D社の会計データに基づいたマスタデータとテストデータを作成します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>勘定科目体系（資産150、負債80、純資産20、収益100、費用150）</li>
+<li>期首残高データ（FY2024開始時の貸借対照表）</li>
+<li>イベント駆動仕訳生成（受注→売上仕訳、発注→仕入仕訳）</li>
+<li>月次仕訳サンプル（約5,500件/月）</li>
+<li>Flywayマイグレーションとシードデータ</li>
+</ul>
+<p><strong>キーワード</strong>: Chart of Accounts, Opening Balance, Event-Driven Journal Entry, Seed Data</p>
+<hr />
+<h3 id="4_6"><a href="part6-04-domain-model/">第4章：ドメインモデルの設計</a><a class="headerlink" href="#4_6" title="Permanent link">&para;</a></h3>
+<p>DDDに基づき、会計システムのドメインモデルを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>5つの主要集約（JournalEntry、GeneralLedger、FinancialStatement、AccountsReceivable、AccountsPayable）</li>
+<li>ドメインイベント設計（仕訳計上、元帳転記、決算整理）</li>
+<li>値オブジェクト（AccountCode、DebitCredit、Money、FiscalPeriod）</li>
+<li>ビジネスルール（借方＝貸方、勘定科目検証、承認ワークフロー）</li>
+<li>コンテキストマップ（在庫・受注・発注との統合）</li>
+</ul>
+<p><strong>キーワード</strong>: DDD, Aggregate Design, Journal Entry, General Ledger, Value Object, Business Rules</p>
+<hr />
+<h3 id="5_6"><a href="part6-05-aggregate-implementation/">第5章：複数集約の実装</a><a class="headerlink" href="#5_6" title="Permanent link">&para;</a></h3>
+<p>Pekko Persistenceを使用して、会計システムの複数集約を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>JournalEntryActorの実装（仕訳計上、承認、取消）</li>
+<li>仕訳バリデーション（借方＝貸方、勘定科目存在確認）</li>
+<li>承認ワークフロー（100万円以上は承認必須）</li>
+<li>GeneralLedgerActorの実装（元帳転記、残高計算）</li>
+<li>イベントハンドラとステート管理</li>
+<li>ユニットテスト（ScalaTest + Pekko TestKit）</li>
+</ul>
+<p><strong>キーワード</strong>: Pekko Persistence, EventSourcedBehavior, Journal Entry Aggregate, General Ledger, Approval Workflow</p>
+<hr />
+<h3 id="6_3"><a href="part6-06-event-driven-accounting/">第6章：イベント駆動会計処理</a><a class="headerlink" href="#6_3" title="Permanent link">&para;</a></h3>
+<p>ビジネスイベントから仕訳を自動生成するイベント駆動会計を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>ビジネスイベント購読（OrderConfirmed、PurchaseOrderReceived、PaymentCompleted）</li>
+<li>仕訳自動生成ルール（売上仕訳、仕入仕訳、入金仕訳、支払仕訳）</li>
+<li>冪等性の保証（イベントIDによる重複検出）</li>
+<li>監査証跡（全仕訳とイベントの紐付け）</li>
+<li>統合テスト（E2Eフロー検証）</li>
+</ul>
+<p><strong>キーワード</strong>: Event-Driven Accounting, Automatic Journal Entry, Idempotency, Audit Trail, Integration Test</p>
+<hr />
+<h3 id="7_4"><a href="part6-07-closing-process/">第7章：決算処理の実装</a><a class="headerlink" href="#7_4" title="Permanent link">&para;</a></h3>
+<p>月次決算と年次決算のプロセスをSagaパターンで実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>MonthlyClosingSagaの実装（7ステップの月次決算）</li>
+<li>AnnualClosingSagaの実装（12ステップの年次決算）</li>
+<li>減価償却計算（定額法、定率法）</li>
+<li>決算整理仕訳（売上原価算定、減価償却、引当金）</li>
+<li>期末棚卸と評価（先入先出法、移動平均法）</li>
+<li>繰越処理（次年度への残高繰越）</li>
+</ul>
+<p><strong>キーワード</strong>: Closing Process, Monthly Closing Saga, Annual Closing Saga, Depreciation, Adjusting Entry</p>
+<hr />
+<h3 id="8_5"><a href="part6-08-financial-analysis/">第8章：財務分析機能</a><a class="headerlink" href="#8_5" title="Permanent link">&para;</a></h3>
+<p>財務諸表から経営指標を算出し、財務分析を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>収益性指標（売上高総利益率、営業利益率、ROA、ROE）</li>
+<li>安全性指標（流動比率、当座比率、自己資本比率）</li>
+<li>効率性指標（総資産回転率、売上債権回転率、棚卸資産回転率）</li>
+<li>予実管理（予算登録、実績比較、差異分析、着地予想）</li>
+<li>予測サービス（移動平均、線形回帰による売上予測）</li>
+<li>GraphQL APIによる分析データ公開</li>
+</ul>
+<p><strong>キーワード</strong>: Financial Analysis, Profitability Indicators, Safety Indicators, Efficiency Indicators, Budget vs Actual, Forecasting</p>
+<hr />
+<h3 id="9_5"><a href="part6-09-performance-optimization/">第9章：パフォーマンス最適化</a><a class="headerlink" href="#9_5" title="Permanent link">&para;</a></h3>
+<p>会計システムのパフォーマンス最適化を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Pekko Streamsによる仕訳生成バッチ（日次2,200件を10倍高速化）</li>
+<li>Materialized Viewによる試算表高速化（60倍高速化）</li>
+<li>PostgreSQLパーティショニング（年度別テーブル分割で5倍高速化）</li>
+<li>Redisキャッシング（勘定科目マスタ、残高情報）</li>
+<li>インデックス最適化（勘定科目、会計期間、仕訳番号）</li>
+<li>パフォーマンスメトリクス（Prometheus + Grafana）</li>
+</ul>
+<p><strong>キーワード</strong>: Performance Optimization, Pekko Streams, Materialized View, Partitioning, Redis Caching</p>
+<hr />
+<h3 id="10_5"><a href="part6-10-operations-monitoring/">第10章：運用とモニタリング</a><a class="headerlink" href="#10_5" title="Permanent link">&para;</a></h3>
+<p>会計システムの運用監視基盤を構築します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>ビジネスメトリクス（月間仕訳件数、承認率、エラー率）</li>
+<li>決算処理時間（月次決算30分以内、試算表5秒以内）</li>
+<li>債権債務状況（売掛金・買掛金残高、エージング分析）</li>
+<li>監査証跡（全イベント履歴、仕訳とトランザクションの紐付け）</li>
+<li>内部統制（職務分掌、アクセス制御、決算後修正制限）</li>
+<li>アラート管理（仕訳エラー、承認遅延、決算処理遅延）</li>
+</ul>
+<p><strong>キーワード</strong>: Monitoring, Business Metrics, Audit Trail, Internal Control, Alerting</p>
+<hr />
+<h3 id="11_4"><a href="part6-11-advanced-topics/">第11章：高度なトピック</a><a class="headerlink" href="#11_4" title="Permanent link">&para;</a></h3>
+<p>会計システムの発展的な機能を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>複数通貨会計（外貨建取引、TTM/TTS/TTB為替レート、期末評価替え）</li>
+<li>連結会計（子会社財務諸表合算、内部取引相殺消去、非支配株主持分）</li>
+<li>管理会計（部門別損益、プロジェクト別損益、部門間配賦）</li>
+<li>セグメント別財務諸表（事業部別P/L、地域別売上分析）</li>
+<li>キャッシュフロー計算書（間接法による作成）</li>
+<li>税効果会計（繰延税金資産・負債の計算）</li>
+</ul>
+<p><strong>キーワード</strong>: Multi-Currency Accounting, Consolidated Accounting, Management Accounting, Segment Reporting, Cash Flow Statement</p>
+<hr />
+<h3 id="12_2"><a href="part6-12-summary-exercises/">第12章：まとめと実践演習</a><a class="headerlink" href="#12_2" title="Permanent link">&para;</a></h3>
+<p>第6部で学んだ内容を振り返り、実践演習を通じて理解を深めます。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li><strong>学んだことの振り返り</strong>:</li>
+<li>イベント駆動会計（ビジネスイベントから仕訳自動生成）</li>
+<li>財務諸表作成（損益計算書、貸借対照表、キャッシュフロー計算書）</li>
+<li>決算処理（月次決算、年次決算、減価償却、棚卸資産評価）</li>
+<li>債権債務管理（売掛金・買掛金のエージング分析、延滞管理）</li>
+<li>パフォーマンス最適化（10-250倍の高速化達成）</li>
+<li><strong>実践演習</strong>（4つの課題）:</li>
+<li>演習1: 消費税申告データ作成（課税売上集計、仮受消費税・仮払消費税計算）</li>
+<li>演習2: キャッシュフロー計算書作成（間接法による営業・投資・財務CF）</li>
+<li>演習3: 経営ダッシュボード実装（GraphQL API、リアルタイム経営指標）</li>
+<li>演習4: 予実管理機能強化（詳細な差異分析、予測アルゴリズム改善）</li>
+<li><strong>次のステップ</strong>:</li>
+<li>より高度な会計処理（リース会計、税効果会計、退職給付会計）</li>
+<li>他Bounded Contextとの統合（人事給与、固定資産管理、予算管理）</li>
+<li>BI・データ分析（OLAP、経営ダッシュボード、予測分析）</li>
+</ul>
+<p><strong>演習で学べること</strong>:</p>
+<ul>
+<li>税務申告データの作成</li>
+<li>キャッシュフロー分析</li>
+<li>経営ダッシュボードの実装</li>
+<li>予実管理と予測</li>
+</ul>
+<p><strong>キーワード</strong>: Summary, Practical Exercises, Consumption Tax Return, Cash Flow Statement, Management Dashboard, Budget Management</p>
+<hr />
+<h2 id="7_5">📚 第7部：共用データ管理サービスのケーススタディ<a class="headerlink" href="#7_5" title="Permanent link">&para;</a></h2>
+<p>第7部では、複数のBounded Contextで共有されるマスターデータ（商品、顧客、仕入先、勘定科目など）を一元管理する<strong>共用データ管理サービス（Shared Data Management Service）</strong>をイベントソーシングとCQRSパターンで実装します。</p>
+<p><strong>ケーススタディの規模</strong>:</p>
+<ul>
+<li>商品数: 5,000種類（SKU）</li>
+<li>顧客数: 430社（月間50,000件の受注）</li>
+<li>仕入先数: 200社（月間3,000件の発注）</li>
+<li>勘定科目数: 500科目</li>
+<li>月間マスター変更: 約800件（商品情報、価格改定、取引先情報など）</li>
+</ul>
+<p><strong>扱うトピック</strong>:</p>
+<ul>
+<li>マスターデータのイベントソーシング（全変更履歴の追跡、時点復元）</li>
+<li>イベント駆動マスターデータ同期（Single Source of Truth、結果整合性）</li>
+<li>データガバナンス（変更承認ワークフロー、データ品質管理）</li>
+<li>GraphQL API（柔軟なクエリ、DataLoaderによるN+1問題解決）</li>
+<li>パフォーマンス最適化（3層キャッシュ、Materialized View）</li>
+<li>運用とモニタリング（同期状況監視、データ品質メトリクス）</li>
+</ul>
+<hr />
+<h3 id="1-_4"><a href="part7-01-introduction/">第1章：イントロダクション - 共用データ管理サービスの概要</a><a class="headerlink" href="#1-_4" title="Permanent link">&para;</a></h3>
+<p>複数のBounded Contextで共有されるマスターデータ管理の課題と解決策を説明します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>マスターデータ管理の課題（データ分散、整合性欠如、変更伝播の困難）</li>
+<li>イベントソーシングによるマスターデータ管理（Single Source of Truth、完全な変更履歴）</li>
+<li>Bounded Context間の連携（在庫管理、受注管理、発注管理、会計サービス）</li>
+<li>D社のマスターデータ管理要件（商品5,000 SKU、月間800件の変更、承認ワークフロー）</li>
+</ul>
+<p><strong>キーワード</strong>: Master Data Management, Event Sourcing, Single Source of Truth, Bounded Context Integration</p>
+<hr />
+<h3 id="2read-model_3"><a href="part7-02-read-model-schema/">第2章：Read Modelスキーマの設計</a><a class="headerlink" href="#2read-model_3" title="Permanent link">&para;</a></h3>
+<p>共用データ管理システムのRead Model（PostgreSQL）スキーマを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>企業マスタ設計（自社・取引先企業情報）</li>
+<li>商品マスタ設計（商品情報、価格履歴、有効期間管理）</li>
+<li>勘定科目マスタ設計（階層構造、科目区分、補助科目）</li>
+<li>部門・社員マスタ設計</li>
+<li>コードマスタ設計（税率、支払条件、配送方法）</li>
+<li>DynamoDBイベントストア設計（Product Events、AccountSubject Events）</li>
+</ul>
+<p><strong>キーワード</strong>: Read Model Schema, Master Data, Valid Period, Version Control, PostgreSQL, DynamoDB</p>
+<hr />
+<h3 id="3_7"><a href="part7-03-domain-data/">第3章：共用データ管理に適したドメインデータ作成</a><a class="headerlink" href="#3_7" title="Permanent link">&para;</a></h3>
+<p>D社のマスターデータに基づいたテストデータを作成します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>企業マスタデータ（D社および取引先430社、仕入先200社）</li>
+<li>商品マスタデータ（5,000 SKU、カテゴリ分類、価格情報）</li>
+<li>勘定科目マスタデータ（500科目の階層構造）</li>
+<li>コードマスタデータ（税率、支払条件、配送方法）</li>
+<li>変更履歴データ（月間800件のマスター変更パターン）</li>
+<li>Flywayマイグレーションとシードデータ</li>
+</ul>
+<p><strong>キーワード</strong>: Master Data, Test Data, Seed Data, Flyway Migration, Business Context</p>
+<hr />
+<h3 id="4_7"><a href="part7-04-domain-model/">第4章：ドメインモデルの設計</a><a class="headerlink" href="#4_7" title="Permanent link">&para;</a></h3>
+<p>DDDに基づき、共用データ管理システムのドメインモデルを設計します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>Product集約（商品情報、価格履歴、有効期間管理）</li>
+<li>AccountSubject集約（勘定科目、階層構造、科目区分）</li>
+<li>CodeMaster集約（共通コード管理）</li>
+<li>マスターデータのライフサイクル（下書き→承認待ち→有効→停止→廃止）</li>
+<li>ValidPeriod値オブジェクト（有効期間管理、重複チェック）</li>
+<li>ドメインイベント設計（ProductCreated、ProductPriceChanged、AccountSubjectCreated）</li>
+</ul>
+<p><strong>キーワード</strong>: DDD, Aggregate Design, Value Object, Domain Event, Lifecycle Management, Valid Period</p>
+<hr />
+<h3 id="5_7"><a href="part7-05-aggregate-implementation/">第5章：複数集約の実装</a><a class="headerlink" href="#5_7" title="Permanent link">&para;</a></h3>
+<p>Pekko Persistenceを使用して、マスターデータ管理の複数集約を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>ProductActorの実装（商品作成、価格変更、情報更新）</li>
+<li>ビジネスルール（商品コード一意性、価格検証、有効期間重複チェック）</li>
+<li>AccountSubjectActorの実装（勘定科目作成、階層構造管理）</li>
+<li>階層構造の整合性検証（親勘定科目の同一種別チェック）</li>
+<li>CodeMasterActorの実装（コード追加、更新、無効化）</li>
+<li>イベントハンドラとステート管理</li>
+</ul>
+<p><strong>キーワード</strong>: Pekko Persistence, EventSourcedBehavior, Product Aggregate, Account Subject Aggregate, Business Rules</p>
+<hr />
+<h3 id="6_4"><a href="part7-06-master-data-integration/">第6章：イベント駆動マスターデータ同期</a><a class="headerlink" href="#6_4" title="Permanent link">&para;</a></h3>
+<p>イベント駆動によるマスターデータの各Bounded Contextへの同期を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>マスターデータ変更イベントの発行（ProductCreated、ProductPriceChanged）</li>
+<li>他のBounded Contextでのイベント購読（在庫管理、受注管理、会計サービス）</li>
+<li>Materialized Viewによる参照データ最適化</li>
+<li>結果整合性の保証（イベント順序保証、冪等性、リトライ）</li>
+<li>Pekko Cluster Pub/Subによるイベント配信</li>
+<li>同期遅延の可視化</li>
+</ul>
+<p><strong>キーワード</strong>: Event-Driven Synchronization, Eventual Consistency, Materialized View, Idempotency, Pekko Pub/Sub</p>
+<hr />
+<h3 id="7_6"><a href="part7-07-approval-workflow/">第7章：マスターデータ変更承認ワークフロー</a><a class="headerlink" href="#7_6" title="Permanent link">&para;</a></h3>
+<p>重要なマスターデータ変更に対する承認ワークフローをSagaパターンで実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>承認が必要な変更の定義（価格変更、勘定科目変更）</li>
+<li>変更申請データモデル（ChangeRequest集約）</li>
+<li>PriceChangeApprovalSagaの実装（申請→通知→承認待ち→承認/却下→反映）</li>
+<li>承認者への通知機能（メール、Slack）</li>
+<li>却下時の処理（理由記録、申請者通知）</li>
+<li>タイムアウト処理（一定期間未承認の場合のエスカレーション）</li>
+</ul>
+<p><strong>キーワード</strong>: Approval Workflow, Saga Pattern, Change Request, Notification, Escalation</p>
+<hr />
+<h3 id="8_6"><a href="part7-08-summary-and-practice/">第8章：まとめと実践課題</a><a class="headerlink" href="#8_6" title="Permanent link">&para;</a></h3>
+<p>第7部前半（第1章〜第7章）で学んだ内容を振り返り、実践課題を提示します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>マスターデータのイベントソーシングの振り返り</li>
+<li>イベント駆動同期パターンの理解</li>
+<li>承認ワークフローの実装</li>
+<li>実践課題（データ品質チェック機能の追加、GraphQL APIの基本実装）</li>
+</ul>
+<p><strong>キーワード</strong>: Summary, Practical Exercises, Event Sourcing, Approval Workflow</p>
+<hr />
+<h3 id="9graphql-api"><a href="part7-09-graphql-api/">第9章：GraphQL APIの実装</a><a class="headerlink" href="#9graphql-api" title="Permanent link">&para;</a></h3>
+<p>Sangria GraphQLを使用した柔軟なマスターデータAPIを実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>商品マスターAPI（Product Schema、Query、Mutation）</li>
+<li>勘定科目マスターAPI（AccountSubject Schema、階層構造クエリ）</li>
+<li>変更申請API（ChangeRequest Schema、承認/却下）</li>
+<li>DataLoaderによるN+1問題解決（バッチクエリ、100倍高速化）</li>
+<li>ページング実装（Relay Cursor Connections仕様）</li>
+<li>フィルタリングとソート</li>
+<li>Pekko HTTP統合とGraphQL Playground</li>
+</ul>
+<p><strong>キーワード</strong>: GraphQL, Sangria, DataLoader, N+1 Problem, Relay Connections, Pekko HTTP</p>
+<hr />
+<h3 id="10_6"><a href="part7-10-performance-optimization/">第10章：パフォーマンス最適化</a><a class="headerlink" href="#10_6" title="Permanent link">&para;</a></h3>
+<p>マスターデータ参照の高速化とスケーラビリティ向上を実装します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>3層キャッシング戦略（Caffeine + Redis + PostgreSQL）</li>
+<li>インメモリキャッシュ（Caffeine、ヒット率80%、1ms）</li>
+<li>分散キャッシュ（Redis、ヒット率15%、10ms）</li>
+<li>データベース（PostgreSQL、5%、100ms）</li>
+<li>イベント駆動キャッシュ無効化</li>
+<li>Materialized Viewによるクエリ最適化（有効商品と価格のView）</li>
+<li>インデックス戦略（商品コード、有効期間、階層構造）</li>
+<li>Gatling負荷テスト（5,000商品、月間800件の変更、430社同時アクセス）</li>
+</ul>
+<p><strong>キーワード</strong>: Performance Optimization, Multi-Level Caching, Caffeine, Redis, Materialized View, Indexing, Gatling</p>
+<hr />
+<h3 id="11_5"><a href="part7-11-operations-monitoring/">第11章：運用とモニタリング</a><a class="headerlink" href="#11_5" title="Permanent link">&para;</a></h3>
+<p>マスターデータ管理の安定運用に必要なモニタリング基盤を構築します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li>ビジネスメトリクス（商品マスター総数5,000、月間変更800件、承認状況）</li>
+<li>データ品質メトリクス（完全性スコア、重複データ検出、参照整合性エラー）</li>
+<li>同期状況モニタリング（イベント処理遅延、未処理イベント件数、各コンテキスト同期状態）</li>
+<li>Grafanaダッシュボード（マスターデータ統計、変更頻度、データ品質、同期状況）</li>
+<li>Prometheusアラートルール（同期遅延、データ品質低下、承認遅延）</li>
+<li>データ整合性チェッカー（定期的なマスターとイベントストアの整合性検証）</li>
+</ul>
+<p><strong>キーワード</strong>: Monitoring, Business Metrics, Data Quality, Prometheus, Grafana, Alerting, Integrity Check</p>
+<hr />
+<h3 id="12_3"><a href="part7-12-summary-and-exercises/">第12章：まとめと演習課題</a><a class="headerlink" href="#12_3" title="Permanent link">&para;</a></h3>
+<p>第7部で学んだ内容を総括し、実践的な演習課題を提供します。</p>
+<p><strong>主な内容</strong>:</p>
+<ul>
+<li><strong>学んだこと</strong>:</li>
+<li>マスターデータのイベントソーシング（全変更履歴、時点復元、監査証跡）</li>
+<li>イベント駆動マスターデータ同期（Single Source of Truth、結果整合性、Materialized View）</li>
+<li>データガバナンス（変更承認ワークフロー、データ品質管理、アクセス制御）</li>
+<li>GraphQL API（柔軟なクエリ、DataLoader、ページング）</li>
+<li>パフォーマンス最適化（3層キャッシュ、Materialized View、インデックス）</li>
+<li>運用監視（ビジネスメトリクス、データ品質、同期状況）</li>
+<li><strong>実践演習</strong>（4つの課題）:</li>
+<li>演習1: 商品価格変更ワークフロー（申請、承認、反映、他サービス伝播）</li>
+<li>演習2: 勘定科目の階層構造管理（親変更、整合性検証、会計サービス参照）</li>
+<li>演習3: マスターデータ同期の監視（イベント発行、受信確認、ダッシュボード作成）</li>
+<li>演習4: 過去時点のマスターデータ復元（イベントリプレイ、価格復元、監査対応）</li>
+<li><strong>次のステップ</strong>:</li>
+<li>より高度なマスターデータ管理（バージョン分岐、グローバルマスター、データリネージ）</li>
+<li>外部システム統合（マスターインポート/エクスポート、EDI連携、API Gateway）</li>
+<li>AI/ML活用（重複検出自動化、データ品質スコアリング、異常値検出、変更予測）</li>
+</ul>
+<p><strong>演習で学べること</strong>:</p>
+<ul>
+<li>承認ワークフローの実装</li>
+<li>階層構造データの管理</li>
+<li>イベント駆動同期の監視</li>
+<li>時点復元機能の実装</li>
+</ul>
+<p><strong>キーワード</strong>: Summary, Practical Exercises, Event Sourcing, Point-in-Time Restoration, Data Lineage, AI/ML Enhancement</p>
+<hr />
+<h2 id="_4">🚀 学習の進め方<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">推奨される学習順序<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>第1部から順番に読む</strong>: まず環境構築編（第1部）で開発環境をセットアップし、サービス構築編（第2部）で実装の詳細を学びます。各章は前の章の内容を前提としているため、順番に読むことを推奨します。</p>
+</li>
+<li>
+<p><strong>実際にコードを動かしてみる</strong>: 理論だけでなく、GitHubリポジトリをクローンして実際に動かしてみることで理解が深まります。</p>
+</li>
+<li>第1部で環境を構築</li>
+<li>E2Eテストで動作確認</li>
+<li>第2部で各コンポーネントの理解を深める</li>
+<li>
+<p>第3部のケーススタディで実践的な実装を学ぶ</p>
+</li>
+<li>
+<p><strong>実践演習に取り組む</strong>: 第3部第13章で提示された4つの演習課題（在庫棚卸、区画間自動移動、在庫分析、在庫予測）に取り組むことで、学んだことを定着させられます。</p>
+</li>
+<li>
+<p><strong>第4部で分散トランザクションを学ぶ</strong>: 在庫管理システムに受注管理を追加し、Sagaパターンによる分散トランザクションの実装を学びます。</p>
+</li>
+<li>
+<p><strong>第5部で調達プロセスを学ぶ</strong>: 仕入先管理から発注、入荷検品、支払管理までの調達プロセス全体をイベントソーシングで実装します。</p>
+</li>
+<li>
+<p><strong>第6部で会計処理を学ぶ</strong>: ビジネスイベントから仕訳を自動生成し、総勘定元帳、財務諸表、決算処理を実装します。</p>
+</li>
+<li>
+<p><strong>自分なりの拡張を試す</strong>: 演習課題を超えて、独自の機能（ロット管理、賞味期限管理、他のBounded Contextとの統合など）を追加してみましょう。</p>
+</li>
+<li>
+<p><strong>コミュニティに参加する</strong>: Scala Users Group JapanやPekko Discordで質問したり、知見を共有したりしましょう。</p>
+</li>
+</ol>
+<h3 id="_6">学習の流れ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>第1部：環境構築編 (10章)
+  ↓ 環境セットアップ完了
+第2部：サービス構築編 (11章)
+  ↓ 単一集約の実装理解完了
+第3部：在庫管理サービスのケーススタディ (13章)
+  ↓ 複数集約を含む実践的な実装完了
+第4部：受注管理サービスのケーススタディ (13章)
+  ↓ Sagaパターンによる分散トランザクション完了
+第5部：発注管理サービスのケーススタディ (11章)
+  ↓ 調達プロセスと3-way matching完了
+第6部：会計サービスのケーススタディ (12章)
+  ↓ イベント駆動会計と財務諸表作成完了
+本番環境へのデプロイ
+</code></pre></div>
+<h3 id="_7">前提知識<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>このシリーズを最大限活用するには、以下の知識があることが望ましいです：</p>
+<ul>
+<li><strong>Scala基礎</strong>: 基本的な構文、クラス、トレイト、パターンマッチング</li>
+<li><strong>関数型プログラミング</strong>: イミュータビリティ、純粋関数、副作用の分離</li>
+<li><strong>分散システムの基礎</strong>: CAP定理、結果整合性、分散トランザクション</li>
+<li><strong>Docker</strong>: 基本的なコマンド、Dockerfileの記述、docker-compose</li>
+</ul>
+<p>もちろん、これらの知識がなくても読み進めることは可能ですが、適宜公式ドキュメントや参考書籍を併読することをお勧めします。</p>
+<hr />
+<h2 id="_8">📖 参考資料<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">関連ドキュメント<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../README.md">プロジェクトREADME</a> - プロジェクト概要とクイックスタート</li>
+<li><a href="../../CLAUDE.md">CLAUDE.md</a> - このプロジェクトでのClaude Code使用ガイド</li>
+<li><a href="outline/">outline.md</a> - 記事シリーズの詳細なアウトライン</li>
+</ul>
+<h3 id="_10">記事ファイル構成<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docs/articles/
+├── index.md                              # 本ファイル（目次）
+├── outline.md                            # 詳細なアウトライン
+│
+├── 【第1部：環境構築編】
+├── part1-01-introduction.md              # 第1部 第1章
+├── part1-02-architecture.md              # 第1部 第2章
+├── part1-03-tech-stack.md                # 第1部 第3章
+├── part1-04-setup.md                     # 第1部 第4章
+├── part1-05-configuration.md             # 第1部 第5章
+├── part1-06-startup.md                   # 第1部 第6章
+├── part1-07-e2e-test.md                  # 第1部 第7章
+├── part1-08-troubleshooting.md           # 第1部 第8章
+├── part1-09-workflow.md                  # 第1部 第9章
+├── part1-10-summary.md                   # 第1部 第10章
+│
+├── 【第2部：サービス構築編】
+├── part2-01-ddd-basics.md                # 第2部 第1章
+├── part2-02-event-sourcing.md            # 第2部 第2章
+├── part2-03-command-side.md              # 第2部 第3章
+├── part2-04-query-side.md                # 第2部 第4章
+├── part2-05-event-processing.md          # 第2部 第5章
+├── part2-06-configuration.md             # 第2部 第6章
+├── part2-07-testing.md                   # 第2部 第7章
+├── part2-08-performance-scalability.md   # 第2部 第8章
+├── part2-09-practical-topics.md          # 第2部 第9章
+├── part2-10-production-readiness.md      # 第2部 第10章
+├── part2-11-conclusion.md                # 第2部 第11章
+│
+├── 【第3部：在庫管理サービスのケーススタディ】
+├── part3-01-introduction.md              # 第3部 第1章
+├── part3-02-data-model.md                # 第3部 第2章
+├── part3-03-domain-data.md               # 第3部 第3章
+├── part3-04-domain-model.md              # 第3部 第4章
+├── part3-05-aggregate-implementation.md  # 第3部 第5章
+├── part3-06-saga-pattern.md              # 第3部 第6章
+├── part3-07-concurrency-control.md       # 第3部 第7章
+├── part3-08-complex-queries.md           # 第3部 第8章
+├── part3-09-event-ordering.md            # 第3部 第9章
+├── part3-10-performance.md               # 第3部 第10章
+├── part3-11-operations.md                # 第3部 第11章
+├── part3-12-advanced-topics.md           # 第3部 第12章
+├── part3-13-summary.md                   # 第3部 第13章
+│
+├── 【第4部：受注管理サービスのケーススタディ】
+├── part4-01-overview.md                  # 第4部 第1章
+├── part4-02-read-model-schema.md         # 第4部 第2章
+├── part4-03-domain-data.md               # 第4部 第3章
+├── part4-04-domain-model.md              # 第4部 第4章
+├── part4-05-aggregate-implementation.md  # 第4部 第5章
+├── part4-06-saga-implementation.md       # 第4部 第6章
+├── part4-07-money-tax.md                 # 第4部 第7章
+├── part4-08-credit-management.md         # 第4部 第8章
+├── part4-09-invoice-management.md        # 第4部 第9章
+├── part4-10-return-process.md            # 第4部 第10章
+├── part4-11-performance-optimization.md  # 第4部 第11章
+├── part4-12-operations-monitoring.md     # 第4部 第12章
+└── part4-13-summary-exercises.md         # 第4部 第13章
+│
+├── 【第5部：発注管理サービスのケーススタディ】
+├── part5-01-introduction.md              # 第5部 第1章
+├── part5-02-read-model-schema.md         # 第5部 第2章
+├── part5-03-domain-data.md               # 第5部 第3章
+├── part5-04-domain-model.md              # 第5部 第4章
+├── part5-05-aggregate-implementation.md  # 第5部 第5章
+├── part5-06-saga-pattern.md              # 第5部 第6章
+├── part5-07-inventory-integration.md     # 第5部 第7章
+├── part5-08-performance-optimization.md  # 第5部 第8章
+├── part5-09-operations-monitoring.md     # 第5部 第9章
+├── part5-10-advanced-topics.md           # 第5部 第10章
+├── part5-11-summary-exercises.md         # 第5部 第11章
+│
+├── 【第6部：会計サービスのケーススタディ】
+├── part6-01-introduction.md              # 第6部 第1章
+├── part6-02-read-model-schema.md         # 第6部 第2章
+├── part6-03-domain-data.md               # 第6部 第3章
+├── part6-04-domain-model.md              # 第6部 第4章
+├── part6-05-aggregate-implementation.md  # 第6部 第5章
+├── part6-06-event-driven-accounting.md   # 第6部 第6章
+├── part6-07-closing-process.md           # 第6部 第7章
+├── part6-08-financial-analysis.md        # 第6部 第8章
+├── part6-09-performance-optimization.md  # 第6部 第9章
+├── part6-10-operations-monitoring.md     # 第6部 第10章
+├── part6-11-advanced-topics.md           # 第6部 第11章
+├── part6-12-summary-exercises.md         # 第6部 第12章
+│
+├── 【第7部：共用データ管理サービスのケーススタディ】
+├── part7-01-introduction.md              # 第7部 第1章
+├── part7-02-read-model-schema.md         # 第7部 第2章
+├── part7-03-domain-data.md               # 第7部 第3章
+├── part7-04-domain-model.md              # 第7部 第4章
+├── part7-05-aggregate-implementation.md  # 第7部 第5章
+├── part7-06-master-data-integration.md   # 第7部 第6章
+├── part7-07-approval-workflow.md         # 第7部 第7章
+├── part7-08-summary-and-practice.md      # 第7部 第8章
+├── part7-09-graphql-api.md               # 第7部 第9章
+├── part7-10-performance-optimization.md  # 第7部 第10章
+├── part7-11-operations-monitoring.md     # 第7部 第11章
+└── part7-12-summary-and-exercises.md     # 第7部 第12章
+</code></pre></div>
+<h3 id="_11">公式ドキュメント<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://pekko.apache.org/">Apache Pekko公式サイト</a></li>
+<li><a href="https://docs.scala-lang.org/scala3/">Scala 3公式ドキュメント</a></li>
+<li><a href="https://zio.dev/">ZIO公式サイト</a></li>
+</ul>
+<h3 id="github">GitHubリポジトリ<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<p>このプロジェクトのソースコードは以下で公開されています：
+- <a href="https://github.com/j5ik2o/pekko-cqrs-es-example">pekko-cqrs-es-example</a></p>
+<hr />
+<h2 id="_12">💡 フィードバック<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>この記事シリーズについてのフィードバックや改善提案がありましたら、GitHubのIssueやPull Requestでお知らせください。皆様のフィードバックが、コンテンツの質を高める助けとなります。</p>
+<hr />
+<h2 id="_13">ライセンス<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>このドキュメントはMITライセンスの下で公開されています。</p>
+<hr />
+<p><strong>Happy Event Sourcing! 🎉</strong></p>
+<p>最終更新: 2025-12-03</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/k2works" target="_blank" rel="noopener" title="GitHub Repository/claude-code-booster" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

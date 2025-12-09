@@ -1,0 +1,4510 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Site Description">
+      
+      
+        <meta name="author" content="Project Team">
+      
+      
+      
+        <link rel="prev" href="../part4-02-data-model/">
+      
+      
+        <link rel="next" href="../part4-04-domain-model/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>3. テストデータ - Site Name</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../mkdocs/assets/css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Site Name" class="md-header__button md-logo" aria-label="Site Name" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Site Name
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. テストデータ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/k2works/claude-code-booster" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    claude-code-booster
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  はじめに
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../outline/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  目次
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part1-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 1 - 導入編
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part2-01-ddd-basics/" class="md-tabs__link">
+          
+  
+  
+  Part 2 - サービス構築編
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part3-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 3 - 在庫管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../part4-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 4 - 受注管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part5-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 5 - 発注管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part6-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 6 - 会計サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../part7-01-introduction/" class="md-tabs__link">
+          
+  
+  
+  Part 7 - 共用データ管理サービスのケーススタディ
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Site Name" class="md-nav__button md-logo" aria-label="Site Name" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Site Name
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/k2works/claude-code-booster" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    claude-code-booster
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    目次
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - 導入編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - 導入編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-02-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. アーキテクチャ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-03-tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 技術スタック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-04-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. セットアップ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-05-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-06-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 起動
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-07-e2e-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. E2Eテスト
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-08-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. トラブルシューティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-09-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. ワークフロー
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part1-10-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - サービス構築編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - サービス構築編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-01-ddd-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. DDDの基礎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-02-event-sourcing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. イベントソーシング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-03-command-side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. コマンド側
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-04-query-side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. クエリ側
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-05-event-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. イベント処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-06-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-07-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. テスティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-08-performance-scalability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. パフォーマンスとスケーラビリティ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-09-practical-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 実践的なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-10-production-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 本番環境の準備
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2-11-conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 結論
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - 在庫管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - 在庫管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-07-concurrency-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 並行制御
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-08-complex-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 複雑なクエリ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-09-event-ordering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. イベント順序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-10-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. パフォーマンス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-11-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 運用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-12-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3-13-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - 受注管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - 受注管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本章の目的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 マスタデータの準備
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 マスタデータの準備">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        商品マスタの拡張
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="商品マスタの拡張">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        商品カテゴリと税区分の対応
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        商品価格帯の設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        商品マスタ拡張SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        商品マスタのサンプルデータ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取引先マスタの拡張
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="取引先マスタの拡張">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取引先マスタ拡張SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取引先タイプ別の与信設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取引先マスタのサンプルデータ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与信限度額の初期化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 トランザクションデータのシナリオ設計
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 トランザクションデータのシナリオ設計">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取引先タイプ別の注文パターン
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="取引先タイプ別の注文パターン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        大口取引先の注文パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中口取引先の注文パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小口取引先の注文パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#50000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        月間50,000件の注文データ生成戦略
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="月間50,000件の注文データ生成戦略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取引先タイプ別の注文件数配分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ生成スクリプト
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        季節変動の考慮
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="季節変動の考慮">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        月別の変動係数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 データ投入スクリプト
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 データ投入スクリプト">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flywayマイグレーション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flywayマイグレーション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v004__add_order_management_master_datasql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V004__add_order_management_master_data.sql
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テストデータ生成ツール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ投入手順
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本章のまとめ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="本章のまとめ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マスタデータの拡張
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トランザクションデータのシナリオ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ投入スクリプト
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-05-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-07-money-calculation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 金額計算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-08-credit-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 与信管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-09-billing-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 請求管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-10-return-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 返品処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-11-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-12-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-13-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part4-14-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 5 - 発注管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 5 - 発注管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-02-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. データモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-03-test-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. テストデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-06-saga-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Sagaパターン
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-07-inventory-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 在庫統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-08-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-09-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-10-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part5-11-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 6 - 会計サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 6 - 会計サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-02-read-model-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. リードモデルスキーマ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-06-event-driven-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. イベント駆動会計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-07-closing-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 締め処理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-08-financial-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 財務分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-09-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-10-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-11-advanced-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 高度なトピック
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part6-12-summary-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 7 - 共用データ管理サービスのケーススタディ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 7 - 共用データ管理サービスのケーススタディ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. イントロダクション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-02-read-model-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. リードモデルスキーマ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-03-domain-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ドメインデータ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-04-domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. ドメインモデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-05-aggregate-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Aggregate実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-06-master-data-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. マスターデータ統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-07-approval-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 承認ワークフロー
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-08-summary-and-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. まとめと実践
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-09-graphql-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-10-performance-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. パフォーマンス最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-11-operations-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 運用・監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part7-12-summary-and-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. まとめと演習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="4-3">【第4部 第3章】ドメインに適したデータの作成<a class="headerlink" href="#4-3" title="Permanent link">&para;</a></h1>
+<h2 id="_1">本章の目的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本章では、受注管理システムの動作確認とテストに必要なデータを設計・準備します。ドメイン駆動設計（DDD）において、テストデータは実際のビジネスシナリオを反映した、意味のあるデータであるべきです。</p>
+<p>本章で準備するデータ：
+1. <strong>マスタデータ</strong>: 商品マスタ（価格・税区分追加）、取引先マスタ（与信情報追加）
+2. <strong>トランザクションデータ</strong>: 取引先タイプ別の注文パターン、季節変動を考慮した注文データ
+3. <strong>データ投入スクリプト</strong>: Flywayマイグレーション、シードデータSQL、テストデータ生成ツール</p>
+<h2 id="31">3.1 マスタデータの準備<a class="headerlink" href="#31" title="Permanent link">&para;</a></h2>
+<h3 id="_2">商品マスタの拡張<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>第3部で作成した商品マスタに、受注管理で必要な価格情報と税区分を追加します。</p>
+<h4 id="_3">商品カテゴリと税区分の対応<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>D社が扱う商品は、大きく2つのカテゴリに分類され、それぞれ異なる税率が適用されます：</p>
+<table>
+<thead>
+<tr>
+<th>カテゴリ</th>
+<th>商品例</th>
+<th>税区分</th>
+<th>税率</th>
+<th>商品数</th>
+<th>構成比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>食品類</td>
+<td>米、パン、野菜、肉、乳製品、調味料</td>
+<td>Reduced（軽減税率）</td>
+<td>8%</td>
+<td>4,800品目</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>日用品</td>
+<td>洗剤、トイレットペーパー、文房具</td>
+<td>Standard（標準税率）</td>
+<td>10%</td>
+<td>3,200品目</td>
+<td>40%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>軽減税率の適用ルール</strong>（消費税法に基づく）:
+- 飲食料品（酒類を除く）: 8%
+- 新聞（定期購読契約）: 8%
+- 外食、ケータリング: 10%
+- 酒類: 10%</p>
+<h4 id="_4">商品価格帯の設計<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>商品価格は、取引先タイプに応じた購入量を考慮して設定します：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 価格帯の例（税抜価格）</span>
+<span class="c1">-- 低価格帯（100円〜500円）: 40% - 日用品、調味料など</span>
+<span class="c1">-- 中価格帯（500円〜2,000円）: 40% - 加工食品、飲料など</span>
+<span class="c1">-- 高価格帯（2,000円〜10,000円）: 20% - 高級食材、大容量商品など</span>
+</code></pre></div>
+<h4 id="sql">商品マスタ拡張SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 商品マスタに価格・税区分カラムを追加</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">products</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">standard_price</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 標準価格（税抜）</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">tax_category</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;Standard&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">-- Standard, Reduced, TaxFree</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">tax_rate</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1000</span><span class="p">;</span><span class="w">  </span><span class="c1">-- 0.1000 = 10%, 0.0800 = 8%</span>
+
+<span class="c1">-- 税区分のチェック制約</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">products</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">chk_products_tax_category</span>
+<span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">tax_category</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Standard&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TaxFree&#39;</span><span class="p">));</span>
+
+<span class="c1">-- 税率と税区分の整合性チェック</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">products</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">chk_products_tax_rate</span>
+<span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">(</span><span class="n">tax_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Standard&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">tax_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">    </span><span class="p">(</span><span class="n">tax_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">tax_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0800</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">    </span><span class="p">(</span><span class="n">tax_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;TaxFree&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">tax_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+<h4 id="_5">商品マスタのサンプルデータ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 食品類（軽減税率8%）のサンプル</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">product_code</span><span class="p">,</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">category_code</span><span class="p">,</span>
+<span class="w">  </span><span class="n">unit_of_measure</span><span class="p">,</span><span class="w"> </span><span class="n">standard_price</span><span class="p">,</span><span class="w"> </span><span class="n">tax_category</span><span class="p">,</span><span class="w"> </span><span class="n">tax_rate</span><span class="p">,</span>
+<span class="w">  </span><span class="n">storage_condition</span><span class="p">,</span><span class="w"> </span><span class="n">status</span>
+<span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="w">  </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;P-FOOD-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;コシヒカリ 5kg&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FOOD-RICE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kg&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0800</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Active&#39;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;P-FOOD-002&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;食パン 6枚切&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FOOD-BREAD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;個&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0800</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Active&#39;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;P-FOOD-003&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;牛乳 1L&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FOOD-DAIRY&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0800</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Refrigerated&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Active&#39;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;P-FOOD-004&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;豚肉ロース 100g&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FOOD-MEAT&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kg&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0800</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Refrigerated&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Active&#39;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;P-FOOD-005&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;冷凍うどん 5食&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FOOD-FROZEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;個&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0800</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Frozen&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Active&#39;</span><span class="p">);</span>
+
+<span class="c1">-- 日用品（標準税率10%）のサンプル</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">product_code</span><span class="p">,</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">category_code</span><span class="p">,</span>
+<span class="w">  </span><span class="n">unit_of_measure</span><span class="p">,</span><span class="w"> </span><span class="n">standard_price</span><span class="p">,</span><span class="w"> </span><span class="n">tax_category</span><span class="p">,</span><span class="w"> </span><span class="n">tax_rate</span><span class="p">,</span>
+<span class="w">  </span><span class="n">storage_condition</span><span class="p">,</span><span class="w"> </span><span class="n">status</span>
+<span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="w">  </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;P-DAILY-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;トイレットペーパー 12ロール&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DAILY-TISSUE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;個&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Standard&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Active&#39;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;P-DAILY-002&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;食器用洗剤 500ml&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DAILY-DETERGENT&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;個&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Standard&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Active&#39;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;P-DAILY-003&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ボールペン 黒 10本&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DAILY-STATIONERY&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;個&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">800</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Standard&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Active&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>価格分布のシミュレーション</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 価格分布生成ロジック（テストデータ生成ツール用）</span>
+<span class="k">object</span><span class="w"> </span><span class="nc">PriceDistribution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nn">scala</span><span class="p">.</span><span class="nn">util</span><span class="p">.</span><span class="nc">Random</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">generatePrice</span><span class="p">(</span><span class="n">category</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">):</span><span class="w"> </span><span class="nc">BigDecimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;FOOD-RICE&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s">&quot;FOOD-MEAT&quot;</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="c1">// 高価格帯: 2,000円〜10,000円</span>
+<span class="w">      </span><span class="nc">BigDecimal</span><span class="p">(</span><span class="nc">Random</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">))</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;FOOD-DAIRY&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s">&quot;FOOD-BREAD&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s">&quot;FOOD-FROZEN&quot;</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="c1">// 中価格帯: 500円〜2,000円</span>
+<span class="w">      </span><span class="nc">BigDecimal</span><span class="p">(</span><span class="nc">Random</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mi">2000</span><span class="p">))</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;DAILY-TISSUE&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s">&quot;DAILY-DETERGENT&quot;</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="c1">// 中価格帯: 500円〜2,000円</span>
+<span class="w">      </span><span class="nc">BigDecimal</span><span class="p">(</span><span class="nc">Random</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mi">2000</span><span class="p">))</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;DAILY-STATIONERY&quot;</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="c1">// 低価格帯: 100円〜500円</span>
+<span class="w">      </span><span class="nc">BigDecimal</span><span class="p">(</span><span class="nc">Random</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">))</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="c1">// デフォルト: 500円〜2,000円</span>
+<span class="w">      </span><span class="nc">BigDecimal</span><span class="p">(</span><span class="nc">Random</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mi">2000</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_6">取引先マスタの拡張<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>第3部で作成した取引先マスタに、与信情報と支払条件を追加します。</p>
+<h4 id="sql_1">取引先マスタ拡張SQL<a class="headerlink" href="#sql_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 取引先マスタに与信・支払情報カラムを追加</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">customer_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;Small&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">-- Large, Medium, Small</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">credit_limit</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1000000</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 与信限度額</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">payment_terms</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;MonthEnd&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 支払条件</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">payment_days</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 支払サイト（日数）</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">contract_start_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 取引開始日</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">assigned_sales_rep_id</span><span class="w"> </span><span class="n">UUID</span><span class="p">;</span><span class="w">  </span><span class="c1">-- 担当営業ID</span>
+
+<span class="c1">-- 取引先タイプのチェック制約</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">chk_customers_type</span>
+<span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">customer_type</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Large&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Small&#39;</span><span class="p">));</span>
+
+<span class="c1">-- 与信限度額と取引先タイプの整合性チェック</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">chk_customers_credit_limit</span>
+<span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">(</span><span class="n">customer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Large&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">credit_limit</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">30000000</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">    </span><span class="p">(</span><span class="n">customer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">credit_limit</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5000000</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">    </span><span class="p">(</span><span class="n">customer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Small&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">credit_limit</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1000000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+<h4 id="_7">取引先タイプ別の与信設定<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>取引先タイプ</th>
+<th>社数</th>
+<th>デフォルト与信限度額</th>
+<th>月間平均取引額</th>
+<th>与信限度額/月間取引額</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Large</td>
+<td>30社</td>
+<td>30,000,000円</td>
+<td>10,000,000円</td>
+<td>3.0倍（3ヶ月分）</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>150社</td>
+<td>5,000,000円</td>
+<td>1,000,000円</td>
+<td>5.0倍（5ヶ月分）</td>
+</tr>
+<tr>
+<td>Small</td>
+<td>250社</td>
+<td>1,000,000円</td>
+<td>100,000円</td>
+<td>10.0倍（10ヶ月分）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>与信限度額の設定根拠</strong>:
+- <strong>大口取引先</strong>: 取引額が大きいため余裕を持たせつつ、リスクを分散（3ヶ月分）
+- <strong>中口取引先</strong>: 安定性を重視し、やや余裕を持った設定（5ヶ月分）
+- <strong>小口取引先</strong>: リスクが相対的に低いため、大きめの余裕（10ヶ月分）</p>
+<h4 id="_8">取引先マスタのサンプルデータ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 大口取引先のサンプル</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_code</span><span class="p">,</span><span class="w"> </span><span class="n">customer_name</span><span class="p">,</span><span class="w"> </span><span class="n">company_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_type</span><span class="p">,</span>
+<span class="w">  </span><span class="n">credit_limit</span><span class="p">,</span><span class="w"> </span><span class="n">payment_terms</span><span class="p">,</span><span class="w"> </span><span class="n">payment_days</span><span class="p">,</span><span class="w"> </span><span class="n">contract_start_date</span><span class="p">,</span>
+<span class="w">  </span><span class="n">billing_address_postal_code</span><span class="p">,</span><span class="w"> </span><span class="n">billing_address_prefecture</span><span class="p">,</span><span class="w"> </span><span class="n">billing_address_city</span>
+<span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="w">  </span><span class="p">(</span>
+<span class="w">    </span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;C-LARGE-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;スーパーマーケットA&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">company_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">companies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">company_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Partner&#39;</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="s1">&#39;Large&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30000000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MonthEnd&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2020-04-01&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;100-0001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;東京都&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;千代田区&#39;</span>
+<span class="w">  </span><span class="p">),</span>
+<span class="w">  </span><span class="p">(</span>
+<span class="w">    </span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;C-LARGE-002&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;量販店チェーンB&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">company_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">companies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">company_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Partner&#39;</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="s1">&#39;Large&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30000000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MonthEnd&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2019-07-01&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;530-0001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;大阪府&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;大阪市北区&#39;</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="c1">-- 中口取引先のサンプル</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_code</span><span class="p">,</span><span class="w"> </span><span class="n">customer_name</span><span class="p">,</span><span class="w"> </span><span class="n">company_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_type</span><span class="p">,</span>
+<span class="w">  </span><span class="n">credit_limit</span><span class="p">,</span><span class="w"> </span><span class="n">payment_terms</span><span class="p">,</span><span class="w"> </span><span class="n">payment_days</span><span class="p">,</span><span class="w"> </span><span class="n">contract_start_date</span><span class="p">,</span>
+<span class="w">  </span><span class="n">billing_address_postal_code</span><span class="p">,</span><span class="w"> </span><span class="n">billing_address_prefecture</span><span class="p">,</span><span class="w"> </span><span class="n">billing_address_city</span>
+<span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="w">  </span><span class="p">(</span>
+<span class="w">    </span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;C-MEDIUM-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;地域スーパーC&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">company_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">companies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">company_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Partner&#39;</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5000000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MonthEnd&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;460-0001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;愛知県&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;名古屋市中区&#39;</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="c1">-- 小口取引先のサンプル</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_code</span><span class="p">,</span><span class="w"> </span><span class="n">customer_name</span><span class="p">,</span><span class="w"> </span><span class="n">company_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_type</span><span class="p">,</span>
+<span class="w">  </span><span class="n">credit_limit</span><span class="p">,</span><span class="w"> </span><span class="n">payment_terms</span><span class="p">,</span><span class="w"> </span><span class="n">payment_days</span><span class="p">,</span><span class="w"> </span><span class="n">contract_start_date</span><span class="p">,</span>
+<span class="w">  </span><span class="n">billing_address_postal_code</span><span class="p">,</span><span class="w"> </span><span class="n">billing_address_prefecture</span><span class="p">,</span><span class="w"> </span><span class="n">billing_address_city</span>
+<span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="w">  </span><span class="p">(</span>
+<span class="w">    </span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;C-SMALL-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;個人商店D&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">company_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">companies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">company_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Partner&#39;</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="s1">&#39;Small&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MonthEnd&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2022-03-01&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;810-0001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;福岡県&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;福岡市中央区&#39;</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+<h4 id="_9">与信限度額の初期化<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- credit_limitsテーブルへの初期データ投入</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">credit_limits</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">limit_amount</span><span class="p">,</span><span class="w"> </span><span class="n">used_amount</span><span class="p">,</span><span class="w"> </span><span class="n">last_updated_by</span><span class="p">)</span>
+<span class="k">SELECT</span>
+<span class="w">  </span><span class="n">customer_id</span><span class="p">,</span>
+<span class="w">  </span><span class="n">credit_limit</span><span class="p">,</span>
+<span class="w">  </span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 初期状態では使用額0</span>
+<span class="w">  </span><span class="s1">&#39;system&#39;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="32">3.2 トランザクションデータのシナリオ設計<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<p>実際のビジネスシナリオに基づいた注文データを生成します。</p>
+<h3 id="_10">取引先タイプ別の注文パターン<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h4 id="_11">大口取引先の注文パターン<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p><strong>特徴</strong>:
+- 定期発注（週1回、毎週月曜日）
+- 大量かつ多品目の注文
+- 食品類と日用品をバランスよく発注</p>
+<div class="highlight"><pre><span></span><code><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">LargeCustomerOrderPattern</span><span class="p">(</span>
+<span class="w">  </span><span class="n">customerId</span><span class="p">:</span><span class="w"> </span><span class="nc">CustomerId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">orderFrequency</span><span class="p">:</span><span class="w"> </span><span class="nc">Duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">.</span><span class="n">days</span><span class="p">,</span><span class="w">  </span><span class="c1">// 週1回</span>
+<span class="w">  </span><span class="n">averageItemCount</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">  </span><span class="c1">// 平均50品目</span>
+<span class="w">  </span><span class="n">averageOrderAmount</span><span class="p">:</span><span class="w"> </span><span class="nc">Money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">5000000</span><span class="p">),</span><span class="w">  </span><span class="c1">// 平均500万円</span>
+<span class="w">  </span><span class="n">itemCategories</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">Double</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;FOOD-RICE&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">     </span><span class="c1">// 米・穀物 15%</span>
+<span class="w">    </span><span class="s">&quot;FOOD-DAIRY&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.20</span><span class="p">,</span><span class="w">    </span><span class="c1">// 乳製品 20%</span>
+<span class="w">    </span><span class="s">&quot;FOOD-MEAT&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">     </span><span class="c1">// 肉類 15%</span>
+<span class="w">    </span><span class="s">&quot;FOOD-FROZEN&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.10</span><span class="p">,</span><span class="w">   </span><span class="c1">// 冷凍食品 10%</span>
+<span class="w">    </span><span class="s">&quot;FOOD-BREAD&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.10</span><span class="p">,</span><span class="w">    </span><span class="c1">// パン 10%</span>
+<span class="w">    </span><span class="s">&quot;DAILY-TISSUE&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">  </span><span class="c1">// 日用品（紙類） 15%</span>
+<span class="w">    </span><span class="s">&quot;DAILY-DETERGENT&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.10</span><span class="p">,</span><span class="w"> </span><span class="c1">// 日用品（洗剤） 10%</span>
+<span class="w">    </span><span class="s">&quot;DAILY-STATIONERY&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.05</span><span class="w">  </span><span class="c1">// 文房具 5%</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>注文生成ロジック</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generateLargeCustomerOrder</span><span class="p">(</span>
+<span class="w">  </span><span class="n">pattern</span><span class="p">:</span><span class="w"> </span><span class="nc">LargeCustomerOrderPattern</span><span class="p">,</span>
+<span class="w">  </span><span class="n">orderDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">CreateOrderRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">itemCategories</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">ratio</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">itemCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pattern</span><span class="p">.</span><span class="n">averageItemCount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ratio</span><span class="p">).</span><span class="n">toInt</span>
+<span class="w">    </span><span class="n">generateOrderItems</span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">itemCount</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}.</span><span class="n">toList</span>
+
+<span class="w">  </span><span class="nc">CreateOrderRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="n">customerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">customerId</span><span class="p">,</span>
+<span class="w">    </span><span class="n">orderDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderDate</span><span class="p">,</span>
+<span class="w">    </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">items</span><span class="p">,</span>
+<span class="w">    </span><span class="n">requestedDeliveryDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="n">orderDate</span><span class="p">.</span><span class="n">plusDays</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="w">  </span><span class="c1">// 3日後配送</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generateOrderItems</span><span class="p">(</span><span class="n">category</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">OrderItemRequest</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productRepository</span><span class="p">.</span><span class="n">findByCategory</span><span class="p">(</span><span class="n">category</span><span class="p">).</span><span class="n">take</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">products</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="c1">// 大口取引先は大量発注</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Random</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nc">OrderItemRequest</span><span class="p">(</span>
+<span class="w">      </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+<span class="w">      </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">quantity</span><span class="p">),</span>
+<span class="w">      </span><span class="n">unitPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">standardPrice</span><span class="p">,</span>
+<span class="w">      </span><span class="n">discountRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span><span class="w">  </span><span class="c1">// 大口割引5%</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_12">中口取引先の注文パターン<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><strong>特徴</strong>:
+- 準定期発注（週1〜2回）
+- 特定カテゴリに集中した注文
+- 地域性による商品選定の偏り</p>
+<div class="highlight"><pre><span></span><code><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MediumCustomerOrderPattern</span><span class="p">(</span>
+<span class="w">  </span><span class="n">customerId</span><span class="p">:</span><span class="w"> </span><span class="nc">CustomerId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">orderFrequency</span><span class="p">:</span><span class="w"> </span><span class="nc">Duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="n">days</span><span class="p">,</span><span class="w">  </span><span class="c1">// 週1〜2回</span>
+<span class="w">  </span><span class="n">averageItemCount</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">  </span><span class="c1">// 平均20品目</span>
+<span class="w">  </span><span class="n">averageOrderAmount</span><span class="p">:</span><span class="w"> </span><span class="nc">Money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">500000</span><span class="p">),</span><span class="w">  </span><span class="c1">// 平均50万円</span>
+<span class="w">  </span><span class="n">preferredCategories</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;FOOD-DAIRY&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;FOOD-BREAD&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;FOOD-FROZEN&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>注文生成ロジック</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generateMediumCustomerOrder</span><span class="p">(</span>
+<span class="w">  </span><span class="n">pattern</span><span class="p">:</span><span class="w"> </span><span class="nc">MediumCustomerOrderPattern</span><span class="p">,</span>
+<span class="w">  </span><span class="n">orderDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">CreateOrderRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 好みのカテゴリから70%、その他から30%</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">preferredItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">preferredCategories</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">itemCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pattern</span><span class="p">.</span><span class="n">averageItemCount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.7</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">preferredCategories</span><span class="p">.</span><span class="n">size</span><span class="p">).</span><span class="n">toInt</span>
+<span class="w">    </span><span class="n">generateOrderItems</span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">itemCount</span><span class="p">,</span><span class="w"> </span><span class="n">quantityRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">otherItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateRandomCategoryItems</span><span class="p">(</span>
+<span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pattern</span><span class="p">.</span><span class="n">averageItemCount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.3</span><span class="p">).</span><span class="n">toInt</span><span class="p">,</span>
+<span class="w">    </span><span class="n">quantityRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="w">  </span><span class="nc">CreateOrderRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="n">customerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">customerId</span><span class="p">,</span>
+<span class="w">    </span><span class="n">orderDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderDate</span><span class="p">,</span>
+<span class="w">    </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">preferredItems</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">otherItems</span><span class="p">,</span>
+<span class="w">    </span><span class="n">requestedDeliveryDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="n">orderDate</span><span class="p">.</span><span class="n">plusDays</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_13">小口取引先の注文パターン<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p><strong>特徴</strong>:
+- 不定期発注（需要に応じて）
+- 少品目・少量の注文
+- 即納希望が多い</p>
+<div class="highlight"><pre><span></span><code><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SmallCustomerOrderPattern</span><span class="p">(</span>
+<span class="w">  </span><span class="n">customerId</span><span class="p">:</span><span class="w"> </span><span class="nc">CustomerId</span><span class="p">,</span>
+<span class="w">  </span><span class="n">orderFrequency</span><span class="p">:</span><span class="w"> </span><span class="nc">Duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">.</span><span class="n">days</span><span class="p">,</span><span class="w">  </span><span class="c1">// 2週間に1回程度（不定期）</span>
+<span class="w">  </span><span class="n">averageItemCount</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span><span class="c1">// 平均5品目</span>
+<span class="w">  </span><span class="n">averageOrderAmount</span><span class="p">:</span><span class="w"> </span><span class="nc">Money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Money</span><span class="p">(</span><span class="mi">50000</span><span class="p">)</span><span class="w">  </span><span class="c1">// 平均5万円</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>注文生成ロジック</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generateSmallCustomerOrder</span><span class="p">(</span>
+<span class="w">  </span><span class="n">pattern</span><span class="p">:</span><span class="w"> </span><span class="nc">SmallCustomerOrderPattern</span><span class="p">,</span>
+<span class="w">  </span><span class="n">orderDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span>
+<span class="p">):</span><span class="w"> </span><span class="nc">CreateOrderRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 完全にランダムなカテゴリから少量発注</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">averageItemCount</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productRepository</span><span class="p">.</span><span class="n">findRandom</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Random</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w">  </span><span class="c1">// 少量</span>
+
+<span class="w">    </span><span class="nc">OrderItemRequest</span><span class="p">(</span>
+<span class="w">      </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+<span class="w">      </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Quantity</span><span class="p">(</span><span class="n">quantity</span><span class="p">),</span>
+<span class="w">      </span><span class="n">unitPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">standardPrice</span><span class="p">,</span>
+<span class="w">      </span><span class="n">discountRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">None</span><span class="w">  </span><span class="c1">// 割引なし</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}.</span><span class="n">toList</span>
+
+<span class="w">  </span><span class="nc">CreateOrderRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="n">customerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">customerId</span><span class="p">,</span>
+<span class="w">    </span><span class="n">orderDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderDate</span><span class="p">,</span>
+<span class="w">    </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">items</span><span class="p">,</span>
+<span class="w">    </span><span class="n">requestedDeliveryDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="n">orderDate</span><span class="p">.</span><span class="n">plusDays</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w">  </span><span class="c1">// 翌日配送希望</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="50000">月間50,000件の注文データ生成戦略<a class="headerlink" href="#50000" title="Permanent link">&para;</a></h3>
+<h4 id="_14">取引先タイプ別の注文件数配分<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>月間50,000件を取引先タイプ別に配分：</p>
+<div class="highlight"><pre><span></span><code>大口取引先（30社）: 月4回 × 30社 = 120件（0.24%）
+中口取引先（150社）: 月6回 × 150社 = 900件（1.8%）
+小口取引先（250社）: 月平均196回 × 250社 = 49,000件（98%）
+
+※実際には小口取引先の発注頻度にばらつきがあるため、
+  活発な取引先50社が月400回、残り200社が月120回程度と想定
+</code></pre></div>
+<h4 id="_15">データ生成スクリプト<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">OrderDataGenerator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">generateMonthlyOrders</span><span class="p">(</span><span class="n">yearMonth</span><span class="p">:</span><span class="w"> </span><span class="nc">YearMonth</span><span class="p">):</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">CreateOrderRequest</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">startDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yearMonth</span><span class="p">.</span><span class="n">atDay</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">endDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yearMonth</span><span class="p">.</span><span class="n">atEndOfMonth</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">largeCustomers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customerRepository</span><span class="p">.</span><span class="n">findByType</span><span class="p">(</span><span class="nc">CustomerType</span><span class="p">.</span><span class="nc">Large</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">mediumCustomers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customerRepository</span><span class="p">.</span><span class="n">findByType</span><span class="p">(</span><span class="nc">CustomerType</span><span class="p">.</span><span class="nc">Medium</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">smallCustomers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customerRepository</span><span class="p">.</span><span class="n">findByType</span><span class="p">(</span><span class="nc">CustomerType</span><span class="p">.</span><span class="nc">Small</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">largeOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">largeCustomers</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">generateWeeklyOrders</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="n">startDate</span><span class="p">,</span><span class="w"> </span><span class="n">endDate</span><span class="p">,</span><span class="w"> </span><span class="n">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">.</span><span class="n">days</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">mediumOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mediumCustomers</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">generateWeeklyOrders</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span><span class="w"> </span><span class="n">startDate</span><span class="p">,</span><span class="w"> </span><span class="n">endDate</span><span class="p">,</span><span class="w"> </span><span class="n">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="n">days</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">smallOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateSmallCustomerOrders</span><span class="p">(</span>
+<span class="w">      </span><span class="n">smallCustomers</span><span class="p">,</span>
+<span class="w">      </span><span class="n">startDate</span><span class="p">,</span>
+<span class="w">      </span><span class="n">endDate</span><span class="p">,</span>
+<span class="w">      </span><span class="n">targetCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">49000</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">largeOrders</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">mediumOrders</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">smallOrders</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">generateWeeklyOrders</span><span class="p">(</span>
+<span class="w">    </span><span class="n">customer</span><span class="p">:</span><span class="w"> </span><span class="nc">Customer</span><span class="p">,</span>
+<span class="w">    </span><span class="n">startDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span>
+<span class="w">    </span><span class="n">endDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span>
+<span class="w">    </span><span class="n">frequency</span><span class="p">:</span><span class="w"> </span><span class="nc">Duration</span>
+<span class="w">  </span><span class="p">):</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">CreateOrderRequest</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customer</span><span class="p">.</span><span class="n">customerType</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nc">CustomerType</span><span class="p">.</span><span class="nc">Large</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="nc">LargeCustomerOrderPattern</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nc">CustomerType</span><span class="p">.</span><span class="nc">Medium</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="nc">MediumCustomerOrderPattern</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="nc">SmallCustomerOrderPattern</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nc">Iterator</span><span class="p">.</span><span class="n">iterate</span><span class="p">(</span><span class="n">startDate</span><span class="p">)(</span><span class="n">_</span><span class="w"> </span><span class="n">plusDays</span><span class="w"> </span><span class="n">frequency</span><span class="p">.</span><span class="n">toDays</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">takeWhile</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">endDate</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">date</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">generateOrder</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="p">))</span>
+<span class="w">      </span><span class="p">.</span><span class="n">toList</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">generateSmallCustomerOrders</span><span class="p">(</span>
+<span class="w">    </span><span class="n">customers</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">Customer</span><span class="p">],</span>
+<span class="w">    </span><span class="n">startDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span>
+<span class="w">    </span><span class="n">endDate</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span>
+<span class="w">    </span><span class="n">targetCount</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span>
+<span class="w">  </span><span class="p">):</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">CreateOrderRequest</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 活発な取引先50社: 月400回</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">activeCustomers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customers</span><span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">activeOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">activeCustomers</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">400</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="n">randomDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">randomDateInRange</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span><span class="w"> </span><span class="n">endDate</span><span class="p">)</span>
+<span class="w">        </span><span class="n">generateSmallCustomerOrder</span><span class="p">(</span>
+<span class="w">          </span><span class="nc">SmallCustomerOrderPattern</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">id</span><span class="p">),</span>
+<span class="w">          </span><span class="n">randomDate</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 残り200社: 月120回</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">normalCustomers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customers</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">normalOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalCustomers</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">120</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="n">randomDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">randomDateInRange</span><span class="p">(</span><span class="n">startDate</span><span class="p">,</span><span class="w"> </span><span class="n">endDate</span><span class="p">)</span>
+<span class="w">        </span><span class="n">generateSmallCustomerOrder</span><span class="p">(</span>
+<span class="w">          </span><span class="nc">SmallCustomerOrderPattern</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">id</span><span class="p">),</span>
+<span class="w">          </span><span class="n">randomDate</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">activeOrders</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">normalOrders</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">randomDateInRange</span><span class="p">(</span><span class="n">start</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">:</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">):</span><span class="w"> </span><span class="nc">LocalDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ChronoUnit</span><span class="p">.</span><span class="nc">DAYS</span><span class="p">.</span><span class="n">between</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">)</span>
+<span class="w">    </span><span class="n">start</span><span class="p">.</span><span class="n">plusDays</span><span class="p">(</span><span class="nc">Random</span><span class="p">.</span><span class="n">nextLong</span><span class="p">(</span><span class="n">days</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_16">季節変動の考慮<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>実際のビジネスでは、季節により注文量が変動します。</p>
+<h4 id="_17">月別の変動係数<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="nc">SeasonalVariation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 月別の注文量変動係数（平均1.0）</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">monthlyCoefficients</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">Int</span><span class="p">,</span><span class="w"> </span><span class="nc">Double</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">   </span><span class="c1">// 1月: 年末年始の影響で少なめ</span>
+<span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.85</span><span class="p">,</span><span class="w">  </span><span class="c1">// 2月: 最も少ない月</span>
+<span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">   </span><span class="c1">// 3月: 平均的</span>
+<span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w">   </span><span class="c1">// 4月: 新年度で増加</span>
+<span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">   </span><span class="c1">// 5月: 平均的</span>
+<span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.95</span><span class="p">,</span><span class="w">  </span><span class="c1">// 6月: やや少なめ</span>
+<span class="w">    </span><span class="mi">7</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">   </span><span class="c1">// 7月: 夏季で少なめ</span>
+<span class="w">    </span><span class="mi">8</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.85</span><span class="p">,</span><span class="w">  </span><span class="c1">// 8月: 夏季閑散期</span>
+<span class="w">    </span><span class="mi">9</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">   </span><span class="c1">// 9月: 平均的</span>
+<span class="w">    </span><span class="mi">10</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w">  </span><span class="c1">// 10月: 行楽シーズン</span>
+<span class="w">    </span><span class="mi">11</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w">  </span><span class="c1">// 11月: 年末に向けて増加</span>
+<span class="w">    </span><span class="mi">12</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">1.4</span><span class="w">   </span><span class="c1">// 12月: 年末繁忙期（最も多い）</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">applySeasonalVariation</span><span class="p">(</span>
+<span class="w">    </span><span class="n">baseOrderCount</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">,</span>
+<span class="w">    </span><span class="n">month</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span>
+<span class="w">  </span><span class="p">):</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">(</span><span class="n">baseOrderCount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">monthlyCoefficients</span><span class="p">(</span><span class="n">month</span><span class="p">)).</span><span class="n">toInt</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// 例: 平均50,000件/月の場合</span>
+<span class="w">  </span><span class="c1">// 2月（0.85）: 42,500件</span>
+<span class="w">  </span><span class="c1">// 12月（1.4）: 70,000件</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="33">3.3 データ投入スクリプト<a class="headerlink" href="#33" title="Permanent link">&para;</a></h2>
+<h3 id="flyway">Flywayマイグレーション<a class="headerlink" href="#flyway" title="Permanent link">&para;</a></h3>
+<p>商品・取引先マスタの拡張とサンプルデータの投入をFlywayマイグレーションで管理します。</p>
+<h4 id="v004__add_order_management_master_datasql">V004__add_order_management_master_data.sql<a class="headerlink" href="#v004__add_order_management_master_datasql" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- =============================================</span>
+<span class="c1">-- 受注管理用のマスタデータ拡張</span>
+<span class="c1">-- =============================================</span>
+
+<span class="c1">-- 商品マスタに価格・税区分を追加</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">products</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">standard_price</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">tax_category</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;Standard&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">tax_rate</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1000</span><span class="p">;</span>
+
+<span class="c1">-- 取引先マスタに与信・支払情報を追加</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">customer_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;Small&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">credit_limit</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1000000</span><span class="p">,</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">payment_terms</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;MonthEnd&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">payment_days</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">contract_start_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">assigned_sales_rep_id</span><span class="w"> </span><span class="n">UUID</span><span class="p">;</span>
+
+<span class="c1">-- 制約の追加</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">products</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">chk_products_tax_category</span>
+<span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">tax_category</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Standard&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TaxFree&#39;</span><span class="p">)),</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">chk_products_tax_rate</span>
+<span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">(</span><span class="n">tax_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Standard&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">tax_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">    </span><span class="p">(</span><span class="n">tax_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">tax_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0800</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">    </span><span class="p">(</span><span class="n">tax_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;TaxFree&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">tax_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">chk_customers_type</span>
+<span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">customer_type</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Large&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Small&#39;</span><span class="p">)),</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">chk_customers_credit_limit</span>
+<span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">(</span><span class="n">customer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Large&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">credit_limit</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">30000000</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">    </span><span class="p">(</span><span class="n">customer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">credit_limit</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5000000</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">    </span><span class="p">(</span><span class="n">customer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Small&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">credit_limit</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1000000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="c1">-- 既存商品の価格・税区分を更新</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">products</span>
+<span class="k">SET</span>
+<span class="w">  </span><span class="n">standard_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CASE</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">category_code</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;FOOD%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">FLOOR</span><span class="p">(</span><span class="n">RANDOM</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2000</span><span class="p">)</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">category_code</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;DAILY%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">FLOOR</span><span class="p">(</span><span class="n">RANDOM</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1500</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">500</span><span class="p">)</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="n">FLOOR</span><span class="p">(</span><span class="n">RANDOM</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="w">  </span><span class="k">END</span><span class="p">,</span>
+<span class="w">  </span><span class="n">tax_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CASE</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">category_code</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;FOOD%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Reduced&#39;</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Standard&#39;</span>
+<span class="w">  </span><span class="k">END</span><span class="p">,</span>
+<span class="w">  </span><span class="n">tax_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CASE</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">category_code</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;FOOD%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0800</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1000</span>
+<span class="w">  </span><span class="k">END</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">standard_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">-- 既存取引先の与信情報を更新</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">customers</span>
+<span class="k">SET</span>
+<span class="w">  </span><span class="n">customer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CASE</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">customer_code</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;C-LARGE%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Large&#39;</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">customer_code</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;C-MEDIUM%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Small&#39;</span>
+<span class="w">  </span><span class="k">END</span><span class="p">,</span>
+<span class="w">  </span><span class="n">credit_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CASE</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">customer_code</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;C-LARGE%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">30000000</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">customer_code</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;C-MEDIUM%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">5000000</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">1000000</span>
+<span class="w">  </span><span class="k">END</span><span class="p">,</span>
+<span class="w">  </span><span class="n">contract_start_date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CURRENT_DATE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;2 years&#39;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">customer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Small&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">-- デフォルト値のままの場合のみ更新</span>
+
+<span class="c1">-- 与信限度額テーブルの初期化</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">credit_limits</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">limit_amount</span><span class="p">,</span><span class="w"> </span><span class="n">used_amount</span><span class="p">,</span><span class="w"> </span><span class="n">last_updated_by</span><span class="p">)</span>
+<span class="k">SELECT</span>
+<span class="w">  </span><span class="n">customer_id</span><span class="p">,</span>
+<span class="w">  </span><span class="n">credit_limit</span><span class="p">,</span>
+<span class="w">  </span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;system&#39;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">customers</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">NOTHING</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="_18">テストデータ生成ツール<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>大量のトランザクションデータを生成するScalaツール：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// modules/test-data-generator/src/main/scala/OrderDataGenerator.scala</span>
+<span class="k">package</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">example</span><span class="p">.</span><span class="n">testdata</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">time</span><span class="p">.{</span><span class="nc">LocalDate</span><span class="p">,</span><span class="w"> </span><span class="nc">YearMonth</span><span class="p">}</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">scala</span><span class="p">.</span><span class="nn">util</span><span class="p">.</span><span class="nc">Random</span>
+
+<span class="k">object</span><span class="w"> </span><span class="nc">OrderDataGeneratorApp</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">App</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">TestDataConfig</span><span class="p">(</span>
+<span class="w">    </span><span class="n">yearMonth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">YearMonth</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">targetOrderCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50000</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Generating </span><span class="si">${</span><span class="n">config</span><span class="p">.</span><span class="n">targetOrderCount</span><span class="si">}</span><span class="s"> orders for </span><span class="si">${</span><span class="n">config</span><span class="p">.</span><span class="n">yearMonth</span><span class="si">}</span><span class="s">...&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">OrderDataGenerator</span><span class="p">.</span><span class="n">generateMonthlyOrders</span><span class="p">(</span><span class="n">config</span><span class="p">.</span><span class="n">yearMonth</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Generated </span><span class="si">${</span><span class="n">orders</span><span class="p">.</span><span class="n">size</span><span class="si">}</span><span class="s"> orders&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Writing to SQL file...&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">sqlFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s&quot;data/orders_</span><span class="si">${</span><span class="n">config</span><span class="p">.</span><span class="n">yearMonth</span><span class="si">}</span><span class="s">.sql&quot;</span>
+<span class="w">  </span><span class="nc">OrderSqlWriter</span><span class="p">.</span><span class="n">writeToFile</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span><span class="w"> </span><span class="n">sqlFile</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Done! SQL file: </span><span class="si">$</span><span class="n">sqlFile</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">object</span><span class="w"> </span><span class="nc">OrderSqlWriter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">writeToFile</span><span class="p">(</span><span class="n">orders</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">CreateOrderRequest</span><span class="p">],</span><span class="w"> </span><span class="n">filePath</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="nc">PrintWriter</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">writer</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;-- Generated Order Data&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="n">writer</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;-- Total Orders: </span><span class="si">${</span><span class="n">orders</span><span class="p">.</span><span class="n">size</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="n">writer</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
+
+<span class="w">      </span><span class="n">orders</span><span class="p">.</span><span class="n">zipWithIndex</span><span class="p">.</span><span class="n">foreach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">writer</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;-- Progress: </span><span class="si">$</span><span class="n">index</span><span class="s"> / </span><span class="si">${</span><span class="n">orders</span><span class="p">.</span><span class="n">size</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">writeOrderSql</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">writer</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">writeOrderSql</span><span class="p">(</span><span class="n">writer</span><span class="p">:</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="nc">PrintWriter</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">:</span><span class="w"> </span><span class="nc">CreateOrderRequest</span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">orderId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="nc">UUID</span><span class="p">.</span><span class="n">randomUUID</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">orderNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">f&quot;O-</span><span class="si">${</span><span class="n">order</span><span class="p">.</span><span class="n">orderDate</span><span class="p">.</span><span class="n">getYear</span><span class="si">}</span><span class="s">-</span><span class="si">${</span><span class="n">orderId</span><span class="p">.</span><span class="n">toString</span><span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s">&quot;</span>
+
+<span class="w">    </span><span class="n">writer</span><span class="p">.</span><span class="n">println</span><span class="p">(</span>
+<span class="w">      </span><span class="s">s&quot;&quot;&quot;INSERT INTO orders (order_id, customer_id, company_id, order_number, order_date, status, subtotal_amount, tax_amount, total_amount, created_by, updated_by)</span>
+<span class="s">         |VALUES (</span>
+<span class="s">         |  &#39;</span><span class="si">$</span><span class="n">orderId</span><span class="s">&#39;,</span>
+<span class="s">         |  &#39;</span><span class="si">${</span><span class="n">order</span><span class="p">.</span><span class="n">customerId</span><span class="si">}</span><span class="s">&#39;,</span>
+<span class="s">         |  (SELECT company_id FROM companies WHERE company_type = &#39;Own&#39; LIMIT 1),</span>
+<span class="s">         |  &#39;</span><span class="si">$</span><span class="n">orderNumber</span><span class="s">&#39;,</span>
+<span class="s">         |  &#39;</span><span class="si">${</span><span class="n">order</span><span class="p">.</span><span class="n">orderDate</span><span class="si">}</span><span class="s">&#39;,</span>
+<span class="s">         |  &#39;Created&#39;,</span>
+<span class="s">         |  </span><span class="si">${</span><span class="n">order</span><span class="p">.</span><span class="n">subtotalAmount</span><span class="si">}</span><span class="s">,</span>
+<span class="s">         |  </span><span class="si">${</span><span class="n">order</span><span class="p">.</span><span class="n">taxAmount</span><span class="si">}</span><span class="s">,</span>
+<span class="s">         |  </span><span class="si">${</span><span class="n">order</span><span class="p">.</span><span class="n">totalAmount</span><span class="si">}</span><span class="s">,</span>
+<span class="s">         |  &#39;system&#39;,</span>
+<span class="s">         |  &#39;system&#39;</span>
+<span class="s">         |);</span>
+<span class="s">         |&quot;&quot;&quot;</span><span class="p">.</span><span class="n">stripMargin</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">order</span><span class="p">.</span><span class="n">items</span><span class="p">.</span><span class="n">zipWithIndex</span><span class="p">.</span><span class="n">foreach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">lineNumber</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">itemId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="nc">UUID</span><span class="p">.</span><span class="n">randomUUID</span><span class="p">()</span>
+
+<span class="w">      </span><span class="n">writer</span><span class="p">.</span><span class="n">println</span><span class="p">(</span>
+<span class="w">        </span><span class="s">s&quot;&quot;&quot;INSERT INTO order_items (order_item_id, order_id, product_id, line_number, quantity, unit_price, subtotal, tax_rate, tax_amount, total_amount)</span>
+<span class="s">           |VALUES (</span>
+<span class="s">           |  &#39;</span><span class="si">$</span><span class="n">itemId</span><span class="s">&#39;,</span>
+<span class="s">           |  &#39;</span><span class="si">$</span><span class="n">orderId</span><span class="s">&#39;,</span>
+<span class="s">           |  &#39;</span><span class="si">${</span><span class="n">item</span><span class="p">.</span><span class="n">productId</span><span class="si">}</span><span class="s">&#39;,</span>
+<span class="s">           |  </span><span class="si">${</span><span class="n">lineNumber</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s">,</span>
+<span class="s">           |  </span><span class="si">${</span><span class="n">item</span><span class="p">.</span><span class="n">quantity</span><span class="si">}</span><span class="s">,</span>
+<span class="s">           |  </span><span class="si">${</span><span class="n">item</span><span class="p">.</span><span class="n">unitPrice</span><span class="si">}</span><span class="s">,</span>
+<span class="s">           |  </span><span class="si">${</span><span class="n">item</span><span class="p">.</span><span class="n">subtotal</span><span class="si">}</span><span class="s">,</span>
+<span class="s">           |  </span><span class="si">${</span><span class="n">item</span><span class="p">.</span><span class="n">taxRate</span><span class="si">}</span><span class="s">,</span>
+<span class="s">           |  </span><span class="si">${</span><span class="n">item</span><span class="p">.</span><span class="n">taxAmount</span><span class="si">}</span><span class="s">,</span>
+<span class="s">           |  </span><span class="si">${</span><span class="n">item</span><span class="p">.</span><span class="n">totalAmount</span><span class="si">}</span>
+<span class="s">           |);</span>
+<span class="s">           |&quot;&quot;&quot;</span><span class="p">.</span><span class="n">stripMargin</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">writer</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_19">データ投入手順<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Flywayマイグレーション実行（マスタデータ拡張）</span>
+sbt<span class="w"> </span><span class="s2">&quot;queryInterfaceAdapter/flywayMigrate&quot;</span>
+
+<span class="c1"># 2. テストデータ生成ツール実行</span>
+sbt<span class="w"> </span><span class="s2">&quot;testDataGenerator/run&quot;</span>
+
+<span class="c1"># 3. 生成されたSQLファイルの投入</span>
+psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>pekko_cqrs_es<span class="w"> </span>-f<span class="w"> </span>data/orders_2025-01.sql
+</code></pre></div>
+<h2 id="_20">本章のまとめ<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>本章では、受注管理システムの動作確認に必要なデータを設計・準備しました：</p>
+<h3 id="_21">マスタデータの拡張<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>商品マスタ</strong>: 価格・税区分を追加</li>
+<li>食品類: 軽減税率8%（4,800品目）</li>
+<li>日用品: 標準税率10%（3,200品目）</li>
+<li>
+<p>価格帯: 低価格（100〜500円）、中価格（500〜2,000円）、高価格（2,000〜10,000円）</p>
+</li>
+<li>
+<p><strong>取引先マスタ</strong>: 与信・支払条件を追加</p>
+</li>
+<li>大口（30社）: 与信30百万円、月間取引額10百万円</li>
+<li>中口（150社）: 与信5百万円、月間取引額1百万円</li>
+<li>小口（250社）: 与信1百万円、月間取引額0.1百万円</li>
+</ol>
+<h3 id="_22">トランザクションデータのシナリオ<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>注文パターンの設計</strong></li>
+<li>大口: 週1回、平均50品目、500万円/件</li>
+<li>中口: 週1〜2回、平均20品目、50万円/件</li>
+<li>
+<p>小口: 不定期、平均5品目、5万円/件</p>
+</li>
+<li>
+<p><strong>月間50,000件のデータ生成</strong></p>
+</li>
+<li>大口: 120件（0.24%）</li>
+<li>中口: 900件（1.8%）</li>
+<li>
+<p>小口: 49,000件（98%）</p>
+</li>
+<li>
+<p><strong>季節変動の考慮</strong></p>
+</li>
+<li>繁忙期（12月）: 70,000件（係数1.4）</li>
+<li>閑散期（8月）: 42,500件（係数0.85）</li>
+</ol>
+<h3 id="_23">データ投入スクリプト<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Flywayマイグレーション</strong>: マスタデータ拡張とサンプルデータ</li>
+<li><strong>テストデータ生成ツール</strong>: Scalaによる大量データ生成</li>
+<li><strong>投入手順</strong>: sbt + psqlによる自動化</li>
+</ol>
+<p>次章では、これらのデータを扱うドメインモデル（集約、値オブジェクト）を設計します。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/k2works" target="_blank" rel="noopener" title="GitHub Repository/claude-code-booster" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>
