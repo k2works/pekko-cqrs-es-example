@@ -1,0 +1,937 @@
+name: マスタ管理クライアント
+description: GraphQL APIを通じてマスタデータの一括登録・更新・削除を行うScript Labスニペット
+host: EXCEL
+api_set: {}
+script:
+  content: |
+    // ===========================================
+    // 設定
+    // ===========================================
+
+    const CONFIG = {
+      QUERY_API_URL: "http://localhost:50502/api/graphql",
+      COMMAND_API_URL: "http://localhost:50501/api/graphql",
+    };
+
+    // ===========================================
+    // 型定義
+    // ===========================================
+
+    interface GraphQLResponse<T> {
+      data?: T;
+      errors?: Array<{
+        message: string;
+        extensions?: { type?: string; code?: string; errors?: string[] };
+      }>;
+    }
+
+    interface OperationResult {
+      row: number;
+      operation: string;
+      success: boolean;
+      id?: string;
+      error?: string;
+    }
+
+    // ===========================================
+    // GraphQL Mutations
+    // ===========================================
+
+    const MUTATIONS = {
+      // 商品
+      CREATE_PRODUCT: `
+        mutation CreateProduct($input: CreateProductInput!) {
+          createProduct(input: $input) { id }
+        }
+      `,
+      UPDATE_PRODUCT: `
+        mutation UpdateProduct($input: UpdateProductInput!) {
+          updateProduct(input: $input) { id }
+        }
+      `,
+      OBSOLETE_PRODUCT: `
+        mutation ObsoleteProduct($input: ObsoleteProductInput!) {
+          obsoleteProduct(input: $input) { id }
+        }
+      `,
+
+      // 倉庫
+      CREATE_WAREHOUSE: `
+        mutation CreateWarehouse($input: CreateWarehouseInput!) {
+          createWarehouse(input: $input) { id }
+        }
+      `,
+      UPDATE_WAREHOUSE: `
+        mutation UpdateWarehouse($input: UpdateWarehouseInput!) {
+          updateWarehouse(input: $input) { id }
+        }
+      `,
+      DEACTIVATE_WAREHOUSE: `
+        mutation DeactivateWarehouse($input: DeactivateWarehouseInput!) {
+          deactivateWarehouse(input: $input) { id }
+        }
+      `,
+      REACTIVATE_WAREHOUSE: `
+        mutation ReactivateWarehouse($input: ReactivateWarehouseInput!) {
+          reactivateWarehouse(input: $input) { id }
+        }
+      `,
+
+      // 倉庫ゾーン
+      CREATE_WAREHOUSE_ZONE: `
+        mutation CreateWarehouseZone($input: CreateWarehouseZoneInput!) {
+          createWarehouseZone(input: $input) { id }
+        }
+      `,
+      UPDATE_WAREHOUSE_ZONE: `
+        mutation UpdateWarehouseZone($input: UpdateWarehouseZoneInput!) {
+          updateWarehouseZone(input: $input) { id }
+        }
+      `,
+      DEACTIVATE_WAREHOUSE_ZONE: `
+        mutation DeactivateWarehouseZone($input: DeactivateWarehouseZoneInput!) {
+          deactivateWarehouseZone(input: $input) { id }
+        }
+      `,
+      REACTIVATE_WAREHOUSE_ZONE: `
+        mutation ReactivateWarehouseZone($input: ReactivateWarehouseZoneInput!) {
+          reactivateWarehouseZone(input: $input) { id }
+        }
+      `,
+
+      // 顧客
+      CREATE_CUSTOMER: `
+        mutation CreateCustomer($input: CreateCustomerInput!) {
+          createCustomer(input: $input) { id }
+        }
+      `,
+      UPDATE_CUSTOMER: `
+        mutation UpdateCustomer($input: UpdateCustomerInput!) {
+          updateCustomer(input: $input) { id }
+        }
+      `,
+      DEACTIVATE_CUSTOMER: `
+        mutation DeactivateCustomer($input: DeactivateCustomerInput!) {
+          deactivateCustomer(input: $input) { id }
+        }
+      `,
+      REACTIVATE_CUSTOMER: `
+        mutation ReactivateCustomer($input: ReactivateCustomerInput!) {
+          reactivateCustomer(input: $input) { id }
+        }
+      `,
+
+      // 在庫
+      CREATE_INVENTORY: `
+        mutation CreateInventory($input: CreateInventoryInput!) {
+          createInventory(input: $input) { id }
+        }
+      `,
+      RECEIVE_INVENTORY: `
+        mutation ReceiveInventory($input: ReceiveInventoryInput!) {
+          receiveInventory(input: $input) { version }
+        }
+      `,
+      RESERVE_INVENTORY: `
+        mutation ReserveInventory($input: ReserveInventoryInput!) {
+          reserveInventory(input: $input) { version }
+        }
+      `,
+      RELEASE_INVENTORY: `
+        mutation ReleaseInventory($input: ReleaseInventoryInput!) {
+          releaseInventory(input: $input) { version }
+        }
+      `,
+      ISSUE_INVENTORY: `
+        mutation IssueInventory($input: IssueInventoryInput!) {
+          issueInventory(input: $input) { version }
+        }
+      `,
+      ADJUST_INVENTORY: `
+        mutation AdjustInventory($input: AdjustInventoryInput!) {
+          adjustInventory(input: $input) { version }
+        }
+      `,
+    };
+
+    // ===========================================
+    // API クライアント
+    // ===========================================
+
+    async function executeGraphQL<T>(
+      url: string,
+      query: string,
+      variables?: Record<string, unknown>
+    ): Promise<GraphQLResponse<T>> {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query, variables }),
+      });
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
+    }
+
+    async function executeMutation<T>(mutation: string, input: Record<string, unknown>): Promise<T> {
+      const result = await executeGraphQL<T>(CONFIG.COMMAND_API_URL, mutation, { input });
+      if (result.errors) {
+        throw new Error(result.errors.map((e) => e.extensions?.errors?.join(", ") || e.message).join("; "));
+      }
+      return result.data!;
+    }
+
+    // ===========================================
+    // Excel操作
+    // ===========================================
+
+    async function getOrCreateSheet(context: Excel.RequestContext, name: string): Promise<Excel.Worksheet> {
+      const sheets = context.workbook.worksheets;
+      sheets.load("items/name");
+      await context.sync();
+      const existing = sheets.items.find((s) => s.name === name);
+      if (existing) {
+        existing.getUsedRange().clear();
+        return existing;
+      }
+      return sheets.add(name);
+    }
+
+    async function readSheetData(context: Excel.RequestContext, sheetName: string): Promise<any[][]> {
+      const sheet = context.workbook.worksheets.getItem(sheetName);
+      const usedRange = sheet.getUsedRange();
+      usedRange.load("values");
+      await context.sync();
+      return usedRange.values;
+    }
+
+    async function writeResults(context: Excel.RequestContext, results: OperationResult[]): Promise<void> {
+      const sheet = await getOrCreateSheet(context, "Results");
+
+      sheet.getRange("A1:D1").values = [["行", "操作", "結果", "ID/エラー"]];
+      sheet.getRange("A1:D1").format.font.bold = true;
+      sheet.getRange("A1:D1").format.fill.color = "#455A64";
+      sheet.getRange("A1:D1").format.font.color = "#FFFFFF";
+
+      if (results.length > 0) {
+        const data = results.map((r) => [
+          r.row,
+          r.operation,
+          r.success ? "成功" : "失敗",
+          r.success ? (r.id || "") : (r.error || ""),
+        ]);
+        sheet.getRange(`A2:D${results.length + 1}`).values = data;
+      }
+
+      sheet.getUsedRange().format.autofitColumns();
+      sheet.activate();
+      await context.sync();
+    }
+
+    // ===========================================
+    // テンプレート作成
+    // ===========================================
+
+    async function createProductTemplate() {
+      await Excel.run(async (context) => {
+        const sheet = await getOrCreateSheet(context, "ProductInput");
+        sheet.getRange("A1:E1").values = [["操作", "商品コード", "商品名", "カテゴリ", "保管条件"]];
+        sheet.getRange("A1:E1").format.font.bold = true;
+        sheet.getRange("A1:E1").format.fill.color = "#2E7D32";
+        sheet.getRange("A1:E1").format.font.color = "#FFFFFF";
+
+        sheet.getRange("A2:E2").values = [
+          ["CREATE", "PROD-001", "Test Product", "CAT-01", "RT"],
+        ];
+
+        sheet.getRange("F1").values = [["※操作: CREATE/UPDATE/DELETE"]];
+        sheet.getRange("F2").values = [["※保管条件: RT(常温)/RF(冷蔵)/FZ(冷凍)"]];
+        sheet.getRange("F3").values = [["※UPDATE/DELETE: B列にResultsシートのIDをコピー"]];
+        sheet.getUsedRange().format.autofitColumns();
+        sheet.activate();
+        await context.sync();
+      });
+    }
+
+    async function createWarehouseTemplate() {
+      await Excel.run(async (context) => {
+        const sheet = await getOrCreateSheet(context, "WarehouseInput");
+        sheet.getRange("A1:D1").values = [["操作", "倉庫コード/ID", "倉庫名", "所在地"]];
+        sheet.getRange("A1:D1").format.font.bold = true;
+        sheet.getRange("A1:D1").format.fill.color = "#7B1FA2";
+        sheet.getRange("A1:D1").format.font.color = "#FFFFFF";
+
+        sheet.getRange("A2:D2").values = [
+          ["CREATE", "WH-001", "Tokyo Warehouse", "Tokyo"],
+        ];
+
+        sheet.getRange("E1").values = [["※操作: CREATE/UPDATE/DEACTIVATE/REACTIVATE"]];
+        sheet.getRange("E2").values = [["※UPDATE等: B列にResultsシートのIDをコピー"]];
+        sheet.getUsedRange().format.autofitColumns();
+        sheet.activate();
+        await context.sync();
+      });
+    }
+
+    async function createZoneTemplate() {
+      await Excel.run(async (context) => {
+        const sheet = await getOrCreateSheet(context, "ZoneInput");
+        sheet.getRange("A1:F1").values = [["操作", "倉庫ID/ゾーンID", "ゾーンコード", "ゾーン名", "保管条件", "容量(㎡)"]];
+        sheet.getRange("A1:F1").format.font.bold = true;
+        sheet.getRange("A1:F1").format.fill.color = "#C2185B";
+        sheet.getRange("A1:F1").format.font.color = "#FFFFFF";
+
+        sheet.getRange("A2:F2").values = [
+          ["CREATE", "", "ZONE-A1", "Zone A", "RT", 100],
+        ];
+
+        sheet.getRange("G1").values = [["※操作: CREATE/UPDATE/DEACTIVATE/REACTIVATE"]];
+        sheet.getRange("G2").values = [["※CREATE: B列に倉庫ID（先に倉庫を作成）"]];
+        sheet.getRange("G3").values = [["※UPDATE等: B列にResultsシートのゾーンID"]];
+        sheet.getUsedRange().format.autofitColumns();
+        sheet.activate();
+        await context.sync();
+      });
+    }
+
+    async function createCustomerTemplate() {
+      await Excel.run(async (context) => {
+        const sheet = await getOrCreateSheet(context, "CustomerInput");
+        sheet.getRange("A1:D1").values = [["操作", "顧客コード/ID", "顧客名", "顧客タイプ"]];
+        sheet.getRange("A1:D1").format.font.bold = true;
+        sheet.getRange("A1:D1").format.fill.color = "#F57C00";
+        sheet.getRange("A1:D1").format.font.color = "#FFFFFF";
+
+        sheet.getRange("A2:D2").values = [
+          ["CREATE", "CUST-001", "Test Customer", "L"],
+        ];
+
+        sheet.getRange("E1").values = [["※操作: CREATE/UPDATE/DEACTIVATE/REACTIVATE"]];
+        sheet.getRange("E2").values = [["※タイプ: L(大口)/M(中口)/S(小口)"]];
+        sheet.getRange("E3").values = [["※UPDATE等: B列にResultsシートのIDをコピー"]];
+        sheet.getUsedRange().format.autofitColumns();
+        sheet.activate();
+        await context.sync();
+      });
+    }
+
+    async function createInventoryTemplate() {
+      await Excel.run(async (context) => {
+        const sheet = await getOrCreateSheet(context, "InventoryInput");
+        sheet.getRange("A1:F1").values = [["操作", "在庫ID/商品ID", "ゾーンID", "数量", "バージョン", "理由"]];
+        sheet.getRange("A1:F1").format.font.bold = true;
+        sheet.getRange("A1:F1").format.fill.color = "#1565C0";
+        sheet.getRange("A1:F1").format.font.color = "#FFFFFF";
+
+        sheet.getRange("A2:F2").values = [
+          ["CREATE", "", "", "", "", ""],
+        ];
+
+        sheet.getRange("G1").values = [["※操作: CREATE/RECEIVE/RESERVE/RELEASE/ISSUE/ADJUST"]];
+        sheet.getRange("G2").values = [["※CREATE: B列=商品ID、C列=ゾーンID（先に作成）"]];
+        sheet.getRange("G3").values = [["※その他: B列=在庫ID、D列=数量、E列=バージョン(必須)"]];
+        sheet.getRange("G4").values = [["※バージョン: 作成直後は1、操作後はResultsで確認"]];
+        sheet.getUsedRange().format.autofitColumns();
+        sheet.activate();
+        await context.sync();
+      });
+    }
+
+    // ===========================================
+    // 一括処理
+    // ===========================================
+
+    async function processProducts() {
+      const statusEl = document.getElementById("status");
+      statusEl.textContent = "商品データを処理中...";
+      statusEl.className = "status loading";
+
+      try {
+        await Excel.run(async (context) => {
+          const data = await readSheetData(context, "ProductInput");
+          const results: OperationResult[] = [];
+
+          for (let i = 1; i < data.length; i++) {
+            const [op, codeOrId, name, category, storage] = data[i].map(String);
+            if (!op) continue;
+
+            try {
+              let id = "";
+              switch (op.toUpperCase()) {
+                case "CREATE":
+                  const createRes = await executeMutation<{ createProduct: { id: string } }>(
+                    MUTATIONS.CREATE_PRODUCT,
+                    { productCode: codeOrId, name, categoryCode: category, storageCondition: storage }
+                  );
+                  id = createRes.createProduct.id;
+                  break;
+                case "UPDATE":
+                  const updateRes = await executeMutation<{ updateProduct: { id: string } }>(
+                    MUTATIONS.UPDATE_PRODUCT,
+                    { id: codeOrId, name, categoryCode: category, storageCondition: storage }
+                  );
+                  id = updateRes.updateProduct.id;
+                  break;
+                case "DELETE":
+                  const deleteRes = await executeMutation<{ obsoleteProduct: { id: string } }>(
+                    MUTATIONS.OBSOLETE_PRODUCT,
+                    { id: codeOrId }
+                  );
+                  id = deleteRes.obsoleteProduct.id;
+                  break;
+              }
+              results.push({ row: i + 1, operation: op, success: true, id });
+            } catch (e) {
+              results.push({ row: i + 1, operation: op, success: false, error: e.message });
+            }
+          }
+
+          await writeResults(context, results);
+          const successCount = results.filter((r) => r.success).length;
+          statusEl.textContent = `完了: ${successCount}/${results.length}件成功`;
+          statusEl.className = "status success";
+        });
+      } catch (error) {
+        statusEl.textContent = `エラー: ${error.message}`;
+        statusEl.className = "status error";
+      }
+    }
+
+    async function processWarehouses() {
+      const statusEl = document.getElementById("status");
+      statusEl.textContent = "倉庫データを処理中...";
+      statusEl.className = "status loading";
+
+      try {
+        await Excel.run(async (context) => {
+          const data = await readSheetData(context, "WarehouseInput");
+          const results: OperationResult[] = [];
+
+          for (let i = 1; i < data.length; i++) {
+            const [op, codeOrId, name, location] = data[i].map(String);
+            if (!op) continue;
+
+            try {
+              let id = "";
+              switch (op.toUpperCase()) {
+                case "CREATE":
+                  const createRes = await executeMutation<{ createWarehouse: { id: string } }>(
+                    MUTATIONS.CREATE_WAREHOUSE,
+                    { warehouseCode: codeOrId, name, location }
+                  );
+                  id = createRes.createWarehouse.id;
+                  break;
+                case "UPDATE":
+                  const updateRes = await executeMutation<{ updateWarehouse: { id: string } }>(
+                    MUTATIONS.UPDATE_WAREHOUSE,
+                    { id: codeOrId, name, location }
+                  );
+                  id = updateRes.updateWarehouse.id;
+                  break;
+                case "DEACTIVATE":
+                  const deactRes = await executeMutation<{ deactivateWarehouse: { id: string } }>(
+                    MUTATIONS.DEACTIVATE_WAREHOUSE,
+                    { id: codeOrId }
+                  );
+                  id = deactRes.deactivateWarehouse.id;
+                  break;
+                case "REACTIVATE":
+                  const reactRes = await executeMutation<{ reactivateWarehouse: { id: string } }>(
+                    MUTATIONS.REACTIVATE_WAREHOUSE,
+                    { id: codeOrId }
+                  );
+                  id = reactRes.reactivateWarehouse.id;
+                  break;
+              }
+              results.push({ row: i + 1, operation: op, success: true, id });
+            } catch (e) {
+              results.push({ row: i + 1, operation: op, success: false, error: e.message });
+            }
+          }
+
+          await writeResults(context, results);
+          const successCount = results.filter((r) => r.success).length;
+          statusEl.textContent = `完了: ${successCount}/${results.length}件成功`;
+          statusEl.className = "status success";
+        });
+      } catch (error) {
+        statusEl.textContent = `エラー: ${error.message}`;
+        statusEl.className = "status error";
+      }
+    }
+
+    async function processZones() {
+      const statusEl = document.getElementById("status");
+      statusEl.textContent = "ゾーンデータを処理中...";
+      statusEl.className = "status loading";
+
+      try {
+        await Excel.run(async (context) => {
+          const data = await readSheetData(context, "ZoneInput");
+          const results: OperationResult[] = [];
+
+          for (let i = 1; i < data.length; i++) {
+            const row = data[i];
+            const op = String(row[0]);
+            if (!op) continue;
+
+            try {
+              let id = "";
+              switch (op.toUpperCase()) {
+                case "CREATE":
+                  const createRes = await executeMutation<{ createWarehouseZone: { id: string } }>(
+                    MUTATIONS.CREATE_WAREHOUSE_ZONE,
+                    {
+                      warehouseId: String(row[1]),
+                      zoneCode: String(row[2]),
+                      name: String(row[3]),
+                      storageCondition: String(row[4]),
+                      capacity: Number(row[5]),
+                    }
+                  );
+                  id = createRes.createWarehouseZone.id;
+                  break;
+                case "UPDATE":
+                  const updateRes = await executeMutation<{ updateWarehouseZone: { id: string } }>(
+                    MUTATIONS.UPDATE_WAREHOUSE_ZONE,
+                    { id: String(row[1]), name: String(row[3]), capacity: Number(row[5]) }
+                  );
+                  id = updateRes.updateWarehouseZone.id;
+                  break;
+                case "DEACTIVATE":
+                  const deactRes = await executeMutation<{ deactivateWarehouseZone: { id: string } }>(
+                    MUTATIONS.DEACTIVATE_WAREHOUSE_ZONE,
+                    { id: String(row[1]) }
+                  );
+                  id = deactRes.deactivateWarehouseZone.id;
+                  break;
+                case "REACTIVATE":
+                  const reactRes = await executeMutation<{ reactivateWarehouseZone: { id: string } }>(
+                    MUTATIONS.REACTIVATE_WAREHOUSE_ZONE,
+                    { id: String(row[1]) }
+                  );
+                  id = reactRes.reactivateWarehouseZone.id;
+                  break;
+              }
+              results.push({ row: i + 1, operation: op, success: true, id });
+            } catch (e) {
+              results.push({ row: i + 1, operation: op, success: false, error: e.message });
+            }
+          }
+
+          await writeResults(context, results);
+          const successCount = results.filter((r) => r.success).length;
+          statusEl.textContent = `完了: ${successCount}/${results.length}件成功`;
+          statusEl.className = "status success";
+        });
+      } catch (error) {
+        statusEl.textContent = `エラー: ${error.message}`;
+        statusEl.className = "status error";
+      }
+    }
+
+    async function processCustomers() {
+      const statusEl = document.getElementById("status");
+      statusEl.textContent = "顧客データを処理中...";
+      statusEl.className = "status loading";
+
+      try {
+        await Excel.run(async (context) => {
+          const data = await readSheetData(context, "CustomerInput");
+          const results: OperationResult[] = [];
+
+          for (let i = 1; i < data.length; i++) {
+            const [op, codeOrId, name, customerType] = data[i].map(String);
+            if (!op) continue;
+
+            try {
+              let id = "";
+              switch (op.toUpperCase()) {
+                case "CREATE":
+                  const createRes = await executeMutation<{ createCustomer: { id: string } }>(
+                    MUTATIONS.CREATE_CUSTOMER,
+                    { customerCode: codeOrId, name, customerType }
+                  );
+                  id = createRes.createCustomer.id;
+                  break;
+                case "UPDATE":
+                  const updateRes = await executeMutation<{ updateCustomer: { id: string } }>(
+                    MUTATIONS.UPDATE_CUSTOMER,
+                    { id: codeOrId, name, customerType }
+                  );
+                  id = updateRes.updateCustomer.id;
+                  break;
+                case "DEACTIVATE":
+                  const deactRes = await executeMutation<{ deactivateCustomer: { id: string } }>(
+                    MUTATIONS.DEACTIVATE_CUSTOMER,
+                    { id: codeOrId }
+                  );
+                  id = deactRes.deactivateCustomer.id;
+                  break;
+                case "REACTIVATE":
+                  const reactRes = await executeMutation<{ reactivateCustomer: { id: string } }>(
+                    MUTATIONS.REACTIVATE_CUSTOMER,
+                    { id: codeOrId }
+                  );
+                  id = reactRes.reactivateCustomer.id;
+                  break;
+              }
+              results.push({ row: i + 1, operation: op, success: true, id });
+            } catch (e) {
+              results.push({ row: i + 1, operation: op, success: false, error: e.message });
+            }
+          }
+
+          await writeResults(context, results);
+          const successCount = results.filter((r) => r.success).length;
+          statusEl.textContent = `完了: ${successCount}/${results.length}件成功`;
+          statusEl.className = "status success";
+        });
+      } catch (error) {
+        statusEl.textContent = `エラー: ${error.message}`;
+        statusEl.className = "status error";
+      }
+    }
+
+    async function processInventory() {
+      const statusEl = document.getElementById("status");
+      statusEl.textContent = "在庫データを処理中...";
+      statusEl.className = "status loading";
+
+      try {
+        await Excel.run(async (context) => {
+          const data = await readSheetData(context, "InventoryInput");
+          const results: OperationResult[] = [];
+
+          for (let i = 1; i < data.length; i++) {
+            const row = data[i];
+            const op = String(row[0]);
+            if (!op) continue;
+
+            try {
+              let resultId = "";
+              switch (op.toUpperCase()) {
+                case "CREATE":
+                  const createRes = await executeMutation<{ createInventory: { id: string } }>(
+                    MUTATIONS.CREATE_INVENTORY,
+                    { productId: String(row[1]), warehouseZoneId: String(row[2]) }
+                  );
+                  resultId = createRes.createInventory.id;
+                  break;
+                case "RECEIVE":
+                  const receiveRes = await executeMutation<{ receiveInventory: { version: number } }>(
+                    MUTATIONS.RECEIVE_INVENTORY,
+                    { id: String(row[1]), quantity: Number(row[3]), expectedVersion: Number(row[4]) }
+                  );
+                  resultId = `version: ${receiveRes.receiveInventory.version}`;
+                  break;
+                case "RESERVE":
+                  const reserveRes = await executeMutation<{ reserveInventory: { version: number } }>(
+                    MUTATIONS.RESERVE_INVENTORY,
+                    { id: String(row[1]), quantity: Number(row[3]), expectedVersion: Number(row[4]) }
+                  );
+                  resultId = `version: ${reserveRes.reserveInventory.version}`;
+                  break;
+                case "RELEASE":
+                  const releaseRes = await executeMutation<{ releaseInventory: { version: number } }>(
+                    MUTATIONS.RELEASE_INVENTORY,
+                    { id: String(row[1]), quantity: Number(row[3]), expectedVersion: Number(row[4]) }
+                  );
+                  resultId = `version: ${releaseRes.releaseInventory.version}`;
+                  break;
+                case "ISSUE":
+                  const issueRes = await executeMutation<{ issueInventory: { version: number } }>(
+                    MUTATIONS.ISSUE_INVENTORY,
+                    { id: String(row[1]), quantity: Number(row[3]), expectedVersion: Number(row[4]) }
+                  );
+                  resultId = `version: ${issueRes.issueInventory.version}`;
+                  break;
+                case "ADJUST":
+                  const adjustRes = await executeMutation<{ adjustInventory: { version: number } }>(
+                    MUTATIONS.ADJUST_INVENTORY,
+                    {
+                      id: String(row[1]),
+                      newQuantity: Number(row[3]),
+                      expectedVersion: Number(row[4]),
+                      reason: String(row[5]),
+                    }
+                  );
+                  resultId = `version: ${adjustRes.adjustInventory.version}`;
+                  break;
+              }
+              results.push({ row: i + 1, operation: op, success: true, id: resultId });
+            } catch (e) {
+              results.push({ row: i + 1, operation: op, success: false, error: e.message });
+            }
+          }
+
+          await writeResults(context, results);
+          const successCount = results.filter((r) => r.success).length;
+          statusEl.textContent = `完了: ${successCount}/${results.length}件成功`;
+          statusEl.className = "status success";
+        });
+      } catch (error) {
+        statusEl.textContent = `エラー: ${error.message}`;
+        statusEl.className = "status error";
+      }
+    }
+
+    // ===========================================
+    // ボタンハンドラ
+    // ===========================================
+
+    function handleTemplate(type: string) {
+      const statusEl = document.getElementById("status");
+      statusEl.textContent = "テンプレート作成中...";
+      statusEl.className = "status loading";
+
+      const handlers: Record<string, () => Promise<void>> = {
+        product: createProductTemplate,
+        warehouse: createWarehouseTemplate,
+        zone: createZoneTemplate,
+        customer: createCustomerTemplate,
+        inventory: createInventoryTemplate,
+      };
+
+      handlers[type]()
+        .then(() => {
+          statusEl.textContent = "テンプレートを作成しました";
+          statusEl.className = "status success";
+        })
+        .catch((e) => {
+          statusEl.textContent = `エラー: ${e.message}`;
+          statusEl.className = "status error";
+        });
+    }
+
+    // ===========================================
+    // 初期化
+    // ===========================================
+
+    Office.onReady((info) => {
+      if (info.host === Office.HostType.Excel) {
+        // テンプレート作成
+        document.getElementById("btnTplProduct").onclick = () => handleTemplate("product");
+        document.getElementById("btnTplWarehouse").onclick = () => handleTemplate("warehouse");
+        document.getElementById("btnTplZone").onclick = () => handleTemplate("zone");
+        document.getElementById("btnTplCustomer").onclick = () => handleTemplate("customer");
+        document.getElementById("btnTplInventory").onclick = () => handleTemplate("inventory");
+
+        // 実行
+        document.getElementById("btnExecProduct").onclick = processProducts;
+        document.getElementById("btnExecWarehouse").onclick = processWarehouses;
+        document.getElementById("btnExecZone").onclick = processZones;
+        document.getElementById("btnExecCustomer").onclick = processCustomers;
+        document.getElementById("btnExecInventory").onclick = processInventory;
+      }
+    });
+  language: typescript
+template:
+  content: |
+    <main id="app">
+      <h1>マスタ管理</h1>
+
+      <section class="section">
+        <h2>商品マスタ</h2>
+        <div class="btn-row">
+          <button id="btnTplProduct" class="btn btn-outline-green">テンプレート</button>
+          <button id="btnExecProduct" class="btn btn-green">実行</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>倉庫マスタ</h2>
+        <div class="btn-row">
+          <button id="btnTplWarehouse" class="btn btn-outline-purple">テンプレート</button>
+          <button id="btnExecWarehouse" class="btn btn-purple">実行</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>倉庫ゾーンマスタ</h2>
+        <div class="btn-row">
+          <button id="btnTplZone" class="btn btn-outline-pink">テンプレート</button>
+          <button id="btnExecZone" class="btn btn-pink">実行</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>顧客マスタ</h2>
+        <div class="btn-row">
+          <button id="btnTplCustomer" class="btn btn-outline-orange">テンプレート</button>
+          <button id="btnExecCustomer" class="btn btn-orange">実行</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>在庫操作</h2>
+        <div class="btn-row">
+          <button id="btnTplInventory" class="btn btn-outline-blue">テンプレート</button>
+          <button id="btnExecInventory" class="btn btn-blue">実行</button>
+        </div>
+      </section>
+
+      <div class="hint">
+        <h3>作成順序（重要）</h3>
+        <ol>
+          <li>商品マスタを先に作成</li>
+          <li>倉庫マスタを作成</li>
+          <li>倉庫ゾーンマスタを作成（倉庫IDが必要）</li>
+          <li>在庫を作成（商品IDとゾーンIDが必要）</li>
+        </ol>
+        <h3>操作手順</h3>
+        <ol>
+          <li>テンプレートボタンで入力シート作成</li>
+          <li>データを入力</li>
+          <li>実行ボタンで一括処理</li>
+          <li>ResultsシートのIDを次の操作に使用</li>
+        </ol>
+      </div>
+
+      <div id="status" class="status"></div>
+    </main>
+  language: html
+style:
+  content: |
+    :root {
+      --green: #2E7D32;
+      --blue: #1565C0;
+      --purple: #7B1FA2;
+      --pink: #C2185B;
+      --orange: #F57C00;
+      --gray: #455A64;
+      --dark: #212121;
+      --light: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    #app {
+      padding: 16px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gray);
+    }
+
+    h2 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section {
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: white;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .btn-green { background-color: var(--green); }
+    .btn-blue { background-color: var(--blue); }
+    .btn-purple { background-color: var(--purple); }
+    .btn-pink { background-color: var(--pink); }
+    .btn-orange { background-color: var(--orange); }
+
+    .btn-outline-green { background: white; color: var(--green); border: 1px solid var(--green); }
+    .btn-outline-blue { background: white; color: var(--blue); border: 1px solid var(--blue); }
+    .btn-outline-purple { background: white; color: var(--purple); border: 1px solid var(--purple); }
+    .btn-outline-pink { background: white; color: var(--pink); border: 1px solid var(--pink); }
+    .btn-outline-orange { background: white; color: var(--orange); border: 1px solid var(--orange); }
+
+    .hint {
+      background: #fff3e0;
+      border-radius: 4px;
+      padding: 10px;
+      margin-top: 12px;
+    }
+
+    .hint h3 {
+      font-size: 12px;
+      font-weight: 600;
+      color: #e65100;
+      margin-bottom: 6px;
+      margin-top: 8px;
+    }
+
+    .hint h3:first-child {
+      margin-top: 0;
+    }
+
+    .hint ol {
+      font-size: 11px;
+      color: #bf360c;
+      margin-left: 16px;
+      margin-bottom: 4px;
+    }
+
+    .hint li {
+      margin-bottom: 2px;
+    }
+
+    .status {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .status:empty { display: none; }
+    .status.loading { background-color: #e3f2fd; color: #1976d2; }
+    .status.success { background-color: #e8f5e9; color: #2e7d32; }
+    .status.error { background-color: #ffebee; color: #c62828; }
+  language: css
+libraries: |
+  https://appsforoffice.microsoft.com/lib/1/hosted/office.js
+  @types/office-js
+
+  office-ui-fabric-js@1.4.0/dist/css/fabric.min.css
+  office-ui-fabric-js@1.4.0/dist/css/fabric.components.min.css
+
+  core-js@2.4.1/client/core.min.js
+  @types/core-js
+
+  jquery@3.1.1
+  @types/jquery@3.3.1
