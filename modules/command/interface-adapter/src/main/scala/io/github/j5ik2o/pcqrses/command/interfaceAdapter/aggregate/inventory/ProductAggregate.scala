@@ -7,7 +7,13 @@ import com.github.j5ik2o.pekko.persistence.effector.scaladsl.{
   RetentionCriteria,
   SnapshotCriteria
 }
-import io.github.j5ik2o.pcqrses.command.domain.inventory.{Product, ProductEvent, ProductId}
+import io.github.j5ik2o.pcqrses.command.domain.inventory.{
+  ObsoleteProductError,
+  Product,
+  ProductEvent,
+  ProductId,
+  UpdateProductError
+}
 import io.github.j5ik2o.pcqrses.command.interfaceAdapter.contract.inventory.ProductProtocol.*
 import org.apache.pekko.actor.typed.{Behavior, SupervisorStrategy}
 import org.apache.pekko.actor.typed.scaladsl.Behaviors
@@ -15,23 +21,30 @@ import org.apache.pekko.actor.typed.scaladsl.Behaviors
 object ProductAggregate {
 
   private def handleNotCreated(
-      state: ProductAggregateState.NotCreated,
-      effector: PersistenceEffector[ProductAggregateState, ProductEvent, Command]
+    state: ProductAggregateState.NotCreated,
+    effector: PersistenceEffector[ProductAggregateState, ProductEvent, Command]
   ): Behavior[Command] = Behaviors.receiveMessagePartial {
-    case CreateProduct(id, productCode, name, categoryCode, storageCondition, replyTo) if state.id == id =>
+    case CreateProduct(id, productCode, name, categoryCode, storageCondition, replyTo)
+        if state.id == id =>
       val (newState, event) = Product(id, productCode, name, categoryCode, storageCondition)
       effector.persistEvent(event) { _ =>
         replyTo ! CreateProductSucceeded(id)
         handleCreated(ProductAggregateState.Created(newState), effector)
       }
+    case UpdateProduct(id, _, _, _, replyTo) if state.id == id =>
+      replyTo ! UpdateProductFailed(id, UpdateProductError.NotFound)
+      Behaviors.same
+    case ObsoleteProduct(id, replyTo) if state.id == id =>
+      replyTo ! ObsoleteProductFailed(id, ObsoleteProductError.NotFound)
+      Behaviors.same
     case GetProduct(id, replyTo) if state.id == id =>
       replyTo ! GetProductNotFoundFailed(id)
       Behaviors.same
   }
 
   private def handleCreated(
-      state: ProductAggregateState.Created,
-      effector: PersistenceEffector[ProductAggregateState, ProductEvent, Command]
+    state: ProductAggregateState.Created,
+    effector: PersistenceEffector[ProductAggregateState, ProductEvent, Command]
   ): Behavior[Command] =
     Behaviors.receiveMessagePartial {
       case UpdateProduct(id, newName, newCategoryCode, newStorageCondition, replyTo)
@@ -63,11 +76,18 @@ object ProductAggregate {
     }
 
   private def handleObsoleted(
-      state: ProductAggregateState.Obsoleted,
-      effector: PersistenceEffector[ProductAggregateState, ProductEvent, Command]
-  ): Behavior[Command] = Behaviors.receiveMessagePartial { case GetProduct(id, replyTo) =>
-    replyTo ! GetProductNotFoundFailed(id)
-    Behaviors.same
+    state: ProductAggregateState.Obsoleted,
+    effector: PersistenceEffector[ProductAggregateState, ProductEvent, Command]
+  ): Behavior[Command] = Behaviors.receiveMessagePartial {
+    case UpdateProduct(id, _, _, _, replyTo) if state.product.id == id =>
+      replyTo ! UpdateProductFailed(id, UpdateProductError.AlreadyObsoleted)
+      Behaviors.same
+    case ObsoleteProduct(id, replyTo) if state.product.id == id =>
+      replyTo ! ObsoleteProductFailed(id, ObsoleteProductError.AlreadyObsoleted)
+      Behaviors.same
+    case GetProduct(id, replyTo) if state.product.id == id =>
+      replyTo ! GetProductNotFoundFailed(id)
+      Behaviors.same
   }
 
   def apply(id: ProductId): Behavior[Command] = {
