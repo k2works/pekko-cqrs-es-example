@@ -1828,6 +1828,10 @@ docs/articles/
 - [Scala 3公式ドキュメント](https://docs.scala-lang.org/scala3/)
 - [ZIO公式サイト](https://zio.dev/)
 
+### 公式ガイド
+
+- [Pekko CQRS/Event Sourcing 完全開発ガイド](https://tech-book.precena.co.jp/entry/pekko-cqrs-es-guide)
+
 ### GitHubリポジトリ
 
 このプロジェクトのソースコードは以下で公開されています：
